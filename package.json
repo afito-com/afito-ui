@@ -4,8 +4,10 @@
   "description": "",
   "main": "dist/afitoui.js",
   "scripts": {
-    "git": "git add . && git commit -m && git push origin master",
-    "publish": "npm run build && npm version patch && npm publish",
+    "deploy": "git add . && git commit -m && npm run build && npm version patch && git push origin master && npm publish",
+    "git": "git add . && git commit -m",
+    "postgit": "npm run build && npm version patch && git push origin master",
+    "publish": "npm publish",
     "build": "webpack --mode production",
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "storybook-to-ghpages",
