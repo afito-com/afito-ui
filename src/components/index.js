@@ -7,3 +7,4 @@ export { Container, Row, Column } from './Grid';
 export { default as Card } from './Card';
 export { default as Input } from './Input';
 export { default as LoadingBlock } from './LoadingBlock';
+export { default as ThemeProvider } from './ThemeProvider';
