@@ -1,0 +1,11 @@
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import LoadingBlock from '.';
+
+storiesOf('LoadingBlock', module)
+  .add('with message', () => {
+    return <LoadingBlock />;
+  })
+  .add('without message', () => {
+    return <LoadingBlock quiet />;
+  });

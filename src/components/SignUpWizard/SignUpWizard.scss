@@ -1,0 +1,16 @@
+.SignUpWizard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.AccountType {
+  width: 100%;
+  text-align: center;
+}
+
+.UserInfo {
+  text-align: left;
+}

@@ -1,0 +1,63 @@
+import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: block;
+  width: auto;
+
+  @media only screen and (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    max-width: ${props => props.theme.AFITO_UI.gridXsWidth};
+    margin: 0 ${props => props.theme.AFITO_UI.gutterXs};
+  }
+  @media only screen and (min-width: ${props => props.theme.AFITO_UI.sm}) {
+    max-width: ${props => props.theme.AFITO_UI.gridSmWidth};
+    margin: 0 ${props => props.theme.AFITO_UI.gutterSm};
+  }
+  @media only screen and (min-width: ${props => props.theme.AFITO_UI.md}) {
+    max-width: ${props => props.theme.AFITO_UI.gridMdWidth};
+    width: 100%;
+    margin: auto;
+  }
+  @media only screen and (min-width: ${props => props.theme.AFITO_UI.lg}) {
+    max-width: ${props => props.theme.AFITO_UI.gridLgWidth};
+  }
+  @media only screen and (min-width: ${props => props.theme.AFITO_UI.xl}) {
+    max-width: ${props => props.theme.AFITO_UI.gridXlWidth};
+  }
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: ${props => (props.alignment ? props.alignment : 'center')};
+  justify-content: ${props => (props.justification ? props.justification : 'flex-start')};
+  box-sizing: border-box;
+  width: ${props => `${100 / (12 / props.size)}%`};
+`;
+
+Column.propTypes = {
+  size: PropTypes.string.isRequired,
+  alignment: PropTypes.string,
+  justification: PropTypes.string
+};
+
+const Row = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  &.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    & > ${Column} {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+`;
+
+Row.propTypes = {};
+
+export { Container, Row, Column };
