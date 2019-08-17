@@ -11,7 +11,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'styled-components': require.resolve('../node_modules/styled-components')
+      'styled-components': require.resolve('node_modules/styled-components')
     }
   },
   module: {
