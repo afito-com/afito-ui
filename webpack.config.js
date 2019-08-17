@@ -2,6 +2,18 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
+  externals: {
+    "styled-components": {
+      commonjs: "styled-components",
+      commonjs2: "styled-components",
+      amd: "styled-components",
+    },
+  },
+  resolve: {
+    alias: {
+      'styled-components': require.resolve('styled-components')
+    }
+  },
   module: {
     rules: [
       {
