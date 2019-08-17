@@ -30,8 +30,8 @@ const Container = styled.div`
 const Column = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: ${props => (props.alignment ? props.alignment : 'center')};
-  justify-content: ${props => (props.justification ? props.justification : 'flex-start')};
+  align-items: ${props => (props.align ? props.align : 'center')};
+  justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   box-sizing: border-box;
   width: ${props => `${100 / (12 / props.size)}%`};
 `;
@@ -45,8 +45,8 @@ Column.propTypes = {
 const Row = styled.div`
   display: flex;
   flex-wrap: ${props => (props.wrap ? 'wrap' : 'nowrap')};
-  align-items: ${props => (props.alignment ? props.alignment : 'center')};
-  justify-content: ${props => (props.justification ? props.justification : 'flex-start')};
+  align-items: ${props => (props.align ? props.align : 'center')};
+  justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   width: 100%;
 
   &.no-gutters {
