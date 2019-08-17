@@ -38,13 +38,15 @@ const Column = styled.div`
 
 Column.propTypes = {
   size: PropTypes.string.isRequired,
-  alignment: PropTypes.string,
-  justification: PropTypes.string
+  align: PropTypes.string,
+  justify: PropTypes.string
 };
 
 const Row = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: ${props => (props.wrap ? 'wrap' : 'nowrap')};
+  align-items: ${props => (props.alignment ? props.alignment : 'center')};
+  justify-content: ${props => (props.justification ? props.justification : 'flex-start')};
   width: 100%;
 
   &.no-gutters {
@@ -58,6 +60,10 @@ const Row = styled.div`
   }
 `;
 
-Row.propTypes = {};
+Row.propTypes = {
+  wrap: PropTypes.bool,
+  align: PropTypes.string,
+  justify: PropTypes.string
+};
 
 export { Container, Row, Column };
