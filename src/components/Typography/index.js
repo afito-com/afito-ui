@@ -55,8 +55,12 @@ function Heading({ level, children, ...rest }) {
   }
 }
 
-function Text({ type }) {
-  return <BodyText type={type} />;
+function Text({ type, children, ...rest }) {
+  return (
+    <BodyText type={type} {...rest}>
+      {children}
+    </BodyText>
+  );
 }
 
 export { Heading, Text };
