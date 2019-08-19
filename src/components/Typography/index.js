@@ -3,31 +3,31 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Header1 = styled.h1`
-  font-size: 80px;
-  font-family: ${props => props.theme.AFITO_UI.headerFont};
-  margin: 0;
-  margin-bottom: 5px;
-`;
-const Header2 = styled.h2`
-  font-size: 60px;
-  font-family: ${props => props.theme.AFITO_UI.headerFont};
-  margin: 0;
-  margin-bottom: 5px;
-`;
-const Header3 = styled.h3`
   font-size: 48px;
   font-family: ${props => props.theme.AFITO_UI.headerFont};
   margin: 0;
   margin-bottom: 5px;
 `;
-const Header4 = styled.h4`
+const Header2 = styled.h2`
   font-size: 36px;
   font-family: ${props => props.theme.AFITO_UI.headerFont};
   margin: 0;
   margin-bottom: 5px;
 `;
-const Header5 = styled.h5`
+const Header3 = styled.h3`
+  font-size: 28px;
+  font-family: ${props => props.theme.AFITO_UI.headerFont};
+  margin: 0;
+  margin-bottom: 5px;
+`;
+const Header4 = styled.h4`
   font-size: 22px;
+  font-family: ${props => props.theme.AFITO_UI.headerFont};
+  margin: 0;
+  margin-bottom: 5px;
+`;
+const Header5 = styled.h5`
+  font-size: 16px;
   font-family: ${props => props.theme.AFITO_UI.headerFont};
   margin: 0;
   margin-bottom: 5px;
