@@ -34,6 +34,7 @@ const Header5 = styled.h5`
 `;
 
 const BodyText = styled.span`
+  font-family: ${props => props.theme.AFITO_UI.bodyFont};
   font-size: ${props => (props.type === 'normal' ? '20px' : '16px')};
   line-height: ${props => (props.type === 'normal' ? '36px' : '24px')};
 `;
