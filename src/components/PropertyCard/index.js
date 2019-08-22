@@ -31,7 +31,7 @@ const Wrapper = styled.div`
     switch (props.type) {
       case 'fixed':
         return `
-          width: 375px;
+          width: 369px;
         `;
       case 'nohover':
         return `
