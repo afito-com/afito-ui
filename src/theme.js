@@ -26,7 +26,7 @@ const theme = {
   gridSmWidth: '100%',
   gridMdWidth: '900px',
   gridLgWidth: '1050px',
-  gridXlWidth: '1600px',
+  gridXlWidth: '1520px',
 
   gutterXs: '8px',
   gutterSm: '8px',
