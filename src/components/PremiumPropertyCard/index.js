@@ -8,6 +8,7 @@ import { ModalContext } from '../ModalProvider';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
+  position: relative;
   display: inline-block;
   background-color: ${props => props.theme.AFITO_UI.backgroundColor};
   cursor: pointer;
@@ -26,31 +27,15 @@ const Wrapper = styled.div`
   & + & {
     margin-left: 15px;
   }
-
-  ${props => {
-    switch (props.type) {
-      case 'fixed':
-        return `
-          width: 369px;
-        `;
-      case 'nohover':
-        return `
-          cursor: default;
-
-          &:hover {
-            box-shadow: ${props.theme.AFITO_UI.cardShadow};
-            transform: translateY(0px);
-          }
-        `;
-    }
-  }}
 `;
 
 const Image = styled.div`
-  height: 300px;
+  padding: 20px;
+  height: 303px;
+  box-sizing: border-box;
   overflow: hidden;
-  width: 100%;
-  border-radius: 5px 5px 0 0;
+  width: 752px;
+  border-radius: 8px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -58,12 +43,34 @@ const Image = styled.div`
 `;
 
 const Description = styled.div`
-  padding: ${props => props.theme.AFITO_UI.cardPadding};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
 `;
 
-const Badge = styled.div``;
-const Ribbon = styled.div``;
+const Title = styled(Heading)`
+  margin: 10px 0;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, transparent 50%, #000000 100%);
+  opacity: 0.8;
+`;
+
 const Price = styled.div`
   border-radius: 4px;
   padding: 7px 16px;
@@ -72,7 +79,6 @@ const Price = styled.div`
   font-size: 16px;
   font-weight: bold;
 `;
-const Rating = styled.div``;
 const Save = styled.div`
   color: #cdcdcd;
   font-size: 22px;
@@ -91,34 +97,59 @@ const Bike = styled.div`
 `;
 const Address = styled.span``;
 
-function PropertyCard({
-  property = {},
+const Features = styled.div`
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  font-family: ${props => props.theme.AFITO_UI.bodyFont};
+`;
+
+const RecommendationBadge = styled.div`
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-family: ${props => props.theme.AFITO_UI.bodyFont};
+  font-weight: 700;
+  font-size: 18px;
+
+  & i {
+    color: #ffc820;
+  }
+`;
+
+const Content = styled.div`
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 20px;
+  z-index: 10;
+`;
+
+function PremiumPropertyCard({
+  property_id,
+  property_name,
+  price,
+  max_price,
+  min_price,
+  address,
+  image_url,
+  hometype,
+  min_beds,
+  max_beds,
+  beds,
+  min_baths,
+  max_baths,
+  baths,
+  contact_for_pricing,
   savedProperties = [],
   removeSavedProperty = undefined,
-  saveProperty = undefined,
-  type = 'fixed',
-  children,
-  onClick = undefined,
-  onMouseEnter = undefined,
-  onMouseLeave = undefined
+  saveProperty = undefined
 }) {
-  const {
-    property_id,
-    property_name,
-    price,
-    max_price,
-    min_price,
-    address,
-    image_url,
-    hometype,
-    min_beds,
-    max_beds,
-    beds,
-    min_baths,
-    max_baths,
-    baths,
-    contact_for_pricing
-  } = property;
   const [saved, setSaved] = useState(savedProperties.map(p => p.property_id).includes(property_id));
   const isBuilding = hometype => hometype === 'building';
   const { showModal, setModalContent } = useContext(ModalContext);
@@ -149,57 +180,59 @@ function PropertyCard({
   );
 
   function toggleFavorite() {
+    console.log('toggle favorite');
     setSaved(!saved);
   }
 
   return (
-    <Wrapper type={type} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      <Image image={image_url}>
-        <Ribbon />
-        <Badge />
-      </Image>
-      <Description>
-        <Row style={{ marginBottom: '25px' }}>
-          <Column size="6" align="flex-start">
-            <Price>{displayPrice}</Price>
-            <Rating />
-          </Column>
-          <Column size="6" align="flex-end" justify="center">
+    <Wrapper>
+      <Content>
+        <Row>
+          <Column size="12" align="flex-end">
             <Save saved onClick={toggleFavorite}>
               {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
             </Save>
           </Column>
         </Row>
-        <Row>
-          <Heading level={5}>{cardTitle}</Heading>
-        </Row>
-        <Row>
+        <Description>
+          <Price>{displayPrice}</Price>
+          <Title level={4}>{cardTitle}</Title>
           <Address>{fullAddress}</Address>
-        </Row>
-        <Row style={{ marginTop: '15px' }}>
-          <Column size="4" align="flex-start">
-            <Beds>
-              {bedsRange ? bedsRange : beds} {!bedsRange && beds > 1 ? 'bedrooms' : 'bedroom'}
-            </Beds>
-          </Column>
-          <Column size="4" align="center">
-            <Baths>{bathsRange ? bathsRange : baths} baths</Baths>
-          </Column>
-          <Column size="4" align="flex-end">
-            <Bike>1.2 mi</Bike>
-          </Column>
-        </Row>
-      </Description>
+        </Description>
+        <RecommendationBadge>
+          <i class="fas fa-medal"></i>&nbsp;Highly Recommended
+        </RecommendationBadge>
+        <Features>
+          <Beds>
+            {bedsRange ? bedsRange : beds} {!bedsRange && beds > 1 ? 'bedrooms' : 'bedroom'}
+          </Beds>
+          <Baths>{bathsRange ? bathsRange : baths} baths</Baths>
+          <Bike>1.2 mi</Bike>
+        </Features>
+      </Content>
+      <Image image={image_url} />
+      <Overlay />
     </Wrapper>
   );
 }
 
-PropertyCard.propTypes = {
-  property: PropTypes.object.isRequired,
-  savedProperties: PropTypes.array,
-  type: PropTypes.string,
-  onPropertyHover: PropTypes.func,
-  onClick: PropTypes.func
+PremiumPropertyCard.propTypes = {
+  property_id: PropTypes.number,
+  property_name: PropTypes.string,
+  price: PropTypes.number,
+  max_price: PropTypes.number,
+  min_price: PropTypes.number,
+  address: PropTypes.object,
+  image_url: PropTypes.string,
+  hometype: PropTypes.string,
+  min_beds: PropTypes.number,
+  max_beds: PropTypes.number,
+  beds: PropTypes.number,
+  min_baths: PropTypes.number,
+  max_baths: PropTypes.number,
+  baths: PropTypes.number,
+  contact_for_pricing: PropTypes.bool,
+  savedProperties: PropTypes.array
 };
 
-export default PropertyCard;
+export default PremiumPropertyCard;
