@@ -20,6 +20,7 @@ const Label = styled.label`
 `;
 
 const Select = styled.select`
+  -webkit-appearance: none;
   box-sizing: border-box;
   border-radius: 4px;
   background-color: white; /*rgb(241, 244, 246);*/
@@ -45,5 +46,7 @@ const Select = styled.select`
     text-align: left;
   }
 `;
+
+Select.propTypes = {};
 
 export default SelectWrapper;
