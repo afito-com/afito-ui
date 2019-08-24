@@ -57,13 +57,13 @@ const Overlay = styled.div`
   opacity: 0.8;
 `;
 
-function AreaCard(props) {
+function AreaCard({ image_url, name, onClick }) {
   return (
-    <Wrapper>
-      <Image image={props.image_url} />
+    <Wrapper onClick={onClick}>
+      <Image image={image_url} />
       <Overlay />
       <Title>
-        <Heading level={4}>{props.name}</Heading>
+        <Heading level={4}>{name}</Heading>
         <Text>946 active listings</Text>
       </Title>
     </Wrapper>
