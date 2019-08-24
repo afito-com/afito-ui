@@ -8,6 +8,7 @@ import { ModalContext } from '../ModalProvider';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
+  margin: 5px 0;
   position: relative;
   display: inline-block;
   background-color: ${props => props.theme.AFITO_UI.backgroundColor};
@@ -200,7 +201,7 @@ function PremiumPropertyCard({
           <Address>{fullAddress}</Address>
         </Description>
         <RecommendationBadge>
-          <i class="fas fa-medal"></i>&nbsp;Highly Recommended
+          <i className="fas fa-medal"></i>&nbsp;Highly Recommended
         </RecommendationBadge>
         <Features>
           <Beds>

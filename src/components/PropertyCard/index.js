@@ -8,6 +8,7 @@ import { ModalContext } from '../ModalProvider';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
+  margin: 5px 0;
   display: inline-block;
   background-color: ${props => props.theme.AFITO_UI.backgroundColor};
   cursor: pointer;
