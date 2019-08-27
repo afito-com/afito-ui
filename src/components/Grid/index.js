@@ -34,10 +34,9 @@ const Column = styled.div`
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   box-sizing: border-box;
   width: ${props => `${100 / (12 / props.size)}%`};
-  padding: ${props => `0 ${props.theme.AFITO_UI.gutterXs}`};
 
   & + & {
-    padding: 0 0 0 8px;
+    padding: ${props => `0 0 0 ${props.theme.AFITO_UI.gutterXs}`};
   }
 `;
 
