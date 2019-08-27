@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
-import Welcomer from '../Welcomer';
 import { ModalContext } from '../ModalProvider';
 import * as utils from '../../utils';
 
