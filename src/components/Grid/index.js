@@ -35,6 +35,10 @@ const Column = styled.div`
   box-sizing: border-box;
   width: ${props => `${100 / (12 / props.size)}%`};
   padding: ${props => `0 ${props.theme.AFITO_UI.gutterXs}`};
+
+  & + & {
+    padding: 0 0 0 8px;
+  }
 `;
 
 Column.propTypes = {
