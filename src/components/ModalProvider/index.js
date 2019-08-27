@@ -50,21 +50,14 @@ class ModalProvider extends Component {
   }
 }
 
-const Modal = React.forwardRef(({ children }, ref) => {
+const Modal = ({ children }) => {
   const { visible, hideModal } = useContext(ModalContext);
 
   return (
-    <ResponsiveModal
-      open={visible}
-      classNames={{ overlay: '', modal: 'Modal' }}
-      onClose={() => hideModal()}
-      center
-      container={ref.current}
-      blockScroll={false}
-    >
+    <ResponsiveModal open={visible} onClose={() => hideModal()} center blockScroll={false}>
       {children}
     </ResponsiveModal>
   );
-});
+};
 
 export { Modal, ModalProvider, ModalContext };
