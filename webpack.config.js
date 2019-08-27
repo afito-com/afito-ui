@@ -42,13 +42,15 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|gif|jpg|svg)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 50000,
+        test: /\.(png|gif|jpg|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
           },
-        },
+        ],
       },
     ],
   },

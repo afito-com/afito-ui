@@ -21,9 +21,12 @@ const Label = styled.label`
 
 const Select = styled.select`
   -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
   box-sizing: border-box;
   border-radius: 4px;
-  background-color: white; /*rgb(241, 244, 246);*/
+  background-color: white;
   border: 1px solid #d2dce0;
   width: 100%;
   outline: 0;
@@ -31,6 +34,8 @@ const Select = styled.select`
   font-size: 14px;
   font-weight: 700;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
+  background: url('../../assets/chevron_down.png') no-repeat 100% 100%;
+  background-clip: padding-box;
 
   &::placeholder {
     color: #828282;
