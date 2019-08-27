@@ -52,17 +52,6 @@ const Input = styled.input`
   }
 `;
 
-/*
-const Select = control(({ error, isChanged, isUsed, ...rest }) => (
-  <>
-    <select {...rest} />
-    {isChanged && isUsed && error}
-  </>
-));
-
-export { Textarea, Input, Select };
-*/
-
 Input.propTypes = {
   name: PropTypes.string.isRequired
 };

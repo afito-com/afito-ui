@@ -1,11 +1,14 @@
 export { Container, Row, Column } from './Grid';
 export { Heading, Text } from './Typography';
 export { default as Card } from './Card';
+export { default as Tab } from './Tab';
+export { default as TabGroup } from './TabGroup';
 export { default as Input } from './Input';
 export { default as Textarea } from './Textarea';
 export { default as Select } from './Select';
 export { default as LoadingBlock } from './LoadingBlock';
 export { default as ThemeProvider } from './ThemeProvider';
+export { default as ModalProvider } from './ModalProvider';
 export { default as PropertyCard } from './PropertyCard';
 export { default as PremiumPropertyCard } from './PremiumPropertyCard';
 export { default as AreaCard } from './AreaCard';
