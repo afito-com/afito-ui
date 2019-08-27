@@ -65,11 +65,19 @@ const SecondaryButton = styled(ButtonWrapper)`
   }
 `;
 
-function Button({ level, children }) {
+function Button({ level, children, ...rest }) {
   if (level === 'primary') {
-    return <PrimaryButton level={level}>{children}</PrimaryButton>;
+    return (
+      <PrimaryButton level={level} {...rest}>
+        {children}
+      </PrimaryButton>
+    );
   } else if (level === 'secondary') {
-    return <SecondaryButton level={level}>{children}</SecondaryButton>;
+    return (
+      <SecondaryButton level={level} {...rest}>
+        {children}
+      </SecondaryButton>
+    );
   } else {
     //todo put outline button here
     return null;
