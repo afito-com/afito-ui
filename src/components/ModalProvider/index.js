@@ -1,4 +1,5 @@
 import React, { Component, useContext } from 'react';
+import styled from 'styled-components';
 import ResponsiveModal from 'react-responsive-modal';
 
 const ModalContext = React.createContext({
