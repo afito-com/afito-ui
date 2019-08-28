@@ -13,3 +13,4 @@ export { default as PropertyCard } from './PropertyCard';
 export { default as PremiumPropertyCard } from './PremiumPropertyCard';
 export { default as AreaCard } from './AreaCard';
 export { default as Button } from './Button';
+export { default as FormButton } from './FormButton';
