@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
 import { ModalContext } from '../ModalProvider';
+import bedIcon from '../../assets/icons/bed_grey.png';
+import bathIcon from '../../assets/icons/shower_grey.png';
+import bicycleIcon from '../../assets/icons/bicycle_grey.png';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
@@ -78,14 +81,26 @@ const Save = styled.div`
   font-size: 22px;
 `;
 const Beds = styled.div`
+  font-family: ${props => props.theme.AFITO_UI.headerFont};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   font-size: 12px;
 `;
 const Baths = styled.div`
+  font-family: ${props => props.theme.AFITO_UI.headerFont};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   font-size: 12px;
 `;
 const Bike = styled.div`
+  font-family: ${props => props.theme.AFITO_UI.headerFont};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   font-size: 12px;
 `;
@@ -138,9 +153,8 @@ function PropertyCard({
   const bathsRange = max_baths > min_baths ? `${min_baths} - ${max_baths}` : max_baths;
   const fullAddress = (
     <>
-      <span>
-        {address.line1}
-        {address.line2 && `, ${address.line2}`}&nbsp;
+      <span style={{ whiteSpace: 'nowrap' }}>
+        {address.line1},{address.line2 && `${address.line2},`}&nbsp;
       </span>
       <span style={{ whiteSpace: 'nowrap' }}>
         {address.city}, {address.state}
@@ -179,14 +193,21 @@ function PropertyCard({
         <Row style={{ marginTop: '15px' }}>
           <Column size="4" align="flex-start">
             <Beds>
-              {bedsRange ? bedsRange : beds} {!bedsRange && beds > 1 ? 'bedrooms' : 'bedroom'}
+              <img height="15" src={bedIcon} alt="Beds" style={{ marginRight: '10px' }} />
+              &nbsp;{bedsRange ? bedsRange : beds}
             </Beds>
           </Column>
-          <Column size="4" align="center">
-            <Baths>{bathsRange ? bathsRange : baths} baths</Baths>
+          <Column size="4" align="flex-start">
+            <Baths>
+              <img height="19" src={bathIcon} alt="Baths" style={{ marginRight: '10px' }} />
+              &nbsp;{bathsRange ? bathsRange : baths}
+            </Baths>
           </Column>
-          <Column size="4" align="flex-end">
-            <Bike>1.2 mi</Bike>
+          <Column size="4" align="flex-start">
+            <Bike>
+              <img height="19" src={bicycleIcon} alt="Distance" style={{ marginRight: '10px' }} />
+              &nbsp;1.2 mi
+            </Bike>
           </Column>
         </Row>
       </Description>

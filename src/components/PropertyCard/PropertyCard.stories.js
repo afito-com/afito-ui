@@ -10,8 +10,8 @@ storiesOf('PropertyCard', module)
     return (
       <>
         <PropertyCard onClick={action('click')} property={models[0]} />
-        <PropertyCard onClick={action('click')} property={models[0]} />
-        <PropertyCard onClick={action('click')} property={models[0]} />
+        <PropertyCard onClick={action('click')} property={models[1]} />
+        <PropertyCard onClick={action('click')} property={models[2]} />
         <PropertyCard onClick={action('click')} property={models[0]} />
       </>
     );

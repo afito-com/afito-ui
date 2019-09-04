@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
 import { ModalContext } from '../ModalProvider';
+import bedIcon from '../../assets/icons/bed.png';
+import bathIcon from '../../assets/icons/bath.png';
+import bicycleIcon from '../../assets/icons/bicycle.png';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
@@ -83,27 +86,38 @@ const Save = styled.div`
   color: #cdcdcd;
   font-size: 22px;
 `;
-const Beds = styled.div`
-  font-weight: bold;
-  font-size: 12px;
-`;
-const Baths = styled.div`
-  font-weight: bold;
-  font-size: 12px;
-`;
-const Bike = styled.div`
-  font-weight: bold;
-  font-size: 12px;
-`;
+const Beds = styled.div``;
+const Baths = styled.div``;
+const Bike = styled.div``;
 const Address = styled.span``;
 
 const Features = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   bottom: 20px;
   right: 20px;
   color: white;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
+
+  & ${Bike}, & ${Beds}, & ${Baths} {
+    font-family: ${props => props.theme.AFITO_UI.headerFont};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 12px;
+    margin-right: 36px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  & img {
+    filter: brightness(0) invert(1);
+  }
 `;
 
 const RecommendationBadge = styled.div`
@@ -169,9 +183,8 @@ function PremiumPropertyCard({
   const bathsRange = max_baths > min_baths ? `${min_baths} - ${max_baths}` : max_baths;
   const fullAddress = (
     <>
-      <span>
-        {address.line1}
-        {address.line2 && `, ${address.line2}`}&nbsp;
+      <span style={{ whiteSpace: 'nowrap' }}>
+        {address.line1},{address.line2 && `${address.line2},`}&nbsp;
       </span>
       <span style={{ whiteSpace: 'nowrap' }}>
         {address.city}, {address.state}
@@ -204,10 +217,17 @@ function PremiumPropertyCard({
         </RecommendationBadge>
         <Features>
           <Beds>
-            {bedsRange ? bedsRange : beds} {!bedsRange && beds > 1 ? 'bedrooms' : 'bedroom'}
+            <img height="40" src={bedIcon} alt="Beds" />
+            &nbsp;{bedsRange ? bedsRange : beds}
           </Beds>
-          <Baths>{bathsRange ? bathsRange : baths} baths</Baths>
-          <Bike>1.2 mi</Bike>
+          <Baths>
+            <img height="40" src={bathIcon} alt="Baths" />
+            &nbsp;{bathsRange ? bathsRange : baths}
+          </Baths>
+          <Bike>
+            <img height="40" src={bicycleIcon} alt="Distance" />
+            &nbsp;1.2 mi
+          </Bike>
         </Features>
       </Content>
       <Image image={image_url} />
