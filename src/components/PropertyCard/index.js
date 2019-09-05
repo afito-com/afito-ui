@@ -115,7 +115,8 @@ function PropertyCard({
   children,
   onClick = undefined,
   onMouseEnter = undefined,
-  onMouseLeave = undefined
+  onMouseLeave = undefined,
+  ...rest
 }) {
   const {
     property_id,
@@ -167,7 +168,7 @@ function PropertyCard({
   }
 
   return (
-    <Wrapper type={type} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <Wrapper type={type} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} {...rest}>
       <Image image={image_url}>
         <Ribbon />
         <Badge />
