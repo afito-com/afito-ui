@@ -69,6 +69,11 @@ const OutlineButton = styled(ButtonWrapper)`
   color: #505050;
   background: transparent;
   border: 1px solid #d2dce0;
+  box-shadow: none;
+
+  &:active {
+    box-shadow: none;
+  }
 `;
 
 function Button({ level, children, ...rest }) {
