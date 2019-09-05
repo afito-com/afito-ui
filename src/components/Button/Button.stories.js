@@ -10,4 +10,7 @@ storiesOf('Button', module)
   })
   .add('secondary', () => {
     return <Button level="secondary">Let's go!</Button>;
+  })
+  .add('outline', () => {
+    return <Button level="outline">Let's go!</Button>;
   });

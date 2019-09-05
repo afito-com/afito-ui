@@ -65,6 +65,12 @@ const SecondaryButton = styled(ButtonWrapper)`
   }
 `;
 
+const OutlineButton = styled(ButtonWrapper)`
+  color: #505050;
+  background: transparent;
+  border: 1px solid #d2dce0;
+`;
+
 function Button({ level, children, ...rest }) {
   if (level === 'primary') {
     return (
@@ -78,8 +84,13 @@ function Button({ level, children, ...rest }) {
         {children}
       </SecondaryButton>
     );
+  } else if (level === 'outline') {
+    return (
+      <OutlineButton level={level} {...rest}>
+        {children}
+      </OutlineButton>
+    );
   } else {
-    //todo put outline button here
     return null;
   }
 }
