@@ -184,10 +184,10 @@ function PremiumPropertyCard({
   const fullAddress = (
     <>
       <span style={{ whiteSpace: 'nowrap' }}>
-        {address.line1},{address.line2 && `${address.line2},`}&nbsp;
+        {address.line1},{address.line2 && ` ${address.line2},`}&nbsp;
       </span>
       <span style={{ whiteSpace: 'nowrap' }}>
-        {address.city}, {address.state}
+        {address.city},&nbsp;{address.state}
       </span>
     </>
   );

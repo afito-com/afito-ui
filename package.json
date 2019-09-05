@@ -54,7 +54,11 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
+    "@types/googlemaps": "^3.37.6",
+    "@types/markerclustererplus": "^2.1.33",
+    "@types/react": "^15.6.24",
     "prop-types": "^15.7.2",
+    "react-google-maps": "^9.4.5",
     "react-responsive-modal": "^4.0.1",
     "react-validation": "^3.0.7",
     "validator": "^11.1.0"
