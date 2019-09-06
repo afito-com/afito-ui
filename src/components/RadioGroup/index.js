@@ -10,7 +10,7 @@ const Radio = styled.label`
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
   font-weight: 600;
   height: 40px;
-  width: 45px;
+  min-width: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,8 +18,11 @@ const Radio = styled.label`
   border: ${props => (props.selected ? '1px solid #57c59b' : '1px solid #d9e2e5')};
   background: ${props => (props.selected ? '#57c59b' : 'white')};
   color: ${props => (props.selected ? 'white' : '#334150')};
-  margin: 0 5px;
   cursor: pointer;
+
+  & + & {
+    margin-left: 5px;
+  }
 
   & input[type='radio'] {
     display: none;
