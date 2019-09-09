@@ -63,7 +63,40 @@ const theme = {
 
   flashMargin: '10px auto',
   flashPadding: '16px',
-  flashBorderRadius: '4px'
+  flashBorderRadius: '4px',
+
+  inputRangeFontFamily: "'Nunito Sans', san-serif",
+  inputRangePrimaryColor: '#57c59b',
+  inputRangeNeutralColor: '#aaaaaa',
+  inputRangeNeutralLightColor: '#e1e7eb',
+  inputRangeDisabledColor: '#cccccc',
+
+  // input-range-slider
+  inputRangeSliderBackground: 'white',
+  inputRangeSliderBorder: '1px solid white',
+  inputRangeSliderFocusBoxShadowRadius: '5px',
+  inputRangeSliderFocusBoxShadowColor: `transparentize(white, 0.8)`,
+  inputRangeSliderHeight: '25px',
+  inputRangeSliderWidth: '25px',
+  inputRangeSliderTransition:
+    'transform 0.1s cubic-bezier(0.3, 0, 0.45, 1), box-shadow 0.1s cubic-bezier(0.3, 0, 0.45, 1)',
+  inputRangeSliderContainerTransition: 'left 0.1s cubic-bezier(0.3, 0, 0.45, 1)',
+  inputRangeSliderActiveTransform: 'scale(1.3)',
+  inputRangeSliderDisabledBackground: `#cccccc`,
+  inputRangeSliderDisabledBorder: `1px solid #cccccc`,
+
+  // input-range-label
+  inputRangeSabelColor: `#aaaaaa`,
+  inputRangeSabelFontSize: '16px',
+  inputRangeSabelPositionBottom: '-1.4rem',
+  inputRangeSabelValuePositionTop: '-40px',
+
+  // input-range-track
+  inputRangeTrackBackground: `#e1e7eb`,
+  inputRangeTrackHeight: '0.3rem',
+  inputRangeTrackTransition: 'left 0.1s cubic-bezier(0.3, 0, 0.45, 1), width 0.1s cubic-bezier(0.3, 0, 0.45, 1)',
+  inputRangeTrackActiveBackground: `#57c59b`,
+  inputRangeTrackDisabledBackground: `#e1e7eb`
 };
 
 export default theme;

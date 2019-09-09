@@ -1,36 +1,3 @@
-$input-range-font-family: 'Nunito Sans', san-serif !default;
-$input-range-primary-color: #57c59b !default;
-$input-range-neutral-color: #aaaaaa !default;
-$input-range-neutral-light-color: #e1e7eb !default;
-$input-range-disabled-color: #cccccc !default;
-
-// input-range-slider
-$input-range-slider-background: white !default;
-$input-range-slider-border: 1px solid white !default;
-$input-range-slider-focus-box-shadow-radius: 5px !default;
-$input-range-slider-focus-box-shadow-color: transparentize($input-range-slider-background, 0.8) !default;
-$input-range-slider-height: 25px !default;
-$input-range-slider-width: 25px !default;
-$input-range-slider-transition: transform 0.1s cubic-bezier(0.3, 0, 0.45, 1),
-  box-shadow 0.1s cubic-bezier(0.3, 0, 0.45, 1) !default;
-$input-range-slider-container-transition: left 0.1s cubic-bezier(0.3, 0, 0.45, 1) !default;
-$input-range-slider-active-transform: scale(1.3) !default;
-$input-range-slider-disabled-background: $input-range-disabled-color !default;
-$input-range-slider-disabled-border: 1px solid $input-range-disabled-color !default;
-
-// input-range-label
-$input-range-label-color: $input-range-neutral-color !default;
-$input-range-label-font-size: 16px !default;
-$input-range-label-position-bottom: -1.4rem !default;
-$input-range-label-value-position-top: -40px !default;
-
-// input-range-track
-$input-range-track-background: $input-range-neutral-light-color !default;
-$input-range-track-height: 0.3rem !default;
-$input-range-track-transition: left 0.1s cubic-bezier(0.3, 0, 0.45, 1), width 0.1s cubic-bezier(0.3, 0, 0.45, 1) !default;
-$input-range-track-active-background: $input-range-primary-color !default;
-$input-range-track-disabled-background: $input-range-neutral-light-color !default;
-
 .input-range__slider {
   appearance: none;
   background: $input-range-slider-background;

@@ -2,6 +2,14 @@ import React from 'react';
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import '@storybook/addon-console';
 import ThemeProvider from './../src/components/ThemeProvider';
+import { themes } from '@storybook/theming';
+
+// Option defaults.
+addParameters({
+  options: {
+    theme: themes.dark,
+  },
+});
 
 const req = require.context('../src', true, /\.stories\.js$/);
 function loadStories() {
