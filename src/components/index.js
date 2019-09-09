@@ -16,3 +16,4 @@ export { default as Button } from './Button';
 export { default as FormButton } from './FormButton';
 export { default as Map } from './Map';
 export { default as RadioGroup } from './RadioGroup';
+export { default as Range } from './Range';

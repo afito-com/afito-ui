@@ -60,11 +60,11 @@ function Range({ items }) {
           })}
       </Distribution>
       <InputRange
-        step={10}
+        step={5}
         maxValue={hi}
         minValue={lo}
         formatLabel={value => {
-          return value;
+          return <div className="range-tooltip">{'$' + value}</div>;
         }}
         value={value}
         onChange={value => {
