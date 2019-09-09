@@ -6,7 +6,6 @@ import InputRange from 'react-input-range';
 const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
-  margin: 50px;
   height: 100px;
   width: 100%;
   position: relative;
@@ -174,7 +173,7 @@ const QuantityBlock = styled.div`
   left: ${props => `${props.offset}%`};
 `;
 
-function Range({ items, onRangeChange }) {
+function Range({ items, onRangeChange, ...rest }) {
   let sorted = items.sort((a, b) => a - b);
   const hi = sorted[sorted.length - 1];
   const lo = sorted[0];
@@ -190,7 +189,7 @@ function Range({ items, onRangeChange }) {
     else freqs[sorted[i]] = 1;
 
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <Distribution>
         {sorted
           .filter((el, i, a) => i === a.indexOf(el))
