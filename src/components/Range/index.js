@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   align-items: flex-end;
   margin: 50px;
   height: 100px;
+  width: 100%;
   position: relative;
 
   & .input-range__slider {
@@ -172,7 +173,7 @@ const QuantityBlock = styled.div`
   left: ${props => `${props.offset}%`};
 `;
 
-function Range({ items }) {
+function Range({ items, onRangeChange }) {
   let sorted = items.sort((a, b) => a - b);
   const hi = sorted[sorted.length - 1];
   const lo = sorted[0];
@@ -211,7 +212,7 @@ function Range({ items }) {
         onChange={value => {
           setValue(value);
         }}
-        onChangeComplete={value => console.log(value)}
+        onChangeComplete={onRangeChange}
       />
     </Wrapper>
   );

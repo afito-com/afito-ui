@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import Range from '.';
 
 storiesOf('Range', module).add('default', () => {
-  const prices = [700, 1200, 2200];
+  const prices = [4500, 2700, 2700, 2900];
 
   return <Range name="price" items={prices} onRangeChange={action('change')} />;
 });
