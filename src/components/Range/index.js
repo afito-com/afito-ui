@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import InputRange from 'react-input-range';
-//import './Range.scss';
 
 const Wrapper = styled.div`
   display: flex;
@@ -174,8 +173,9 @@ const QuantityBlock = styled.div`
 `;
 
 function Range({ items }) {
-  const hi = Math.max(...items);
-  const lo = Math.min(...items);
+  let sorted = items.sort((a, b) => a - b);
+  const hi = sorted[sorted.length - 1];
+  const lo = sorted[0];
   const totalDistance = hi - lo;
   const [value, setValue] = useState({
     min: lo,
@@ -183,14 +183,14 @@ function Range({ items }) {
   });
 
   let freqs = {};
-  for (let i = 0; i < items.length; i++)
-    if (freqs[items[i]]) freqs[items[i]]++;
-    else freqs[items[i]] = 1;
+  for (let i = 0; i < sorted.length; i++)
+    if (freqs[sorted[i]]) freqs[sorted[i]]++;
+    else freqs[sorted[i]] = 1;
 
   return (
     <Wrapper>
       <Distribution>
-        {items
+        {sorted
           .filter((el, i, a) => i === a.indexOf(el))
           .map(item => {
             const offset = item - lo;
