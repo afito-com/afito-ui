@@ -49,6 +49,7 @@ const Wrapper = styled.div`
   & .input-range__slider-container {
     transition: ${props => props.theme.AFITO_UI.inputRangeSliderContainerTransition};
 
+    &:hover .range-tooltip,
     &:active .range-tooltip {
       display: block !important;
     }
