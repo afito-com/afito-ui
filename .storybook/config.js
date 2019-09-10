@@ -2,6 +2,7 @@ import React from 'react';
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import '@storybook/addon-console';
 import ThemeProvider from './../src/components/ThemeProvider';
+import { withKnobs } from '@storybook/addon-knobs';
 import { themes } from '@storybook/theming';
 
 // Option defaults.
@@ -27,6 +28,7 @@ addParameters({
   ],
 });
 
+addDecorator(withKnobs);
 addDecorator((story) => (
   <ThemeProvider>
     {story()}
