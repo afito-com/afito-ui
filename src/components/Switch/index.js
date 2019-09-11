@@ -6,6 +6,7 @@ const SwitchInput = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
+  margin: 0;
 `;
 
 const SwitchLabel = styled.label`
