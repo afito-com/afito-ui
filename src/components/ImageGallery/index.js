@@ -12,7 +12,7 @@ const ImageWrapper = styled.div`
   overflow-x: hidden;
   white-space: nowrap;
   width: 100%;
-  height: ${props => props.height};
+  height: ${props => `${props.height}px`};
   position: relative;
 `;
 const Images = styled.div`
