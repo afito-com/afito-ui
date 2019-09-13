@@ -19,3 +19,4 @@ export { default as RadioGroup } from './RadioGroup';
 export { default as Range } from './Range';
 export { default as Switch } from './Switch';
 export { default as ImageGallery } from './ImageGallery';
+export { default as Table } from './Table';
