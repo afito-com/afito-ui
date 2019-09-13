@@ -1,3 +1,13 @@
+import React, { useRef, useEffect } from 'react';
+
+export function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
 export function toCurrency(number) {
   if (parseInt(number, 10) < 0) {
     return `-$${formatCommas(Math.abs(number))}`;
