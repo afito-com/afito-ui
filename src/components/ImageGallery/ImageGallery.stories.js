@@ -31,5 +31,5 @@ storiesOf('ImageGallery', module).add('default', () => {
     'https://via.placeholder.com/1200x100'
   ];
 
-  return <ImageGallery loop width={728} images={images} />;
+  return <ImageGallery loop width={728} height={325} images={images} />;
 });

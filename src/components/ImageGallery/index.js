@@ -12,7 +12,7 @@ const ImageWrapper = styled.div`
   overflow-x: hidden;
   white-space: nowrap;
   width: 100%;
-  height: 325px;
+  height: ${props => props.height};
   position: relative;
 `;
 const Images = styled.div`
@@ -84,13 +84,12 @@ const Thumbnail = styled.img`
   }
 `;
 
-function ImageGallery({ images, width, loop }) {
+function ImageGallery({ images, width, height, loop }) {
   const THUMBNAIL_WIDTH = 50 + IMAGE_MARGIN;
   const [curr, setCurr] = useState(0);
   const prev = usePrevious(curr);
   const [offset, setOffset] = useState();
   const [thumbnailOffset, setThumbnailOffset] = useState(0);
-  const [thumbWindow, setThumbWindow] = useState();
 
   const thumbnailSliderWidth = THUMBNAIL_WIDTH * images.length;
 
@@ -124,22 +123,11 @@ function ImageGallery({ images, width, loop }) {
         setThumbnailOffset(thumbnailOffset - THUMBNAIL_WIDTH);
       }
     }
-
-    //console.log(thumbnailOffset, curr)
-    /*
-    if (curr >= 15 && curr < images.length) {
-      setThumbnailOffset(thumbnailOffset + THUMBNAIL_WIDTH);
-    } else if (curr <= 15 && thumbnailOffset > 0) {
-      setThumbnailOffset(thumbnailOffset - THUMBNAIL_WIDTH);
-    } else {
-      setThumbnailOffset(0);
-    }
-    */
   }, [curr]);
 
   return (
     <GalleryWrapper>
-      <ImageWrapper>
+      <ImageWrapper height={height}>
         <Images offset={offset} width={width}>
           {images.map(img => {
             return <Image width={width} src={img} />;
@@ -179,6 +167,7 @@ function ImageGallery({ images, width, loop }) {
 ImageGallery.propTypes = {
   images: PropTypes.array.isRequired,
   width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
   loop: PropTypes.bool
 };
 
