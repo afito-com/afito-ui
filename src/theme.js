@@ -5,7 +5,7 @@ const theme = {
   dangerColor: 'rgb(246, 119, 119)',
   warningColor: 'rgb(255, 235, 148)',
   white: '#ffffff',
-  bodyFont: "'Nunito Sans', sans-serif",
+  bodyFont: "'Nunito', sans-serif",
   headerFont: "'Montserrat', sans-serif",
 
   fontSize: '1.1rem',
@@ -65,7 +65,7 @@ const theme = {
   flashPadding: '16px',
   flashBorderRadius: '4px',
 
-  inputRangeFontFamily: "'Nunito Sans', san-serif",
+  inputRangeFontFamily: "'Nunito', san-serif",
   inputRangePrimaryColor: '#57c59b',
   inputRangeNeutralColor: '#aaaaaa',
   inputRangeNeutralLightColor: '#e1e7eb',
