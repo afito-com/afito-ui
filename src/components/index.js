@@ -18,4 +18,4 @@ export { default as Map } from './Map';
 export { default as RadioGroup } from './RadioGroup';
 export { default as Range } from './Range';
 export { default as Switch } from './Switch';
-export { defeault as ImageGallery } from './ImageGallery';
+export { default as ImageGallery } from './ImageGallery';
