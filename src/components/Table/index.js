@@ -9,7 +9,7 @@ const Wrapper = styled.table`
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
 `;
 const Head = styled.thead`
-  background: #f8fafb;
+  background: #f8fafb !important;
 `;
 const Header = styled.th`
   padding: 0px 20px;
