@@ -8,14 +8,6 @@ const Wrapper = styled.table`
   width: 100%;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
 `;
-const Head = styled.thead`
-  background: #f8fafb !important;
-`;
-const Header = styled.th`
-  padding: 0px 20px;
-  text-align: left;
-`;
-const Body = styled.tbody``;
 const Row = styled.tr`
   &:nth-child(even) {
     background: #f8fafb;
@@ -25,6 +17,17 @@ const Row = styled.tr`
     background: white;
   }
 `;
+const Head = styled.thead`
+  & ${Row} {
+    background: #f8fafb;
+  }
+`;
+const Header = styled.th`
+  padding: 0px 20px;
+  text-align: left;
+`;
+const Body = styled.tbody``;
+
 const Column = styled.td`
   padding: 20px;
   color: #505050;
