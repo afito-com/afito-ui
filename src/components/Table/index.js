@@ -34,9 +34,11 @@ function Table({ rows, headers, ...rest }) {
   return (
     <Wrapper {...rest}>
       <Head>
-        {headers.map(header => (
-          <Header align="left">{header}</Header>
-        ))}
+        <Row>
+          {headers.map(header => (
+            <Header align="left">{header}</Header>
+          ))}
+        </Row>
       </Head>
       <Body>
         {rows.map(row => {
