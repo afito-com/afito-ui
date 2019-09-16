@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Text } from '../Typography';
 
 const Wrapper = styled.table`
   border-collapse: collapse;
@@ -58,6 +57,9 @@ function Table({ rows, headers, ...rest }) {
   );
 }
 
-Table.propTypes = {};
+Table.propTypes = {
+  rows: PropTypes.array.isRequired,
+  headers: PropTypes.array
+};
 
 export default Table;
