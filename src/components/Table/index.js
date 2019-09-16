@@ -37,17 +37,19 @@ function Table({ rows, headers, ...rest }) {
     <Wrapper {...rest}>
       <Head>
         <Row>
-          {headers.map(header => (
-            <Header align="left">{header}</Header>
+          {headers.map((header, i) => (
+            <Header key={`Header_${i}`} align="left">
+              {header}
+            </Header>
           ))}
         </Row>
       </Head>
       <Body>
-        {rows.map(row => {
+        {rows.map((row, i) => {
           return (
-            <Row>
-              {Object.keys(row).map(column => (
-                <Column>{row[column]}</Column>
+            <Row key={`Row_${i}`}>
+              {Object.keys(row).map((column, j) => (
+                <Column key={`Column_${i}`}>{row[column]}</Column>
               ))}
             </Row>
           );
