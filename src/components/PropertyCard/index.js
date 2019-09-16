@@ -11,7 +11,8 @@ import * as utils from '../../utils';
 
 const Wrapper = styled.div`
   margin: 5px 0;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   background-color: ${props => props.theme.AFITO_UI.backgroundColor};
   cursor: pointer;
   box-sizing: border-box;
@@ -20,6 +21,7 @@ const Wrapper = styled.div`
   background-color: ${props => props.theme.AFITO_UI.cardBackgroundColor};
   color: ${props => props.theme.AFITO_UI.backgroundTextColor};
   transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  height: 100%;
 
   &:hover {
     box-shadow: ${props => props.theme.AFITO_UI.cardShadowHover};
@@ -81,6 +83,7 @@ const Save = styled.div`
   font-size: 22px;
 `;
 const Beds = styled.div`
+  white-space: nowrap;
   font-family: ${props => props.theme.AFITO_UI.headerFont};
   display: flex;
   justify-content: center;
@@ -89,6 +92,7 @@ const Beds = styled.div`
   font-size: 12px;
 `;
 const Baths = styled.div`
+  white-space: nowrap;
   font-family: ${props => props.theme.AFITO_UI.headerFont};
   display: flex;
   justify-content: center;
@@ -97,6 +101,7 @@ const Baths = styled.div`
   font-size: 12px;
 `;
 const Bike = styled.div`
+  white-space: nowrap;
   font-family: ${props => props.theme.AFITO_UI.headerFont};
   display: flex;
   justify-content: center;
@@ -104,7 +109,10 @@ const Bike = styled.div`
   font-weight: bold;
   font-size: 12px;
 `;
-const Address = styled.span``;
+const Address = styled.span`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 function PropertyCard({
   property = {},
