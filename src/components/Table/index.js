@@ -32,13 +32,13 @@ const Column = styled.td`
   color: #505050;
 `;
 
-function Table({ rows, headers, ...rest }) {
+function Table({ key, rows, headers, ...rest }) {
   return (
     <Wrapper {...rest}>
       <Head>
         <Row>
           {headers.map((header, i) => (
-            <Header key={`Header_${i}`} align="left">
+            <Header key={`${key}_Header_${i}`} align="left">
               {header}
             </Header>
           ))}
@@ -47,9 +47,9 @@ function Table({ rows, headers, ...rest }) {
       <Body>
         {rows.map((row, i) => {
           return (
-            <Row key={`Row_${i}`}>
+            <Row key={`${key}_Row_${i}`}>
               {Object.keys(row).map((column, j) => (
-                <Column key={`Column_${i}`}>{row[column]}</Column>
+                <Column key={`${key}_Column_${i}`}>{row[column]}</Column>
               ))}
             </Row>
           );

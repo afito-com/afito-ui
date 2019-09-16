@@ -129,8 +129,8 @@ function ImageGallery({ images, width, height, loop }) {
     <GalleryWrapper>
       <ImageWrapper height={height}>
         <Images offset={offset} width={width}>
-          {images.map(img => {
-            return <Image width={width} src={img} />;
+          {images.map((img, idx) => {
+            return <Image key={`Image_${idx}`} width={width} src={img} />;
           })}
         </Images>
         <Controls>
@@ -156,7 +156,7 @@ function ImageGallery({ images, width, height, loop }) {
       <ThumbnailWrapper>
         <Thumbnails offset={thumbnailOffset}>
           {images.map((img, idx) => {
-            return <Thumbnail active={curr === idx} onClick={() => setCurr(idx)} src={img} />;
+            return <Thumbnail key={`Thumbnail_${idx}`} active={curr === idx} onClick={() => setCurr(idx)} src={img} />;
           })}
         </Thumbnails>
       </ThumbnailWrapper>
