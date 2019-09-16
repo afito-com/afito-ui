@@ -10,7 +10,7 @@ const Tab = styled.div`
   width: 100%;
   max-width: 300px;
   cursor: pointer;
-  color: #8898aa;
+  color: ${props => (props.active ? props.theme.AFITO_UI.primaryColor : '#8898aa')};
 
   &:hover {
     text-decoration: none;
@@ -19,30 +19,13 @@ const Tab = styled.div`
   &:active,
   &:focus {
     color: ${props => props.theme.AFITO_UI.primaryColor};
-  }
-
-  &--small {
-    max-width: 150px;
-    width: auto;
-  }
-
-  &--noborder {
-    border: 0;
-  }
-
-  &--nohighlight {
-    background-color: transparent;
-  }
-
-  &--active {
     border-color: ${props => props.theme.AFITO_UI.primaryColor};
-    color: ${props => props.theme.AFITO_UI.primaryColor};
   }
 `;
 
 const TabWrapper = ({ title, active, onClick, index }) => (
-  <Tab onClick={() => onClick(index)} index={index} className={active ? 'Tab Tab--active' : 'Tab'}>
-    <h5>{title}</h5>
+  <Tab onClick={() => onClick(index)} index={index} active={active}>
+    {title}
   </Tab>
 );
 

@@ -8,4 +8,7 @@ storiesOf('LoadingBlock', module)
   })
   .add('without message', () => {
     return <LoadingBlock quiet />;
+  })
+  .add('with different color', () => {
+    return <LoadingBlock color="blue" />;
   });

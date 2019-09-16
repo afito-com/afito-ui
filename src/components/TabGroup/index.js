@@ -1,48 +1,42 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-class TabGroup extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeIndex: this.props.defaultIndex
-    };
+const Tabs = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const Content = styled.div``;
 
-    this.handleTabClick = this.handleTabClick.bind(this);
+function TabGroup({ defaultIndex, children }) {
+  const [activeIndex, setActiveIndex] = useState(defaultIndex);
+
+  function handleTabClick(index) {
+    setActiveIndex(index);
   }
 
-  handleTabClick(index) {
-    this.setState({
-      activeIndex: index
-    });
-  }
-
-  renderTabsAsChildren() {
-    return React.Children.map(this.props.children, (tab, i) => {
+  function renderTabsAsChildren() {
+    return React.Children.map(children, (tab, i) => {
       return React.cloneElement(tab, {
-        active: this.state.activeIndex === i,
+        active: activeIndex === i,
         index: i,
-        onClick: this.handleTabClick
+        onClick: handleTabClick
       });
     });
   }
 
-  renderActiveTabContent() {
-    const { children } = this.props;
-    const { activeIndex } = this.state;
-
+  function renderActiveTabContent() {
     if (children[activeIndex]) {
       return children[activeIndex].props.children;
     }
   }
 
-  render() {
-    return (
-      <div>
-        <div className="TabGroup">{this.renderTabsAsChildren()}</div>
-        <div className="TabGroup__content">{this.renderActiveTabContent()}</div>
-      </div>
-    );
-  }
+  return (
+    <>
+      <Tabs>{renderTabsAsChildren()}</Tabs>
+      <Content>{renderActiveTabContent()}</Content>
+    </>
+  );
 }
 
 export default TabGroup;

@@ -7,7 +7,7 @@ import { Container, Row, Column } from '../Grid';
 import models from './model';
 
 storiesOf('PropertyCard', module)
-  .add('without floorplans', () => {
+  .add('Equal height/width cards', () => {
     return (
       <Container>
         <Row>

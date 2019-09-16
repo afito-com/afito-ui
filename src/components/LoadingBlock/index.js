@@ -35,7 +35,7 @@ const Circles = styled.div`
     width: 16px;
     height: 16px;
     margin: 0 8px;
-    background-color: #333;
+    background-color: ${props => (props.color ? props.color : '#333')};
 
     border-radius: 100%;
     display: inline-block;
@@ -78,23 +78,29 @@ const Circles = styled.div`
   }
 `;
 
-const Wrapper = ({ quiet }) => (
+const Message = styled(Heading)`
+  margin-top: 20px;
+  color: ${props => (props.color ? props.color : '#333')};
+`;
+
+const Wrapper = ({ quiet, color }) => (
   <LoadingBlock>
-    <Circles>
+    <Circles color={color}>
       <div className="circle1" />
       <div className="circle2" />
       <div className="circle3" />
     </Circles>
     {!quiet && (
-      <Heading level={5} style={{ marginTop: '20px' }}>
+      <Message level={5} color={color}>
         {randomLoadingMessage()}
-      </Heading>
+      </Message>
     )}
   </LoadingBlock>
 );
 
 Wrapper.propTypes = {
-  quiet: PropTypes.bool
+  quiet: PropTypes.bool,
+  color: PropTypes.string
 };
 
 export default Wrapper;
