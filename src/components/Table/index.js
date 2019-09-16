@@ -48,7 +48,7 @@ function Table({ rows, headers, ...rest }) {
         {rows.map(row => {
           return (
             <Row key={row.id}>
-              {Object.keys(row).map(column => (
+              {Object.keys(row).map((column, i) => (
                 <Column key={`Row_${row.id}_Column_${i}`}>{row[column]}</Column>
               ))}
             </Row>
@@ -64,7 +64,7 @@ Table.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired
     })
-  ),
+  ).isRequired,
   headers: PropTypes.array
 };
 
