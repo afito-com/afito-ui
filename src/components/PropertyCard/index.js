@@ -66,6 +66,8 @@ const Description = styled.div`
   padding: ${props => props.theme.AFITO_UI.cardPadding};
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Badge = styled.div``;
@@ -200,7 +202,7 @@ function PropertyCard({
         <Row>
           <Address>{fullAddress}</Address>
         </Row>
-        <Row style={{ alignItems: 'flex-end', flexGrow: '1' }}>
+        <Row style={{ alignItems: 'flex-end', flexGrow: '1', marginTop: '15px' }}>
           <Column size="4" align="flex-start">
             <Beds>
               <img height="15" src={bedIcon} alt="Beds" style={{ marginRight: '10px' }} />

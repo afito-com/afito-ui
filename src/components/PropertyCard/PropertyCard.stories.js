@@ -9,20 +9,22 @@ import models from './model';
 storiesOf('PropertyCard', module)
   .add('without floorplans', () => {
     return (
-      <Row>
-        <Column size="6" style={{ alignSelf: 'stretch' }}>
-          <PropertyCard onClick={action('click')} property={models[0]} />
-        </Column>
-        <Column size="6" style={{ alignSelf: 'stretch' }}>
-          <PropertyCard onClick={action('click')} property={models[1]} />
-        </Column>
-        <Column size="6" style={{ alignSelf: 'stretch' }}>
-          <PropertyCard onClick={action('click')} property={models[2]} />
-        </Column>
-        <Column size="6" style={{ alignSelf: 'stretch' }}>
-          <PropertyCard onClick={action('click')} property={models[0]} />
-        </Column>
-      </Row>
+      <Container>
+        <Row>
+          <Column size="6" style={{ alignSelf: 'stretch' }}>
+            <PropertyCard onClick={action('click')} property={models[0]} />
+          </Column>
+          <Column size="6" style={{ alignSelf: 'stretch' }}>
+            <PropertyCard onClick={action('click')} property={models[1]} />
+          </Column>
+          <Column size="6" style={{ alignSelf: 'stretch' }}>
+            <PropertyCard onClick={action('click')} property={models[2]} />
+          </Column>
+          <Column size="6" style={{ alignSelf: 'stretch' }}>
+            <PropertyCard onClick={action('click')} property={models[0]} />
+          </Column>
+        </Row>
+      </Container>
     );
   })
   .add('with broken floorplans', () => {
