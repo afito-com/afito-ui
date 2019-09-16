@@ -5,7 +5,7 @@
   "main": "dist/afitoui.js",
   "scripts": {
     "git": "git add . && git commit -m",
-    "postgit": "npm run build && npm version patch && git push origin master",
+    "postgit": "npm run build && git push origin master",
     "build": "webpack --mode production",
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "storybook-to-ghpages",
