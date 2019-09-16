@@ -32,13 +32,13 @@ const Column = styled.td`
   color: #505050;
 `;
 
-function Table({ key, rows, headers, ...rest }) {
+function Table({ id, rows, headers, ...rest }) {
   return (
     <Wrapper {...rest}>
       <Head>
         <Row>
           {headers.map((header, i) => (
-            <Header key={`${key}_Header_${i}`} align="left">
+            <Header key={`${id}_Header_${i}`} align="left">
               {header}
             </Header>
           ))}
@@ -47,9 +47,9 @@ function Table({ key, rows, headers, ...rest }) {
       <Body>
         {rows.map((row, i) => {
           return (
-            <Row key={`${key}_Row_${i}`}>
+            <Row key={`${id}_Row_${i}`}>
               {Object.keys(row).map((column, j) => (
-                <Column key={`${key}_Column_${i}`}>{row[column]}</Column>
+                <Column key={`${id}_Column_${i}`}>{row[column]}</Column>
               ))}
             </Row>
           );
@@ -60,6 +60,7 @@ function Table({ key, rows, headers, ...rest }) {
 }
 
 Table.propTypes = {
+  id: PropTypes.string.isRequired,
   rows: PropTypes.array.isRequired,
   headers: PropTypes.array
 };
