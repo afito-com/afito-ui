@@ -89,8 +89,8 @@ const Modal = ({ header, footer, children, ...rest }) => {
       blockScroll={false}
       styles={{
         overlay: {
-          backdropFilter: 'blur(5px)',
-          opacity: 'rgba(0, 0, 0, 0.6)'
+          backdropFilter: 'blur(20px)',
+          background: 'rgba(0, 0, 0, 0.6)'
         },
         modal: {
           backgroundColor: 'white',
