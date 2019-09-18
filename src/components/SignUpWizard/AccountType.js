@@ -18,7 +18,7 @@ const AccountTypeOption = styled.div`
   justify-content: center;
   align-items: center;
   background: white;
-  box-shadow: 0px 16px 7px -10px rgba(200, 203, 216, 0.26);
+  box-shadow: 3px 4px 20px 0px rgba(200, 203, 216, 0.26);
   border-radius: 8px;
 `;
 

@@ -9,10 +9,10 @@ function LoginModal({ activeIndex }) {
   return (
     <TabGroup defaultIndex={activeIndex}>
       <Tab title={<Heading level={5}>Login</Heading>}>
-        <SignInForm style={{ paddingTop: '40px' }} onSignIn={() => console.log('sign user in here')} />
+        <SignInForm style={{ paddingTop: '42px' }} onSignIn={() => console.log('sign user in here')} />
       </Tab>
       <Tab title={<Heading level={5}>Join</Heading>}>
-        <SignUpWizard onSignUp={() => console.log('signed up via login modal')} />
+        <SignUpWizard style={{ paddingTop: '42px' }} onSignUp={() => console.log('signed up via login modal')} />
       </Tab>
     </TabGroup>
   );
