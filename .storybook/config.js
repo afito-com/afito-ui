@@ -27,7 +27,7 @@ addParameters({
     { name: 'black', value: '#21242a' }
   ],
 });
-
+addDecorator((Story) => <Story />)
 addDecorator(withKnobs);
 addDecorator((story) => (
   <ThemeProvider>

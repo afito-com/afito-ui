@@ -20,3 +20,6 @@ export { default as Range } from './Range';
 export { default as Switch } from './Switch';
 export { default as ImageGallery } from './ImageGallery';
 export { default as Table } from './Table';
+export { default as SignInForm } from './SignInForm';
+export { default as SignUpWizard } from './SignUpWizard';
+export { default as LoginModal } from './LoginModal';

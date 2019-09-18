@@ -24,7 +24,6 @@ const LoadingBlock = styled.div`
   align-items: center;
   text-align: center;
   width: 100%;
-  height: 350px;
 `;
 
 const Circles = styled.div`
@@ -32,9 +31,9 @@ const Circles = styled.div`
   text-align: center;
 
   & > div {
-    width: 16px;
-    height: 16px;
-    margin: 0 8px;
+    width: ${props => (props.small ? '8px' : '16px')};
+    height: ${props => (props.small ? '8px' : '16px')};
+    margin: ${props => (props.small ? '0 4px' : '0 8px')};
     background-color: ${props => (props.color ? props.color : '#333')};
 
     border-radius: 100%;
@@ -83,9 +82,9 @@ const Message = styled(Heading)`
   color: ${props => (props.color ? props.color : '#333')};
 `;
 
-const Wrapper = ({ quiet, color }) => (
-  <LoadingBlock>
-    <Circles color={color}>
+const Wrapper = ({ quiet, color, small, ...rest }) => (
+  <LoadingBlock {...rest}>
+    <Circles color={color} small={small}>
       <div className="circle1" />
       <div className="circle2" />
       <div className="circle3" />

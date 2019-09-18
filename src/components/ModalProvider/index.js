@@ -54,38 +54,27 @@ class ModalProvider extends Component {
 const Header = styled.div`
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
-  padding: 28px;
   background: white;
-  border-bottom: 1px solid #dcdcdc;
   margin: 0;
 `;
 
 const Body = styled.div`
-  padding: 28px;
+  padding: 42px;
 `;
 
 const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
-  border-top: 1px solid #dcdcdc;
   padding: 0 10px;
   background: white;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
 `;
 
-const ModalWrapper = styled(ResponsiveModal)`
-  background-color: white;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  padding: 0px;
-  max-width: 500px;
-  width: 100%;
-
-  @media screen and (max-width: 500px) {
-    max-width: 100%;
-    width: 100%;
+const ModalWrapper = styled.span`
+  & .Modal__container {
+    @media screen and (max-width: 500px) {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 `;
 
@@ -93,11 +82,32 @@ const Modal = ({ header, footer, children, ...rest }) => {
   const { visible, hideModal } = useContext(ModalContext);
 
   return (
-    <ModalWrapper center open={visible} onClose={() => hideModal()} blockScroll={false} {...rest}>
+    <ResponsiveModal
+      center
+      open={visible}
+      onClose={() => hideModal()}
+      blockScroll={false}
+      styles={{
+        overlay: {
+          backdropFilter: 'blur(5px)',
+          opacity: 'rgba(0, 0, 0, 0.6)'
+        },
+        modal: {
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '0px',
+          maxWidth: '500px',
+          width: '100%'
+        }
+      }}
+      {...rest}
+    >
       <Header>{header}</Header>
       <Body>{children}</Body>
       <Footer>{footer}</Footer>
-    </ModalWrapper>
+    </ResponsiveModal>
   );
 };
 

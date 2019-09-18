@@ -11,4 +11,7 @@ storiesOf('LoadingBlock', module)
   })
   .add('with different color', () => {
     return <LoadingBlock color="blue" />;
+  })
+  .add('small', () => {
+    return <LoadingBlock quiet small />;
   });

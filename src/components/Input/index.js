@@ -20,6 +20,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
+  margin: 5px 0;
   box-sizing: border-box;
   border-radius: 4px;
   background-color: white; /*rgb(241, 244, 246);*/
@@ -37,6 +38,7 @@ const Input = styled.input`
 
   & + .error-message {
     padding-left: 5px;
+    margin: 0;
     color: ${props => props.theme.AFITO_UI.dangerColor};
     font-size: 14px;
     font-weight: 700;

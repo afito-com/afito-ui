@@ -11,16 +11,12 @@ const Content = styled.div``;
 function TabGroup({ defaultIndex, children }) {
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
 
-  function handleTabClick(index) {
-    setActiveIndex(index);
-  }
-
   function renderTabsAsChildren() {
     return React.Children.map(children, (tab, i) => {
       return React.cloneElement(tab, {
         active: activeIndex === i,
         index: i,
-        onClick: handleTabClick
+        onClick: setActiveIndex
       });
     });
   }

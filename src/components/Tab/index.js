@@ -9,8 +9,10 @@ const Tab = styled.div`
   height: 65px;
   width: 100%;
   max-width: 300px;
+  border-bottom: 4px solid transparent;
   cursor: pointer;
   color: ${props => (props.active ? props.theme.AFITO_UI.primaryColor : '#8898aa')};
+  border-color: ${props => (props.active ? props.theme.AFITO_UI.primaryColor : 'transparent')};
 
   &:hover {
     text-decoration: none;
@@ -29,9 +31,9 @@ const TabWrapper = ({ title, active, onClick, index }) => (
   </Tab>
 );
 
-Tab.propTypes = {
-  title: PropTypes.string.isRequired,
-  active: PropTypes.bool.isRequired,
+TabWrapper.propTypes = {
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
+  active: PropTypes.bool,
   onClick: PropTypes.func,
   index: PropTypes.number
 };
