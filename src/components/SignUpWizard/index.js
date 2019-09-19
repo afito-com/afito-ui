@@ -80,7 +80,7 @@ function SignUpWizard({ onSignUp }) {
   }
 
   return (
-    <Wrapper>
+    <Wrapper style={this.props.style}>
       {flash && <Flash inline type={flash.type} message={flash.message} />}
       {renderWizardState()}
     </Wrapper>
