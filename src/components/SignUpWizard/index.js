@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-function SignUpWizard({ onSignUp }) {
+function SignUpWizard({ onSignUp, style }) {
   const [account_type, setAccountType] = useState('');
   const [userInfo, setUserInfo] = useState({
     password: '',
@@ -80,7 +80,7 @@ function SignUpWizard({ onSignUp }) {
   }
 
   return (
-    <Wrapper style={this.props.style}>
+    <Wrapper style={style}>
       {flash && <Flash inline type={flash.type} message={flash.message} />}
       {renderWizardState()}
     </Wrapper>
