@@ -40,7 +40,7 @@ const Image = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   max-width: 752px;
-  width: 100vw;
+  width: 100%;
   border-radius: 8px;
   background-size: cover;
   background-repeat: no-repeat;
