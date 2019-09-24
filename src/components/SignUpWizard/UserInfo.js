@@ -9,7 +9,7 @@ function UserInfo({ onSubmit, updateUserInfo, userInfo, signedUp }) {
   return (
     <Form className="UserInfo" onSubmit={onSubmit}>
       <Row>
-        <Column size="6">
+        <Column xs={6}>
           <Input
             placeholder="First"
             id="first"
@@ -19,7 +19,7 @@ function UserInfo({ onSubmit, updateUserInfo, userInfo, signedUp }) {
             onChange={e => updateUserInfo(e)}
           />
         </Column>
-        <Column size="6" style={{ paddingLeft: '8px' }}>
+        <Column xs={6} style={{ paddingLeft: '8px' }}>
           <Input
             placeholder="Last"
             id="last"
@@ -31,7 +31,7 @@ function UserInfo({ onSubmit, updateUserInfo, userInfo, signedUp }) {
         </Column>
       </Row>
       <Row>
-        <Column size="12">
+        <Column xs={12}>
           <Input
             placeholder="example@domain.com"
             id="email"

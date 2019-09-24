@@ -201,7 +201,7 @@ function PremiumPropertyCard({
     <Wrapper>
       <Content>
         <Row>
-          <Column size="12" align="flex-end">
+          <Column xs={12} align="flex-end">
             <Save saved onClick={toggleFavorite}>
               {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
             </Save>

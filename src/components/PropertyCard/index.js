@@ -186,11 +186,11 @@ function PropertyCard({
       </Image>
       <Description>
         <Row style={{ marginBottom: '25px' }}>
-          <Column size="6" align="flex-start">
+          <Column xs={6} align="flex-start">
             <Price>{displayPrice}</Price>
             <Rating />
           </Column>
-          <Column size="6" align="flex-end" justify="center">
+          <Column xs={6} align="flex-end" justify="center">
             <Save saved onClick={toggleFavorite}>
               {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
             </Save>
@@ -203,19 +203,19 @@ function PropertyCard({
           <Address>{fullAddress}</Address>
         </Row>
         <Row style={{ alignItems: 'flex-end', flexGrow: '1', marginTop: '15px' }}>
-          <Column size="4" align="flex-start">
+          <Column xs={4} align="flex-start">
             <Beds>
               <img height="15" src={bedIcon} alt="Beds" style={{ marginRight: '10px' }} />
               &nbsp;{bedsRange ? bedsRange : beds}
             </Beds>
           </Column>
-          <Column size="4" align="flex-start">
+          <Column xs={4} align="flex-start">
             <Baths>
               <img height="19" src={bathIcon} alt="Baths" style={{ marginRight: '10px' }} />
               &nbsp;{bathsRange ? bathsRange : baths}
             </Baths>
           </Column>
-          <Column size="4" align="flex-start">
+          <Column xs={4} align="flex-start">
             <Bike>
               <img height="19" src={bicycleIcon} alt="Distance" style={{ marginRight: '10px' }} />
               &nbsp;1.2 mi

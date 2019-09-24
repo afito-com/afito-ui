@@ -13,7 +13,7 @@ storiesOf('Input', module)
     return (
       <Container>
         <Row>
-          <Column size={12}>
+          <Column xs={12}>
             <Form
               onSubmit={e => {
                 e.preventDefault();
@@ -38,7 +38,7 @@ storiesOf('Input', module)
     return (
       <Container>
         <Row>
-          <Column size={12}>
+          <Column xs={12}>
             <Form
               onSubmit={e => {
                 e.preventDefault();

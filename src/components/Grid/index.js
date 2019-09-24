@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -27,31 +27,13 @@ const Container = styled.div`
   }
 `;
 
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: ${props => (props.align ? props.align : 'center')};
-  justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
-  box-sizing: border-box;
-  width: ${props => `${100 / (12 / props.size)}%`};
-
-  & + & {
-    padding: ${props => `0 0 0 ${props.theme.AFITO_UI.gutterXs}`};
-  }
-`;
-
-Column.propTypes = {
-  size: PropTypes.string.isRequired,
-  align: PropTypes.string,
-  justify: PropTypes.string
-};
-
 const Row = styled.div`
   display: flex;
   flex-wrap: ${props => (props.wrap ? 'wrap' : 'nowrap')};
   align-items: ${props => (props.align ? props.align : 'center')};
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   width: 100%;
+  box-sizing: border-box;
 
   &.no-gutters {
     margin-right: 0;
@@ -66,6 +48,49 @@ const Row = styled.div`
 
 Row.propTypes = {
   wrap: PropTypes.bool,
+  align: PropTypes.string,
+  justify: PropTypes.string
+};
+
+function getColumnWidth(size) {
+  return Number.isInteger(size) ? `${100 / (12 / size)}%` : typeof size === 'boolean' ? 'auto' : 'inherit';
+}
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: ${props => (props.align ? props.align : 'center')};
+  justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
+  box-sizing: border-box;
+  width: 100%;
+
+  & + & {
+    padding: ${props => `0 0 0 ${props.theme.AFITO_UI.gutterXs}`};
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    width: ${props => (props.xs ? getColumnWidth(props.xs) : 'auto')};
+  }
+  @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+    width: ${props => (props.sm ? getColumnWidth(props.sm) : '')};
+  }
+  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+    width: ${props => (props.md ? getColumnWidth(props.md) : '')};
+  }
+  @media (min-width: ${props => props.theme.AFITO_UI.lg}) {
+    width: ${props => (props.lg ? getColumnWidth(props.lg) : '')};
+  }
+  @media (min-width: ${props => props.theme.AFITO_UI.xl}) {
+    width: ${props => (props.lg ? getColumnWidth(props.xl) : '')};
+  }
+`;
+
+Column.propTypes = {
+  xs: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  sm: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  md: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  lg: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  xl: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   align: PropTypes.string,
   justify: PropTypes.string
 };

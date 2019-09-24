@@ -27,13 +27,13 @@ function AccountType({ dispatch }) {
     <Wrapper>
       <Heading level={6}>I am a...</Heading>
       <Row>
-        <Column size="6">
+        <Column xs={6}>
           <AccountTypeOption onClick={() => dispatch({ data: 'landlord', step: 'accountType' })}>
             <img width="100" src="/static/icons/landlord.png" alt="Landlord" />
             <Heading level={5}>Landlord</Heading>
           </AccountTypeOption>
         </Column>
-        <Column size="6">
+        <Column xs={6}>
           <AccountTypeOption onClick={() => dispatch({ data: 'user', step: 'accountType' })}>
             <img width="100" src="/static/icons/diploma.png" alt="Student" />
             <Heading level={5}>Student</Heading>
