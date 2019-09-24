@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Row, Column } from '../Grid';
-import { Heading } from '../Typography';
+import { Heading, Text } from '../Typography';
 import { ModalContext } from '../ModalProvider';
 import bedIcon from '../../assets/icons/bed.png';
 import bathIcon from '../../assets/icons/bath.png';
@@ -34,10 +34,13 @@ const Wrapper = styled.div`
 
 const Image = styled.div`
   padding: 20px;
-  height: 303px;
+  max-height: 303px;
+  height: 40vw;
+  min-height: 225px;
   box-sizing: border-box;
   overflow: hidden;
-  width: 752px;
+  max-width: 752px;
+  width: 100vw;
   border-radius: 8px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -57,10 +60,27 @@ const Description = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  font-size: 16px;
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    font-size: 12px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+    font-size: 16px;
+  }
 `;
 
 const Title = styled(Heading)`
   margin: 10px 0;
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    font-size: 16px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+    font-size: 18px;
+  }
 `;
 
 const Overlay = styled.div`
@@ -81,27 +101,42 @@ const Price = styled.div`
   background: ${props => props.theme.AFITO_UI.secondaryColor};
   font-size: 16px;
   font-weight: bold;
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    font-size: 12px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+    font-size: 16px;
+  }
 `;
 const Save = styled.div`
   color: #cdcdcd;
   font-size: 22px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 `;
 const Beds = styled.div``;
 const Baths = styled.div``;
-const Bike = styled.div``;
-const Address = styled.span``;
+const Distance = styled.div``;
+const Address = styled.span`
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 const Features = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
   color: white;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
+  margin-bottom: -3%;
 
-  & ${Bike}, & ${Beds}, & ${Baths} {
+  & ${Distance}, & ${Beds}, & ${Baths} {
     font-family: ${props => props.theme.AFITO_UI.headerFont};
     display: flex;
     justify-content: center;
@@ -109,9 +144,30 @@ const Features = styled.div`
     font-weight: 700;
     font-size: 12px;
     margin-right: 36px;
+    white-space: nowrap;
+
+    & img {
+      height: 40px;
+
+      @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+        height: 30px;
+      }
+
+      @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+        height: 40px;
+      }
+    }
 
     &:last-child {
       margin-right: 0;
+    }
+
+    @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+      margin-right: 16px;
+    }
+
+    @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+      margin-right: 36px;
     }
   }
 
@@ -122,19 +178,31 @@ const Features = styled.div`
 
 const RecommendationBadge = styled.div`
   color: white;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
   font-weight: 700;
   font-size: 18px;
+  display: flex;
+  align-items: center;
 
   & i {
     color: #ffc820;
   }
+
+  & span {
+    @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+      font-size: 18px;
+    }
+  }
 `;
 
 const Content = styled.div`
+  display: flex;
+  align-items: flex-end;
   position: absolute;
   bottom: 0;
   top: 0;
@@ -200,35 +268,38 @@ function PremiumPropertyCard({
   return (
     <Wrapper>
       <Content>
-        <Row>
-          <Column xs={12} align="flex-end">
-            <Save saved onClick={toggleFavorite}>
-              {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
-            </Save>
-          </Column>
-        </Row>
+        <Save saved onClick={toggleFavorite}>
+          {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
+        </Save>
         <Description>
           <Price>{displayPrice}</Price>
           <Title level={4}>{cardTitle}</Title>
           <Address>{fullAddress}</Address>
         </Description>
-        <RecommendationBadge>
-          <i className="fas fa-medal"></i>&nbsp;Highly Recommended
-        </RecommendationBadge>
-        <Features>
-          <Beds>
-            <img height="40" src={bedIcon} alt="Beds" />
-            &nbsp;{bedsRange ? bedsRange : beds}
-          </Beds>
-          <Baths>
-            <img height="40" src={bathIcon} alt="Baths" />
-            &nbsp;{bathsRange ? bathsRange : baths}
-          </Baths>
-          <Bike>
-            <img height="40" src={bicycleIcon} alt="Distance" />
-            &nbsp;1.2 mi
-          </Bike>
-        </Features>
+        <Row align="flex-end">
+          <Column xs={4} md={6} align="flex-start">
+            <RecommendationBadge>
+              <i style={{ float: 'left', marginRight: '10px' }} className="fas fa-medal"></i>
+              <Text>Highly Recommended</Text>
+            </RecommendationBadge>
+          </Column>
+          <Column xs={8} md={6} align="flex-end">
+            <Features>
+              <Beds>
+                <img src={bedIcon} alt="Beds" />
+                &nbsp;{bedsRange ? bedsRange : beds}
+              </Beds>
+              <Baths>
+                <img src={bathIcon} alt="Baths" />
+                &nbsp;{bathsRange ? bathsRange : baths}
+              </Baths>
+              <Distance>
+                <img src={bicycleIcon} alt="Distance" />
+                &nbsp;1.2 mi
+              </Distance>
+            </Features>
+          </Column>
+        </Row>
       </Content>
       <Image image={image_url} />
       <Overlay />
