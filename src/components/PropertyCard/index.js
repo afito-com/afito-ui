@@ -10,6 +10,7 @@ import bicycleIcon from '../../assets/icons/bicycle_grey.png';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
+  flex: 1 0 0;
   margin: 5px 0;
   display: inline-flex;
   flex-direction: column;
@@ -22,6 +23,7 @@ const Wrapper = styled.div`
   color: ${props => props.theme.AFITO_UI.backgroundTextColor};
   transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
   height: 100%;
+  width: 100%;
 
   &:hover {
     box-shadow: ${props => props.theme.AFITO_UI.cardShadowHover};
@@ -34,10 +36,6 @@ const Wrapper = styled.div`
 
   ${props => {
     switch (props.type) {
-      case 'fixed':
-        return `
-          width: 369px;
-        `;
       case 'nohover':
         return `
           cursor: default;
@@ -51,15 +49,13 @@ const Wrapper = styled.div`
   }}
 `;
 
-const Image = styled.div`
-  height: 300px;
-  overflow: hidden;
+const Image = styled.img`
+  object-fit: cover;
+  height: 25vw;
+  max-height: 300px;
+  min-height: 225px;
   width: 100%;
   border-radius: 5px 5px 0 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(${props => props.image});
 `;
 
 const Description = styled.div`
@@ -118,34 +114,31 @@ const Address = styled.span`
 `;
 
 function PropertyCard({
-  property = {},
+  property_id,
+  property_name,
+  price,
+  max_price,
+  min_price,
+  address,
+  image_url,
+  hometype,
+  min_beds,
+  max_beds,
+  beds,
+  min_baths,
+  max_baths,
+  baths,
+  contact_for_pricing,
   savedProperties = [],
   removeSavedProperty = undefined,
   saveProperty = undefined,
-  type = 'fixed',
+  type,
   children,
   onClick = undefined,
   onMouseEnter = undefined,
   onMouseLeave = undefined,
   ...rest
 }) {
-  const {
-    property_id,
-    property_name,
-    price,
-    max_price,
-    min_price,
-    address,
-    image_url,
-    hometype,
-    min_beds,
-    max_beds,
-    beds,
-    min_baths,
-    max_baths,
-    baths,
-    contact_for_pricing
-  } = property;
   const [saved, setSaved] = useState(savedProperties.map(p => p.property_id).includes(property_id));
   const isBuilding = hometype => hometype === 'building';
   const { showModal, setModalContent } = useContext(ModalContext);
@@ -180,17 +173,14 @@ function PropertyCard({
 
   return (
     <Wrapper type={type} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} {...rest}>
-      <Image image={image_url}>
-        <Ribbon />
-        <Badge />
-      </Image>
+      <Image src={image_url} />
       <Description>
         <Row style={{ marginBottom: '25px' }}>
-          <Column xs={6} align="flex-start">
+          <Column xs={8} align="flex-start">
             <Price>{displayPrice}</Price>
             <Rating />
           </Column>
-          <Column xs={6} align="flex-end" justify="center">
+          <Column xs={4} align="flex-end" justify="center">
             <Save saved onClick={toggleFavorite}>
               {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
             </Save>
@@ -228,7 +218,21 @@ function PropertyCard({
 }
 
 PropertyCard.propTypes = {
-  property: PropTypes.object.isRequired,
+  property_id: PropTypes.number,
+  property_name: PropTypes.string,
+  price: PropTypes.number,
+  max_price: PropTypes.number,
+  min_price: PropTypes.number,
+  address: PropTypes.object,
+  image_url: PropTypes.string,
+  hometype: PropTypes.string,
+  min_beds: PropTypes.number,
+  max_beds: PropTypes.number,
+  beds: PropTypes.number,
+  min_baths: PropTypes.number,
+  max_baths: PropTypes.number,
+  baths: PropTypes.number,
+  contact_for_pricing: PropTypes.bool,
   savedProperties: PropTypes.array,
   type: PropTypes.string,
   onPropertyHover: PropTypes.func,

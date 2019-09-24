@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Heading, Text } from '../Typography';
 
 const Wrapper = styled.div`
+  width: 100%;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -27,7 +28,8 @@ const Wrapper = styled.div`
 const Image = styled.div`
   height: 380px;
   overflow: hidden;
-  width: 292px;
+  width: 100%;
+  min-width: 292px;
   border-radius: 8px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -42,8 +44,11 @@ const Title = styled.div`
   left: 0;
   right: 0;
   text-align: center;
-  width: 50%;
-  margin: auto;
+
+  & h5 {
+    width: 50%;
+    margin: auto;
+  }
 `;
 
 const Overlay = styled.div`

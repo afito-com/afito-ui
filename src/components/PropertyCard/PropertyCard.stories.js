@@ -10,18 +10,18 @@ storiesOf('PropertyCard', module)
   .add('Equal height/width cards', () => {
     return (
       <Container>
-        <Row wrap={true}>
-          <Column xs={6} style={{ alignSelf: 'stretch' }}>
-            <PropertyCard onClick={action('click')} property={models[0]} />
+        <Row>
+          <Column xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
+            <PropertyCard onClick={action('click')} {...models[0]} />
           </Column>
-          <Column xs={6} style={{ alignSelf: 'stretch' }}>
-            <PropertyCard onClick={action('click')} property={models[1]} />
+          <Column xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
+            <PropertyCard onClick={action('click')} {...models[1]} />
           </Column>
-          <Column xs={6} style={{ alignSelf: 'stretch' }}>
-            <PropertyCard onClick={action('click')} property={models[2]} />
+          <Column xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
+            <PropertyCard onClick={action('click')} {...models[2]} />
           </Column>
-          <Column xs={6} style={{ alignSelf: 'stretch' }}>
-            <PropertyCard onClick={action('click')} property={models[0]} />
+          <Column xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
+            <PropertyCard onClick={action('click')} {...models[0]} />
           </Column>
         </Row>
       </Container>
