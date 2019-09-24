@@ -10,7 +10,7 @@ storiesOf('PremiumPropertyCard', module)
   .add('without floorplans', () => {
     return (
       <Container>
-        <Row wrap={true}>
+        <Row style={{ overflowX: 'scroll' }}>
           <Column xs={12}>
             <PremiumPropertyCard {...models[0]} />
           </Column>
