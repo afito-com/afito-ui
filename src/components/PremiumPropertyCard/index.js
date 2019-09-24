@@ -10,6 +10,7 @@ import bicycleIcon from '../../assets/icons/bicycle.png';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
+  width: 100%;
   margin: 5px 0;
   position: relative;
   display: inline-block;
