@@ -29,7 +29,6 @@ const Image = styled.div`
   height: 380px;
   overflow: hidden;
   width: 100%;
-  max-width: 292px;
   border-radius: 8px;
   background-size: cover;
   background-repeat: no-repeat;
