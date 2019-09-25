@@ -69,8 +69,8 @@ const Column = styled.div`
   }
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
-    max-width: ${props => (props.xs ? getColumnWidth(props.xs) : 'auto')};
-    flex: ${props => (props.xs ? `0 0 ${props.xs && getColumnWidth(props.xs)}` : 'auto')};
+    max-width: ${props => (props.xs ? getColumnWidth(props.xs) : 'none')};
+    flex: ${props => (props.xs ? `0 0 ${props.xs && getColumnWidth(props.xs)}` : 'none')};
   }
   @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
     max-width: ${props => (props.sm ? getColumnWidth(props.sm) : '')};
