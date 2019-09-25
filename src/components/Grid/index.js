@@ -63,7 +63,7 @@ const Column = styled.div`
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   box-sizing: border-box;
   width: 100%;
-  padding: ${props => `0 ${props.theme.AFITO_UI.gutterXs / 2}`};
+  padding: 0 4px;
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
     display: ${props => (props.xs ? 'flex' : 'none')};
