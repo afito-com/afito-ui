@@ -4,9 +4,6 @@ import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
 import { ModalContext } from '../ModalProvider';
-import bedIcon from '../../assets/icons/bed_grey.png';
-import bathIcon from '../../assets/icons/shower_grey.png';
-import bicycleIcon from '../../assets/icons/bicycle_grey.png';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
@@ -195,19 +192,34 @@ function PropertyCard({
         <Row style={{ alignItems: 'flex-end', flexGrow: '1', marginTop: '15px' }}>
           <Column xs={4} align="flex-start">
             <Beds>
-              <img height="15" src={bedIcon} alt="Beds" style={{ marginRight: '10px' }} />
+              <img
+                height="15"
+                src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bed_grey.png"
+                alt="Beds"
+                style={{ marginRight: '10px' }}
+              />
               &nbsp;{bedsRange ? bedsRange : beds}
             </Beds>
           </Column>
           <Column xs={4} align="flex-start">
             <Baths>
-              <img height="19" src={bathIcon} alt="Baths" style={{ marginRight: '10px' }} />
+              <img
+                height="19"
+                src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/shower_grey.png"
+                alt="Baths"
+                style={{ marginRight: '10px' }}
+              />
               &nbsp;{bathsRange ? bathsRange : baths}
             </Baths>
           </Column>
           <Column xs={4} align="flex-start">
             <Bike>
-              <img height="19" src={bicycleIcon} alt="Distance" style={{ marginRight: '10px' }} />
+              <img
+                height="19"
+                src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bicycle_grey.png"
+                alt="Distance"
+                style={{ marginRight: '10px' }}
+              />
               &nbsp;1.2 mi
             </Bike>
           </Column>

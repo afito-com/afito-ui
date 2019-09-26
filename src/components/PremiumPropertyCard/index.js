@@ -4,9 +4,6 @@ import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading, Text } from '../Typography';
 import { ModalContext } from '../ModalProvider';
-import bedIcon from '../../assets/icons/bed.png';
-import bathIcon from '../../assets/icons/bath.png';
-import bicycleIcon from '../../assets/icons/bicycle.png';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
@@ -288,15 +285,18 @@ function PremiumPropertyCard({
           <Column xs={8} md={6} align="flex-end">
             <Features>
               <Beds>
-                <img src={bedIcon} alt="Beds" />
+                <img src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bed.png" alt="Beds" />
                 &nbsp;{bedsRange ? bedsRange : beds}
               </Beds>
               <Baths>
-                <img src={bathIcon} alt="Baths" />
+                <img src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bath.png" alt="Baths" />
                 &nbsp;{bathsRange ? bathsRange : baths}
               </Baths>
               <Distance>
-                <img src={bicycleIcon} alt="Distance" />
+                <img
+                  src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bicycle.png"
+                  alt="Distance"
+                />
                 &nbsp;1.2 mi
               </Distance>
             </Features>

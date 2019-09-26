@@ -1,21 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from '.';
-import Form from 'react-validation/build/form';
+import Button from '.';
+import ThemeProvider from '../ThemeProvider';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Button level="primary" />, div);
+  ReactDOM.render(
+    <ThemeProvider>
+      <Button level="primary" />
+    </ThemeProvider>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Button level="secondary" />, div);
+  ReactDOM.render(
+    <ThemeProvider>
+      <Button level="secondary" />
+    </ThemeProvider>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Button level="outline" />, div);
+  ReactDOM.render(
+    <ThemeProvider>
+      <Button level="outline" />
+    </ThemeProvider>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });

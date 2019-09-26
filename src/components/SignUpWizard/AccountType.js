@@ -29,13 +29,21 @@ function AccountType({ dispatch }) {
       <Row>
         <Column xs={6}>
           <AccountTypeOption onClick={() => dispatch({ data: 'landlord', step: 'accountType' })}>
-            <img width="100" src="/static/icons/landlord.png" alt="Landlord" />
+            <img
+              width="100"
+              src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/landlord.png"
+              alt="Landlord"
+            />
             <Heading level={5}>Landlord</Heading>
           </AccountTypeOption>
         </Column>
         <Column xs={6}>
           <AccountTypeOption onClick={() => dispatch({ data: 'user', step: 'accountType' })}>
-            <img width="100" src="/static/icons/diploma.png" alt="Student" />
+            <img
+              width="100"
+              src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/diploma.png"
+              alt="Student"
+            />
             <Heading level={5}>Student</Heading>
           </AccountTypeOption>
         </Column>

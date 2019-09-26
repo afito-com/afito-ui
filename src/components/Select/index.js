@@ -34,13 +34,11 @@ const Select = styled.select`
   font-size: 14px;
   font-weight: 700;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
-  background: url('../../assets/chevron_down.png') no-repeat 100% 100%;
+  background: url('https://afito-production-bucket.s3.amazonaws.com/static/static/chevron_down.png') no-repeat 100% 100%;
   background-clip: padding-box;
-
   &::placeholder {
     color: #828282;
   }
-
   & + .error-message {
     padding-left: 5px;
     color: ${props => props.theme.AFITO_UI.dangerColor};

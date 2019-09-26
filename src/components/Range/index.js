@@ -193,12 +193,14 @@ function Range({ items, onRangeChange, ...rest }) {
       <Distribution>
         {sorted
           .filter((el, i, a) => i === a.indexOf(el))
-          .map(item => {
+          .map((item, i) => {
             const offset = item - lo;
             const percentageOffset = (offset / totalDistance) * 100;
             const height = freqs[item];
 
-            return <QuantityBlock offset={percentageOffset} height={height} />;
+            return (
+              <QuantityBlock key={`QtyBlock_${i}__${percentageOffset}`} offset={percentageOffset} height={height} />
+            );
           })}
       </Distribution>
       <InputRange
@@ -218,6 +220,8 @@ function Range({ items, onRangeChange, ...rest }) {
   );
 }
 
-Range.propTypes = {};
+Range.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.number).isRequired
+};
 
 export default Range;
