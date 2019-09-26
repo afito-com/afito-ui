@@ -34,7 +34,9 @@ const Select = styled.select`
   font-size: 14px;
   font-weight: 700;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
-  background: url('https://afito-production-bucket.s3.amazonaws.com/static/static/chevron_down.png') no-repeat 100% 100%;
+  background: url('https://afito-production-bucket.s3.amazonaws.com/static/static/icons/chevron_down.png') no-repeat 98%
+    50%;
+  background-size: 8px;
   background-clip: padding-box;
   &::placeholder {
     color: #828282;
