@@ -276,13 +276,13 @@ function PremiumPropertyCard({
           <Address>{fullAddress}</Address>
         </Description>
         <Row align="flex-end">
-          <Column xs={4} md={6} align="flex-start">
+          <Column xs={4} md={4} lg={6} align="flex-start">
             <RecommendationBadge>
               <i style={{ float: 'left', marginRight: '10px' }} className="fas fa-medal"></i>
               <Text>Highly Recommended</Text>
             </RecommendationBadge>
           </Column>
-          <Column xs={8} md={6} align="flex-end">
+          <Column xs={8} md={8} lg={6} align="flex-end">
             <Features>
               <Beds>
                 <img src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bed.png" alt="Beds" />
