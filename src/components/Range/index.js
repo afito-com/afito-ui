@@ -221,7 +221,14 @@ function Range({ items, onRangeChange, ...rest }) {
 }
 
 Range.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.number).isRequired
+  items: function(props, propName, componentName) {
+    const val = props[propName];
+    if (!Array.isArray(val)) throw `${propName} must be an array`;
+    if (val.length === 0) throw `${propName} must have at least one el`;
+    val.forEach(function(elem) {
+      if (typeof elem !== 'number') throw `${propName} must only contain numbers`;
+    });
+  }
 };
 
 export default Range;
