@@ -162,7 +162,7 @@ const Features = styled.div`
     }
 
     @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
-      margin-right: 16px;
+      margin-right: 10px;
     }
 
     @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
@@ -287,18 +287,18 @@ function PremiumPropertyCard({
             <Features>
               <Beds>
                 <img src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bed.png" alt="Beds" />
-                &nbsp;{bedsRange ? bedsRange : beds}
+                {bedsRange ? bedsRange : beds}
               </Beds>
               <Baths>
                 <img src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bath.png" alt="Baths" />
-                &nbsp;{bathsRange ? bathsRange : baths}
+                {bathsRange ? bathsRange : baths}
               </Baths>
               <Distance>
                 <img
                   src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bicycle.png"
                   alt="Distance"
                 />
-                &nbsp;1.2 mi
+                1.2 mi
               </Distance>
             </Features>
           </Column>
