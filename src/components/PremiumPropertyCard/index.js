@@ -207,7 +207,7 @@ const Content = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  padding: 20px;
+  padding: 4% 2%;
   z-index: 10;
 `;
 
