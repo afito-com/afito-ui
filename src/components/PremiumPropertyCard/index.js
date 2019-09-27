@@ -63,6 +63,8 @@ const Description = styled.div`
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
     font-size: 12px;
+    padding-top: 20px;
+    justify-content: flex-start;
   }
 
   @media (min-width: ${props => props.theme.AFITO_UI.md}) {
@@ -74,7 +76,8 @@ const Title = styled(Heading)`
   margin: 10px 0;
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
-    font-size: 16px;
+    font-size: 14px;
+    margin-bottom: 0;
   }
 
   @media (min-width: ${props => props.theme.AFITO_UI.md}) {
@@ -89,7 +92,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   border-radius: 8px;
-  background: linear-gradient(180deg, transparent 50%, #000000 100%);
+  background: linear-gradient(180deg, transparent 0%, #000000 100%);
   opacity: 0.8;
 `;
 
@@ -145,11 +148,15 @@ const Features = styled.div`
     margin-right: 36px;
     white-space: nowrap;
 
+    @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+      font-size: 9px;
+    }
+
     & img {
       height: 40px;
 
       @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
-        height: 30px;
+        height: 25px;
       }
 
       @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
@@ -189,8 +196,8 @@ const RecommendationBadge = styled.div`
 
   & span {
     @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
-      font-size: 12px;
-      line-height: 16px;
+      font-size: 10px;
+      line-height: 12px;
     }
 
     @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
