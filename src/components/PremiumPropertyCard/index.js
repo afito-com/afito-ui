@@ -247,8 +247,8 @@ function PremiumPropertyCard({
     ? utils.toCurrency(price)
     : 'No Price';
   const cardTitle = property_name ? property_name : address.line1;
-  const bedsRange = max_beds > min_beds ? `${min_beds} - ${max_beds}` : max_beds;
-  const bathsRange = max_baths > min_baths ? `${min_baths} - ${max_baths}` : max_baths;
+  const bedsRange = max_beds > min_beds ? `${min_beds}-${max_beds}` : max_beds;
+  const bathsRange = max_baths > min_baths ? `${min_baths}-${max_baths}` : max_baths;
   const fullAddress = (
     <>
       <span style={{ whiteSpace: 'nowrap' }}>
