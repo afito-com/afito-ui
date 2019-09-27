@@ -19,7 +19,7 @@ it('renders without crashing', () => {
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  const prices = [];
+  const prices = [1, 2];
 
   ReactDOM.render(
     <ThemeProvider>

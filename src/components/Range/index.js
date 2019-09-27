@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import InputRange from 'react-input-range';
+import { isExpressionWrapper } from '@babel/types';
 
 const Wrapper = styled.div`
   display: flex;
@@ -174,9 +175,18 @@ const QuantityBlock = styled.div`
 `;
 
 function Range({ items, onRangeChange, ...rest }) {
+  if (items.length === 0 || items.length === 1) {
+    return null;
+  }
+
   let sorted = items.sort((a, b) => a - b);
   const hi = sorted[sorted.length - 1];
   const lo = sorted[0];
+
+  if (hi <= lo) {
+    return null;
+  }
+
   const totalDistance = hi - lo;
   const [value, setValue] = useState({
     min: lo,
@@ -223,12 +233,26 @@ function Range({ items, onRangeChange, ...rest }) {
 Range.propTypes = {
   items: function(props, propName, componentName) {
     const val = props[propName];
-    if (!Array.isArray(val)) throw `${propName} must be an array`;
-    if (val.length === 0) throw `${propName} must have at least one el`;
+    if (!Array.isArray(val)) {
+      return new Error(`${propName} must be an array`);
+    }
+    if (val.length === 0 || val.length === 1) {
+      return new Error(`${propName} must have at least two elements`);
+    }
+    let sorted = val.sort((a, b) => a - b);
+    let min = sorted[0];
+    let max = sorted[sorted.length - 1];
+    if (max <= min) {
+      return new Error(`${propName} must have at least two elements of different values`);
+    }
     val.forEach(function(elem) {
-      if (typeof elem !== 'number') throw `${propName} must only contain numbers`;
+      if (typeof elem !== 'number') {
+        return new Error(`${propName} must only contain numbers`);
+      }
     });
-  }
+  },
+  name: PropTypes.string.isRequired,
+  onRangeChange: PropTypes.func
 };
 
 export default Range;
