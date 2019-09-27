@@ -34,7 +34,7 @@ const Image = styled.div`
   padding: 20px;
   max-height: 303px;
   height: 40vw;
-  min-height: 225px;
+  min-height: 165px;
   box-sizing: border-box;
   overflow: hidden;
   max-width: 752px;
