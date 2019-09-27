@@ -175,18 +175,9 @@ const QuantityBlock = styled.div`
 `;
 
 function Range({ items, onRangeChange, ...rest }) {
-  if (items.length === 0 || items.length === 1) {
-    return null;
-  }
-
   let sorted = items.sort((a, b) => a - b);
   const hi = sorted[sorted.length - 1];
   const lo = sorted[0];
-
-  if (hi <= lo) {
-    return null;
-  }
-
   const totalDistance = hi - lo;
   const [value, setValue] = useState({
     min: lo,
