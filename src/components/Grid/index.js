@@ -29,7 +29,7 @@ const Container = styled.div`
 
 const Row = styled.div`
   display: flex;
-  flex-wrap: ${props => (props.wrap ? 'wrap' : 'nowrap')};
+  flex-wrap: ${props => (props.canWrap ? 'wrap' : 'nowrap')};
   align-items: ${props => (props.align ? props.align : 'center')};
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   width: 100%;
@@ -47,7 +47,7 @@ const Row = styled.div`
 `;
 
 Row.propTypes = {
-  wrap: PropTypes.bool,
+  canWrap: PropTypes.bool,
   align: PropTypes.string,
   justify: PropTypes.string
 };
