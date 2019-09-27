@@ -229,7 +229,8 @@ function PremiumPropertyCard({
   contact_for_pricing,
   savedProperties = [],
   removeSavedProperty = undefined,
-  saveProperty = undefined
+  saveProperty = undefined,
+  ...rest
 }) {
   const [saved, setSaved] = useState(savedProperties.map(p => p.property_id).includes(property_id));
   const isBuilding = hometype => hometype === 'building';
@@ -265,7 +266,7 @@ function PremiumPropertyCard({
   }
 
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <Content>
         <Save saved onClick={toggleFavorite}>
           {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import InputRange from 'react-input-range';
-import { isExpressionWrapper } from '@babel/types';
 
 const Wrapper = styled.div`
   display: flex;
