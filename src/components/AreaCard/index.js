@@ -61,9 +61,9 @@ const Overlay = styled.div`
   opacity: 0.8;
 `;
 
-function AreaCard({ image_url, name, property_count, onClick }) {
+function AreaCard({ image_url, name, property_count, onClick, ...rest }) {
   return (
-    <Wrapper onClick={onClick}>
+    <Wrapper onClick={onClick} {...rest}>
       <Image image={image_url} />
       <Overlay />
       <Title>
