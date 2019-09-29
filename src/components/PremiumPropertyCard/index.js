@@ -63,8 +63,6 @@ const Description = styled.div`
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
     font-size: 12px;
-    padding-top: 20px;
-    justify-content: flex-start;
   }
 
   @media (min-width: ${props => props.theme.AFITO_UI.md}) {
@@ -118,6 +116,14 @@ const Save = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    font-size: 18px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+    font-size: 22px;
+  }
 `;
 const Beds = styled.div``;
 const Baths = styled.div``;

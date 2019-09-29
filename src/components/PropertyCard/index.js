@@ -77,6 +77,14 @@ const Rating = styled.div``;
 const Save = styled.div`
   color: #cdcdcd;
   font-size: 22px;
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    font-size: 18px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+    font-size: 22px;
+  }
 `;
 const Beds = styled.div`
   white-space: nowrap;
