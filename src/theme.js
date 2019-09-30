@@ -38,6 +38,7 @@ const theme = {
   gutterMd: '18px',
   gutterLg: '18px',
   gutterXl: 'auto',
+  gutterXxl: 'auto',
 
   inputFocusBorderPrimary: '0 0 0 0.2rem rgba(110, 148, 228, 0.3)',
   inputFocusBorderSecondary: '0 0 0 0.2rem lighten($secondary-color, 5%)',

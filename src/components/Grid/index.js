@@ -26,6 +26,10 @@ const Container = styled.div`
     max-width: ${props => props.theme.AFITO_UI.gridXlWidth};
     margin: 0 ${props => props.theme.AFITO_UI.gutterXl};
   }
+  @media only screen and (min-width: ${props => props.theme.AFITO_UI.xxl}) {
+    max-width: ${props => props.theme.AFITO_UI.gridXxlWidth};
+    margin: 0 ${props => props.theme.AFITO_UI.gutterXxl};
+  }
 `;
 
 const Row = styled.div`
@@ -91,6 +95,11 @@ const Column = styled.div`
     max-width: ${props => (props.xl ? getColumnWidth(props.xl) : '')};
     flex: ${props => (props.xl ? `0 0 ${props.xl && getColumnWidth(props.xl)}` : '')};
   }
+  @media (min-width: ${props => props.theme.AFITO_UI.xxl}) {
+    display: ${props => (props.xxl === 0 ? 'none' : 'flex')};
+    max-width: ${props => (props.xxl ? getColumnWidth(props.xxl) : '')};
+    flex: ${props => (props.xxl ? `0 0 ${props.xl && getColumnWidth(props.xxl)}` : '')};
+  }
 `;
 
 Column.propTypes = {
@@ -99,6 +108,7 @@ Column.propTypes = {
   md: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   lg: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   xl: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  xxl: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   align: PropTypes.string,
   justify: PropTypes.string
 };
