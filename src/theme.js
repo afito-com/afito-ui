@@ -29,10 +29,10 @@ const theme = {
   gridXlWidth: '1521px',
 
   gutterXs: '18px',
-  gutterSm: '24px',
-  gutterMd: '24px',
-  gutterLg: '24px',
-  gutterXl: '24px',
+  gutterSm: '18px',
+  gutterMd: '18px',
+  gutterLg: '18px',
+  gutterXl: '18px',
 
   inputFocusBorderPrimary: '0 0 0 0.2rem rgba(110, 148, 228, 0.3)',
   inputFocusBorderSecondary: '0 0 0 0.2rem lighten($secondary-color, 5%)',
