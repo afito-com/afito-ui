@@ -16,11 +16,15 @@ const theme = {
   backgroundTextColorDark: '#6b7682',
 
   columns: 12,
+  /** phone range */
   xs: '320px',
   sm: '700px',
+  /** tablet range */
   md: '768px',
-  lg: '1280px',
-  xl: '1920px',
+  lg: '1024px',
+  /** desktop range */
+  xl: '1280px',
+  xxl: '1920px',
 
   gridXsWidth: '100%',
   gridSmWidth: '100%',
