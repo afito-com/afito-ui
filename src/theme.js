@@ -30,13 +30,14 @@ const theme = {
   gridSmWidth: '100%',
   gridMdWidth: '900px',
   gridLgWidth: '1050px',
-  gridXlWidth: '1521px',
+  gridXlWidth: '1050px',
+  gridXxlWidth: '1521px',
 
   gutterXs: '18px',
   gutterSm: '18px',
   gutterMd: '18px',
   gutterLg: '18px',
-  gutterXl: '18px',
+  gutterXl: 'auto',
 
   inputFocusBorderPrimary: '0 0 0 0.2rem rgba(110, 148, 228, 0.3)',
   inputFocusBorderSecondary: '0 0 0 0.2rem lighten($secondary-color, 5%)',
