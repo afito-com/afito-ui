@@ -16,14 +16,15 @@ const Container = styled.div`
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.md}) {
     max-width: ${props => props.theme.AFITO_UI.gridMdWidth};
-    width: 100%;
-    margin: auto;
+    margin: 0 ${props => props.theme.AFITO_UI.gutterMd};
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.lg}) {
     max-width: ${props => props.theme.AFITO_UI.gridLgWidth};
+    margin: 0 ${props => props.theme.AFITO_UI.gutterLg};
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.xl}) {
     max-width: ${props => props.theme.AFITO_UI.gridXlWidth};
+    margin: 0 ${props => props.theme.AFITO_UI.gutterXl};
   }
 `;
 

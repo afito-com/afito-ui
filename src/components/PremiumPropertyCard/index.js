@@ -63,6 +63,7 @@ const Description = styled.div`
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
     font-size: 12px;
+    margin-bottom: 25px;
   }
 
   @media (min-width: ${props => props.theme.AFITO_UI.md}) {
@@ -119,6 +120,8 @@ const Save = styled.div`
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
     font-size: 18px;
+    top: 12px;
+    right: 12px;
   }
 
   @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
