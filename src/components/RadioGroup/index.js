@@ -21,10 +21,8 @@ const Radio = styled.label`
   color: ${props => (props.selected ? 'white' : '#334150')};
   cursor: pointer;
   box-shadow: ${props => (props.selected ? '0px 4px 7.6px 0.4px rgba(20, 75, 157, 0.24)' : 'none')};
-
-  & + & {
-    margin-left: 10px;
-  }
+  margin-right: 10px;
+  margin-top: 10px;
 
   & input[type='radio'] {
     display: none;
