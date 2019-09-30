@@ -37,8 +37,6 @@ const Image = styled.div`
   min-height: 165px;
   box-sizing: border-box;
   overflow: hidden;
-  max-width: 752px;
-  /*min-width: 343px;*/
   width: 100%;
   border-radius: 8px;
   background-size: cover;
