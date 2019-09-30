@@ -67,27 +67,27 @@ const Column = styled.div`
   padding: 0 4px;
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
-    display: ${props => (props.xs ? 'flex' : 'none')};
+    display: ${props => (props.xs === 0 ? 'none' : 'flex')};
     max-width: ${props => (props.xs ? getColumnWidth(props.xs) : 'none')};
     flex: ${props => (props.xs ? `0 0 ${props.xs && getColumnWidth(props.xs)}` : 'none')};
   }
   @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
-    display: ${props => (props.sm ? 'flex' : 'none')};
+    display: ${props => (props.sm === 0 ? 'none' : 'flex')};
     max-width: ${props => (props.sm ? getColumnWidth(props.sm) : '')};
     flex: ${props => (props.sm ? `0 0 ${props.sm && getColumnWidth(props.sm)}` : '')};
   }
   @media (min-width: ${props => props.theme.AFITO_UI.md}) {
-    display: ${props => (props.md ? 'flex' : 'none')};
+    display: ${props => (props.md === 0 ? 'none' : 'flex')};
     max-width: ${props => (props.md ? getColumnWidth(props.md) : '')};
     flex: ${props => (props.md ? `0 0 ${props.md && getColumnWidth(props.md)}` : '')};
   }
   @media (min-width: ${props => props.theme.AFITO_UI.lg}) {
-    display: ${props => (props.lg ? 'flex' : 'none')};
+    display: ${props => (props.lg === 0 ? 'none' : 'flex')};
     max-width: ${props => (props.lg ? getColumnWidth(props.lg) : '')};
     flex: ${props => (props.lg ? `0 0 ${props.lg && getColumnWidth(props.lg)}` : '')};
   }
   @media (min-width: ${props => props.theme.AFITO_UI.xl}) {
-    display: ${props => (props.xl ? 'flex' : 'none')};
+    display: ${props => (props.xl === 0 ? 'none' : 'flex')};
     max-width: ${props => (props.xl ? getColumnWidth(props.xl) : '')};
     flex: ${props => (props.xl ? `0 0 ${props.xl && getColumnWidth(props.xl)}` : '')};
   }
