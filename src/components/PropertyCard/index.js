@@ -229,7 +229,7 @@ function PropertyCard({
                 alt="Distance"
                 style={{ marginRight: '10px' }}
               />
-              &nbsp;{distance}
+              &nbsp;{Number.parseFloat(distance).toFixed(1)}
             </Bike>
           </Column>
         </Row>
