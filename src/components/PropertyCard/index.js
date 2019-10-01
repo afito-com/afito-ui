@@ -203,7 +203,7 @@ function PropertyCard({
             <Beds>
               <img
                 height="15"
-                src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bed_grey.png"
+                src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed_grey.png"
                 alt="Beds"
                 style={{ marginRight: '10px' }}
               />
@@ -214,7 +214,7 @@ function PropertyCard({
             <Baths>
               <img
                 height="19"
-                src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/shower_grey.png"
+                src="https://afito-production-bucket.s3.amazonaws.com/static/icons/shower_grey.png"
                 alt="Baths"
                 style={{ marginRight: '10px' }}
               />
@@ -225,7 +225,7 @@ function PropertyCard({
             <Bike>
               <img
                 height="19"
-                src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bicycle_grey.png"
+                src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle_grey.png"
                 alt="Distance"
                 style={{ marginRight: '10px' }}
               />

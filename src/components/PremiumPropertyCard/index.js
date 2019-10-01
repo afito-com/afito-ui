@@ -301,18 +301,15 @@ function PremiumPropertyCard({
           <Column xs={8} md={8} lg={6} align="flex-end">
             <Features>
               <Beds>
-                <img src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bed.png" alt="Beds" />
+                <img src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed.png" alt="Beds" />
                 {bedsRange ? bedsRange : beds}
               </Beds>
               <Baths>
-                <img src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bath.png" alt="Baths" />
+                <img src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bath.png" alt="Baths" />
                 {bathsRange ? bathsRange : baths}
               </Baths>
               <Distance>
-                <img
-                  src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bicycle.png"
-                  alt="Distance"
-                />
+                <img src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle.png" alt="Distance" />
                 {Number.parseFloat(distance).toFixed(1)} mi
               </Distance>
             </Features>

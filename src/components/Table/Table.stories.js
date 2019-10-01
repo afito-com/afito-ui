@@ -70,9 +70,9 @@ storiesOf('Table', module).add('default', () => {
       headers={[
         'Name',
         'Price',
-        <img width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bed.png" />,
-        <img width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bath.png" />,
-        <img width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/area.png" />
+        <img width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed.png" />,
+        <img width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bath.png" />,
+        <img width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/area.png" />
       ]}
     />
   );
