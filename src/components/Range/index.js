@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import InputRange from 'react-input-range';
 
+const QTY_BLOCK_WIDTH = 10;
+
 const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
@@ -158,7 +160,7 @@ const Distribution = styled.div`
   left: 0;
   right: 0;
   top: 70px;
-  width: 100%;
+  width: ${props => `calc(100% - ${QTY_BLOCK_WIDTH}px)`};
   margin: auto;
   display: flex;
   align-items: flex-end;
@@ -168,7 +170,7 @@ const Distribution = styled.div`
 const QuantityBlock = styled.div`
   height: ${props => `${props.height * 15}px`};
   max-height: 65px;
-  width: 10px;
+  width: ${props => `${QTY_BLOCK_WIDTH}px`};
   background: #e1e7eb;
   position: absolute;
   left: ${props => `${props.offset}%`};
