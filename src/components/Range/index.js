@@ -161,7 +161,6 @@ const Distribution = styled.div`
   right: 0;
   top: 70px;
   width: ${props => `calc(100% - ${QTY_BLOCK_WIDTH}px)`};
-  margin: auto;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
