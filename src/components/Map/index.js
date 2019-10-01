@@ -4,9 +4,6 @@ import styled from 'styled-components';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import InfoBox from 'react-google-maps/lib/components/addons/InfoBox';
 import PropertyCard from '../PropertyCard';
-import afitoPin from '../../assets/icons/m1.png';
-import buildingHoverIcon from '../../assets/icons/m1.png';
-import houseHoverIcon from '../../assets/icons/m1.png';
 
 const Map = withScriptjs(
   withGoogleMap(props => {
@@ -15,7 +12,10 @@ const Map = withScriptjs(
     }
 
     const isHovered = p => parseInt(props.hoverId, 10) === p.property_id;
-    const hoverIcon = p => (p.hometype === 'building' ? buildingHoverIcon : houseHoverIcon);
+    const hoverIcon = p =>
+      p.hometype === 'building'
+        ? 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png'
+        : 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png';
 
     return (
       <GoogleMap defaultZoom={15} defaultCenter={props.center}>
@@ -31,7 +31,9 @@ const Map = withScriptjs(
                   lng: parseFloat(p.lng)
                 }}
                 icon={{
-                  url: isPropertyHovered ? hoverIcon(p) : afitoPin,
+                  url: isPropertyHovered
+                    ? hoverIcon(p)
+                    : 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png',
                   scaledSize: new google.maps.Size(38, 53)
                 }}
                 zIndex={isHovered(p) ? 101 : 1}
