@@ -98,7 +98,7 @@ const Wrapper = styled.div`
       display: none;
       position: absolute;
       top: -75px;
-      left: -35px;
+      left: -45px;
       background: white;
       color: #334150;
       box-shadow: 0px 4px 7.6px 0.4px rgba(20, 75, 157, 0.24);
