@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import InputRange from 'react-input-range';
+import { Row } from '../Grid';
+import { Text } from '../Typography';
 
 const QTY_BLOCK_WIDTH = 10;
 
@@ -52,7 +54,7 @@ const Wrapper = styled.div`
 
     &:hover .range-tooltip,
     &:active .range-tooltip {
-      display: block !important;
+      /*display: block !important;*/
     }
   }
 
@@ -67,6 +69,7 @@ const Wrapper = styled.div`
 
   & .input-range__label--min,
   & .input-range__label--max {
+    display: none;
     bottom: -55px;
     position: absolute;
     color: #334150;
@@ -77,7 +80,6 @@ const Wrapper = styled.div`
     background-color: white;
     width: 80px;
     height: 44px;
-    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -175,6 +177,19 @@ const QuantityBlock = styled.div`
   left: ${props => `${props.offset}%`};
 `;
 
+const Tooltip = styled.div`
+  background: white;
+  box-shadow: 0px 4px 7.6px 0.4px rgba(20, 75, 157, 0.24);
+  border-radius: 4px;
+  padding: 10px 20px;
+  color: #334150;
+  font-family: ${props => props.theme.AFITO_UI.inputRangeFontFamily};
+  font-weight: bold;
+  font-size: ${props => props.theme.AFITO_UI.inputRangeLabelFontSize};
+  transform: translateZ(0);
+  white-space: nowrap;
+`;
+
 function Range({ items, onRangeChange, ...rest }) {
   let sorted = items.sort((a, b) => a - b);
   const hi = sorted[sorted.length - 1];
@@ -191,34 +206,44 @@ function Range({ items, onRangeChange, ...rest }) {
     else freqs[sorted[i]] = 1;
 
   return (
-    <Wrapper {...rest}>
-      <Distribution>
-        {sorted
-          .filter((el, i, a) => i === a.indexOf(el))
-          .map((item, i) => {
-            const offset = item - lo;
-            const percentageOffset = (offset / totalDistance) * 100;
-            const height = freqs[item];
+    <>
+      <Wrapper {...rest}>
+        <Distribution>
+          {sorted
+            .filter((el, i, a) => i === a.indexOf(el))
+            .map((item, i) => {
+              const offset = item - lo;
+              const percentageOffset = (offset / totalDistance) * 100;
+              const height = freqs[item];
 
-            return (
-              <QuantityBlock key={`QtyBlock_${i}__${percentageOffset}`} offset={percentageOffset} height={height} />
-            );
-          })}
-      </Distribution>
-      <InputRange
-        step={5}
-        maxValue={hi}
-        minValue={lo}
-        formatLabel={value => {
-          return <div className="range-tooltip">{'$' + value}</div>;
-        }}
-        value={value}
-        onChange={value => {
-          setValue(value);
-        }}
-        onChangeComplete={onRangeChange}
-      />
-    </Wrapper>
+              return (
+                <QuantityBlock key={`QtyBlock_${i}__${percentageOffset}`} offset={percentageOffset} height={height} />
+              );
+            })}
+        </Distribution>
+        <InputRange
+          step={5}
+          maxValue={hi}
+          minValue={lo}
+          formatLabel={value => {
+            return <div className="range-tooltip">{'$' + value}</div>;
+          }}
+          value={value}
+          onChange={value => {
+            setValue(value);
+          }}
+          onChangeComplete={onRangeChange}
+        />
+      </Wrapper>
+      <Row justify="space-between" style={{ marginTop: '25px' }}>
+        <Tooltip>
+          <Text>${value.min}</Text>
+        </Tooltip>
+        <Tooltip>
+          <Text>${value.max}</Text>
+        </Tooltip>
+      </Row>
+    </>
   );
 }
 
