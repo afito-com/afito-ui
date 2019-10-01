@@ -241,6 +241,7 @@ function PremiumPropertyCard({
   max_baths,
   baths,
   contact_for_pricing,
+  distance,
   savedProperties = [],
   removeSavedProperty = undefined,
   saveProperty = undefined,
@@ -312,7 +313,7 @@ function PremiumPropertyCard({
                   src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bicycle.png"
                   alt="Distance"
                 />
-                1.2 mi
+                {distance}
               </Distance>
             </Features>
           </Column>
@@ -340,6 +341,7 @@ PremiumPropertyCard.propTypes = {
   max_baths: PropTypes.number,
   baths: PropTypes.number,
   contact_for_pricing: PropTypes.bool,
+  distance: PropTypes.number,
   savedProperties: PropTypes.array
 };
 

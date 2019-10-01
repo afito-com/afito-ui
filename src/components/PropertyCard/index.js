@@ -134,6 +134,7 @@ function PropertyCard({
   max_baths,
   baths,
   contact_for_pricing,
+  distance,
   savedProperties = [],
   removeSavedProperty = undefined,
   saveProperty = undefined,
@@ -228,7 +229,7 @@ function PropertyCard({
                 alt="Distance"
                 style={{ marginRight: '10px' }}
               />
-              &nbsp;1.2 mi
+              &nbsp;{distance}
             </Bike>
           </Column>
         </Row>
@@ -253,6 +254,7 @@ PropertyCard.propTypes = {
   max_baths: PropTypes.number,
   baths: PropTypes.number,
   contact_for_pricing: PropTypes.bool,
+  distance: PropTypes.number,
   savedProperties: PropTypes.array,
   type: PropTypes.string,
   onPropertyHover: PropTypes.func,
