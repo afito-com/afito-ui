@@ -7,7 +7,9 @@ import { Text } from '../Typography';
 
 const QTY_BLOCK_WIDTH = 10;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div``;
+
+const RangeContainer = styled.div`
   display: flex;
   align-items: flex-end;
   height: 100px;
@@ -208,8 +210,8 @@ function Range({ items, onRangeChange, ...rest }) {
     else freqs[sorted[i]] = 1;
 
   return (
-    <>
-      <Wrapper {...rest}>
+    <Wrapper {...rest}>
+      <RangeContainer>
         <Distribution>
           {sorted
             .filter((el, i, a) => i === a.indexOf(el))
@@ -236,7 +238,7 @@ function Range({ items, onRangeChange, ...rest }) {
           }}
           onChangeComplete={onRangeChange}
         />
-      </Wrapper>
+      </RangeContainer>
       <Row justify="space-between" style={{ marginTop: '25px' }}>
         <Tooltip>
           <Text>${value.min}</Text>
@@ -245,7 +247,7 @@ function Range({ items, onRangeChange, ...rest }) {
           <Text>${value.max}</Text>
         </Tooltip>
       </Row>
-    </>
+    </Wrapper>
   );
 }
 
