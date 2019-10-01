@@ -189,6 +189,7 @@ const Tooltip = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
 `;
 
 function Range({ items, onRangeChange, ...rest }) {
