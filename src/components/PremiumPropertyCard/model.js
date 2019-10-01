@@ -57,6 +57,7 @@ const tests = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQitSc_So_fiflxnusMnLDQAjsBMNAg6vd7tRhsB8eylsiQ7GFdbw',
     area_location: { lat: 40.50016129999999, lng: -74.4492973 },
     floorplans: [],
+    distance: 861.9339891,
     rank: '157'
   },
   {
@@ -74,6 +75,7 @@ const tests = [
     baths: null,
     parking: true,
     price: null,
+    distance: 861.93398915,
     hometype: 'building',
     images: '[]',
     max_occupancy: null,

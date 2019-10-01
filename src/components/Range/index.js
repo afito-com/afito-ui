@@ -167,6 +167,7 @@ const Distribution = styled.div`
 
 const QuantityBlock = styled.div`
   height: ${props => `${props.height * 15}px`};
+  max-height: 65px;
   width: 10px;
   background: #e1e7eb;
   position: absolute;
