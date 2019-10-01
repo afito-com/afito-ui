@@ -29,11 +29,11 @@ const Radio = styled.label`
   }
 `;
 
-function RadioGroup({ items = [], name, onSelectionChange }) {
+function RadioGroup({ items = [], name, onSelectionChange, ...rest }) {
   const [selected, setSelected] = useState();
 
   return (
-    <Wrapper onChange={onSelectionChange}>
+    <Wrapper onChange={onSelectionChange} {...rest}>
       {items.map((item, index) => {
         return (
           <Radio selected={selected === index} onClick={() => setSelected(index)}>
