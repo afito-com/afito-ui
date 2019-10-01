@@ -178,16 +178,17 @@ const QuantityBlock = styled.div`
 `;
 
 const Tooltip = styled.div`
-  background: white;
-  box-shadow: 0px 4px 7.6px 0.4px rgba(20, 75, 157, 0.24);
-  border-radius: 4px;
-  padding: 10px 20px;
   color: #334150;
-  font-family: ${props => props.theme.AFITO_UI.inputRangeFontFamily};
-  font-weight: bold;
-  font-size: ${props => props.theme.AFITO_UI.inputRangeLabelFontSize};
-  transform: translateZ(0);
-  white-space: nowrap;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(217, 226, 229);
+  border-radius: 4px;
+  background-color: white;
+  width: 80px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 function Range({ items, onRangeChange, ...rest }) {
