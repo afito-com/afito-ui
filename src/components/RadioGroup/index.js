@@ -36,7 +36,7 @@ function RadioGroup({ items = [], name, onSelectionChange, ...rest }) {
     <Wrapper onChange={onSelectionChange} {...rest}>
       {items.map((item, index) => {
         return (
-          <Radio selected={selected === index} onClick={() => setSelected(index)}>
+          <Radio key={item.value + '_' + index} selected={selected === index} onClick={() => setSelected(index)}>
             <input type="radio" name={name} value={item.value} />
             {item.label}
           </Radio>
