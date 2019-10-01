@@ -20,7 +20,7 @@ const Wrapper = styled.div`
     cursor: pointer;
     display: block;
     height: 25px;
-    margin-left: -8px;
+    margin-left: -12.5px;
     margin-top: -17px;
     outline: none;
     position: absolute;
