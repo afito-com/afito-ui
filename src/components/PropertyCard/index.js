@@ -160,8 +160,8 @@ function PropertyCard({
     ? utils.toCurrency(price)
     : 'No Price';
   const cardTitle = property_name ? property_name : address.line1;
-  const bedsRange = max_beds > min_beds ? `${min_beds} - ${max_beds}` : max_beds;
-  const bathsRange = max_baths > min_baths ? `${min_baths} - ${max_baths}` : max_baths;
+  const bedsRange = max_beds > min_beds ? `${min_beds}-${max_beds}` : max_beds;
+  const bathsRange = max_baths > min_baths ? `${min_baths}-${max_baths}` : max_baths;
   const fullAddress = (
     <>
       <span style={{ whiteSpace: 'nowrap' }}>
@@ -229,7 +229,7 @@ function PropertyCard({
                 alt="Distance"
                 style={{ marginRight: '10px' }}
               />
-              &nbsp;{Number.parseFloat(distance).toFixed(1)}
+              &nbsp;{Number.parseFloat(distance).toFixed(1)} mi
             </Bike>
           </Column>
         </Row>

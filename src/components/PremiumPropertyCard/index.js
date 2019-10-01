@@ -313,7 +313,7 @@ function PremiumPropertyCard({
                   src="https://afito-production-bucket.s3.amazonaws.com/static/static/icons/bicycle.png"
                   alt="Distance"
                 />
-                {Number.parseFloat(distance).toFixed(1)}
+                {Number.parseFloat(distance).toFixed(1)} mi
               </Distance>
             </Features>
           </Column>
