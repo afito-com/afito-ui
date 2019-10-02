@@ -7,7 +7,9 @@ import { Text } from '../Typography';
 
 const QTY_BLOCK_WIDTH = 10;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
 const RangeContainer = styled.div`
   display: flex;
