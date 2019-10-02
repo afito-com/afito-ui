@@ -24,7 +24,7 @@ storiesOf('FormButton', module).add('default', () => {
               name="email"
               label="Enter valid email"
               placeholder="Enter valid email"
-              nolabel
+              hideLabel
               validations={[valid.email]}
             />
             <FormButton type="submit" level="secondary">

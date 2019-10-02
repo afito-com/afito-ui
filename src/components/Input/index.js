@@ -3,9 +3,9 @@ import { control } from 'react-validation';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const ValidationWrapper = control(({ error, isChanged, isUsed, name, nolabel, label, ...rest }) => (
+const ValidationWrapper = control(({ error, isChanged, isUsed, name, hideLabel, label, ...rest }) => (
   <>
-    <Label style={nolabel ? { display: 'none' } : { textTransform: 'capitalize' }} htmlFor={name}>
+    <Label style={hideLabel ? { display: 'none' } : { textTransform: 'capitalize' }} htmlFor={name}>
       {label}
     </Label>
     <Input id={name} name={name} {...rest} />

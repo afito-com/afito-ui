@@ -47,7 +47,7 @@ storiesOf('Select', module)
   .add('no label', () => {
     return (
       <Form>
-        <Select nolabel name="beds" label="Beds" onChange={action('change')}>
+        <Select hideLabel name="beds" label="Beds" onChange={action('change')}>
           <option value="" disabled>
             Beds
           </option>

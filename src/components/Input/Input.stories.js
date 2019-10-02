@@ -26,7 +26,7 @@ storiesOf('Input', module)
                 name="school"
                 label="Enter school name"
                 placeholder="Enter school name"
-                nolabel
+                hideLabel
               />
             </Form>
           </Column>
@@ -53,7 +53,7 @@ storiesOf('Input', module)
                 placeholder="Email"
                 name="email"
                 label="Email*"
-                nolabel
+                hideLabel
               />
               <Button level="primary" type="submit">
                 Submit

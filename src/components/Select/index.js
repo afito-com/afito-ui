@@ -3,9 +3,9 @@ import { control } from 'react-validation';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const SelectWrapper = control(({ error, isChanged, isUsed, name, label, nolabel, ...rest }) => (
+const SelectWrapper = control(({ error, isChanged, isUsed, name, label, hideLabel, ...rest }) => (
   <>
-    <Label style={nolabel ? { display: 'none' } : { textTransform: 'capitalize' }} htmlFor={name}>
+    <Label style={hideLabel ? { display: 'none' } : { textTransform: 'capitalize' }} htmlFor={name}>
       {label}
     </Label>
     <Select id={name} name={name} {...rest} />
