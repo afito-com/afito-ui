@@ -11,6 +11,7 @@ const ValidationWrapper = control(({ error, isChanged, isUsed, ...rest }) => (
 ));
 
 const Textarea = styled.textarea`
+  margin: 5px 0;
   box-sizing: border-box;
   border-radius: 4px;
   background-color: white; /*rgb(241, 244, 246);*/
