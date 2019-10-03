@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { usePrevious } from '../../utils';
@@ -31,7 +31,7 @@ const Image = styled.img`
   margin-right: ${() => `${IMAGE_MARGIN}px`};
   width: ${props => `${props.width}px`};
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `;
 const Arrow = styled.div`
   background: white;
@@ -84,14 +84,28 @@ const Thumbnail = styled.img`
   }
 `;
 
-function ImageGallery({ images, width, height, loop }) {
+function ImageGallery({ images, height, loop }) {
   const THUMBNAIL_WIDTH = 50 + IMAGE_MARGIN;
   const [curr, setCurr] = useState(0);
   const prev = usePrevious(curr);
   const [offset, setOffset] = useState();
   const [thumbnailOffset, setThumbnailOffset] = useState(0);
-
   const thumbnailSliderWidth = THUMBNAIL_WIDTH * images.length;
+  const wrapperElement = useRef();
+  const [width, h] = useWrapperSize();
+
+  function useWrapperSize() {
+    let [size, setSize] = useState([0, 0]);
+    useLayoutEffect(() => {
+      function updateSize() {
+        setSize([wrapperElement.current.offsetWidth, wrapperElement.current.innerHeight]);
+      }
+      window.addEventListener('resize', updateSize);
+      updateSize();
+      return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    return size;
+  }
 
   useEffect(() => {
     setOffset(curr * (width + IMAGE_MARGIN));
@@ -123,10 +137,10 @@ function ImageGallery({ images, width, height, loop }) {
         setThumbnailOffset(thumbnailOffset - THUMBNAIL_WIDTH);
       }
     }
-  }, [curr]);
+  }, [curr, width]);
 
   return (
-    <GalleryWrapper>
+    <GalleryWrapper ref={wrapperElement}>
       <ImageWrapper height={height}>
         <Images offset={offset} width={width}>
           {images.map((img, idx) => {
