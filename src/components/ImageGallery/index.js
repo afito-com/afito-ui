@@ -22,7 +22,7 @@ const Images = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  transition: left 0.2s cubic-bezier(0.3, 0, 0.45, 1);
+  transition: transform 0.2s cubic-bezier(0.3, 0, 0.45, 1);
 `;
 const Image = styled.img`
   margin-right: ${() => `${IMAGE_MARGIN}px`};
