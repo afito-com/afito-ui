@@ -16,11 +16,8 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 const Images = styled.div`
-  /*position: absolute;*/
-  top: 0;
-  bottom: 0;
-  left: ${props =>
-    props.offset ? `calc(50% - ${props.width / 2 / 2}px - ${props.offset}px)` : `calc(50% - ${props.width / 2 / 2}px)`};
+  transform: ${props =>
+    props.offset ? `translateX(${props.width / 2 / 2 - props.offset}px)` : `translateX(${props.width / 2 / 2}px)`};
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -84,7 +81,7 @@ const Thumbnail = styled.img`
   }
 `;
 
-function ImageGallery({ images, height, loop }) {
+function ImageGallery({ images, loop }) {
   const THUMBNAIL_WIDTH = 50 + IMAGE_MARGIN;
   const [curr, setCurr] = useState(0);
   const prev = usePrevious(curr);
@@ -141,7 +138,7 @@ function ImageGallery({ images, height, loop }) {
 
   return (
     <GalleryWrapper ref={wrapperElement}>
-      <ImageWrapper height={height}>
+      <ImageWrapper>
         <Images offset={offset} width={width}>
           {images.map((img, idx) => {
             return <Image key={`Image_${idx}`} width={width} src={img} />;
