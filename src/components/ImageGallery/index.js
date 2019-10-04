@@ -12,15 +12,15 @@ const ImageWrapper = styled.div`
   overflow-x: hidden;
   white-space: nowrap;
   width: 100%;
-  height: ${props => `${props.height}px`};
+  /*height: ${props => `${props.height}px`};*/
   position: relative;
 `;
 const Images = styled.div`
-  position: absolute;
+  /*position: absolute;*/
   top: 0;
   bottom: 0;
   left: ${props =>
-    props.offset ? `calc(50% - ${props.width / 2}px - ${props.offset}px)` : `calc(50% - ${props.width / 2}px)`};
+    props.offset ? `calc(50% - ${props.width / 2 / 2}px - ${props.offset}px)` : `calc(50% - ${props.width / 2 / 2}px)`};
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,9 +29,9 @@ const Images = styled.div`
 `;
 const Image = styled.img`
   margin-right: ${() => `${IMAGE_MARGIN}px`};
-  width: ${props => `${props.width}px`};
+  width: ${props => `${props.width / 2}px`};
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 `;
 const Arrow = styled.div`
   background: white;
