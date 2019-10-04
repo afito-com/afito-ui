@@ -177,8 +177,6 @@ function ImageGallery({ images, loop }) {
 
 ImageGallery.propTypes = {
   images: PropTypes.array.isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
   loop: PropTypes.bool
 };
 
