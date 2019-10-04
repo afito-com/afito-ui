@@ -21,14 +21,32 @@ const Images = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
   transition: transform 0.2s cubic-bezier(0.3, 0, 0.45, 1);
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    transform: ${props => (props.offset ? `translateX(-${props.offset}px)` : `translateX(0px)`)};
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+    transform: ${props =>
+      props.offset
+        ? `translateX(${props.width / 2 / 2 - props.offset / 2}px)`
+        : `translateX(${props.width / 2 / 2}px)`};
+  }
 `;
 const Image = styled.img`
   margin-right: ${() => `${IMAGE_MARGIN}px`};
-  width: ${props => `${props.width / 2}px`};
-  height: 100%;
   object-fit: cover;
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    height: 230px;
+    min-width: ${props => `${props.width}px`};
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+    height: 475px;
+    min-width: ${props => `${props.width / 2}px`};
+  }
 `;
 const Arrow = styled.div`
   background: white;
