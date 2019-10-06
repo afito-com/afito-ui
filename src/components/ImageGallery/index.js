@@ -34,6 +34,7 @@ const Images = styled.div`
         : `translateX(${props.width / 2 / 2}px)`};
   }
 `;
+
 const Image = styled.img`
   margin-right: ${() => `${IMAGE_MARGIN}px`};
   object-fit: cover;
@@ -45,9 +46,13 @@ const Image = styled.img`
 
   @media (min-width: ${props => props.theme.AFITO_UI.md}) {
     height: 475px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.lg}) {
     min-width: ${props => `${props.width / 2}px`};
   }
 `;
+
 const Arrow = styled.div`
   background: white;
   border-radius: 50%;

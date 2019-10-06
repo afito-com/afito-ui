@@ -30,7 +30,7 @@ const theme = {
   gridSmWidth: '100%',
   gridMdWidth: '900px',
   gridLgWidth: '1050px',
-  gridXlWidth: '1050px',
+  gridXlWidth: '1150px',
   gridXxlWidth: '1521px',
 
   gutterXs: '18px',
