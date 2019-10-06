@@ -104,7 +104,7 @@ const Thumbnail = styled.img`
   }
 `;
 
-function ImageGallery({ images, loop }) {
+function ImageGallery({ images, loop, onImageClick }) {
   const THUMBNAIL_WIDTH = 50 + IMAGE_MARGIN;
   const [curr, setCurr] = useState(0);
   const prev = usePrevious(curr);
@@ -112,17 +112,19 @@ function ImageGallery({ images, loop }) {
   const [thumbnailOffset, setThumbnailOffset] = useState(0);
   const thumbnailSliderWidth = THUMBNAIL_WIDTH * images.length;
   const wrapperElement = useRef();
-  const [width, h] = useWrapperSize();
+  const width = useWrapperWidth();
 
-  function useWrapperSize() {
-    let [size, setSize] = useState([0, 0]);
-    useLayoutEffect(() => {
-      function updateSize() {
-        setSize([wrapperElement.current.offsetWidth, wrapperElement.current.innerHeight]);
+  function useWrapperWidth() {
+    let [size, setSize] = useState(0);
+    useEffect(() => {
+      function updateWidth() {
+        setSize(wrapperElement.current.offsetWidth);
       }
-      window.addEventListener('resize', updateSize);
-      updateSize();
-      return () => window.removeEventListener('resize', updateSize);
+
+      window.addEventListener('resize', updateWidth);
+      updateWidth();
+
+      return () => window.removeEventListener('resize', updateWidth);
     }, []);
     return size;
   }
@@ -164,7 +166,7 @@ function ImageGallery({ images, loop }) {
       <ImageWrapper>
         <Images offset={offset} width={width}>
           {images.map((img, idx) => {
-            return <Image key={`Image_${idx}`} width={width} src={img} />;
+            return <Image onClick={() => onImageClick(idx)} key={`Image_${idx}`} width={width} src={img} />;
           })}
         </Images>
         <Controls>
@@ -200,7 +202,8 @@ function ImageGallery({ images, loop }) {
 
 ImageGallery.propTypes = {
   images: PropTypes.array.isRequired,
-  loop: PropTypes.bool
+  loop: PropTypes.bool,
+  onImageClick: PropTypes.func
 };
 
 export default ImageGallery;
