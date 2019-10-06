@@ -23,6 +23,7 @@ const Container = styled.div`
     margin: 0 ${props => props.theme.AFITO_UI.gutterLg};
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.xl}) {
+    width: 100%;
     max-width: ${props => props.theme.AFITO_UI.gridXlWidth};
     margin: 0 ${props => props.theme.AFITO_UI.gutterXl};
   }
