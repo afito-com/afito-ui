@@ -129,7 +129,7 @@ function Lightbox({ images, open }) {
           <ThumbnailWrapper>
             <Thumbnails offset={thumbnailOffset}>
               {images.map((img, idx) => (
-                <Thumbnail src={img} active={idx === curr} onClick={() => setCurr(idx)} />
+                <Thumbnail key={img + '_' + idx} src={img} active={idx === curr} onClick={() => setCurr(idx)} />
               ))}
             </Thumbnails>
           </ThumbnailWrapper>
