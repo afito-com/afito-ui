@@ -166,7 +166,17 @@ function ImageGallery({ images, loop, onImageClick }) {
       <ImageWrapper>
         <Images offset={offset} width={width}>
           {images.map((img, idx) => {
-            return <Image onClick={() => onImageClick(idx)} key={`Image_${idx}`} width={width} src={img} />;
+            return (
+              <Image
+                onClick={() => {
+                  console.log('in image');
+                  onImageClick(idx);
+                }}
+                key={`Image_${idx}`}
+                width={width}
+                src={img}
+              />
+            );
           })}
         </Images>
         <Controls>
