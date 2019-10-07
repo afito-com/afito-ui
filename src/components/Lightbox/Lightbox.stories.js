@@ -32,5 +32,5 @@ storiesOf('Lightbox', module).add('default', () => {
     'https://via.placeholder.com/1200x100'
   ];
 
-  return <Lightbox images={images} open={true} defaultImageIdx={25} />;
+  return <Lightbox images={images} isOpen={true} onClose={() => console.log('closed')} defaultImageIdx={25} />;
 });

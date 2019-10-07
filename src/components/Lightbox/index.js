@@ -81,8 +81,7 @@ const Arrow = styled.div`
   box-shadow: 0px 5px 8.55px 0.45px rgba(0, 0, 0, 0.16);
 `;
 
-function Lightbox({ images, open, defaultImageIdx = 0 }) {
-  const [isOpen, setIsOpen] = useState(open);
+function Lightbox({ images, isOpen, onClose, defaultImageIdx = 0 }) {
   const [curr, setCurr] = useState(defaultImageIdx);
   const [thumbnailOffset, setThumbnailOffset] = useState(0);
   const report = `${curr + 1} / ${images.length}`;
@@ -95,7 +94,7 @@ function Lightbox({ images, open, defaultImageIdx = 0 }) {
     <Wrapper isOpen={isOpen}>
       <Row>
         <Column xs={12} align="flex-end" style={{ paddingRight: '66px' }}>
-          <CloseButton onClick={() => setIsOpen(false)}>
+          <CloseButton onClick={onClose}>
             <i className="fas fa-lg fa-times"></i>
           </CloseButton>
         </Column>
@@ -146,6 +145,7 @@ function Lightbox({ images, open, defaultImageIdx = 0 }) {
 Lightbox.propTypes = {
   images: PropTypes.array.isRequired,
   open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
   defaultImageIdx: function(props, propName, componentName) {
     const val = props[propName];
     if (val === undefined) return;

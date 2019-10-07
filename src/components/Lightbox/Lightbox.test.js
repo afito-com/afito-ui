@@ -35,7 +35,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <ThemeProvider>
-      <Lightbox images={images} open={true} />
+      <Lightbox images={images} isOpen={true} />
     </ThemeProvider>,
     div
   );
@@ -46,7 +46,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <ThemeProvider>
-      <Lightbox images={images} open={false} defaultImageIdx={0} />
+      <Lightbox images={images} isOpen={false} defaultImageIdx={0} />
     </ThemeProvider>,
     div
   );
@@ -57,7 +57,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <ThemeProvider>
-      <Lightbox images={images} open={false} defaultImageIdx={1} />
+      <Lightbox images={images} isOpen={false} defaultImageIdx={1} />
     </ThemeProvider>,
     div
   );
