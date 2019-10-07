@@ -23,3 +23,4 @@ export { default as Table } from './Table';
 export { default as SignInForm } from './SignInForm';
 export { default as SignUpWizard } from './SignUpWizard';
 export { default as LoginModal } from './LoginModal';
+export { default as Lightbox } from './Lightbox';
