@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   background: white;
   position: fixed;
+  top: 0;
   width: 100%;
   height: 100%;
   padding: 50px 0;
@@ -85,6 +86,8 @@ function Lightbox({ images, isOpen, onClose, defaultImageIdx = 0 }) {
   const [curr, setCurr] = useState(defaultImageIdx);
   const [thumbnailOffset, setThumbnailOffset] = useState(0);
   const report = `${curr + 1} / ${images.length}`;
+
+  console.log(isOpen);
 
   useEffect(() => {
     setThumbnailOffset(curr * (75 + 16));
