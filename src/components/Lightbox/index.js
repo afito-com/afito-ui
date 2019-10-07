@@ -81,9 +81,9 @@ const Arrow = styled.div`
   box-shadow: 0px 5px 8.55px 0.45px rgba(0, 0, 0, 0.16);
 `;
 
-function Lightbox({ images, open }) {
+function Lightbox({ images, open, defaultImageIdx = 0 }) {
   const [isOpen, setIsOpen] = useState(open);
-  const [curr, setCurr] = useState(0);
+  const [curr, setCurr] = useState(defaultImageIdx);
   const [thumbnailOffset, setThumbnailOffset] = useState(0);
   const report = `${curr + 1} / ${images.length}`;
 
@@ -145,7 +145,17 @@ function Lightbox({ images, open }) {
 
 Lightbox.propTypes = {
   images: PropTypes.array.isRequired,
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool.isRequired,
+  defaultImageIdx: function(props, propName, componentName) {
+    const val = props[propName];
+    if (typeof val !== 'number') {
+      return new Error(`${propName} must be an integer`);
+    }
+
+    if (val > props['images'].length - 1) {
+      return new Error(`${propName} must be a number between 0 and ${props['images'].length - 1}`);
+    }
+  }
 };
 
 export default Lightbox;
