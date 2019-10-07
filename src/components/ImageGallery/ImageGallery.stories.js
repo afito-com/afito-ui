@@ -31,5 +31,5 @@ storiesOf('ImageGallery', module).add('default', () => {
     'https://via.placeholder.com/1200x100'
   ];
 
-  return <ImageGallery loop images={images} />;
+  return <ImageGallery loop images={images} onImageClick={idx => console.log(idx)} />;
 });

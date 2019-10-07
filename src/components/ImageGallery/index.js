@@ -38,6 +38,7 @@ const Images = styled.div`
 const Image = styled.img`
   margin-right: ${() => `${IMAGE_MARGIN}px`};
   object-fit: cover;
+  cursor: pointer;
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
     height: 230px;
@@ -66,13 +67,19 @@ const Arrow = styled.div`
   box-shadow: 0px 5px 8.55px 0.45px rgba(0, 0, 0, 0.16);
 `;
 const Controls = styled.div`
-  width: 100%;
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  pointer-events: none;
   position: absolute;
   top: 0;
   bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & ${Arrow} {
+    pointer-events: auto;
+  }
 `;
 const ThumbnailWrapper = styled.div`
   overflow-x: hidden;
@@ -169,7 +176,6 @@ function ImageGallery({ images, loop, onImageClick }) {
             return (
               <Image
                 onClick={() => {
-                  console.log('in image');
                   onImageClick(idx);
                 }}
                 key={`Image_${idx}`}
