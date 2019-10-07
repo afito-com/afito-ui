@@ -144,7 +144,7 @@ function Lightbox({ images, isOpen, onClose, defaultImageIdx = 0 }) {
 
 Lightbox.propTypes = {
   images: PropTypes.array.isRequired,
-  open: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   defaultImageIdx: function(props, propName, componentName) {
     const val = props[propName];
