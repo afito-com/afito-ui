@@ -148,6 +148,8 @@ Lightbox.propTypes = {
   open: PropTypes.bool.isRequired,
   defaultImageIdx: function(props, propName, componentName) {
     const val = props[propName];
+    if (val === undefined) return;
+
     if (typeof val !== 'number') {
       return new Error(`${propName} must be an integer`);
     }
