@@ -3,12 +3,32 @@ import { control } from 'react-validation';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const ValidationWrapper = control(({ error, isChanged, isUsed, ...rest }) => (
+const visuallyHiddenStyles = {
+  border: 0,
+  clip: 'rect(0 0 0 0)',
+  height: '1px',
+  margin: '-1px',
+  overflow: 'hidden',
+  padding: 0,
+  position: 'absolute',
+  width: '1px'
+};
+
+const ValidationWrapper = control(({ error, isChanged, isUsed, name, hideLabel, label, ...rest }) => (
   <>
-    <Textarea {...rest} />
+    <Label style={hideLabel ? visuallyHiddenStyles : { textTransform: 'capitalize' }} htmlFor={name}>
+      {label}
+    </Label>
+    <Textarea id={name} name={name} {...rest} />
     {isChanged && isUsed && error}
   </>
 ));
+
+const Label = styled.label`
+  font-size: 14px;
+  font-weight: 700;
+  font-family: ${props => props.theme.AFITO_UI.bodyFont};
+`;
 
 const Textarea = styled.textarea`
   margin: 5px 0;
@@ -28,6 +48,8 @@ const Textarea = styled.textarea`
   }
 `;
 
-Textarea.propTypes = {};
+Textarea.propTypes = {
+  name: PropTypes.string.isRequired
+};
 
-export default Textarea;
+export default ValidationWrapper;
