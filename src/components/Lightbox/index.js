@@ -103,7 +103,7 @@ function Lightbox({ images, isOpen, onClose, defaultImageIdx = 0 }) {
       <Row align="flex-start">
         <Column xs={12} sm={7}>
           <MainImageWrapper>
-            <MainImage src={images[curr]} />
+            <MainImage src={images[curr]} alt="Main Image" />
             <Controls>
               <Arrow
                 onClick={() => {
@@ -128,7 +128,13 @@ function Lightbox({ images, isOpen, onClose, defaultImageIdx = 0 }) {
           <ThumbnailWrapper>
             <Thumbnails offset={thumbnailOffset}>
               {images.map((img, idx) => (
-                <Thumbnail key={img + '_' + idx} src={img} active={idx === curr} onClick={() => setCurr(idx)} />
+                <Thumbnail
+                  key={img + '_' + idx}
+                  src={img}
+                  alt={`Thumbnail #${idx}`}
+                  active={idx === curr}
+                  onClick={() => setCurr(idx)}
+                />
               ))}
             </Thumbnails>
           </ThumbnailWrapper>

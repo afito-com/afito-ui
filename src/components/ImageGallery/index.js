@@ -181,6 +181,7 @@ function ImageGallery({ images, loop, onImageClick }) {
                 key={`Image_${idx}`}
                 width={width}
                 src={img}
+                alt={`Image #${idx}`}
               />
             );
           })}
@@ -208,7 +209,15 @@ function ImageGallery({ images, loop, onImageClick }) {
       <ThumbnailWrapper>
         <Thumbnails offset={thumbnailOffset}>
           {images.map((img, idx) => {
-            return <Thumbnail key={`Thumbnail_${idx}`} active={curr === idx} onClick={() => setCurr(idx)} src={img} />;
+            return (
+              <Thumbnail
+                key={`Thumbnail_${idx}`}
+                active={curr === idx}
+                onClick={() => setCurr(idx)}
+                src={img}
+                alt={`Thumbnail #${idx}`}
+              />
+            );
           })}
         </Thumbnails>
       </ThumbnailWrapper>
