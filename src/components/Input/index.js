@@ -3,9 +3,20 @@ import { control } from 'react-validation';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const visuallyHiddenStyles = {
+  border: 0,
+  clip: 'rect(0 0 0 0)',
+  height: '1px',
+  margin: '-1px',
+  overflow: 'hidden',
+  padding: 0,
+  position: 'absolute',
+  width: '1px'
+};
+
 const ValidationWrapper = control(({ error, isChanged, isUsed, name, hideLabel, label, ...rest }) => (
   <>
-    <Label style={hideLabel ? { display: 'none' } : { textTransform: 'capitalize' }} htmlFor={name}>
+    <Label style={hideLabel ? visuallyHiddenStyles : { textTransform: 'capitalize' }} htmlFor={name}>
       {label}
     </Label>
     <Input id={name} name={name} {...rest} />
