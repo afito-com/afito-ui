@@ -316,7 +316,7 @@ function PremiumPropertyCard({
           </Column>
         </Row>
       </Content>
-      <Image image={image_url} />
+      <Image image={image_url} alt={cardTitle} />
       <Overlay />
     </Wrapper>
   );
