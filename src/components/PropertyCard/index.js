@@ -179,7 +179,7 @@ function PropertyCard({
 
   return (
     <Wrapper type={type} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} {...rest}>
-      <Image src={image_url} />
+      <Image src={image_url} alt={cardTitle} />
       <Description>
         <Row style={{ marginBottom: '25px' }}>
           <Column xs={8} align="flex-start">
