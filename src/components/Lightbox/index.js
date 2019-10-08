@@ -87,8 +87,6 @@ function Lightbox({ images, isOpen, onClose, defaultImageIdx = 0 }) {
   const [thumbnailOffset, setThumbnailOffset] = useState(0);
   const report = `${curr + 1} / ${images.length}`;
 
-  console.log(isOpen);
-
   useEffect(() => {
     setThumbnailOffset(curr * (75 + 16));
   }, [curr]);

@@ -20,16 +20,19 @@ const Container = styled.div`
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.lg}) {
     max-width: ${props => props.theme.AFITO_UI.gridLgWidth};
-    margin: 0 ${props => props.theme.AFITO_UI.gutterLg};
+    margin: 0 auto;
+    padding: 0 ${props => props.theme.AFITO_UI.gutterLg};
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.xl}) {
     width: 100%;
     max-width: ${props => props.theme.AFITO_UI.gridXlWidth};
-    margin: 0 ${props => props.theme.AFITO_UI.gutterXl};
+    margin: 0 auto;
+    padding: 0 ${props => props.theme.AFITO_UI.gutterXl};
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.xxl}) {
     max-width: ${props => props.theme.AFITO_UI.gridXxlWidth};
-    margin: 0 ${props => props.theme.AFITO_UI.gutterXxl};
+    margin: 0 auto;
+    padding: 0 ${props => props.theme.AFITO_UI.gutterXxl};
   }
 `;
 
