@@ -222,15 +222,17 @@ function PropertyCard({
             </Baths>
           </Column>
           <Column xs={4} align="flex-start">
-            <Bike>
-              <img
-                height="19"
-                src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle_grey.png"
-                alt="Distance"
-                style={{ marginRight: '10px' }}
-              />
-              &nbsp;{Number.parseFloat(distance).toFixed(1)} mi
-            </Bike>
+            {Number.parseFloat(distance) && (
+              <Bike>
+                <img
+                  height="19"
+                  src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle_grey.png"
+                  alt="Distance"
+                  style={{ marginRight: '10px' }}
+                />
+                &nbsp;{Number.parseFloat(distance).toFixed(1)} mi
+              </Bike>
+            )}
           </Column>
         </Row>
       </Description>

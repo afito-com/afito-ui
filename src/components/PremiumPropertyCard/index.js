@@ -309,8 +309,15 @@ function PremiumPropertyCard({
                 {bathsRange ? bathsRange : baths}
               </Baths>
               <Distance>
-                <img src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle.png" alt="Distance" />
-                {Number.parseFloat(distance).toFixed(1)} mi
+                {Number.parseFloat(distance) && (
+                  <>
+                    <img
+                      src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle.png"
+                      alt="Distance"
+                    />
+                    {Number.parseFloat(distance).toFixed(1)} mi
+                  </>
+                )}
               </Distance>
             </Features>
           </Column>
