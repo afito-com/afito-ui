@@ -121,10 +121,11 @@ function Searchbox({ items, name, placeholder, label, hideLabel, onItemClick, ..
           placeholder={placeholder}
           value={inputValue}
           onFocus={() => setDropdownVisible(true)}
-          onBlur={
-            () => {} //setDropdownVisible(false)
-          }
+          onBlur={() => {
+            setDropdownVisible(false);
+          }}
           onChange={e => {
+            if (!dropdownVisible) setDropdownVisible(true);
             setInputValue(e.target.value);
           }}
         />
@@ -135,7 +136,8 @@ function Searchbox({ items, name, placeholder, label, hideLabel, onItemClick, ..
               .map((i, idx) => (
                 <Item
                   key={i.value + '_' + idx}
-                  onClick={e => {
+                  onMouseDown={e => {
+                    e.preventDefault();
                     e.stopPropagation();
                     setInputValue(i.name);
                     setDropdownVisible(false);
