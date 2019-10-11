@@ -222,7 +222,7 @@ function PropertyCard({
             </Baths>
           </Column>
           <Column xs={4} align="flex-start">
-            {Number.parseFloat(distance) && (
+            {distance && Number.parseFloat(distance) !== NaN && (
               <Bike>
                 <img
                   height="19"
