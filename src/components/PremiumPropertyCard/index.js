@@ -309,7 +309,7 @@ function PremiumPropertyCard({
                 {bathsRange ? bathsRange : baths}
               </Baths>
               <Distance>
-                {Number.parseFloat(distance) && (
+                {Number.parseFloat(distance) !== NaN && (
                   <>
                     <img
                       src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle.png"
