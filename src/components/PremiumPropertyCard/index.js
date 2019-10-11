@@ -6,30 +6,6 @@ import { Heading, Text } from '../Typography';
 import { ModalContext } from '../ModalProvider';
 import * as utils from '../../utils';
 
-const Wrapper = styled.div`
-  width: 100%;
-  margin: 5px 0;
-  position: relative;
-  display: inline-block;
-  background-color: ${props => props.theme.AFITO_UI.backgroundColor};
-  cursor: pointer;
-  box-sizing: border-box;
-  box-shadow: ${props => props.theme.AFITO_UI.cardShadow};
-  border-radius: 8px;
-  background-color: ${props => props.theme.AFITO_UI.cardBackgroundColor};
-  color: ${props => props.theme.AFITO_UI.backgroundTextColor};
-  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-
-  &:hover {
-    box-shadow: ${props => props.theme.AFITO_UI.cardShadowHover};
-    transform: translateY(-1px);
-  }
-
-  & + & {
-    margin-left: 15px;
-  }
-`;
-
 const Image = styled.div`
   padding: 20px;
   max-height: 303px;
@@ -43,6 +19,33 @@ const Image = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(${props => props.image});
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  margin: 5px 0;
+  position: relative;
+  display: inline-block;
+  background-color: ${props => props.theme.AFITO_UI.backgroundColor};
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: ${props => props.theme.AFITO_UI.cardShadow};
+  border-radius: 8px;
+  background-color: ${props => props.theme.AFITO_UI.cardBackgroundColor};
+  color: ${props => props.theme.AFITO_UI.backgroundTextColor};
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+    & ${Image} {
+      transform: scale(1.05);
+    }
+  }
+
+  & + & {
+    margin-left: 15px;
+  }
 `;
 
 const Description = styled.div`
@@ -309,7 +312,7 @@ function PremiumPropertyCard({
                 {bathsRange ? bathsRange : baths}
               </Baths>
               <Distance>
-                {Number.parseFloat(distance) !== NaN && (
+                {distance && Number.parseFloat(distance) !== NaN && (
                   <>
                     <img
                       src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle.png"
