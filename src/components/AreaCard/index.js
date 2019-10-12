@@ -12,7 +12,7 @@ const Image = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(${props => props.image});
-  transition: transform 0.15s ease-in-out;
+  transition: transform 0.25s ease-in-out;
 `;
 
 const Wrapper = styled.div`
