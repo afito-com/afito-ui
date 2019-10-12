@@ -3,6 +3,18 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Heading, Text } from '../Typography';
 
+const Image = styled.div`
+  height: 380px;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(${props => props.image});
+  transition: transform 0.15s ease-in-out;
+`;
+
 const Wrapper = styled.div`
   width: 100%;
   position: relative;
@@ -14,26 +26,22 @@ const Wrapper = styled.div`
   background-color: ${props => props.theme.AFITO_UI.cardBackgroundColor};
   color: ${props => props.theme.AFITO_UI.backgroundTextColor};
   transition: transform 0.15s ease-in-out, box-shadow 0.5s ease-in-out;
+  overflow: hidden;
 
   &:hover {
+    /*
     box-shadow: ${props => props.theme.AFITO_UI.cardShadowHover};
     transform: translateY(-1px);
+    */
+
+    & ${Image} {
+      transform: scale(1.05);
+    }
   }
 
   & + & {
     margin-left: 15px;
   }
-`;
-
-const Image = styled.div`
-  height: 380px;
-  overflow: hidden;
-  width: 100%;
-  border-radius: 8px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(${props => props.image});
 `;
 
 const Title = styled.div`
