@@ -9,6 +9,11 @@ const Wrapper = styled.div`
   margin-right: -30px;
   overflow-y: hidden;
   position: relative;
+
+  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const SliderContainer = styled(Container)`
@@ -27,32 +32,40 @@ const SliderContainer = styled(Container)`
     margin-right: auto;
   }
 `;
+
 const Arrow = styled.div`
   position: absolute;
-  width: 50px;
-  height: 50px;
   background: white;
-  box-shadow: ${props => props.theme.AFITO_UI.cardShadow};
   border-radius: 50%;
-  top: 35%;
-  cursor: pointer;
-  z-index: 1000;
-  display: none;
+  color: rgb(164, 164, 164);
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  box-shadow: 0px 5px 8.55px 0.45px rgba(0, 0, 0, 0.16);
+  top: 35%;
+  z-index: 1000;
 
-  ${props => props.left && 'left: 5px;'};
-  ${props => props.right && 'right: 5px;'};
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    ${props => props.left && 'left: 5px;'};
+    ${props => props.right && 'right: 5px;'};
+  }
 
   @media (min-width: ${props => props.theme.AFITO_UI.md}) {
     display: flex;
   }
 
   @media (min-width: ${props => props.theme.AFITO_UI.lg}) {
-    ${props => props.left && 'left: -60px;'};
-    ${props => props.right && 'right: -60px;'};
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xl}) {
+    ${props => props.left && 'left: -50px;'};
+    ${props => props.right && 'right: -50px;'};
   }
 `;
+
 const SliderWindowContainer = styled.div`
   display: flex;
   width: 100%;
@@ -69,6 +82,7 @@ const SliderWindowContainer = styled.div`
     margin-right: auto;
   }
 `;
+
 const SliderWindow = styled(Row)`
   width: 100%;
   display: flex;
