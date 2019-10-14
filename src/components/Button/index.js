@@ -35,7 +35,7 @@ const ButtonWrapper = styled.button`
   }
 
   &:focus {
-    outline: 0;
+    /*outline: 0;*/
   }
 
   & + & {
