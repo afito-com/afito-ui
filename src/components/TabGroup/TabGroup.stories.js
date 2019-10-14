@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import TabGroup from '.';
 import Tab from '../Tab';
 
-storiesOf('TabGroup', module).add('default', () => {
+storiesOf('Primitives|TabGroup', module).add('default', () => {
   const activeModalIndex = 1;
 
   return (

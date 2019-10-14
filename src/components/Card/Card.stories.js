@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import Card from '.';
 
-storiesOf('Card', module)
+storiesOf('Primitives|Card', module)
   .add('fixed', () => {
     return (
       <>

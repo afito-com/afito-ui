@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Slider from '.';
 import { Container, Row, Column } from '../Grid';
 
-storiesOf('Slider', module).add('default', () => {
+storiesOf('Composites|Slider', module).add('default', () => {
   return (
     <Slider itemsPerView={6}>
       <Column xs={2} style={{ border: '1px solid black', height: '200px' }}>

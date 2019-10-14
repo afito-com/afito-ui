@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { text, boolean, number } from '@storybook/addon-knobs';
 import Table from '.';
 
-storiesOf('Table', module).add('default', () => {
+storiesOf('Primitives|Table', module).add('default', () => {
   const floorplans = [
     {
       id: '1',

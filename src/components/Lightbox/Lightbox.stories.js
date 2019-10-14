@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Lightbox from '.';
 
-storiesOf('Lightbox', module).add('default', () => {
+storiesOf('Composites|Lightbox', module).add('default', () => {
   const images = [
     'https://via.placeholder.com/1400x960',
     'https://via.placeholder.com/1200x500',

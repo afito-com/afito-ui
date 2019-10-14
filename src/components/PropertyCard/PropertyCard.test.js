@@ -9,7 +9,11 @@ it('renders a building without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <ThemeProvider>
-      <PropertyCard {...models[0]} />
+      <PropertyCard
+        {...models[0]}
+        onSaveProperty={() => console.log('property saved')}
+        onRemoveSavedProperty={() => console.log('property unsaved')}
+      />
     </ThemeProvider>,
     div
   );
@@ -20,7 +24,11 @@ it('renders a property without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <ThemeProvider>
-      <PropertyCard {...models[1]} />
+      <PropertyCard
+        {...models[1]}
+        onSaveProperty={() => console.log('property saved')}
+        onRemoveSavedProperty={() => console.log('property unsaved')}
+      />
     </ThemeProvider>,
     div
   );

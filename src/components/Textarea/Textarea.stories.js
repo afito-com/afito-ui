@@ -5,7 +5,7 @@ import { linkTo } from '@storybook/addon-links';
 import Form from 'react-validation/build/form';
 import Textarea from '.';
 
-storiesOf('Textarea', module)
+storiesOf('Primitives|Textarea', module)
   .add('default', () => {
     return (
       <Form>

@@ -1,12 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import Form from 'react-validation/build/form';
-import { linkTo } from '@storybook/addon-links';
 import Searchbox from '.';
-import { Heading } from '../Typography';
 
-storiesOf('Searchbox', module).add('default', () => {
+storiesOf('Primitives|Searchbox', module).add('default', () => {
   const items = [
     { name: 'rutgers', value: 'rutgers_slug' },
     { name: 'rowan', value: 'rowan_slug' },

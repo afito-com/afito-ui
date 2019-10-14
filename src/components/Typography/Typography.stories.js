@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Heading, Text } from '.';
 
-storiesOf('Heading', module).add('overview', () => {
+storiesOf('Primitives|Heading', module).add('overview', () => {
   return (
     <>
       <Heading level={1}>Heading 1</Heading>
@@ -14,7 +14,7 @@ storiesOf('Heading', module).add('overview', () => {
   );
 });
 
-storiesOf('Text', module)
+storiesOf('Primitives|Text', module)
   .add('normal', () => {
     return <Text type="normal">Example of normal body text</Text>;
   })

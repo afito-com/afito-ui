@@ -18,7 +18,7 @@ function ModalExample() {
   );
 }
 
-storiesOf('Modal', module).add('default', () => {
+storiesOf('Primitives|Modal', module).add('default', () => {
   return (
     <ModalProvider>
       <ModalExample />

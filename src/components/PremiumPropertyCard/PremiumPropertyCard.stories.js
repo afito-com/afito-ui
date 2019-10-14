@@ -6,7 +6,7 @@ import PremiumPropertyCard from '.';
 import { Container, Row, Column } from '../Grid';
 import models from './model';
 
-storiesOf('PremiumPropertyCard', module)
+storiesOf('Composites|PremiumPropertyCard', module)
   .add('without floorplans', () => {
     return (
       <Container>

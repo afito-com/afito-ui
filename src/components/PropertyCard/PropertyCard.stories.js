@@ -1,32 +1,62 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import PropertyCard from '.';
 import { Container, Row, Column } from '../Grid';
 import models from './model';
+import { boolean } from '@storybook/addon-knobs';
+import LoginModal from '../LoginModal';
+import { Modal, ModalProvider, ModalContext } from '../ModalProvider';
 
-storiesOf('PropertyCard', module)
-  .add('Equal height/width cards', () => {
-    return (
+function PropertyCardExample() {
+  const { showModal, setModalContent, modalContent } = useContext(ModalContext);
+  const isLoggedIn = boolean('Logged In', false);
+
+  function showLoginModal() {
+    setModalContent(<LoginModal activeIndex={1} />);
+    showModal();
+    return;
+  }
+
+  return (
+    <>
       <Container>
         <Row>
-          <Column xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
-            <PropertyCard onClick={action('click')} {...models[0]} />
-          </Column>
-          <Column xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
-            <PropertyCard onClick={action('click')} {...models[1]} />
-          </Column>
-          <Column xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
-            <PropertyCard onClick={action('click')} {...models[2]} />
-          </Column>
-          <Column xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
-            <PropertyCard onClick={action('click')} {...models[0]} />
-          </Column>
+          {models.map((property, idx) => {
+            return (
+              <Column key={idx} xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
+                <PropertyCard
+                  onSaveProperty={setSaved => {
+                    if (!isLoggedIn) {
+                      showLoginModal();
+                    } else {
+                      console.log('property saved');
+                      // do api call
+                      setSaved(true);
+                    }
+                  }}
+                  onRemoveSavedProperty={setSaved => {
+                    console.log('property unsaved');
+                    // do api call
+                    setSaved(false);
+                  }}
+                  onClick={action('click')}
+                  {...property}
+                />
+              </Column>
+            );
+          })}
         </Row>
       </Container>
-    );
-  })
-  .add('with broken floorplans', () => {
-    return <PropertyCard onClick={action('click')} property={models[1]} />;
-  });
+      {modalContent && <Modal>{modalContent}</Modal>}
+    </>
+  );
+}
+
+storiesOf('Composites|PropertyCard', module).add('Equal height/width cards', () => {
+  return (
+    <ModalProvider>
+      <PropertyCardExample />
+    </ModalProvider>
+  );
+});

@@ -7,7 +7,7 @@ import Input from '../Input';
 import { Container, Row, Column } from '../Grid';
 import * as valid from '../../formValidator';
 
-storiesOf('FormButton', module).add('default', () => {
+storiesOf('Primitives|FormButton', module).add('default', () => {
   return (
     <Container>
       <Row>

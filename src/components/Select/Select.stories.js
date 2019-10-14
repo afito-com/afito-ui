@@ -8,7 +8,7 @@ import Button from '../Button';
 import { Heading } from '../Typography';
 import * as valid from '../../formValidator';
 
-storiesOf('Select', module)
+storiesOf('Primitives|Select', module)
   .add('default', () => {
     return (
       <Form>

@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
-import { ModalContext } from '../ModalProvider';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
@@ -30,20 +29,6 @@ const Wrapper = styled.div`
   & + & {
     margin-left: 15px;
   }
-
-  ${props => {
-    switch (props.type) {
-      case 'nohover':
-        return `
-          cursor: default;
-
-          &:hover {
-            box-shadow: ${props.theme.AFITO_UI.cardShadow};
-            transform: translateY(0px);
-          }
-        `;
-    }
-  }}
 `;
 
 const Image = styled.img`
@@ -136,18 +121,13 @@ function PropertyCard({
   contact_for_pricing,
   distance,
   savedProperties = [],
-  removeSavedProperty = undefined,
-  saveProperty = undefined,
-  type,
+  onRemoveSavedProperty = undefined,
+  onSaveProperty = undefined,
   children,
-  onClick = undefined,
-  onMouseEnter = undefined,
-  onMouseLeave = undefined,
   ...rest
 }) {
   const [saved, setSaved] = useState(savedProperties.map(p => p.property_id).includes(property_id));
   const isBuilding = hometype => hometype === 'building';
-  const { showModal, setModalContent } = useContext(ModalContext);
   const displayPrice = isBuilding(hometype)
     ? contact_for_pricing
       ? 'Contact For Price'
@@ -173,12 +153,17 @@ function PropertyCard({
     </>
   );
 
-  function toggleFavorite() {
-    setSaved(!saved);
+  function toggleSavedProperty(e) {
+    e.stopPropagation();
+    if (saved) {
+      onRemoveSavedProperty(setSaved);
+    } else {
+      onSaveProperty(setSaved);
+    }
   }
 
   return (
-    <Wrapper type={type} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} {...rest}>
+    <Wrapper {...rest}>
       <Image src={image_url} alt={cardTitle} />
       <Description>
         <Row style={{ marginBottom: '25px' }}>
@@ -187,7 +172,7 @@ function PropertyCard({
             <Rating />
           </Column>
           <Column xs={4} align="flex-end" justify="center">
-            <Save saved onClick={toggleFavorite}>
+            <Save saved onClick={toggleSavedProperty}>
               {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
             </Save>
           </Column>
@@ -258,9 +243,8 @@ PropertyCard.propTypes = {
   contact_for_pricing: PropTypes.bool,
   distance: PropTypes.number,
   savedProperties: PropTypes.array,
-  type: PropTypes.string,
-  onPropertyHover: PropTypes.func,
-  onClick: PropTypes.func
+  onSaveProperty: PropTypes.func.isRequired,
+  onRemoveSavedProperty: PropTypes.func.isRequired
 };
 
 export default PropertyCard;

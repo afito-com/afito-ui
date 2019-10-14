@@ -5,6 +5,6 @@ import { linkTo } from '@storybook/addon-links';
 import SignUpWizard from '.';
 import Button from '../Button';
 
-storiesOf('SignUpWizard', module).add('default', () => {
+storiesOf('Composites|SignUpWizard', module).add('default', () => {
   return <SignUpWizard onSignUp={() => console.log('signed up')} />;
 });

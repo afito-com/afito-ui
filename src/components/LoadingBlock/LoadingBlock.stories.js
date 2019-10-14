@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import LoadingBlock from '.';
 
-storiesOf('LoadingBlock', module)
+storiesOf('Primitives|LoadingBlock', module)
   .add('with message', () => {
     return <LoadingBlock />;
   })

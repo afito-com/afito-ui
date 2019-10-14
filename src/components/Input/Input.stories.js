@@ -8,7 +8,7 @@ import { Heading } from '../Typography';
 import { Container, Row, Column } from '../Grid';
 import * as valid from '../../formValidator';
 
-storiesOf('Input', module)
+storiesOf('Primitives|Input', module)
   .add('text', () => {
     return (
       <Container>

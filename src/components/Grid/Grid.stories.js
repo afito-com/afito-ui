@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Container, Row, Column } from '.';
 
-storiesOf('Grid', module).add('default', () => {
+storiesOf('Primitives|Grid', module).add('default', () => {
   return (
     <Container style={{ border: '5px solid green' }}>
       <Row canWrap={true} style={{ border: '5px solid red' }}>

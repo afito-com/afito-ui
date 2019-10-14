@@ -1,11 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import AreaCard from '.';
 import { Container, Row, Column } from '../Grid';
 import models from './model';
 
-storiesOf('AreaCard', module).add('default', () => {
+storiesOf('Composites|AreaCard', module).add('default', () => {
   return (
     <Container>
       <Row style={{ overflowX: 'scroll' }}>

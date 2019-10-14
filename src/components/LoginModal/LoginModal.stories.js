@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { storiesOf } from '@storybook/react';
 import LoginModal from '.';
+import Button from '../Button';
 import { Modal, ModalProvider, ModalContext } from '../ModalProvider';
 
 function LoginModalExample() {
@@ -13,14 +14,18 @@ function LoginModalExample() {
 
   return (
     <>
-      <button onClick={() => showLoginModal(0)}>open login</button>
-      <button onClick={() => showLoginModal(1)}>open join</button>
+      <Button level="primary" onClick={() => showLoginModal(0)}>
+        open login
+      </Button>
+      <Button level="primary" onClick={() => showLoginModal(1)}>
+        open join
+      </Button>
       {modalContent && <Modal>{modalContent}</Modal>}
     </>
   );
 }
 
-storiesOf('LoginModal', module).add('default', () => {
+storiesOf('Composites|LoginModal', module).add('default', () => {
   return (
     <ModalProvider>
       <LoginModalExample />

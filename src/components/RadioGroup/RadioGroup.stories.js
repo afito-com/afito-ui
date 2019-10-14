@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import RadioGroup from '.';
 
-storiesOf('RadioGroup', module).add('default', () => {
+storiesOf('Primitives|RadioGroup', module).add('default', () => {
   const items = [
     { label: '1', value: 1 },
     { label: '2', value: 2 },

@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { text, boolean, number } from '@storybook/addon-knobs';
 import Switch from '.';
 
-storiesOf('Switch', module).add('default', () => {
+storiesOf('Primitives|Switch', module).add('default', () => {
   return (
     <>
       <Switch
