@@ -278,7 +278,8 @@ function PremiumPropertyCard({
     </>
   );
 
-  function toggleFavorite() {
+  function toggleFavorite(e) {
+    e.stopPropagation();
     console.log('toggle favorite');
     setSaved(!saved);
   }

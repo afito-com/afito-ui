@@ -8,7 +8,7 @@ const ButtonWrapper = styled.button`
   font-size: 14px;
   text-transform: uppercase;
   display: inline-block;
-  outline: 0;
+  /*outline: 0;*/
   padding: ${props => props.theme.AFITO_UI.buttonPadding};
   border-radius: 4px;
   border: 1px solid transparent;
