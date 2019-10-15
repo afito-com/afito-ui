@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 
 const Image = styled.img`
   object-fit: cover;
-  height: 25vw;
+  height: 17vw;
   max-height: 300px;
   min-height: ${props => (props.isCondensed ? '150px' : '225px')};
   width: 100%;
