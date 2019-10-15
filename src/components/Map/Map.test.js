@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Map from '.';
-import properties from './model';
+import properties from './data';
 import ThemeProvider from '../ThemeProvider';
 import 'jest-styled-components';
 import config from '../../../config';

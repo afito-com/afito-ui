@@ -215,7 +215,7 @@ function PropertyCard({
             </Baths>
           </Column>
           <Column xs={4} align="flex-start">
-            {distance && Number.parseFloat(distance) !== NaN && (
+            {!isCondensed && distance && Number.parseFloat(distance) !== NaN && (
               <Bike isCondensed={isCondensed}>
                 <img
                   height={isCondensed ? '14' : '19'}
