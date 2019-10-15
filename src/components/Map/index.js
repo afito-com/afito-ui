@@ -24,8 +24,6 @@ const Map = withScriptjs(
           props.properties.map(p => {
             const isPropertyHovered = isHovered(p);
 
-            console.log('isPropertyHovered: ', isPropertyHovered);
-
             return (
               <Marker
                 key={p.property_id}

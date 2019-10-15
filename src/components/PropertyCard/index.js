@@ -6,7 +6,6 @@ import { Heading } from '../Typography';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
-  ${props => console.log('props: ', props.theme.AFITO_UI)}
   flex: 1 0 0;
   margin: 5px 0;
   display: inline-flex;
@@ -78,7 +77,7 @@ const Beds = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 12px;
+  font-size: ${props => (props.isCondensed ? '10px' : '12px')};
 `;
 const Baths = styled.div`
   white-space: nowrap;
@@ -87,7 +86,7 @@ const Baths = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 12px;
+  font-size: ${props => (props.isCondensed ? '10px' : '12px')};
 `;
 const Bike = styled.div`
   white-space: nowrap;
@@ -96,7 +95,7 @@ const Bike = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 12px;
+  font-size: ${props => (props.isCondensed ? '10px' : '12px')};
 `;
 const Address = styled.span`
   display: flex;
@@ -194,9 +193,9 @@ function PropertyCard({
         </Row>
         <Row style={{ alignItems: 'flex-end', flexGrow: '1', marginTop: '15px' }}>
           <Column xs={4} align="flex-start">
-            <Beds>
+            <Beds isCondensed={isCondensed}>
               <img
-                height="15"
+                height={isCondensed ? '10' : '15'}
                 src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed_grey.png"
                 alt="Beds"
                 style={{ marginRight: '10px' }}
@@ -205,9 +204,9 @@ function PropertyCard({
             </Beds>
           </Column>
           <Column xs={4} align="flex-start">
-            <Baths>
+            <Baths isCondensed={isCondensed}>
               <img
-                height="19"
+                height={isCondensed ? '14' : '19'}
                 src="https://afito-production-bucket.s3.amazonaws.com/static/icons/shower_grey.png"
                 alt="Baths"
                 style={{ marginRight: '10px' }}
@@ -217,9 +216,9 @@ function PropertyCard({
           </Column>
           <Column xs={4} align="flex-start">
             {distance && Number.parseFloat(distance) !== NaN && (
-              <Bike>
+              <Bike isCondensed={isCondensed}>
                 <img
-                  height="19"
+                  height={isCondensed ? '14' : '19'}
                   src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle_grey.png"
                   alt="Distance"
                   style={{ marginRight: '10px' }}
