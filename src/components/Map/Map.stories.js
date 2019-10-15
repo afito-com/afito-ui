@@ -5,7 +5,7 @@ import { properties, area } from './data';
 import config from '../../../config';
 
 storiesOf('Primitives|Map', module).add('default', () => {
-  const hoverId = 1;
+  const hoverId = 1219;
   const center = area[0].location;
 
   return (

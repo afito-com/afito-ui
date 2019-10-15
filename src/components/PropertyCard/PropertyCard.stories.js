@@ -53,10 +53,65 @@ function PropertyCardExample() {
   );
 }
 
-storiesOf('Composites|PropertyCard', module).add('Equal height/width cards', () => {
+function CondensedPropertyCardExample() {
+  const { showModal, setModalContent, modalContent } = useContext(ModalContext);
+  const isLoggedIn = boolean('Logged In', false);
+
+  function showLoginModal() {
+    setModalContent(<LoginModal activeIndex={1} />);
+    showModal();
+    return;
+  }
+
   return (
-    <ModalProvider>
-      <PropertyCardExample />
-    </ModalProvider>
+    <>
+      <Container>
+        <Row>
+          {models.map((property, idx) => {
+            return (
+              <Column key={idx} xs={6} sm={6} style={{ alignSelf: 'stretch' }}>
+                <PropertyCard
+                  style={{ width: '250px', height: '300px' }}
+                  isCondensed
+                  onSaveProperty={setSaved => {
+                    if (!isLoggedIn) {
+                      showLoginModal();
+                    } else {
+                      console.log('property saved');
+                      // do api call
+                      setSaved(true);
+                    }
+                  }}
+                  onRemoveSavedProperty={setSaved => {
+                    console.log('property unsaved');
+                    // do api call
+                    setSaved(false);
+                  }}
+                  onClick={action('click')}
+                  {...property}
+                />
+              </Column>
+            );
+          })}
+        </Row>
+      </Container>
+      {modalContent && <Modal>{modalContent}</Modal>}
+    </>
   );
-});
+}
+
+storiesOf('Composites|PropertyCard', module)
+  .add('Equal height/width cards', () => {
+    return (
+      <ModalProvider>
+        <PropertyCardExample />
+      </ModalProvider>
+    );
+  })
+  .add('Condensed', () => {
+    return (
+      <ModalProvider>
+        <CondensedPropertyCardExample />
+      </ModalProvider>
+    );
+  });

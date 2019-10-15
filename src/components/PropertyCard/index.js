@@ -6,6 +6,7 @@ import { Heading } from '../Typography';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
+  ${props => console.log('props: ', props.theme.AFITO_UI)}
   flex: 1 0 0;
   margin: 5px 0;
   display: inline-flex;
@@ -15,7 +16,6 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   box-shadow: ${props => props.theme.AFITO_UI.cardShadow};
   border-radius: 8px;
-  background-color: ${props => props.theme.AFITO_UI.cardBackgroundColor};
   color: ${props => props.theme.AFITO_UI.backgroundTextColor};
   transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
   height: 100%;
@@ -35,7 +35,7 @@ const Image = styled.img`
   object-fit: cover;
   height: 25vw;
   max-height: 300px;
-  min-height: 225px;
+  min-height: ${props => (props.isCondensed ? '150px' : '225px')};
   width: 100%;
   border-radius: 5px 5px 0 0;
 `;
@@ -123,6 +123,7 @@ function PropertyCard({
   savedProperties = [],
   onRemoveSavedProperty = undefined,
   onSaveProperty = undefined,
+  isCondensed,
   children,
   ...rest
 }) {
@@ -164,24 +165,32 @@ function PropertyCard({
 
   return (
     <Wrapper {...rest}>
-      <Image src={image_url} alt={cardTitle} />
+      <Image isCondensed={isCondensed} src={image_url} alt={cardTitle} />
       <Description>
-        <Row style={{ marginBottom: '25px' }}>
-          <Column xs={8} align="flex-start">
-            <Price>{displayPrice}</Price>
-            <Rating />
-          </Column>
-          <Column xs={4} align="flex-end" justify="center">
-            <Save saved onClick={toggleSavedProperty}>
-              {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
-            </Save>
-          </Column>
+        {!isCondensed && (
+          <Row style={{ marginBottom: '25px' }}>
+            <Column xs={8} align="flex-start">
+              <Price>{displayPrice}</Price>
+              <Rating />
+            </Column>
+            <Column xs={4} align="flex-end" justify="center">
+              <Save saved onClick={toggleSavedProperty}>
+                {saved ? (
+                  <i className="fas fa-heart" style={{ color: '#57c59b' }}></i>
+                ) : (
+                  <i className="far fa-heart"></i>
+                )}
+              </Save>
+            </Column>
+          </Row>
+        )}
+        <Row>
+          <Heading style={isCondensed && { fontSize: '14px' }} level={5}>
+            {cardTitle}
+          </Heading>
         </Row>
         <Row>
-          <Heading level={5}>{cardTitle}</Heading>
-        </Row>
-        <Row>
-          <Address>{fullAddress}</Address>
+          <Address style={isCondensed && { fontSize: '12px' }}>{fullAddress}</Address>
         </Row>
         <Row style={{ alignItems: 'flex-end', flexGrow: '1', marginTop: '15px' }}>
           <Column xs={4} align="flex-start">
@@ -243,8 +252,17 @@ PropertyCard.propTypes = {
   contact_for_pricing: PropTypes.bool,
   distance: PropTypes.number,
   savedProperties: PropTypes.array,
-  onSaveProperty: PropTypes.func.isRequired,
-  onRemoveSavedProperty: PropTypes.func.isRequired
+  isCondensed: PropTypes.bool,
+  onSaveProperty: function(props, propName, componentName) {
+    if (props['isCondensed'] == false && (props[propName] == undefined || typeof props[propName] != 'function')) {
+      return new Error('Please provide a onSaveProperty function!');
+    }
+  },
+  onRemoveSaveProperty: function(props, propName, componentName) {
+    if (props['isCondensed'] == false && (props[propName] == undefined || typeof props[propName] != 'function')) {
+      return new Error('Please provide a onSaveProperty function!');
+    }
+  }
 };
 
 export default PropertyCard;

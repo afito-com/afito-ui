@@ -23,6 +23,8 @@ const Map = withScriptjs(
           props.properties.map(p => {
             const isPropertyHovered = isHovered(p);
 
+            console.log('isPropertyHovered: ', isPropertyHovered);
+
             return (
               <Marker
                 key={p.property_id}
@@ -49,7 +51,7 @@ const Map = withScriptjs(
                       disableAutoPan: true
                     }}
                   >
-                    <PropertyCard cardType="small" property={p} />
+                    <PropertyCard isCondensed style={{ width: '250px', height: '300px' }} {...p} />
                   </InfoBox>
                 )}
               </Marker>
