@@ -2,10 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Map from '.';
 import { properties, area } from './data';
+import { boolean } from '@storybook/addon-knobs';
 import config from '../../../config';
 
 storiesOf('Primitives|Map', module).add('default', () => {
-  const hoverId = 1219;
+  const hoverId = boolean('Hover', true) && 1219; //1219;
   const center = area[0].location;
 
   return (

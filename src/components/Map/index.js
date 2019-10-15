@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import InfoBox from 'react-google-maps/lib/components/addons/InfoBox';
 import PropertyCard from '../PropertyCard';
+import ThemeProvider from '../ThemeProvider';
 
 const Map = withScriptjs(
   withGoogleMap(props => {
@@ -51,7 +52,9 @@ const Map = withScriptjs(
                       disableAutoPan: true
                     }}
                   >
-                    <PropertyCard isCondensed style={{ width: '250px', height: '300px' }} {...p} />
+                    <ThemeProvider>
+                      <PropertyCard isCondensed style={{ width: '250px', height: '300px' }} {...p} />
+                    </ThemeProvider>
                   </InfoBox>
                 )}
               </Marker>
