@@ -155,6 +155,7 @@ function PropertyCard({
 
   function toggleSavedProperty(e) {
     e.stopPropagation();
+    e.preventDefault();
     if (saved) {
       onRemoveSavedProperty(setSaved);
     } else {
