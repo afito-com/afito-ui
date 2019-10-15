@@ -46,6 +46,23 @@ const Textarea = styled.textarea`
   &::placeholder {
     color: #828282;
   }
+
+  & + .error-message {
+    padding-left: 5px;
+    margin: 0;
+    color: ${props => props.theme.AFITO_UI.dangerColor};
+    font-size: 14px;
+    font-weight: 700;
+    font-family: ${props => props.theme.AFITO_UI.bodyFont};
+    width: 100%;
+    text-align: left;
+
+    &::before {
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      content: '\f06a'+ ' ';
+    }
+  }
 `;
 
 Textarea.propTypes = {
