@@ -10,8 +10,8 @@ it('renders without crashing', () => {
     <ThemeProvider>
       <LoginModal
         activeIndex={0}
-        onLogIn={() => console.log('log user in')}
-        onJoin={() => console.log('sign user up')}
+        onSignIn={() => console.log('log user in')}
+        onSignUp={() => console.log('sign user up')}
       />
     </ThemeProvider>,
     div

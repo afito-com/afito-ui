@@ -16,7 +16,7 @@ const Logo = styled.img`
   height: 65px;
 `;
 
-function LoginModal({ activeIndex, onLogIn, onJoin }) {
+function LoginModal({ activeIndex, onSignIn, onSignUp }) {
   return (
     <Wrapper>
       <Logo
@@ -25,10 +25,10 @@ function LoginModal({ activeIndex, onLogIn, onJoin }) {
       />
       <TabGroup defaultIndex={activeIndex}>
         <Tab title={<Heading level={5}>Login</Heading>}>
-          <SignInForm style={{ paddingTop: '42px' }} onSignIn={() => onLogIn()} />
+          <SignInForm style={{ paddingTop: '42px' }} onSignIn={onSignIn} />
         </Tab>
         <Tab title={<Heading level={5}>Join</Heading>}>
-          <SignUpWizard style={{ paddingTop: '42px' }} onSignUp={() => onJoin()} />
+          <SignUpWizard style={{ paddingTop: '42px' }} onSignUp={onSignUp} />
         </Tab>
       </TabGroup>
     </Wrapper>
@@ -37,8 +37,8 @@ function LoginModal({ activeIndex, onLogIn, onJoin }) {
 
 LoginModal.propTypes = {
   activeIndex: PropTypes.number.isRequired,
-  onLogIn: PropTypes.func.isRequired,
-  onJoin: PropTypes.func.isRequired
+  onSignIn: PropTypes.func.isRequired,
+  onSignUp: PropTypes.func.isRequired
 };
 
 export default LoginModal;

@@ -11,8 +11,8 @@ function LoginModalExample() {
     setModalContent(
       <LoginModal
         activeIndex={idx}
-        onLogIn={() => console.log('log user in')}
-        onJoin={() => console.log('sign user up')}
+        onSignIn={() => console.log('log user in')}
+        onSignUp={() => console.log('sign user up')}
       />
     );
     showModal();

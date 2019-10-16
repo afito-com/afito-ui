@@ -44,7 +44,6 @@ class SignInForm extends Component {
     this.state = {
       email: '',
       password: '',
-      loading: false,
       error: undefined
     };
 
@@ -69,29 +68,12 @@ class SignInForm extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
-    this.setState({ loading: true });
-    this.props
-      .onSignIn(email, password)
-      .then(res => UserAPI.setToken(res.data.token))
-      .then(token => {
-        if (UserAPI.isLoggedIn()) {
-          const redirect = getParam('redirect');
-
-          if (validateUrl(redirect)) {
-            window.location = redirect;
-          } else {
-            window.location.reload();
-          }
-        }
-      })
-      .catch(this.onError)
-      .finally(() => {
-        this.setState({ loading: false });
-      });
+    this.props.onSignIn({ email, password });
   }
 
   render() {
-    const { loading, error } = this.state;
+    const { error } = this.state;
+    const { loading } = this.props;
 
     return (
       <Wrapper style={this.props.style}>
@@ -116,7 +98,9 @@ class SignInForm extends Component {
           <Text>
             <a href="/account-recovery">Forgot your password?</a>
           </Text>
-          <FormButton level="secondary">{loading ? <LoadingBlock quiet small color="white" /> : 'Go'}</FormButton>
+          <FormButton level="secondary" disabled={loading}>
+            {loading ? <LoadingBlock quiet small color="white" /> : 'Go'}
+          </FormButton>
           <Text>
             Dont have an account?&nbsp;<a href="/join">Register here.</a>
           </Text>
@@ -127,7 +111,8 @@ class SignInForm extends Component {
 }
 
 SignInForm.propTypes = {
-  onSignIn: PropTypes.func.isRequired
+  onSignIn: PropTypes.func.isRequired,
+  loading: PropTypes.bool
 };
 
 export default SignInForm;

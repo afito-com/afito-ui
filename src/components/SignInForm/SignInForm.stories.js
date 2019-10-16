@@ -3,5 +3,20 @@ import { storiesOf } from '@storybook/react';
 import SignInForm from '.';
 
 storiesOf('Composites|SignInForm', module).add('default', () => {
-  return <SignInForm onSignIn={UserAPI.signIn} />;
+  let isFetching = false;
+
+  return (
+    <SignInForm
+      onSignIn={({ email, password }) => {
+        isFetching = true;
+        return new Promise(resolve => {
+          setTimeout(300);
+          resolve(console.log({ email, password }));
+        }).then(() => {
+          isFetching = false;
+        });
+      }}
+      loading={isFetching}
+    />
+  );
 });

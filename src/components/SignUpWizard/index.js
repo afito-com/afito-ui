@@ -44,26 +44,6 @@ function SignUpWizard({ onSignUp, style }) {
   function onSubmit(e) {
     e.preventDefault();
     onSignUp();
-    /*
-    UserAPI.signupLandlord({ ...userInfo, account_type })
-      .then(res => {
-        if (res.status === 200) {
-          //go completed status
-          setFlash({ type: 'info', message: res.data.message });
-          setSignedUp(true);
-        }
-      })
-      .catch(onError);
-    */
-  }
-
-  function onError(err) {
-    let errorMessage;
-    if (err.response) {
-      errorMessage = err.response.data.message;
-    }
-
-    setFlash({ type: 'danger', message: errorMessage });
   }
 
   function renderWizardState() {

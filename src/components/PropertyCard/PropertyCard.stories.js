@@ -13,7 +13,13 @@ function PropertyCardExample() {
   const isLoggedIn = boolean('Logged In', false);
 
   function showLoginModal() {
-    setModalContent(<LoginModal activeIndex={1} />);
+    setModalContent(
+      <LoginModal
+        onSignIn={() => console.log('log user in')}
+        onSignUp={() => console.log('sign user up')}
+        activeIndex={1}
+      />
+    );
     showModal();
     return;
   }
@@ -58,7 +64,13 @@ function CondensedPropertyCardExample() {
   const isLoggedIn = boolean('Logged In', false);
 
   function showLoginModal() {
-    setModalContent(<LoginModal activeIndex={1} />);
+    setModalContent(
+      <LoginModal
+        onSignIn={({ email, password }) => console.log({ email, password })}
+        onJoin={options => console.log({ options })}
+        activeIndex={1}
+      />
+    );
     showModal();
     return;
   }
