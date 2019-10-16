@@ -8,7 +8,11 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <ThemeProvider>
-      <LoginModal activeIndex={0} />
+      <LoginModal
+        activeIndex={0}
+        onLogIn={() => console.log('log user in')}
+        onJoin={() => console.log('sign user up')}
+      />
     </ThemeProvider>,
     div
   );

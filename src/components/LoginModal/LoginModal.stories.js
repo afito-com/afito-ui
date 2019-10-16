@@ -8,7 +8,13 @@ function LoginModalExample() {
   const { showModal, setModalContent, modalContent } = useContext(ModalContext);
 
   function showLoginModal(idx) {
-    setModalContent(<LoginModal activeIndex={idx} />);
+    setModalContent(
+      <LoginModal
+        activeIndex={idx}
+        onLogIn={() => console.log('log user in')}
+        onJoin={() => console.log('sign user up')}
+      />
+    );
     showModal();
   }
 

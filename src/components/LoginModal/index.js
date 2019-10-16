@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Heading } from '../Typography';
 import TabGroup from '../TabGroup';
@@ -15,7 +16,7 @@ const Logo = styled.img`
   height: 65px;
 `;
 
-function LoginModal({ activeIndex }) {
+function LoginModal({ activeIndex, onLogIn, onJoin }) {
   return (
     <Wrapper>
       <Logo
@@ -24,14 +25,20 @@ function LoginModal({ activeIndex }) {
       />
       <TabGroup defaultIndex={activeIndex}>
         <Tab title={<Heading level={5}>Login</Heading>}>
-          <SignInForm style={{ paddingTop: '42px' }} onSignIn={() => console.log('sign user in here')} />
+          <SignInForm style={{ paddingTop: '42px' }} onSignIn={() => onLogIn()} />
         </Tab>
         <Tab title={<Heading level={5}>Join</Heading>}>
-          <SignUpWizard style={{ paddingTop: '42px' }} onSignUp={() => console.log('signed up via login modal')} />
+          <SignUpWizard style={{ paddingTop: '42px' }} onSignUp={() => onJoin()} />
         </Tab>
       </TabGroup>
     </Wrapper>
   );
 }
+
+LoginModal.propTypes = {
+  activeIndex: PropTypes.number.isRequired,
+  onLogIn: PropTypes.func.isRequired,
+  onJoin: PropTypes.func.isRequired
+};
 
 export default LoginModal;
