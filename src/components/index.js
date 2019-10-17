@@ -26,3 +26,4 @@ export { default as LoginModal } from './LoginModal';
 export { default as Lightbox } from './Lightbox';
 export { default as Searchbox } from './Searchbox';
 export { default as Slider } from './Slider';
+export { default as Alert } from './Alert';

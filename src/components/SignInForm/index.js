@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Form from 'react-validation/build/form';
-//import { Flash } from '../../components/UI/FlashProvider';
 import { Row, Column } from '../Grid';
 import FormButton from '../FormButton';
 import Input from '../Input';
 import LoadingBlock from '../LoadingBlock';
+import Alert from '../Alert';
 import { Text } from '../Typography';
 //import { UserAPI } from '../../api';
 import * as valid from '../../formValidator';
@@ -68,7 +68,11 @@ class SignInForm extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
-    this.props.onSignIn({ email, password });
+    const { onSignIn } = this.props;
+
+    onSignIn({ email, password })
+      .then(res => console.log(res))
+      .catch(this.onError);
   }
 
   render() {
@@ -78,7 +82,7 @@ class SignInForm extends Component {
     return (
       <Wrapper style={this.props.style}>
         <FormWrapper onSubmit={this.onSubmit}>
-          {/*error && <Flash inline noExpire flash={{ type: 'danger', message: error }} />*/}
+          {error && <Alert type="danger">{error}</Alert>}
           <Input
             placeholder="example@domain.com"
             name="email"

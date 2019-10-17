@@ -1,9 +1,13 @@
 const theme = {
   primaryColor: '#253c6e',
+  lightPrimaryColor: '#aebfe4',
   secondaryColor: '#57c59b',
+  lightSecondaryColor: '#c9ecdf',
   successColor: '#3ead87',
   dangerColor: 'rgb(246, 119, 119)',
+  lightDangerColor: '#f9a7a7',
   warningColor: 'rgb(255, 235, 148)',
+  lightWarningColor: '#fff0ad',
   white: '#ffffff',
   bodyFont: "'Nunito', sans-serif",
   headerFont: "'Montserrat', sans-serif",
