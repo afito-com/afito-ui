@@ -41,7 +41,7 @@ function SignUpWizard({ onSignUp, style }) {
     }
   }
 
-  function onError() {
+  function onError(err) {
     let errorMessage;
     if (err.response) {
       errorMessage = err.response.data.message;
