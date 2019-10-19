@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import AccountType from './AccountType';
 import UserInfo from './UserInfo';
-//import { Flash } from '../FlashProvider';
+import Alert from '../Alert';
 
 const Wrapper = styled.div`
   display: flex;
@@ -61,7 +61,7 @@ function SignUpWizard({ onSignUp, style }) {
 
   return (
     <Wrapper style={style}>
-      {flash && <Flash inline type={flash.type} message={flash.message} />}
+      {flash && <Alert type={flash.type} message={flash.message} />}
       {renderWizardState()}
     </Wrapper>
   );

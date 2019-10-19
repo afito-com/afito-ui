@@ -62,6 +62,8 @@ class SignInForm extends Component {
       errorMessage = err.response.data.message;
     }
 
+    console.log('onError: ', errorMessage);
+
     this.setState({ error: errorMessage });
   }
 
@@ -71,7 +73,9 @@ class SignInForm extends Component {
     const { onSignIn } = this.props;
 
     onSignIn({ email, password })
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+      })
       .catch(this.onError);
   }
 

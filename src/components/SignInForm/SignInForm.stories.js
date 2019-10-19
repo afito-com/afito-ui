@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import SignInForm from '.';
+import { resolve } from 'q';
 
 storiesOf('Composites|SignInForm', module).add('default', () => {
   let isFetching = false;
@@ -8,12 +9,8 @@ storiesOf('Composites|SignInForm', module).add('default', () => {
   return (
     <SignInForm
       onSignIn={({ email, password }) => {
-        isFetching = true;
-        return new Promise(resolve => {
-          setTimeout(300);
-          resolve(console.log({ email, password }));
-        }).then(() => {
-          isFetching = false;
+        return new Promise((resolve, reject) => {
+          reject({ response: { data: { message: 'Sorry there was an error' } } });
         });
       }}
       loading={isFetching}
