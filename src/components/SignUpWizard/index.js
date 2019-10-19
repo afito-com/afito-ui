@@ -22,7 +22,7 @@ function SignUpWizard({ onSignUp, style }) {
     last: ''
   });
   const [wizardState, dispatch] = useReducer(wizardReducer, 'accountType');
-  const [flash, setFlash] = useState(undefined);
+  const [alert, setAlert] = useState(undefined);
   const [signedUp, setSignedUp] = useState(false);
 
   function updateUserInfo(e) {
@@ -41,9 +41,26 @@ function SignUpWizard({ onSignUp, style }) {
     }
   }
 
+  function onError() {
+    let errorMessage;
+    if (err.response) {
+      errorMessage = err.response.data.message;
+    }
+
+    setAlert({ message: errorMessage, type: 'danger' });
+  }
+
   function onSubmit(e) {
     e.preventDefault();
-    onSignUp();
+    onSignUp({ ...userInfo, account_type })
+      .then(res => {
+        console.log(res);
+
+        if (res.status === 200) {
+          setAlert({ type: 'success', message: res.data.message });
+        }
+      })
+      .catch(onError);
   }
 
   function renderWizardState() {
@@ -61,7 +78,7 @@ function SignUpWizard({ onSignUp, style }) {
 
   return (
     <Wrapper style={style}>
-      {flash && <Alert type={flash.type} message={flash.message} />}
+      {alert && <Alert type={alert.type}>{alert.message}</Alert>}
       {renderWizardState()}
     </Wrapper>
   );

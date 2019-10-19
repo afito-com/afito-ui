@@ -9,6 +9,8 @@ const Wrapper = styled.div`
   border-radius: 4px;
   text-align: left;
   box-sizing: border-box;
+  font-size: 14px;
+  margin: 5px 0;
   background: ${props => {
     switch (props.type) {
       case 'info':

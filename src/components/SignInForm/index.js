@@ -62,8 +62,6 @@ class SignInForm extends Component {
       errorMessage = err.response.data.message;
     }
 
-    console.log('onError: ', errorMessage);
-
     this.setState({ error: errorMessage });
   }
 
