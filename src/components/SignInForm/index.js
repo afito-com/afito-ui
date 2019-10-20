@@ -81,7 +81,7 @@ class SignInForm extends Component {
   }
 
   render() {
-    const { error } = this.state;
+    const { alert } = this.state;
     const { loading } = this.props;
 
     return (
