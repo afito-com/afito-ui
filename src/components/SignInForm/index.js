@@ -44,25 +44,15 @@ class SignInForm extends Component {
     this.state = {
       email: '',
       password: '',
-      error: undefined
+      alert: undefined
     };
 
     this.onFieldChange = this.onFieldChange.bind(this);
-    this.onError = this.onError.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onFieldChange({ target: { name, value } }) {
     this.setState({ [name]: value });
-  }
-
-  onError(err) {
-    let errorMessage;
-    if (err.response) {
-      errorMessage = err.response.data.message;
-    }
-
-    this.setState({ error: errorMessage });
   }
 
   onSubmit(e) {
