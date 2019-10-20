@@ -52,15 +52,13 @@ function SignUpWizard({ onSignUp, style }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    onSignUp({ ...userInfo, account_type })
-      .then(res => {
-        console.log(res);
-
-        if (res.status === 200) {
-          setAlert({ type: 'success', message: res.data.message });
-        }
-      })
-      .catch(onError);
+    onSignUp({ ...userInfo, account_type }, function(res) {
+      if (res.status === 200) {
+        setAlert({ type: 'success', message: res.data.message });
+      } else {
+        onError(res);
+      }
+    });
   }
 
   function renderWizardState() {
