@@ -38,7 +38,7 @@ function AccountType({ dispatch }) {
           </AccountTypeOption>
         </Column>
         <Column xs={6}>
-          <AccountTypeOption onClick={() => dispatch({ data: 'user', step: 'accountType' })}>
+          <AccountTypeOption onClick={() => dispatch({ data: 'student', step: 'accountType' })}>
             <img
               width="100"
               src="https://afito-production-bucket.s3.amazonaws.com/static/icons/diploma.png"
