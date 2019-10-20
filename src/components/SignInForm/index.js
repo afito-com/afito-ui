@@ -73,9 +73,9 @@ class SignInForm extends Component {
     onSignIn({ email, password }, function(res) {
       console.log({ res });
       if (res.status === 200) {
-        this.setState({ error: res.data.message });
+        this.setState({ alert: { type: 'success', message: res.data.message } });
       } else {
-        this.onError(res);
+        this.setState({ alert: { type: 'danger', message: res.data.message } });
       }
     });
   }
@@ -87,7 +87,7 @@ class SignInForm extends Component {
     return (
       <Wrapper style={this.props.style}>
         <FormWrapper onSubmit={this.onSubmit}>
-          {error && <Alert type="danger">{error}</Alert>}
+          {alert && <Alert type={alert.type}>{alert.message}</Alert>}
           <Input
             placeholder="example@domain.com"
             name="email"
