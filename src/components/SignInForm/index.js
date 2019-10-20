@@ -51,9 +51,6 @@ export default function SignInForm({ onSignIn, loading, style }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    const { email, password } = this.state;
-    const { onSignIn } = this.props;
-
     onSignIn({ email, password }, function(res) {
       console.log({ res });
       if (res.status === 200) {
