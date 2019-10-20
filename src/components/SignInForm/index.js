@@ -70,11 +70,13 @@ class SignInForm extends Component {
     const { email, password } = this.state;
     const { onSignIn } = this.props;
 
-    onSignIn({ email, password })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(this.onError);
+    onSignIn({ email, password }, function(res) {
+      if (res.status === 200) {
+        setAlert({ type: 'success', message: res.data.message });
+      } else {
+        this.onError(res);
+      }
+    });
   }
 
   render() {
