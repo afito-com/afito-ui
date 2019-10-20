@@ -71,6 +71,7 @@ class SignInForm extends Component {
     const { onSignIn } = this.props;
 
     onSignIn({ email, password }, function(res) {
+      console.log({ res });
       if (res.status === 200) {
         setAlert({ type: 'success', message: res.data.message });
       } else {
