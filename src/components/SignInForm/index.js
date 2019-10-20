@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Form from 'react-validation/build/form';
@@ -38,24 +38,18 @@ const FormWrapper = styled(Form)`
   }
 `;
 
-class SignInForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-      alert: undefined
-    };
+export default function SignInForm({ onSignIn, loading, style }) {
+  const [userInfo, setUserInfo] = useState({
+    email: '',
+    password: ''
+  });
+  const [alert, setAlert] = useState();
 
-    this.onFieldChange = this.onFieldChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  function updateUserInfo(e) {
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   }
 
-  onFieldChange({ target: { name, value } }) {
-    this.setState({ [name]: value });
-  }
-
-  onSubmit(e) {
+  function onSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
     const { onSignIn } = this.props;
@@ -63,55 +57,48 @@ class SignInForm extends Component {
     onSignIn({ email, password }, function(res) {
       console.log({ res });
       if (res.status === 200) {
-        this.setState({ alert: { type: 'success', message: res.data.message } });
+        setAlert({ alert: { type: 'success', message: res.data.message } });
       } else {
-        this.setState({ alert: { type: 'danger', message: res.data.message } });
+        setAlert({ alert: { type: 'danger', message: res.data.message } });
       }
     });
   }
 
-  render() {
-    const { alert } = this.state;
-    const { loading } = this.props;
-
-    return (
-      <Wrapper style={this.props.style}>
-        <FormWrapper onSubmit={this.onSubmit}>
-          {alert && <Alert type={alert.type}>{alert.message}</Alert>}
-          <Input
-            placeholder="example@domain.com"
-            name="email"
-            id="email"
-            type="email"
-            onChange={this.onFieldChange}
-            validations={[valid.required, valid.email]}
-          />
-          <Input
-            placeholder="Password"
-            name="password"
-            id="password"
-            type="password"
-            onChange={this.onFieldChange}
-            validations={[valid.required]}
-          />
-          <Text>
-            <a href="/account-recovery">Forgot your password?</a>
-          </Text>
-          <FormButton level="secondary" disabled={loading}>
-            {loading ? <LoadingBlock quiet small color="white" /> : 'Go'}
-          </FormButton>
-          <Text>
-            Dont have an account?&nbsp;<a href="/join">Register here.</a>
-          </Text>
-        </FormWrapper>
-      </Wrapper>
-    );
-  }
+  return (
+    <Wrapper style={style}>
+      <FormWrapper onSubmit={onSubmit}>
+        {alert && <Alert type={alert.type}>{alert.message}</Alert>}
+        <Input
+          placeholder="example@domain.com"
+          name="email"
+          id="email"
+          type="email"
+          onChange={updateUserInfo}
+          validations={[valid.required, valid.email]}
+        />
+        <Input
+          placeholder="Password"
+          name="password"
+          id="password"
+          type="password"
+          onChange={updateUserInfo}
+          validations={[valid.required]}
+        />
+        <Text>
+          <a href="/account-recovery">Forgot your password?</a>
+        </Text>
+        <FormButton level="secondary" disabled={loading}>
+          {loading ? <LoadingBlock quiet small color="white" /> : 'Go'}
+        </FormButton>
+        <Text>
+          Dont have an account?&nbsp;<a href="/join">Register here.</a>
+        </Text>
+      </FormWrapper>
+    </Wrapper>
+  );
 }
 
 SignInForm.propTypes = {
   onSignIn: PropTypes.func.isRequired,
   loading: PropTypes.bool
 };
-
-export default SignInForm;
