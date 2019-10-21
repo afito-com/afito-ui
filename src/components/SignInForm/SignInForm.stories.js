@@ -3,17 +3,30 @@ import { storiesOf } from '@storybook/react';
 import SignInForm from '.';
 import { resolve } from 'q';
 
-storiesOf('Composites|SignInForm', module).add('default', () => {
-  let isFetching = false;
+storiesOf('Composites|SignInForm', module)
+  .add('Valid Login', () => {
+    let isFetching = false;
 
-  return (
-    <SignInForm
-      onSignIn={({ email, password }) => {
-        return new Promise((resolve, reject) => {
-          reject({ response: { data: { message: 'Sorry there was an error' } } });
-        });
-      }}
-      loading={isFetching}
-    />
-  );
-});
+    return (
+      <SignInForm
+        onSignIn={({ email, password }, callback) => {
+          // Send email & password to API
+          callback({ status: 200, data: { message: 'Logged in' } });
+        }}
+        loading={isFetching}
+      />
+    );
+  })
+  .add('Invalid Login', () => {
+    let isFetching = false;
+
+    return (
+      <SignInForm
+        onSignIn={({ email, password }, callback) => {
+          // Send email & password to API
+          callback({ status: 400, data: { message: 'Invalid username/password' } });
+        }}
+        loading={isFetching}
+      />
+    );
+  });

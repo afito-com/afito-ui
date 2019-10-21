@@ -52,11 +52,10 @@ export default function SignInForm({ onSignIn, loading, style }) {
   function onSubmit(e) {
     e.preventDefault();
     onSignIn({ email, password }, function(res) {
-      console.log({ res });
       if (res.status === 200) {
-        setAlert({ alert: { type: 'success', message: res.data.message } });
+        setAlert({ type: 'success', message: res.data.message });
       } else {
-        setAlert({ alert: { type: 'danger', message: res.data.message } });
+        setAlert({ type: 'danger', message: res.data.message });
       }
     });
   }
