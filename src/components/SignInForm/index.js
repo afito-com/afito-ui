@@ -51,7 +51,7 @@ export default function SignInForm({ onSignIn, loading, style }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    onSignIn({ email, password }, function(res) {
+    onSignIn({ ...userInfo }, function(res) {
       if (res.status === 200) {
         setAlert({ type: 'success', message: res.data.message });
       } else {
@@ -66,18 +66,18 @@ export default function SignInForm({ onSignIn, loading, style }) {
         {alert && <Alert type={alert.type}>{alert.message}</Alert>}
         <Input
           placeholder="example@domain.com"
-          name="email"
           id="email"
           type="email"
-          onChange={updateUserInfo}
+          name="email"
           validations={[valid.required, valid.email]}
+          onChange={e => updateUserInfo(e)}
         />
         <Input
           placeholder="Password"
           name="password"
           id="password"
           type="password"
-          onChange={updateUserInfo}
+          onChange={e => updateUserInfo(e)}
           validations={[valid.required]}
         />
         <Text>

@@ -7,7 +7,7 @@ import * as valid from '../../formValidator';
 
 function UserInfo({ onSubmit, updateUserInfo, userInfo, signedUp }) {
   return (
-    <Form className="UserInfo" onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <Row>
         <Column xs={6}>
           <Input

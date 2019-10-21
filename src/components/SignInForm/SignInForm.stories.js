@@ -10,6 +10,7 @@ storiesOf('Composites|SignInForm', module)
     return (
       <SignInForm
         onSignIn={({ email, password }, callback) => {
+          console.log({ email, password });
           // Send email & password to API
           callback({ status: 200, data: { message: 'Logged in' } });
         }}
