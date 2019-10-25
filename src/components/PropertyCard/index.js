@@ -251,7 +251,7 @@ PropertyCard.propTypes = {
   baths: PropTypes.number,
   contact_for_pricing: PropTypes.bool,
   distance: PropTypes.number,
-  savedProperties: PropTypes.array,
+  savedProperties: PropTypes.array.isRequired,
   isCondensed: PropTypes.bool,
   onSaveProperty: function(props, propName, componentName) {
     if (props['isCondensed'] == false && (props[propName] == undefined || typeof props[propName] != 'function')) {

@@ -38,12 +38,13 @@ const FormWrapper = styled(Form)`
   }
 `;
 
-export default function SignInForm({ onSignIn, loading, style }) {
+export default function SignInForm({ onSignIn, style }) {
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: ''
   });
   const [alert, setAlert] = useState();
+  const [loading, setLoading] = useState(false);
 
   function updateUserInfo(e) {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
@@ -51,12 +52,14 @@ export default function SignInForm({ onSignIn, loading, style }) {
 
   function onSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     onSignIn({ ...userInfo }, function(res) {
       if (res.status === 200) {
         setAlert({ type: 'success', message: res.data.message });
       } else {
         setAlert({ type: 'danger', message: res.data.message });
       }
+      setLoading(false);
     });
   }
 

@@ -1,5 +1,6 @@
 /*global google*/
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import InfoBox from 'react-google-maps/lib/components/addons/InfoBox';
@@ -8,10 +9,6 @@ import ThemeProvider from '../ThemeProvider';
 
 const Map = withScriptjs(
   withGoogleMap(props => {
-    function onMarkerClick(property_id) {
-      window.location = `/property/${property_id}`;
-    }
-
     const isHovered = p => parseInt(props.hoverId, 10) === p.property_id;
     const hoverIcon = p =>
       p.hometype === 'building'
@@ -40,7 +37,7 @@ const Map = withScriptjs(
                 zIndex={isHovered(p) ? 101 : 1}
                 onMouseOver={() => props.onPropertyHover(p.property_id)}
                 onMouseOut={() => props.onPropertyHover('')}
-                onClick={onMarkerClick.bind(this, p.property_id)}
+                onClick={() => props.onMarkerClick(p)}
               >
                 {isHovered(p) && (
                   <InfoBox

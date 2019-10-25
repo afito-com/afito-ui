@@ -246,8 +246,10 @@ function PremiumPropertyCard({
   contact_for_pricing,
   distance,
   savedProperties = [],
-  removeSavedProperty = undefined,
-  saveProperty = undefined,
+  onRemoveSavedProperty = undefined,
+  onSaveProperty = undefined,
+  isCondensed,
+  children,
   ...rest
 }) {
   const [saved, setSaved] = useState(savedProperties.map(p => p.property_id).includes(property_id));
@@ -350,7 +352,10 @@ PremiumPropertyCard.propTypes = {
   baths: PropTypes.number,
   contact_for_pricing: PropTypes.bool,
   distance: PropTypes.number,
-  savedProperties: PropTypes.array
+  savedProperties: PropTypes.array.isRequired,
+  isCondensed: PropTypes.bool,
+  onSaveProperty: PropTypes.func.isRequired,
+  onRemoveSaveProperty: PropTypes.func.isRequired
 };
 
 export default PremiumPropertyCard;

@@ -32,6 +32,7 @@ function PropertyCardExample() {
             return (
               <Column key={idx} xs={12} sm={6} style={{ alignSelf: 'stretch' }}>
                 <PropertyCard
+                  savedProperties={[]}
                   onSaveProperty={setSaved => {
                     if (!isLoggedIn) {
                       showLoginModal();
@@ -85,6 +86,7 @@ function CondensedPropertyCardExample() {
                 <PropertyCard
                   style={{ width: '250px', height: '300px' }}
                   isCondensed
+                  savedProperties={[]}
                   onSaveProperty={setSaved => {
                     if (!isLoggedIn) {
                       showLoginModal();
