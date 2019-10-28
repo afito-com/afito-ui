@@ -35,14 +35,13 @@ function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...res
   return (
     <Wrapper onChange={onSelectionChange} {...rest}>
       {items.map((item, index) => {
-        console.log({ defaultOption }, item.value);
         return (
           <Radio
             key={item.value + '_' + index}
             selected={selected === item.value}
             onClick={() => setSelected(item.value)}
           >
-            <input type="radio" name={name} value={item.value} defaultChecked={defaultOption === item.value} />
+            <input type="radio" name={name} value={item.value} defaultChecked={defaultOption == item.value} />
             {item.label}
           </Radio>
         );
