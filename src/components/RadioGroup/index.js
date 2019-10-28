@@ -29,7 +29,7 @@ const Radio = styled.label`
   }
 `;
 
-function RadioGroup({ items = [], name, onSelectionChange, defualtOption, ...rest }) {
+function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...rest }) {
   const [selected, setSelected] = useState(defualtOption);
 
   return (
@@ -49,7 +49,8 @@ function RadioGroup({ items = [], name, onSelectionChange, defualtOption, ...res
 RadioGroup.propTypes = {
   items: PropTypes.array,
   name: PropTypes.string.isRequired,
-  onSelectionChange: PropTypes.func
+  onSelectionChange: PropTypes.func,
+  defaultOption: PropTypes.number
 };
 
 export default RadioGroup;
