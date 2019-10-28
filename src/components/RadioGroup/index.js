@@ -35,6 +35,7 @@ function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...res
   return (
     <Wrapper onChange={onSelectionChange} {...rest}>
       {items.map((item, index) => {
+        console.log({ defaultOption }, item.value);
         return (
           <Radio
             key={item.value + '_' + index}
