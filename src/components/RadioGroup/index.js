@@ -30,14 +30,18 @@ const Radio = styled.label`
 `;
 
 function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...rest }) {
-  const [selected, setSelected] = useState(defualtOption);
+  const [selected, setSelected] = useState(defaultOption);
 
   return (
     <Wrapper onChange={onSelectionChange} {...rest}>
       {items.map((item, index) => {
         return (
-          <Radio key={item.value + '_' + index} selected={selected === item.value} onClick={() => setSelected(index)}>
-            <input type="radio" name={name} value={item.value} defaultChecked={selected === item.value} />
+          <Radio
+            key={item.value + '_' + index}
+            selected={selected === item.value}
+            onClick={() => setSelected(item.value)}
+          >
+            <input type="radio" name={name} value={item.value} checked={selected === item.value} />
             {item.label}
           </Radio>
         );
