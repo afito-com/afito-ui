@@ -36,8 +36,8 @@ function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...res
     <Wrapper onChange={onSelectionChange} {...rest}>
       {items.map((item, index) => {
         return (
-          <Radio key={item.value + '_' + index} selected={selected === index} onClick={() => setSelected(index)}>
-            <input type="radio" name={name} value={item.value} defaultChecked={selected === index} />
+          <Radio key={item.value + '_' + index} selected={selected === item.value} onClick={() => setSelected(index)}>
+            <input type="radio" name={name} value={item.value} defaultChecked={selected === item.value} />
             {item.label}
           </Radio>
         );
@@ -49,8 +49,7 @@ function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...res
 RadioGroup.propTypes = {
   items: PropTypes.array,
   name: PropTypes.string.isRequired,
-  onSelectionChange: PropTypes.func,
-  defaultOption: PropTypes.number
+  onSelectionChange: PropTypes.func
 };
 
 export default RadioGroup;
