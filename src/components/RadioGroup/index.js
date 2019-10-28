@@ -38,7 +38,7 @@ function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...res
         return (
           <Radio
             key={item.value + '_' + index}
-            selected={selected === item.value}
+            selected={selected == item.value}
             onClick={() => setSelected(item.value)}
           >
             <input type="radio" name={name} value={item.value} defaultChecked={defaultOption == item.value} />
