@@ -41,7 +41,7 @@ function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...res
             selected={selected === item.value}
             onClick={() => setSelected(item.value)}
           >
-            <input type="radio" name={name} value={item.value} checked={selected === item.value} />
+            <input type="radio" name={name} value={item.value} defaultChecked={selected === item.value} />
             {item.label}
           </Radio>
         );
