@@ -69,7 +69,7 @@ const Overlay = styled.div`
   opacity: 0.8;
 `;
 
-function AreaCard({ image_url, name, property_count, onClick, ...rest }) {
+export default function AreaCard({ image_url, name, property_count, onClick, ...rest }) {
   return (
     <Wrapper onClick={onClick} {...rest}>
       <Image image={image_url} />
@@ -87,5 +87,3 @@ AreaCard.propTypes = {
   name: PropTypes.string.isRequired,
   property_count: PropTypes.number.isRequired
 };
-
-export default AreaCard;

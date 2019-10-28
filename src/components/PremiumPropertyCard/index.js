@@ -248,7 +248,6 @@ function PremiumPropertyCard({
   savedProperties = [],
   onRemoveSavedProperty = undefined,
   onSaveProperty = undefined,
-  isCondensed,
   children,
   ...rest
 }) {
@@ -280,16 +279,20 @@ function PremiumPropertyCard({
     </>
   );
 
-  function toggleFavorite(e) {
+  function toggleSavedProperty(e) {
     e.stopPropagation();
-    console.log('toggle favorite');
-    setSaved(!saved);
+    e.preventDefault();
+    if (saved) {
+      onRemoveSavedProperty(setSaved);
+    } else {
+      onSaveProperty(setSaved);
+    }
   }
 
   return (
     <Wrapper {...rest}>
       <Content>
-        <Save saved onClick={toggleFavorite}>
+        <Save saved onClick={toggleSavedProperty}>
           {saved ? <i className="fas fa-heart" style={{ color: '#57c59b' }}></i> : <i className="far fa-heart"></i>}
         </Save>
         <Description>
@@ -353,9 +356,8 @@ PremiumPropertyCard.propTypes = {
   contact_for_pricing: PropTypes.bool,
   distance: PropTypes.number,
   savedProperties: PropTypes.array.isRequired,
-  isCondensed: PropTypes.bool,
   onSaveProperty: PropTypes.func.isRequired,
-  onRemoveSaveProperty: PropTypes.func.isRequired
+  onRemoveSavedProperty: PropTypes.func.isRequired
 };
 
 export default PremiumPropertyCard;

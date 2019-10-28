@@ -260,7 +260,7 @@ PropertyCard.propTypes = {
   },
   onRemoveSaveProperty: function(props, propName, componentName) {
     if (props['isCondensed'] == false && (props[propName] == undefined || typeof props[propName] != 'function')) {
-      return new Error('Please provide a onSaveProperty function!');
+      return new Error('Please provide a onRemoveSaveProperty function!');
     }
   }
 };

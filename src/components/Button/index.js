@@ -76,7 +76,7 @@ const OutlineButton = styled(ButtonWrapper)`
   }
 `;
 
-function Button({ level, children, ...rest }) {
+export default function Button({ level, children, ...rest }) {
   if (level === 'primary') {
     return (
       <PrimaryButton level={level} {...rest}>
@@ -103,5 +103,3 @@ function Button({ level, children, ...rest }) {
 Button.propTypes = {
   level: PropTypes.string.isRequired
 };
-
-export default Button;

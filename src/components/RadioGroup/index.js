@@ -29,15 +29,15 @@ const Radio = styled.label`
   }
 `;
 
-function RadioGroup({ items = [], name, onSelectionChange, ...rest }) {
-  const [selected, setSelected] = useState();
+function RadioGroup({ items = [], name, onSelectionChange, defualtOption, ...rest }) {
+  const [selected, setSelected] = useState(defualtOption);
 
   return (
     <Wrapper onChange={onSelectionChange} {...rest}>
       {items.map((item, index) => {
         return (
           <Radio key={item.value + '_' + index} selected={selected === index} onClick={() => setSelected(index)}>
-            <input type="radio" name={name} value={item.value} />
+            <input type="radio" name={name} value={item.value} defaultChecked={selected === index} />
             {item.label}
           </Radio>
         );
@@ -47,7 +47,9 @@ function RadioGroup({ items = [], name, onSelectionChange, ...rest }) {
 }
 
 RadioGroup.propTypes = {
-  items: PropTypes.array
+  items: PropTypes.array,
+  name: PropTypes.string.isRequired,
+  onSelectionChange: PropTypes.func
 };
 
 export default RadioGroup;

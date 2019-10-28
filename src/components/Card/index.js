@@ -14,30 +14,18 @@ const CardWrapper = styled.div`
   color: ${props => props.theme.AFITO_UI.backgroundTextColor};
   transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 
-  &:hover {
-    box-shadow: ${props => props.theme.AFITO_UI.cardShadowHover};
-    transform: translateY(-1px);
-  }
-
   & + .card {
     margin-left: 15px;
   }
 
   ${props => {
-    switch (props.type) {
-      case 'fixed':
-        return `
-          width: 300px;
-        `;
-      case 'nohover':
-        return `
-          cursor: default;
-
-          &:hover {
-            box-shadow: ${props.theme.AFITO_UI.cardShadow};
-            transform: translateY(0px);
-          }
-        `;
+    if (props.withHover) {
+      return `
+        &:hover {
+          box-shadow: ${props => props.theme.AFITO_UI.cardShadowHover};
+          transform: translateY(-1px);
+        }
+      `;
     }
   }}
 `;
@@ -58,16 +46,9 @@ const CardDescription = styled.div`
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
 `;
 
-function Card({
-  image,
-  type = 'fixed',
-  children,
-  onClick = undefined,
-  onMouseEnter = undefined,
-  onMouseLeave = undefined
-}) {
+export default function Card({ image, withHover, children }) {
   return (
-    <CardWrapper type={type} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <CardWrapper withHover={withHover}>
       <CardImage image={image} />
       <CardDescription>{children}</CardDescription>
     </CardWrapper>
@@ -76,11 +57,6 @@ function Card({
 
 CardWrapper.propTypes = {
   image: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  onClick: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func
+  withHover: PropTypes.bool,
+  children: PropTypes.node.isRequired
 };
-
-export default Card;

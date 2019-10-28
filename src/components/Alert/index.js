@@ -52,5 +52,6 @@ export default function Alert({ type, children }) {
 }
 
 Alert.propTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
 };

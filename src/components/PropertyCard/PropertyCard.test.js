@@ -11,6 +11,7 @@ it('renders a building without crashing', () => {
     <ThemeProvider>
       <PropertyCard
         {...models[0]}
+        savedProperties={[]}
         onSaveProperty={() => console.log('property saved')}
         onRemoveSavedProperty={() => console.log('property unsaved')}
       />
@@ -26,6 +27,7 @@ it('renders a property without crashing', () => {
     <ThemeProvider>
       <PropertyCard
         {...models[1]}
+        savedProperties={[]}
         onSaveProperty={() => console.log('property saved')}
         onRemoveSavedProperty={() => console.log('property unsaved')}
       />
