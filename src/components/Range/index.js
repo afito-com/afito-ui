@@ -196,14 +196,14 @@ const Tooltip = styled.div`
   font-weight: bold;
 `;
 
-function Range({ items, onRangeChange, ...rest }) {
+function Range({ items, onRangeChange, defaultMin, defaultMax, ...rest }) {
   let sorted = items.sort((a, b) => a - b);
   const hi = sorted[sorted.length - 1];
   const lo = sorted[0];
   const totalDistance = hi - lo;
   const [value, setValue] = useState({
-    min: lo,
-    max: hi
+    min: defaultMin ? defaultMin : lo,
+    max: defaultMax ? defaultMax : hi
   });
 
   let freqs = {};
