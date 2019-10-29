@@ -1,6 +1,11 @@
-export { Container, Row, Column } from './Grid';
-export { Heading, Text } from './Typography';
-export { Modal, ModalContext, ModalProvider } from './ModalProvider';
+export { default as Container } from './Grid';
+export { default as Row } from './Grid';
+export { default as Column } from './Grid';
+export { default as Heading } from './Typography';
+export { default as Text } from './Typography';
+export { default as Modal } from './ModalProvider';
+export { default as ModalContext } from './ModalProvider';
+export { default as ModalProvider } from './ModalProvider';
 export { default as Card } from './Card';
 export { default as Tab } from './Tab';
 export { default as TabGroup } from './TabGroup';
