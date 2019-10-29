@@ -34,13 +34,13 @@ const Image = styled.img`
   object-fit: cover;
   height: 17vw;
   max-height: 300px;
-  min-height: ${props => (props.isCondensed ? '150px' : '225px')};
+  min-height: ${props => (props.isCondensed ? '100px' : '225px')};
   width: 100%;
   border-radius: 5px 5px 0 0;
 `;
 
 const Description = styled.div`
-  padding: ${props => props.theme.AFITO_UI.cardPadding};
+  padding: ${props => (props.isCondensed ? '10px' : props.theme.AFITO_UI.cardPadding)};
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
   flex-grow: 1;
   display: flex;
@@ -77,7 +77,7 @@ const Beds = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: ${props => (props.isCondensed ? '10px' : '12px')};
+  font-size: ${props => (props.isCondensed ? '8px' : '12px')};
 `;
 const Baths = styled.div`
   white-space: nowrap;
@@ -86,7 +86,7 @@ const Baths = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: ${props => (props.isCondensed ? '10px' : '12px')};
+  font-size: ${props => (props.isCondensed ? '8px' : '12px')};
 `;
 const Bike = styled.div`
   white-space: nowrap;
@@ -166,7 +166,7 @@ function PropertyCard({
   return (
     <Wrapper {...rest}>
       <Image isCondensed={isCondensed} src={image_url} alt={cardTitle} />
-      <Description>
+      <Description isCondensed={isCondensed}>
         {!isCondensed && (
           <Row style={{ marginBottom: '25px' }}>
             <Column xs={8} align="flex-start">
@@ -185,18 +185,18 @@ function PropertyCard({
           </Row>
         )}
         <Row>
-          <Heading style={isCondensed && { fontSize: '14px' }} level={5}>
+          <Heading style={isCondensed && { fontSize: '12px' }} level={5}>
             {cardTitle}
           </Heading>
         </Row>
         <Row>
-          <Address style={isCondensed && { fontSize: '12px' }}>{fullAddress}</Address>
+          <Address style={isCondensed && { fontSize: '8px' }}>{fullAddress}</Address>
         </Row>
         <Row style={{ alignItems: 'flex-end', flexGrow: '1', marginTop: '15px' }}>
           <Column xs={4} align="flex-start">
             <Beds isCondensed={isCondensed}>
               <img
-                height={isCondensed ? '10' : '15'}
+                height={isCondensed ? '8' : '15'}
                 src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed_grey.png"
                 alt="Beds"
                 style={{ marginRight: '10px' }}
@@ -207,7 +207,7 @@ function PropertyCard({
           <Column xs={4} align="flex-start">
             <Baths isCondensed={isCondensed}>
               <img
-                height={isCondensed ? '14' : '19'}
+                height={isCondensed ? '12' : '19'}
                 src="https://afito-production-bucket.s3.amazonaws.com/static/icons/shower_grey.png"
                 alt="Baths"
                 style={{ marginRight: '10px' }}
@@ -219,7 +219,7 @@ function PropertyCard({
             {!isCondensed && distance && Number.parseFloat(distance) !== NaN && (
               <Bike isCondensed={isCondensed}>
                 <img
-                  height={isCondensed ? '14' : '19'}
+                  height={isCondensed ? '12' : '19'}
                   src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle_grey.png"
                   alt="Distance"
                   style={{ marginRight: '10px' }}

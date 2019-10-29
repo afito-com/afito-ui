@@ -32,7 +32,7 @@ const Map = withScriptjs(
                   url: isPropertyHovered
                     ? hoverIcon(p)
                     : 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png',
-                  scaledSize: new google.maps.Size(38, 53)
+                  scaledSize: new google.maps.Size(24, 33)
                 }}
                 zIndex={isHovered(p) ? 101 : 1}
                 onMouseOver={() => props.onPropertyHover(p.property_id)}
@@ -48,7 +48,7 @@ const Map = withScriptjs(
                     }}
                   >
                     <ThemeProvider>
-                      <PropertyCard isCondensed style={{ width: '250px', height: '300px' }} {...p} />
+                      <PropertyCard isCondensed style={{ width: '150px', height: '200px' }} {...p} />
                     </ThemeProvider>
                   </InfoBox>
                 )}
