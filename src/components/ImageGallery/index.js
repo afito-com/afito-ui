@@ -15,9 +15,8 @@ const ImageWrapper = styled.div`
   /*height: ${props => `${props.height}px`};*/
   position: relative;
 `;
+
 const Images = styled.div`
-  transform: ${props =>
-    props.offset ? `translateX(${props.width / 2 / 2 - props.offset / 2}px)` : `translateX(${props.width / 2 / 2}px)`};
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,9 +28,7 @@ const Images = styled.div`
 
   @media (min-width: ${props => props.theme.AFITO_UI.md}) {
     transform: ${props =>
-      props.offset
-        ? `translateX(${props.width / 2 / 2 - props.offset / 2}px)`
-        : `translateX(${props.width / 2 / 2}px)`};
+      props.offset ? `translateX(${props.width / 2 / 2 - props.offset / 2}px)` : `translateX(0px)`};
   }
 `;
 
@@ -137,6 +134,9 @@ function ImageGallery({ images, loop, onImageClick }) {
   }
 
   useEffect(() => {
+    if (curr === 0) {
+      return setOffset(0);
+    }
     setOffset(curr * (width + IMAGE_MARGIN));
 
     if (curr === 0) {
