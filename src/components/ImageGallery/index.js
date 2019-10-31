@@ -26,7 +26,7 @@ const Images = styled.div`
     transform: ${props => (props.offset ? `translateX(-${props.offset}px)` : `translateX(0px)`)};
   }
 
-  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+  @media (min-width: ${props => props.theme.AFITO_UI.lg}) {
     transform: ${props =>
       props.offset ? `translateX(${props.width / 2 / 2 - props.offset / 2}px)` : `translateX(0px)`};
   }
