@@ -20,27 +20,25 @@ function Markers({ properties, onPropertyHover, onMarkerClick, hoverId }) {
         const isPropertyHovered = isHovered(p);
 
         return (
-          <>
-            <MemoMarker
-              key={p.property_id}
-              property_id={p.property_id}
-              position={{
-                lat: parseFloat(p.lat),
-                lng: parseFloat(p.lng)
-              }}
-              isPropertyHovered={isPropertyHovered}
-              icon={{
-                url: isPropertyHovered
-                  ? getHoverIcon(p)
-                  : 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png',
-                scaledSize: isPropertyHovered ? new google.maps.Size(35, 35) : new google.maps.Size(24, 33)
-              }}
-              zIndex={isPropertyHovered ? 101 : 1}
-              onMouseOver={() => onPropertyHover(p)}
-              onMouseOut={() => onPropertyHover('')}
-              onClick={() => onMarkerClick(p)}
-            ></MemoMarker>
-          </>
+          <MemoMarker
+            key={p.property_id}
+            property_id={p.property_id}
+            position={{
+              lat: parseFloat(p.lat),
+              lng: parseFloat(p.lng)
+            }}
+            isPropertyHovered={isPropertyHovered}
+            icon={{
+              url: isPropertyHovered
+                ? getHoverIcon(p)
+                : 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png',
+              scaledSize: isPropertyHovered ? new google.maps.Size(35, 35) : new google.maps.Size(24, 33)
+            }}
+            zIndex={isPropertyHovered ? 101 : 1}
+            onMouseOver={() => onPropertyHover(p)}
+            onMouseOut={() => onPropertyHover('')}
+            onClick={() => onMarkerClick(p)}
+          />
         );
       })}
     </>
@@ -58,6 +56,7 @@ function MarkerPropsAreEqual(prevMarker, nextMarker) {
 }
 
 function FloatingPropertyCard({ hoveredProperty }) {
+  console.log({ hoveredProperty });
   return (
     <InfoBox
       position={new google.maps.LatLng(parseFloat(hoveredProperty.lat), parseFloat(hoveredProperty.lng))}
