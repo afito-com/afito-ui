@@ -7,54 +7,89 @@ import InfoBox from 'react-google-maps/lib/components/addons/InfoBox';
 import PropertyCard from '../PropertyCard';
 import ThemeProvider from '../ThemeProvider';
 
+function Markers({ properties, onPropertyHover, onMarkerClick, hoverId }) {
+  const isHovered = p => parseInt(hoverId, 10) === p.property_id;
+  const getHoverIcon = p =>
+    p.hometype === 'building'
+      ? 'https://afito-production-bucket.s3.amazonaws.com/static/images/building-64.png'
+      : 'https://afito-production-bucket.s3.amazonaws.com/static/images/home-64.png';
+
+  return (
+    <>
+      {properties.map(p => {
+        const isPropertyHovered = isHovered(p);
+
+        return (
+          <>
+            <MemoMarker
+              key={p.property_id}
+              property_id={p.property_id}
+              position={{
+                lat: parseFloat(p.lat),
+                lng: parseFloat(p.lng)
+              }}
+              isPropertyHovered={isPropertyHovered}
+              icon={{
+                url: isPropertyHovered
+                  ? getHoverIcon(p)
+                  : 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png',
+                scaledSize: isPropertyHovered ? new google.maps.Size(35, 35) : new google.maps.Size(24, 33)
+              }}
+              zIndex={isPropertyHovered ? 101 : 1}
+              onMouseOver={() => onPropertyHover(p)}
+              onMouseOut={() => onPropertyHover('')}
+              onClick={() => onMarkerClick(p)}
+            ></MemoMarker>
+          </>
+        );
+      })}
+    </>
+  );
+}
+
+const MemoMarker = React.memo(props => {
+  return <Marker {...props} />;
+}, MarkerPropsAreEqual);
+
+function MarkerPropsAreEqual(prevMarker, nextMarker) {
+  return (
+    prevMarker.property_id === nextMarker.property_id && prevMarker.isPropertyHovered === nextMarker.isPropertyHovered
+  );
+}
+
+function FloatingPropertyCard({ hoveredProperty }) {
+  return (
+    <InfoBox
+      position={new google.maps.LatLng(parseFloat(hoveredProperty.lat), parseFloat(hoveredProperty.lng))}
+      options={{
+        closeBoxURL: ``,
+        enableEventPropagation: true,
+        disableAutoPan: true
+      }}
+    >
+      <ThemeProvider>
+        <PropertyCard isCondensed style={{ width: '150px', height: '200px' }} {...hoveredProperty} />
+      </ThemeProvider>
+    </InfoBox>
+  );
+}
+
+const MemoFloatingPropertyCard = React.memo(props => {
+  return <FloatingPropertyCard {...props} />;
+});
+
 const Map = withScriptjs(
-  withGoogleMap(props => {
-    const isHovered = p => parseInt(props.hoverId, 10) === p.property_id;
-    const hoverIcon = p =>
-      p.hometype === 'building'
-        ? 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png'
-        : 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png';
-
+  withGoogleMap(({ properties, center, hoveredProperty = {}, onMarkerClick, onPropertyHover }) => {
     return (
-      <GoogleMap defaultZoom={15} defaultCenter={props.center}>
-        {props.isMarkerShown &&
-          props.properties.map(p => {
-            const isPropertyHovered = isHovered(p);
+      <GoogleMap defaultZoom={15} defaultCenter={center}>
+        <Markers
+          properties={properties}
+          onPropertyHover={onPropertyHover}
+          onMarkerClick={onMarkerClick}
+          hoverId={hoveredProperty.property_id}
+        />
 
-            return (
-              <Marker
-                key={p.property_id}
-                position={{
-                  lat: parseFloat(p.lat),
-                  lng: parseFloat(p.lng)
-                }}
-                icon={{
-                  url: isPropertyHovered
-                    ? hoverIcon(p)
-                    : 'https://afito-production-bucket.s3.amazonaws.com/static/icons/m1.png',
-                  scaledSize: new google.maps.Size(24, 33)
-                }}
-                zIndex={isHovered(p) ? 101 : 1}
-                onMouseOver={() => props.onPropertyHover(p.property_id)}
-                onMouseOut={() => props.onPropertyHover('')}
-                onClick={() => props.onMarkerClick(p)}
-              >
-                {isHovered(p) && (
-                  <InfoBox
-                    options={{
-                      closeBoxURL: ``,
-                      enableEventPropagation: true,
-                      disableAutoPan: true
-                    }}
-                  >
-                    <ThemeProvider>
-                      <PropertyCard isCondensed style={{ width: '150px', height: '200px' }} {...p} />
-                    </ThemeProvider>
-                  </InfoBox>
-                )}
-              </Marker>
-            );
-          })}
+        {!!hoveredProperty && <MemoFloatingPropertyCard hoveredProperty={hoveredProperty} />}
       </GoogleMap>
     );
   })
