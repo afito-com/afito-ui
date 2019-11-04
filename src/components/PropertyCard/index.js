@@ -163,6 +163,7 @@ function PropertyCard({
     }
   }
 
+  console.log('Debug: ', savedProperties.map(p => p.property_id).includes(property_id));
   console.log({ saved, savedProperties, property_id });
 
   return (
