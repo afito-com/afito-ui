@@ -163,6 +163,8 @@ function PropertyCard({
     }
   }
 
+  console.log({ saved, savedProperties });
+
   return (
     <Wrapper {...rest}>
       <Image isCondensed={isCondensed} src={image_url} alt={cardTitle} />
