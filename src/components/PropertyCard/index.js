@@ -142,7 +142,7 @@ function PropertyCard({
   const cardTitle = property_name ? property_name : address ? address.line1 : 'Loading...';
   const bedsRange = max_beds > min_beds ? `${min_beds}-${max_beds}` : max_beds;
   const bathsRange = max_baths > min_baths ? `${min_baths}-${max_baths}` : max_baths;
-  const fullAddress = (
+  const fullAddress = address ? (
     <>
       <span style={{ whiteSpace: 'nowrap' }}>
         {address.line1},{address.line2 && ` ${address.line2},`}&nbsp;
@@ -151,6 +151,8 @@ function PropertyCard({
         {address.city},&nbsp;{address.state}
       </span>
     </>
+  ) : (
+    'Loading...'
   );
 
   useEffect(() => {
