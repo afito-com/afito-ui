@@ -163,7 +163,7 @@ function PropertyCard({
     }
   }
 
-  console.log({ saved, savedProperties });
+  console.log({ saved, savedProperties, property_id });
 
   return (
     <Wrapper {...rest}>
