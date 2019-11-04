@@ -35,11 +35,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
-        ]
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }]
       },
       {
         test: /\.(png|gif|jpg|svg)$/i,
@@ -61,5 +57,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/'),
     filename: 'afitoui.js',
     libraryTarget: 'commonjs2'
+  },
+  optimization: {
+    minimize: false
   }
 };
