@@ -167,9 +167,6 @@ function PropertyCard({
     }
   }
 
-  console.log('Is Saved Property?: ', savedProperties.map(p => p.property_id).includes(property_id));
-  console.log({ saved, savedProperties, property_id });
-
   return (
     <Wrapper {...rest}>
       <Image isCondensed={isCondensed} src={image_url} alt={cardTitle} />
