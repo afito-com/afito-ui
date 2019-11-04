@@ -56,7 +56,6 @@ function MarkerPropsAreEqual(prevMarker, nextMarker) {
 }
 
 function FloatingPropertyCard({ hoveredProperty }) {
-  console.log({ hoveredProperty });
   return (
     <InfoBox
       position={new google.maps.LatLng(parseFloat(hoveredProperty.lat), parseFloat(hoveredProperty.lng))}
