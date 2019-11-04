@@ -87,7 +87,7 @@ const Map = withScriptjs(
           hoverId={hoveredProperty.property_id}
         />
 
-        {!!hoveredProperty && <MemoFloatingPropertyCard hoveredProperty={hoveredProperty} />}
+        {Object.keys(hoveredProperty).length > 0 && <MemoFloatingPropertyCard hoveredProperty={hoveredProperty} />}
       </GoogleMap>
     );
   })
