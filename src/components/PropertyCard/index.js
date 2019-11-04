@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Row, Column } from '../Grid';
@@ -126,7 +126,7 @@ function PropertyCard({
   children,
   ...rest
 }) {
-  const [saved, setSaved] = useState(savedProperties.map(p => p.property_id).includes(property_id));
+  const [saved, setSaved] = useState();
   const isBuilding = hometype => hometype === 'building';
   const displayPrice = isBuilding(hometype)
     ? contact_for_pricing
@@ -153,6 +153,10 @@ function PropertyCard({
     </>
   );
 
+  useEffect(() => {
+    setSaved(savedProperties.map(p => p.property_id).includes(property_id));
+  }, [savedProperties]);
+
   function toggleSavedProperty(e) {
     e.stopPropagation();
     e.preventDefault();
@@ -163,7 +167,7 @@ function PropertyCard({
     }
   }
 
-  console.log('Debug: ', savedProperties.map(p => p.property_id).includes(property_id));
+  console.log('Is Saved Property?: ', savedProperties.map(p => p.property_id).includes(property_id));
   console.log({ saved, savedProperties, property_id });
 
   return (
