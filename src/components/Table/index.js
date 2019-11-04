@@ -37,8 +37,8 @@ function Table({ rows, headers, ...rest }) {
     <Wrapper {...rest}>
       <Head>
         <Row>
-          {headers.map(header => (
-            <Header key={header} align="left">
+          {headers.map((header, i) => (
+            <Header key={`${header}_${i}`} align="left">
               {header}
             </Header>
           ))}
