@@ -66,7 +66,8 @@ const Input = styled.input`
 `;
 
 Input.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  hideLabel: PropTypes.bool
 };
 
 export default ValidationWrapper;
