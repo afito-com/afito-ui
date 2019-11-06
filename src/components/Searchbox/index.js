@@ -91,21 +91,32 @@ const Dropdown = styled.div`
 const Item = styled.div`
   padding: 16px 20px;
   background: white;
-  cursor: pointer;
   text-align: left;
 
   & + & {
     border-top: 1px solid #d2dce0;
   }
 
-  &:hover {
-    background: #f1f4f6;
-  }
+  ${props =>
+    !props.disabled
+      ? `
+          cursor: pointer;
+
+
+          &:hover {
+            background: #f1f4f6;
+          }
+        `
+      : `
+          color: grey; 
+          cursor: default;
+        `};
 `;
 
 function Searchbox({ items, name, placeholder, label, hideLabel, onItemClick, ...rest }) {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const filteredItems = items.filter(i => i.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
 
   return (
     <>
@@ -130,23 +141,24 @@ function Searchbox({ items, name, placeholder, label, hideLabel, onItemClick, ..
           }}
         />
         <Dropdown dropdownVisible={dropdownVisible}>
-          {items.length > 0 &&
-            items
-              .filter(i => i.name.indexOf(inputValue) > -1)
-              .map((i, idx) => (
-                <Item
-                  key={i.value + '_' + idx}
-                  onMouseDown={e => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setInputValue(i.name);
-                    setDropdownVisible(false);
-                    onItemClick(i);
-                  }}
-                >
-                  {i.name}
-                </Item>
-              ))}
+          {filteredItems.length > 0 ? (
+            filteredItems.map((i, idx) => (
+              <Item
+                key={i.value + '_' + idx}
+                onMouseDown={e => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setInputValue(i.name);
+                  setDropdownVisible(false);
+                  onItemClick(i);
+                }}
+              >
+                {i.name}
+              </Item>
+            ))
+          ) : (
+            <Item disabled={true}>No results found</Item>
+          )}
         </Dropdown>
       </Wrapper>
     </>
