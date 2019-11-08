@@ -45,59 +45,47 @@ const ButtonWrapper = styled.button`
   &--fill {
     width: 100%;
   }
-`;
 
-const PrimaryButton = styled(ButtonWrapper)`
-  color: rgb(242, 242, 242);
-  background: ${props => props.theme.AFITO_UI.primaryColor};
+  ${props => {
+    if (props.level === 'primary') {
+      return `
+        color: rgb(242, 242, 242);
+        background: ${props.theme.AFITO_UI.primaryColor};
 
-  &:active {
-    background: darken(${props => props.theme.AFITO_UI.primaryColor}, 5%);
-  }
-`;
+        &:active {
+          background: darken(${props.theme.AFITO_UI.primaryColor}, 5%);
+        }
+      `;
+    } else if (props.level === 'secondary') {
+      return `  
+        color: rgb(242, 242, 242);
+        background: ${props.theme.AFITO_UI.secondaryColor};
 
-const SecondaryButton = styled(ButtonWrapper)`
-  color: rgb(242, 242, 242);
-  background: ${props => props.theme.AFITO_UI.secondaryColor};
+        &:active {
+          background: darken(${props.theme.AFITO_UI.secondaryColor}, 5%);
+        }
+      `;
+    } else if (props.level === 'outline') {
+      return `
+        color: #505050;
+        background: transparent;
+        border: 1px solid #d2dce0;
+        box-shadow: none;
 
-  &:active {
-    background: darken(${props => props.theme.AFITO_UI.secondaryColor}, 5%);
-  }
-`;
-
-const OutlineButton = styled(ButtonWrapper)`
-  color: #505050;
-  background: transparent;
-  border: 1px solid #d2dce0;
-  box-shadow: none;
-
-  &:active {
-    box-shadow: none;
-  }
+        &:active {
+          box-shadow: none;
+        }
+      `;
+    }
+  }}
 `;
 
 export default function Button({ level, children, ...rest }) {
-  if (level === 'primary') {
-    return (
-      <PrimaryButton level={level} {...rest}>
-        {children}
-      </PrimaryButton>
-    );
-  } else if (level === 'secondary') {
-    return (
-      <SecondaryButton level={level} {...rest}>
-        {children}
-      </SecondaryButton>
-    );
-  } else if (level === 'outline') {
-    return (
-      <OutlineButton level={level} {...rest}>
-        {children}
-      </OutlineButton>
-    );
-  } else {
-    return null;
-  }
+  return (
+    <ButtonWrapper level={level} {...rest}>
+      {children}
+    </ButtonWrapper>
+  );
 }
 
 Button.propTypes = {
