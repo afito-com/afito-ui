@@ -240,3 +240,38 @@ it('renders without crashing', () => {
   );
   ReactDOM.unmountComponentAtNode(div);
 });
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(
+    <ThemeProvider>
+      <Header
+        isFixed={true}
+        dark={false}
+        user={{
+          phone_number: '555-555-5555',
+          description: 'my bio',
+          name: {
+            first: '',
+            last: 'Bonanni'
+          },
+          address: {
+            line1: '948 alexander road',
+            line2: 'apt a',
+            city: 'Princeton Junction',
+            state: 'NJ'
+          },
+          active: true,
+          profile_image: '',
+          account_type: 'student'
+        }}
+        createUser={() => console.log('create user')}
+        signIn={() => console.log('sign in')}
+        signOut={() => console.log('sign out')}
+        saveToken={() => console.log('save token')}
+      />
+    </ThemeProvider>,
+    div
+  );
+  ReactDOM.unmountComponentAtNode(div);
+});

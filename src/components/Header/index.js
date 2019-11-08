@@ -8,6 +8,16 @@ import { ModalContext, Modal } from '../ModalProvider';
 import LoginModal from '../LoginModal';
 
 const Wrapper = styled.header`
+  ${props =>
+    props.isFixed &&
+    `
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-sizing: border-box;
+  `};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,7 +32,7 @@ const Wrapper = styled.header`
   }
 
   @media (min-width: ${props => props.theme.AFITO_UI.lg}) {
-    background: transparent;
+    background: ${props => (props.dark ? 'transparent' : 'white')};
   }
 `;
 
@@ -244,7 +254,7 @@ const MobileHeaderWrapper = styled(Row)`
   }
 `;
 
-export default function Header({ dark, user, createUser, signIn, signOut, saveToken }) {
+export default function Header({ dark, isFixed, user, createUser, signIn, signOut, saveToken }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { showModal, setModalContent, modalContent } = useContext(ModalContext);
@@ -404,7 +414,7 @@ export default function Header({ dark, user, createUser, signIn, signOut, saveTo
   }
 
   return (
-    <Wrapper>
+    <Wrapper isFixed={isFixed}>
       {modalContent && <Modal>{modalContent}</Modal>}
       <DesktopHeader user={user} dark={dark} />
       <MobileHeader user={user} />
@@ -415,6 +425,7 @@ export default function Header({ dark, user, createUser, signIn, signOut, saveTo
 Header.propTypes = {
   user: PropTypes.object,
   dark: PropTypes.bool.isRequired,
+  isFixed: PropTypes.bool,
   createUser: PropTypes.func.isRequired,
   signIn: PropTypes.func.isRequired,
   signOut: PropTypes.func.isRequired,
