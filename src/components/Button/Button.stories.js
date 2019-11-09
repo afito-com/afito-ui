@@ -9,6 +9,9 @@ storiesOf('Primitives|Button', module)
   .add('secondary', () => {
     return <Button level="secondary">Let's go!</Button>;
   })
+  .add('danger', () => {
+    return <Button level="danger">Let's not go!</Button>;
+  })
   .add('outline', () => {
     return <Button level="outline">Let's go!</Button>;
   })

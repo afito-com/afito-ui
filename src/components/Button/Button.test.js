@@ -29,6 +29,17 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <ThemeProvider>
+      <Button level="danger" />
+    </ThemeProvider>,
+    div
+  );
+  ReactDOM.unmountComponentAtNode(div);
+});
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(
+    <ThemeProvider>
       <Button level="outline" />
     </ThemeProvider>,
     div

@@ -65,6 +65,15 @@ const ButtonWrapper = styled.button`
           background: darken(${props.theme.AFITO_UI.secondaryColor}, 5%);
         }
       `;
+    } else if (props.level === 'danger') {
+      return `
+        color: rgb(242, 242, 242);
+        background: ${props.theme.AFITO_UI.dangerColor};
+
+        &:active {
+          background: darken(${props.theme.AFITO_UI.dangerColor}, 5%);
+        }
+      `;
     } else if (props.level === 'outline') {
       return `
         color: #505050;
