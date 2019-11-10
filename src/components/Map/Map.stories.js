@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import Map from '.';
-import { properties, area } from './data';
 import res from './response.json';
-import { boolean, number } from '@storybook/addon-knobs';
 import config from '../../../config';
-
-console.log({ res });
 
 function MapWithState(props) {
   const [hoveredProperty, setHoveredProperty] = useState();
@@ -25,7 +21,7 @@ function MapWithState(props) {
 }
 
 storiesOf('Primitives|Map', module).add('default', () => {
-  const center = area[0].location;
+  const center = JSON.parse(res.area.location);
 
   return (
     <MapWithState

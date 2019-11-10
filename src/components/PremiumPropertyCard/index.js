@@ -228,7 +228,7 @@ const Content = styled.div`
   z-index: 10;
 `;
 
-function PremiumPropertyCard({
+export default function PremiumPropertyCard({
   property_id,
   property_name,
   price,
@@ -248,7 +248,6 @@ function PremiumPropertyCard({
   savedProperties = [],
   onRemoveSavedProperty = undefined,
   onSaveProperty = undefined,
-  children,
   ...rest
 }) {
   const [saved, setSaved] = useState(savedProperties.map(p => p.property_id).includes(property_id));
@@ -318,7 +317,7 @@ function PremiumPropertyCard({
                 {bathsRange ? bathsRange : baths}
               </Baths>
               <Distance>
-                {distance && Number.parseFloat(distance) !== NaN && (
+                {distance && !isNaN(Number.parseFloat(distance)) && (
                   <>
                     <img
                       src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle.png"
@@ -359,5 +358,3 @@ PremiumPropertyCard.propTypes = {
   onSaveProperty: PropTypes.func.isRequired,
   onRemoveSavedProperty: PropTypes.func.isRequired
 };
-
-export default PremiumPropertyCard;

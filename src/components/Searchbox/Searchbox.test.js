@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ThemeProvider from '../ThemeProvider';
 import Searchbox from '.';
-import { Container, Row, Column } from '../Grid';
+import { Container, Row } from '../Grid';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

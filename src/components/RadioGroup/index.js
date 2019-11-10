@@ -53,7 +53,8 @@ function RadioGroup({ items = [], name, onSelectionChange, defaultOption, ...res
 RadioGroup.propTypes = {
   items: PropTypes.array,
   name: PropTypes.string.isRequired,
-  onSelectionChange: PropTypes.func
+  onSelectionChange: PropTypes.func,
+  defaultOption: PropTypes.any
 };
 
 export default RadioGroup;

@@ -98,5 +98,6 @@ export default function Button({ level, children, ...rest }) {
 }
 
 Button.propTypes = {
-  level: PropTypes.string.isRequired
+  level: PropTypes.string.isRequired,
+  children: PropTypes.node
 };

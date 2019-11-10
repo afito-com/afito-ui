@@ -264,7 +264,7 @@ export default function Header({ dark, isFixed, user, createUser, signIn, signOu
       nav.push(
         { name: 'Profile', href: '/dashboard' },
         { name: 'Properties', href: '/dashboard/properties' },
-        { name: 'Premium Listings', href: '/dashboard/rankings' },
+        { name: 'Premium Listings', href: '/dashboard/premium-listings' },
         { name: 'Billing', href: '/dashboard/billing' },
         { name: 'Favorites', href: '/dashboard/favorites' }
       );

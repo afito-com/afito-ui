@@ -56,6 +56,10 @@ function SwitchWrapper({ name, onClick, onChange, ...rest }) {
   );
 }
 
-SwitchWrapper.propTypes = {};
+SwitchWrapper.propTypes = {
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  onChange: PropTypes.func
+};
 
 export default SwitchWrapper;

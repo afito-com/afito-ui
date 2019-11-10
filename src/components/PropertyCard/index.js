@@ -47,8 +47,9 @@ const Description = styled.div`
   flex-direction: column;
 `;
 
-const Badge = styled.div``;
+/*const Badge = styled.div``;
 const Ribbon = styled.div``;
+*/
 const Price = styled.div`
   border-radius: 4px;
   padding: 7px 16px;
@@ -123,7 +124,6 @@ function PropertyCard({
   onRemoveSavedProperty = undefined,
   onSaveProperty = undefined,
   isCondensed,
-  children,
   ...rest
 }) {
   const [saved, setSaved] = useState();
@@ -222,7 +222,7 @@ function PropertyCard({
             </Baths>
           </Column>
           <Column xs={4} align="flex-start">
-            {!isCondensed && distance && Number.parseFloat(distance) !== NaN && (
+            {!isCondensed && distance && !isNaN(Number.parseFloat(distance)) && (
               <Bike isCondensed={isCondensed}>
                 <img
                   height={isCondensed ? '12' : '19'}
@@ -259,14 +259,14 @@ PropertyCard.propTypes = {
   distance: PropTypes.number,
   savedProperties: PropTypes.array.isRequired,
   isCondensed: PropTypes.bool,
-  onSaveProperty: function(props, propName, componentName) {
+  onSaveProperty: function(props, propName) {
     if (props['isCondensed'] == false && (props[propName] == undefined || typeof props[propName] != 'function')) {
       return new Error('Please provide a onSaveProperty function!');
     }
   },
-  onRemoveSaveProperty: function(props, propName, componentName) {
+  onRemoveSavedProperty: function(props, propName) {
     if (props['isCondensed'] == false && (props[propName] == undefined || typeof props[propName] != 'function')) {
-      return new Error('Please provide a onRemoveSaveProperty function!');
+      return new Error('Please provide a onRemoveSavedProperty function!');
     }
   }
 };

@@ -1,7 +1,6 @@
 /*global google*/
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import InfoBox from 'react-google-maps/lib/components/addons/InfoBox';
 import PropertyCard from '../PropertyCard';
@@ -92,5 +91,13 @@ const Map = withScriptjs(
     );
   })
 );
+
+Map.propTypes = {
+  properties: PropTypes.array,
+  center: PropTypes.object.isRequired,
+  hoveredProperty: PropTypes.object,
+  onMarkerClick: PropTypes.func,
+  onPropertyHover: PropTypes.func
+};
 
 export default Map;

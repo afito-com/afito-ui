@@ -166,7 +166,7 @@ const Distribution = styled.div`
   left: 0;
   right: 0;
   top: 70px;
-  width: ${props => `calc(100% - ${QTY_BLOCK_WIDTH}px)`};
+  width: ${() => `calc(100% - ${QTY_BLOCK_WIDTH}px)`};
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -175,7 +175,7 @@ const Distribution = styled.div`
 const QuantityBlock = styled.div`
   height: ${props => `${props.height * 15}px`};
   max-height: 65px;
-  width: ${props => `${QTY_BLOCK_WIDTH}px`};
+  width: ${() => `${QTY_BLOCK_WIDTH}px`};
   background: #e1e7eb;
   position: absolute;
   left: ${props => `${props.offset}%`};
@@ -254,7 +254,7 @@ function Range({ items, onRangeChange, defaultMin, defaultMax, ...rest }) {
 }
 
 Range.propTypes = {
-  items: function(props, propName, componentName) {
+  items: function(props, propName) {
     const val = props[propName];
     if (!Array.isArray(val)) {
       return new Error(`${propName} must be an array`);
@@ -275,7 +275,9 @@ Range.propTypes = {
     });
   },
   name: PropTypes.string.isRequired,
-  onRangeChange: PropTypes.func
+  onRangeChange: PropTypes.func,
+  defaultMax: PropTypes.number,
+  defaultMin: PropTypes.number
 };
 
 export default Range;

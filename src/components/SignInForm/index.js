@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Form from 'react-validation/build/form';
-import { Row, Column } from '../Grid';
 import FormButton from '../FormButton';
 import Input from '../Input';
 import LoadingBlock from '../LoadingBlock';
@@ -10,7 +9,6 @@ import Alert from '../Alert';
 import { Text } from '../Typography';
 //import { UserAPI } from '../../api';
 import * as valid from '../../formValidator';
-import { getParam, validateUrl } from '../../utils';
 
 const Wrapper = styled.div`
   display: flex;
@@ -99,5 +97,6 @@ export default function SignInForm({ onSignIn, style }) {
 
 SignInForm.propTypes = {
   onSignIn: PropTypes.func.isRequired,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  style: PropTypes.object
 };

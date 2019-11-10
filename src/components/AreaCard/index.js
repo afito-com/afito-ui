@@ -86,5 +86,6 @@ export default function AreaCard({ image_url, name, property_count, onClick, ...
 AreaCard.propTypes = {
   image_url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  property_count: PropTypes.number.isRequired
+  property_count: PropTypes.number.isRequired,
+  onClick: PropTypes.func
 };

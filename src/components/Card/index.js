@@ -55,7 +55,7 @@ export default function Card({ image, withHover, children }) {
   );
 }
 
-CardWrapper.propTypes = {
+Card.propTypes = {
   image: PropTypes.string.isRequired,
   withHover: PropTypes.bool,
   children: PropTypes.node.isRequired

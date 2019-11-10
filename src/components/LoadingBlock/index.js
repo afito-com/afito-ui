@@ -99,7 +99,8 @@ const Wrapper = ({ quiet, color, small, ...rest }) => (
 
 Wrapper.propTypes = {
   quiet: PropTypes.bool,
-  color: PropTypes.string
+  color: PropTypes.string,
+  small: PropTypes.bool
 };
 
 export default Wrapper;

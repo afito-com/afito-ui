@@ -4,22 +4,22 @@ import Button from '.';
 
 storiesOf('Primitives|Button', module)
   .add('primary', () => {
-    return <Button level="primary">Let's go!</Button>;
+    return <Button level="primary">Lets go!</Button>;
   })
   .add('secondary', () => {
-    return <Button level="secondary">Let's go!</Button>;
+    return <Button level="secondary">Lets go!</Button>;
   })
   .add('danger', () => {
-    return <Button level="danger">Let's not go!</Button>;
+    return <Button level="danger">Lets not go!</Button>;
   })
   .add('outline', () => {
-    return <Button level="outline">Let's go!</Button>;
+    return <Button level="outline">Lets go!</Button>;
   })
   .add('side by side', () => {
     return (
       <>
-        <Button level="secondary">Let's go!</Button>
-        <Button level="outline">Let's go!</Button>
+        <Button level="secondary">Lets go!</Button>
+        <Button level="outline">Lets go!</Button>
       </>
     );
   });
