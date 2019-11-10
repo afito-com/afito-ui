@@ -1,8 +1,9 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Table from '.';
+import ReactDOM from 'react-dom';
+import ThemeProvider from '../ThemeProvider';
+import Table from '../Table';
 
-storiesOf('Primitives|Table', module).add('default', () => {
+it('renders without crashing', () => {
   const floorplans = [
     {
       id: '1',
@@ -61,21 +62,26 @@ storiesOf('Primitives|Table', module).add('default', () => {
       square_footage: `${f.square_footage}ft&sup2;`
     };
   });
+  const div = document.createElement('div');
 
-  return (
-    <Table
-      rows={rows}
-      headers={[
-        'Name',
-        'Price',
-        <img key="Beds" width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed.png" />,
-        <img key="Baths" width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bath.png" />,
-        <img
-          key="Square feet"
-          width="50"
-          src="https://afito-production-bucket.s3.amazonaws.com/static/icons/area.png"
-        />
-      ]}
-    />
+  ReactDOM.render(
+    <ThemeProvider>
+      <Table
+        rows={rows}
+        headers={[
+          'Name',
+          'Price',
+          <img key="Beds" width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed.png" />,
+          <img key="Baths" width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bath.png" />,
+          <img
+            key="Square feet"
+            width="50"
+            src="https://afito-production-bucket.s3.amazonaws.com/static/icons/area.png"
+          />
+        ]}
+      />
+    </ThemeProvider>,
+    div
   );
+  ReactDOM.unmountComponentAtNode(div);
 });

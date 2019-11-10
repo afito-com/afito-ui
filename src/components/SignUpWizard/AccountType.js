@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
@@ -51,5 +52,9 @@ function AccountType({ dispatch }) {
     </Wrapper>
   );
 }
+
+AccountType.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
 
 export default AccountType;

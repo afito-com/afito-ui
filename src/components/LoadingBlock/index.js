@@ -17,7 +17,7 @@ function randomLoadingMessage() {
   return lines[Math.round(Math.random() * (lines.length - 1))];
 }
 
-const LoadingBlock = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,8 +82,8 @@ const Message = styled(Heading)`
   color: ${props => (props.color ? props.color : '#333')};
 `;
 
-const Wrapper = ({ quiet, color, small, ...rest }) => (
-  <LoadingBlock {...rest}>
+const LoadingBlock = ({ quiet, color, small, ...rest }) => (
+  <Wrapper {...rest}>
     <Circles color={color} small={small}>
       <div className="circle1" />
       <div className="circle2" />
@@ -94,13 +94,13 @@ const Wrapper = ({ quiet, color, small, ...rest }) => (
         {randomLoadingMessage()}
       </Message>
     )}
-  </LoadingBlock>
+  </Wrapper>
 );
 
-Wrapper.propTypes = {
+LoadingBlock.propTypes = {
   quiet: PropTypes.bool,
   color: PropTypes.string,
   small: PropTypes.bool
 };
 
-export default Wrapper;
+export default LoadingBlock;

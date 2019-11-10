@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Container, Row } from '../Grid';
 
@@ -101,7 +102,7 @@ function Slider({ children, itemsPerView }) {
   useEffect(() => {
     setAtStart(offset >= 0);
     setAtEnd(offset <= -1 * endMarker);
-  });
+  }, [offset, endMarker]);
 
   return (
     <Wrapper>
@@ -123,5 +124,10 @@ function Slider({ children, itemsPerView }) {
     </Wrapper>
   );
 }
+
+Slider.propTypes = {
+  children: PropTypes.node.isRequired,
+  itemsPerView: PropTypes.number
+};
 
 export default Slider;

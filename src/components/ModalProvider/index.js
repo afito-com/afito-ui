@@ -1,4 +1,5 @@
 import React, { Component, useContext } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ResponsiveModal from 'react-responsive-modal';
 
@@ -51,6 +52,10 @@ class ModalProvider extends Component {
   }
 }
 
+ModalProvider.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
 const Header = styled.div`
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
@@ -67,15 +72,6 @@ const Footer = styled.div`
   justify-content: flex-end;
   padding: 0 10px;
   background: white;
-`;
-
-const ModalWrapper = styled.span`
-  & .Modal__container {
-    @media screen and (max-width: 500px) {
-      max-width: 100%;
-      width: 100%;
-    }
-  }
 `;
 
 const Modal = ({ header, footer, children, ...rest }) => {
@@ -109,6 +105,12 @@ const Modal = ({ header, footer, children, ...rest }) => {
       <Footer>{footer}</Footer>
     </ResponsiveModal>
   );
+};
+
+Modal.propTypes = {
+  header: PropTypes.node,
+  footer: PropTypes.node,
+  children: PropTypes.node
 };
 
 export { Modal, ModalProvider, ModalContext };

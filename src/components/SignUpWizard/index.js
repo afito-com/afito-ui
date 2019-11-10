@@ -23,7 +23,6 @@ function SignUpWizard({ onSignUp, style }) {
   });
   const [wizardState, dispatch] = useReducer(wizardReducer, 'accountType');
   const [alert, setAlert] = useState(undefined);
-  const [signedUp, setSignedUp] = useState(false);
 
   function updateUserInfo(e) {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
@@ -66,7 +65,7 @@ function SignUpWizard({ onSignUp, style }) {
       case 'accountType':
         return <AccountType dispatch={dispatch} />;
       case 'userInfo':
-        return <UserInfo onSubmit={onSubmit} signedUp={signedUp} updateUserInfo={updateUserInfo} userInfo={userInfo} />;
+        return <UserInfo onSubmit={onSubmit} updateUserInfo={updateUserInfo} />;
       case 'completed':
         return <h1>Done</h1>;
       default:
@@ -83,7 +82,8 @@ function SignUpWizard({ onSignUp, style }) {
 }
 
 SignUpWizard.propTypes = {
-  onSignUp: PropTypes.func.isRequired
+  onSignUp: PropTypes.func.isRequired,
+  style: PropTypes.object
 };
 
 export default SignUpWizard;

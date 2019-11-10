@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -56,6 +56,11 @@ function Heading({ level, children, ...rest }) {
   }
 }
 
+Heading.propTypes = {
+  level: PropTypes.number,
+  children: PropTypes.node.isRequired
+};
+
 function Text({ type, children, ...rest }) {
   return (
     <BodyText type={type} {...rest}>
@@ -63,5 +68,10 @@ function Text({ type, children, ...rest }) {
     </BodyText>
   );
 }
+
+Text.propTypes = {
+  type: PropTypes.string,
+  children: PropTypes.node.isRequired
+};
 
 export { Heading, Text };

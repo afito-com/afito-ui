@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import SignInForm from '.';
-import { resolve } from 'q';
 
 storiesOf('Composites|SignInForm', module)
   .add('Valid Login', () => {
@@ -19,6 +18,7 @@ storiesOf('Composites|SignInForm', module)
     return (
       <SignInForm
         onSignIn={({ email, password }, callback) => {
+          console.log({ email, password });
           // Send email & password to API
           callback({ status: 400, data: { message: 'Invalid username/password' } });
         }}

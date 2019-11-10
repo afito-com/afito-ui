@@ -35,6 +35,8 @@ const Container = styled.div`
   }
 `;
 
+Container.propTypes = {};
+
 const Row = styled.div`
   display: flex;
   flex-wrap: ${props => (props.canWrap ? 'wrap' : 'nowrap')};

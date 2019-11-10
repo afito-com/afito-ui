@@ -1,0 +1,344 @@
+{
+  "areas": [
+    {
+      "area_id": 3,
+      "name": "TCNJ-Rider",
+      "description": "The College of New Jersey and Rider University Two Universities Tucked Away in the States Capital",
+      "image_url": "https://s3.us-east-2.amazonaws.com/afito-production-bucket/areas/tcnj+card+picture.jpg",
+      "location": "{\"lat\":40.2649258,\"lng\":-74.7828085}",
+      "blurb": "TCNJ Off Campus Housing\n\n\n\nSearching for off campus housing near TCNJ? Browse tons of affordable student rental listings around The College of New Jersey’s Ewing campus and find your home away from today! Use our service to filter listings by price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be quite a hassle, especially if you’re moving out to live on your own for the first time. Our mission at Afito is to help every student find an amazing place to live at school. That’s why we’ve done the hard work for you and compiled the best off campus rentals near TCNJ all in one place.",
+      "area_slug": "tcnj-rider",
+      "property_count": 80
+    },
+    {
+      "area_id": 2,
+      "name": "Binghamton University",
+      "description": "The State University of New York at Binghamton",
+      "image_url": "https://s3.us-east-2.amazonaws.com/afito-production-bucket/areas/bing-welcome.jpg",
+      "location": "{\"lat\":42.098657,\"lng\":-75.924111}",
+      "blurb": null,
+      "area_slug": "binghamton-university",
+      "property_count": 50
+    },
+    {
+      "area_id": 33,
+      "name": "Southern Utah University",
+      "description": "Southern Utah University is a public university in Cedar City, Utah. Founded in 1897 as a normal school, Southern Utah University now graduates over 1,800 students each year with baccalaureate and graduate degrees from its six colleges.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/suthern-utah-state-university.jpeg",
+      "location": "{\"lat\":37.6764482,\"lng\":-113.073526}",
+      "blurb": null,
+      "area_slug": "southern-utah-state-university",
+      "property_count": 50
+    },
+    {
+      "area_id": 43,
+      "name": "Morgan State University",
+      "description": "Morgan State University is a public historically black research university in Baltimore, Maryland. It is the largest of Maryland's HBCUs.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/morgan-state-university.jpeg",
+      "location": "{\"lat\":39.3463212,\"lng\":-76.5868149}",
+      "blurb": null,
+      "area_slug": "morgan-state-university",
+      "property_count": 161
+    },
+    {
+      "area_id": 6,
+      "name": "SUNY - Cortland",
+      "description": "The State University of New York in Cortland ",
+      "image_url": "https://www2.cortland.edu/contentAsset/raw-data/95ed0973-32bb-4e33-a4ea-85b535e4ae38/fileAsset?language_id=1",
+      "location": "{\"lat\":42.598417,\"lng\":-76.187242}",
+      "blurb": "SUNY Cortland Off Campus Housing\n\n\n\nSearching for Cortland off campus housing? Find your home away from home today on Afito. Choose from tons of affordable student rental properties close to SUNY Cortland. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. We’ve hand picked our listings to make sure that only the best student housing in the area is displayed on our website.\n\n\n\nAt Afito our mission is to help each and every student find their home away from home. Finding a house, a room, or an apartment off campus can be a hassle, especially if you’re getting your own place for the first time. That’s why we’ve compiled all the best student housing options at Cortland in one place. And property listings aren’t the only thing we have to offer- be sure to check out our Cortland sublet listings and roommate finder too!",
+      "area_slug": "suny-cortland",
+      "property_count": 230
+    },
+    {
+      "area_id": 15,
+      "name": "Johns Hopkins University",
+      "description": "Johns Hopkins University is a private research university in Baltimore, Maryland.",
+      "image_url": "https://s3.us-east-2.amazonaws.com/afito-production-bucket/areas/jhu.jpeg",
+      "location": "{\"lat\":39.328448,\"lng\":-76.622674}\n",
+      "blurb": "JHU Off Campus Housing\n\n\n\nAre you looking for off campus houses or apartments near Johns Hopkins University?  You’ve come to the right place! Find your home away from home today on Afito. Choose from tons of affordable student rental properties close to JHU. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. We’ve hand picked our listings to make sure that only the best student housing at JHU is displayed on our website.",
+      "area_slug": "johns-hopkins-university",
+      "property_count": 161
+    },
+    {
+      "area_id": 44,
+      "name": "Rutgers University - Newark",
+      "description": "Rutgers–Newark is one of three regional campuses of Rutgers University, New Jersey's public research university. It is located in Newark. Rutgers, founded in 1766 in New Brunswick, is the eighth oldest college in the United States and a member of the Asso",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/rutgers-newark.jpeg",
+      "location": "{\"lat\":40.7410553,\"lng\":-74.1732009}\n",
+      "blurb": null,
+      "area_slug": "rutgers-university-newark",
+      "property_count": 3
+    },
+    {
+      "area_id": 36,
+      "name": "University of Central Oklahoma",
+      "description": "The University of Central Oklahoma, often referred to as UCO or Central, is a coeducational public university located in Edmond, Oklahoma. The university is the third largest in Oklahoma, with more than 17,000 students and approximately 434 full-time and ",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/university-of-central-oklahoma.jpeg",
+      "location": "{\"lat\":35.6577792,\"lng\":-97.4737166}",
+      "blurb": null,
+      "area_slug": "university-of-central-oklahoma",
+      "property_count": 1
+    },
+    {
+      "area_id": 38,
+      "name": "University of Texas-El Paso",
+      "description": "The University of Texas at El Paso is a public research university in El Paso, Texas. It is a member of the University of Texas System.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/ut-el-paso.jpeg",
+      "location": "{\"lat\":31.7709413,\"lng\":-106.5068345}",
+      "blurb": null,
+      "area_slug": "university-of-texas-el-paso",
+      "property_count": 0
+    },
+    {
+      "area_id": 39,
+      "name": "University of Texas-Tyler",
+      "description": "The University of Texas at Tyler is a coeducational public university located in Tyler, Texas, United States. Founded in 1971, it is a component institution of The University of Texas System. ",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/ut-tyler.jpeg",
+      "location": "{\"lat\":32.3157719,\"lng\":-95.256566}",
+      "blurb": null,
+      "area_slug": "university-of-texas-tyler",
+      "property_count": 0
+    },
+    {
+      "area_id": 41,
+      "name": "Prairie View A&M University",
+      "description": "Prairie View A&M University is a public historically black university in Prairie View, Texas. Founded in 1876, it is one of Texas's two land-grant universities and the second oldest public institution of higher learning in the state.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/prairie-view-a%26m-university.jpeg",
+      "location": "{\"lat\":30.0939221,\"lng\":-95.9920904}",
+      "blurb": null,
+      "area_slug": "prairie-view-am-university",
+      "property_count": 3
+    },
+    {
+      "area_id": 4,
+      "name": "Rowan University",
+      "description": "A Growing University Located in Glassboro New Jersey",
+      "image_url": "https://www.rowan.edu/home/sites/default/files/styles/landing_page_overlay_photo/public/about_new.jpg?itok=zVwyYR7B",
+      "location": "{\"lat\":39.707541,\"lng\":-75.123849}",
+      "blurb": "Rowan Off Campus Housing\n\n\n\nAre you looking for off campus houses or apartments near Rowan University?  You came to the right place! Find your home away from home today on Afito. Choose from tons of affordable student rental properties close to Rowan. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. We’ve hand picked our listings to make sure that only the best student housing in Glassboro is displayed on our website.\n\n\n\nAt Afito our mission is to help each and every student find an off campus home they love. Finding a house, a room, or an apartment off campus can be a hassle, especially if you’re getting your own place for the first time. That’s why we’ve compiled all the best student housing options at Rowan in one place. And property listings aren’t the only thing we have to offer- be sure to check out our Rowan sublet listings and roommate finder as well!",
+      "area_slug": "rowan-university",
+      "property_count": 135
+    },
+    {
+      "area_id": 14,
+      "name": "University of Delaware",
+      "description": "The State University of Delaware located in the heart of Newark",
+      "image_url": "https://s3.us-east-2.amazonaws.com/afito-production-bucket/areas/udel.jpeg",
+      "location": "{\"lat\":39.681527,\"lng\":-75.7546143}",
+      "blurb": "UDel Off Campus Housing\n\n\n\nAre you searching for off campus housing at University of Delaware? Find your home away from home today on Afito. Choose from tons of affordable student rental properties around Newark, DE. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. We handpick the best apartments and houses in the Newark area based on a number of factors including amenities, safety, and much more. We do the research so you don’t have to! Check out Afito to find the perfect home for you today.",
+      "area_slug": "university-of-delaware",
+      "property_count": 187
+    },
+    {
+      "area_id": 45,
+      "name": "Rutgers University - Camden",
+      "description": "Rutgers University–Camden is one of three regional campuses of Rutgers University, New Jersey's public research university. It is located in Camden, New Jersey. Founded in 1766, Rutgers–Camden began as an amalgam of the South Jersey Law School and the Col",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/rutgers-camden.jpeg",
+      "location": "{\"lat\":39.9485245,\"lng\":-75.1219396}",
+      "blurb": "Rutgers Camden Off Campus Housing\n\n\n\nSearching for off campus housing near Rutgers University, Camden? Look no further! Browse tons of affordable student housing rental properties in the Camden, NJ area. Use our service to filter listings by price, bedrooms, bathrooms, home type, and more. Finding a house, an apartment, or a room can be quite the headache, especially if it’s your first time finding a place to live. Our mission is to help you find the best place you can to live at school. That’s why we’ve done the hard work for you and pulled together all the best off campus student housing options around Rutgers Camden into one place.",
+      "area_slug": "rutgers-university-camden",
+      "property_count": 19
+    },
+    {
+      "area_id": 22,
+      "name": "University of Nevada Las Vegas - UNLV",
+      "description": "The University of Nevada Las Vegas",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/unlv.jpeg",
+      "location": "{\"lat\":36.1142973,\"lng\":-115.1745648}\n",
+      "blurb": "UNLV Off Campus Housing\n\n\n\nSearching for off campus housing near UNLV? Find your home away from home today on Afito! Choose from tons of affordable student rental properties around University of Nevada, Las Vegas. Use our service to filter listings by price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you will be living on your own for the first time. Our mission is to help you find an amazing place to live at school. That’s why we’ve hand picked the best off campus rentals in the Las Vegas area to make your housing search as easy as possible.",
+      "area_slug": "university-of-nevada-las-vegas",
+      "property_count": 44
+    },
+    {
+      "area_id": 19,
+      "name": "University of Washington",
+      "description": "The University of Washington is a public research university in Seattle, Washington",
+      "image_url": "https://s3.us-east-2.amazonaws.com/afito-production-bucket/areas/university-of-washington.jpeg",
+      "location": "{\"lat\":47.6574081,\"lng\":-122.3088337}",
+      "blurb": "University of Washington Off Campus Housing\n\n\n\nLooking for off campus housing at the University of Washington? Browse tons of off campus student housing listings around UW on Afito! Choose from tons of great rental properties close to UW’s Seattle campus. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. Our goal is to make the housing search process as easy as possible for you. We take care to hand pick the best houses and apartments in the area to make your housing search as easy as possible. Check out Afito today to find your next home off campus.",
+      "area_slug": "university-of-washington",
+      "property_count": 290
+    },
+    {
+      "area_id": 37,
+      "name": "University of Texas-Arlington",
+      "description": "The University of Texas at Arlington is a public research university located in Arlington, Texas, United States, midway between Dallas and Fort Worth. The spring 2017 campus enrollment consisted of 41,933 students making it the largest university in North",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/ut-arlington.jpeg",
+      "location": "{\"lat\":32.7305261,\"lng\":-97.1250618}",
+      "blurb": null,
+      "area_slug": "university-of-texas-arlington",
+      "property_count": 0
+    },
+    {
+      "area_id": 1,
+      "name": "Rutgers University",
+      "description": "Rutgers University New Brunswick the State University of New Jersey",
+      "image_url": "https://s3.us-east-2.amazonaws.com/afito-production-bucket/areas/Rutgers-Welcome-10-8-09-004.jpg",
+      "location": "{\"lat\":40.50016129999999,\"lng\":-74.4492973}",
+      "blurb": "Rutgers Off Campus Housing\n\n\n\nAre you searching for off campus housing at Rutgers? Find your home away from home today on Afito. Choose from tons of affordable student rental properties close to Rutgers. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. We’ve hand picked our listings to make sure that only the best student housing in New Brunswick, Piscataway, and Highland Park is displayed on our website.\n\n\n\nAt Afito our mission is to help each and every student find their home away from home. Finding a house, a room, or an apartment off campus can be a hassle, especially if you’re getting your own place for the first time. That’s why we’ve compiled all the best student housing options at Rutgers in one place. And property listings aren’t the only thing we have to offer- be sure to check out our Rutgers sublet listings and our Rutgers roommate finder too!",
+      "area_slug": "rutgers-university",
+      "property_count": 283
+    },
+    {
+      "area_id": 21,
+      "name": "Oregon State University",
+      "description": "The Oregon State University",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/oregon-state-university.jpg",
+      "location": "{\"lat\":44.5637806,\"lng\":-123.2816383}\n",
+      "blurb": "Oregon State Off Campus Housing\n\n\n\nAre you searching for off-campus housing at Oregon State University? Find your home away from home today on Afito. Choose from tons of affordable student rental properties close to the OSU campus. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. We handpick the best apartments and houses in the Corvallis area based on a number of factors including amenities, safety, and much more. We do the research so you don’t have to! Check out Afito to find the perfect home for you today.",
+      "area_slug": "oregon-state-university",
+      "property_count": 152
+    },
+    {
+      "area_id": 35,
+      "name": "North Dakota State University",
+      "description": "North Dakota State University of Agriculture and Applied Sciences, more commonly known as North Dakota State University, is a public research university in Fargo, North Dakota.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/north-dakota-state-university.jpeg",
+      "location": "{\"lat\":46.896247,\"lng\":-96.8053652}",
+      "blurb": "NDSU Off Campus Housing\n\n\n\nLooking for off-campus housing at North Dakota State University? Use Afito to browse tons of affordable student rentals in the Fargo area and find your home away from home. We know that finding a house, a room, or an apartment off campus can be quite a hassle. That’s why we’ve done the hard work for you and compiled the best student housing around NDSU, all in one place. With Afito you can filter listings based on price, bedrooms, bathrooms, property type, and more. Find your next spot today!",
+      "area_slug": "north-dakota-state-university",
+      "property_count": 154
+    },
+    {
+      "area_id": 24,
+      "name": "University of New Mexico",
+      "description": "The University of New Mexico",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/university-of-new-mexico.jpeg",
+      "location": "{\"lat\":35.0843187,\"lng\":-106.6219699}",
+      "blurb": "UNM Off Campus Housing\n\n\n\nLooking for off campus housing near University of New Mexico? Find your home away from home today on Afito! Choose from tons of affordable student rental properties in the Albuquerque area. Use our service to filter listings based on price, bedrooms, bathrooms, home type, and more. Finding an apartment, a house, or a room can be a headache, especially if you’re searching for housing for the first time. Our goal is to make the search process as easy as possible. That’s why we’ve compiled all the best off campus student housing options around University of New Mexico’s Albuquerque, NM campus in once place!",
+      "area_slug": "university-of-new-mexico",
+      "property_count": 28
+    },
+    {
+      "area_id": 17,
+      "name": "Towson University",
+      "description": "Towson University is a  public university located in the town of Towson, Maryland.",
+      "image_url": "https://s3.us-east-2.amazonaws.com/afito-production-bucket/areas/towson.jpeg",
+      "location": "{\"lat\":39.399485,\"lng\":-76.6168683}",
+      "blurb": "Towson University Off Campus Housing\n\n\n\nSearching for off campus housing near Towson University? Find your next place off campus today with Afito! Choose from tons of affordable student rental properties around Towson, MD. Use our service to filter listings based on price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you’re moving out of the dorms for the first time. Our mission is to help students find amazing places to live while away at school. We’ve done the hard work for you and compiled the best off campus properties at Towson U in one place!",
+      "area_slug": "towson-university",
+      "property_count": 161
+    },
+    {
+      "area_id": 25,
+      "name": "University of Oklahoma",
+      "description": "The University of Oklahoma",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/uinversity-of-oklahoma.jpeg",
+      "location": "{\"lat\":35.2058936,\"lng\":-97.4479024}\n",
+      "blurb": "OU Off Campus Housing\n\n\n\nLooking for off campus housing near University of Oklahoma? Find your home away from home today on Afito! Choose from tons of affordable student rental properties close to OU in Norman, OK. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you’re moving out of the dorms for the first time. Our mission is to help each and every student find a great place to live. That’s why we’ve hand picked the best listings in the Norman area to make your housing search as easy as possible.",
+      "area_slug": "university-of-oklahoma",
+      "property_count": 142
+    },
+    {
+      "area_id": 27,
+      "name": "University of Texas San Antonio",
+      "description": "The University of Texas at San Antonio is a state research university in San Antonio, Texas, United States. With nearly 38,400 students, it is the largest university in San Antonio and the eighth-largest in the state of Texas.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/university-of-texas-san-antonio.jpeg",
+      "location": "{\"lat\":29.5829699,\"lng\":-98.6219087}\n",
+      "blurb": "UTSA Off-Campus Housing\n\n\n\nLooking for off campus housing near UTSA? Find your next place today on Afito! We have tons of affordable student rental properties listed close to University of Texas, San Antonio. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you’re moving out to live on your own for the first time. Our mission at Afito is to help every student find an awesome place to live at school. That’s why we’ve hand picked the best student housing properties in the San Antonio area to make your search for housing as easy as possible.",
+      "area_slug": "university-of-texas-san-antonio",
+      "property_count": 116
+    },
+    {
+      "area_id": 42,
+      "name": "Salisbury University",
+      "description": "Salisbury University is a public university in Salisbury, Maryland. Founded in 1925, Salisbury is a member of the University System of Maryland, with a Fall 2016 enrollment of 8,748.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/salisbury.jpeg",
+      "location": "{\"lat\":38.3450772,\"lng\":-75.6068908}",
+      "blurb": null,
+      "area_slug": "salisbury-state-university",
+      "property_count": 0
+    },
+    {
+      "area_id": 40,
+      "name": "University of Texas-Rio Grande Valley",
+      "description": "The University of Texas Rio Grande Valley is a public research university in the University of Texas System.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/ut-rio-grande-valley.jpeg",
+      "location": "{\"lat\":26.1006433,\"lng\":-97.9706202}",
+      "blurb": null,
+      "area_slug": "university-of-texas-rio-grande",
+      "property_count": 0
+    },
+    {
+      "area_id": 26,
+      "name": "University of Houston",
+      "description": "The University of Houston is a state research university and the main institution of the University of Houston System",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/university-of-houston.jpeg",
+      "location": "{\"lat\":29.7199489,\"lng\":-95.3422334}\n",
+      "blurb": "University of Houston Off Campus Housing\n\n\n\nLooking for off campus housing near University of Houston? Browse tons of affordable student rental listings around UHouston and find your home away from home today! Use our service to filter listings by price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you’re moving out of the dorms for the first time. Our goal is to help you find student housing that perfectly suits your needs. That’s why we’ve hand picked the best off campus rentals in the Houston area to make your housing search as easy as can be.",
+      "area_slug": "university-of-houston",
+      "property_count": 72
+    },
+    {
+      "area_id": 34,
+      "name": "New Mexico State University",
+      "description": "New Mexico State University is a public research university, with a main campus in Las Cruces, New Mexico. Founded in 1888, it is the oldest public institution of higher education in the state of New Mexico, and is one of two flagship universities in New ",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/new-mexico-state-university.jpeg",
+      "location": "{\"lat\":32.278779,\"lng\":-106.7500999}",
+      "blurb": "NMSU Off Campus Housing\n\n\n\nLooking for off campus housing near NMSU? Find your home away from home today on Afito! Choose from tons of affordable student rental properties around New Mexico State University. Use our service to filter listings based on price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you will be living on your own for the first time. Our mission is to make sure you end up in a place you love. That’s why we’ve pulled together all the best off campus rental properties in the Las Cruces area to make the search process as easy as can be.",
+      "area_slug": "new-mexico-state-university",
+      "property_count": 42
+    },
+    {
+      "area_id": 32,
+      "name": "Utah State University",
+      "description": "Texas State University is a public research university located in San Marcos, Texas, United States.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/utah-state-university.jpeg",
+      "location": "{\"lat\":41.745165,\"lng\":-111.8119365}",
+      "blurb": null,
+      "area_slug": "utah-state-university",
+      "property_count": 1
+    },
+    {
+      "area_id": 29,
+      "name": "Texas Tech University",
+      "description": "Texas Tech University, often referred to as Texas Tech, Tech, or TTU, is a public research university in Lubbock, Texas. Established on February 10, 1923, and called until 1969 Texas Technological College, it is the main institution of the four-institutio",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/texas-tech.jpeg",
+      "location": "{\"lat\":33.5846427,\"lng\":-101.8912939}\n\n",
+      "blurb": "Texas Tech Off Campus Housing\n\n\n\nAre you searching for off campus housing at Texas Tech University? Find your home away from home today on Afito. Choose from tons of affordable student rental properties close to TTU. Use Afito to filter listings by price, bedrooms, bathrooms, home type, and more. Our goal is to help Texas Tech students find the best possible place to live at school. We handpick the best apartments and houses in the Lubbock area based on a number of factors including amenities, safety, and much more. We do the research so you don’t have to! Check out Afito to find the perfect home for you today.\n\n",
+      "area_slug": "texas-tech-university",
+      "property_count": 217
+    },
+    {
+      "area_id": 28,
+      "name": "Sam Houston State University",
+      "description": "Sam Houston State University is a public university in Huntsville, Texas. It was founded in 1879 and is the third-oldest public college or university in Texas. It is one of the oldest purpose-built institutions for the instruction of teachers west of the ",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/sam-houston-state.jpeg",
+      "location": "{\"lat\":30.7129974,\"lng\":-95.5494792}\n\n",
+      "blurb": "Sam Houston State Off Campus Housing\n\n\n\nLooking for off campus housing near Sam Houston State University? Browse tons of affordable student rental listings around SHSU and find your home away from home today! Use our service to filter listings by price, bedrooms, bathrooms, home type, and more. Finding a house, a room or an apartment can be quite the headache. Our mission is to make the search process as easy as possible. Lucky for you, we’ve hand picked the best off campus student housing listings in the Huntsville, TX area. ",
+      "area_slug": "sam-houston-state-university",
+      "property_count": 86
+    },
+    {
+      "area_id": 18,
+      "name": "University of Nevada - Reno ",
+      "description": "The University of Nevada Reno",
+      "image_url": "https://s3.us-east-2.amazonaws.com/afito-production-bucket/areas/reno.jpg",
+      "location": "{\"lat\":39.5436035,\"lng\":-119.8208387}",
+      "blurb": "UNR Off Campus Housing\n\n\n\nLooking for off campus housing near UNR? Find your home away from home today on Afito! Browse tons of affordable student rental properties in the Reno area. Use our service to filter listings by price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you’re moving out of the dorms for the first time. Our goal is to help you find student housing that suits your needs perfectly. That’s why we’ve hand picked the best off campus rentals near University of Nevada, Reno to make your housing search as easy as possible.",
+      "area_slug": "university-of-nevada-reno",
+      "property_count": 94
+    },
+    {
+      "area_id": 30,
+      "name": "Texas State University",
+      "description": "Texas State University is a public research university located in San Marcos, Texas, United States.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/texas-state-university.jpeg",
+      "location": "{\"lat\":29.8662715,\"lng\":-97.9753612}\n",
+      "blurb": "Texas State Off Campus Housing\n\n\n\nLooking for off campus housing near Texas State? Find your home away from home today on Afito! Choose from tons of affordable student rental properties around Texas State University in San Marcos. Use our service to filter listings based on price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you’re moving out of the dorms for the first time. Our goal is to ensure you find the perfect place to live at school. That’s why we’ve hand picked the best off campus properties around TX State and put them all in one place!",
+      "area_slug": "texas-state-university",
+      "property_count": 37
+    },
+    {
+      "area_id": 31,
+      "name": "Texas A&M - Corpus Christi",
+      "description": "Texas A&M University–Corpus Christi is a state university in Corpus Christi, Texas, United States, on Ward Island in Oso Bay. The university is part of the Texas A&M University System.",
+      "image_url": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/areas/texas-a%26m-corpus-christi.jpeg",
+      "location": "{\"lat\":27.7127448,\"lng\":-97.3263373}\n",
+      "blurb": "Texas A&M Corpus Off Campus Housing\n\n\n\nLooking for off campus housing near Texas A&M Corpus Christi? Find your next place off campus today on Afito! Choose from tons of affordable student rental properties around Texas AM Corpus Christi. Use our service to filter listings based on price, bedrooms, bathrooms, home type, and more. Finding a house, a room, or an apartment can be a hassle, especially if you’re moving out of the dorms for the first time. Our mission is to make sure you find an awesome place to live at school. That’s why we’ve pulled together all the best off campus student housing options around Corpus Christi, TX!",
+      "area_slug": "texas-am-corpus-christi",
+      "property_count": 23
+    }
+  ]
+}

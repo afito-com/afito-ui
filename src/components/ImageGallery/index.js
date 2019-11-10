@@ -108,7 +108,7 @@ const Thumbnail = styled.img`
   }
 `;
 
-function ImageGallery({ images, loop, onImageClick }) {
+export default function ImageGallery({ images, loop, onImageClick }) {
   const THUMBNAIL_WIDTH = 50 + IMAGE_MARGIN;
   const [curr, setCurr] = useState(0);
   const prev = usePrevious(curr);
@@ -166,7 +166,7 @@ function ImageGallery({ images, loop, onImageClick }) {
         setThumbnailOffset(thumbnailOffset - THUMBNAIL_WIDTH);
       }
     }
-  }, [curr, width]);
+  }, [THUMBNAIL_WIDTH, curr, images.length, prev, thumbnailOffset, thumbnailSliderWidth, width]);
 
   return (
     <GalleryWrapper ref={wrapperElement}>
@@ -230,5 +230,3 @@ ImageGallery.propTypes = {
   loop: PropTypes.bool,
   onImageClick: PropTypes.func
 };
-
-export default ImageGallery;

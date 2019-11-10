@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-validation/build/form';
 import { Row, Column } from '../Grid';
 import FormButton from '../FormButton';
 import Input from '../Input';
 import * as valid from '../../formValidator';
 
-function UserInfo({ onSubmit, updateUserInfo, userInfo, signedUp }) {
+function UserInfo({ onSubmit, updateUserInfo }) {
   return (
     <Form onSubmit={onSubmit}>
       <Row>
@@ -56,13 +57,16 @@ function UserInfo({ onSubmit, updateUserInfo, userInfo, signedUp }) {
             validations={[valid.required, valid.password]}
             onChange={e => updateUserInfo(e)}
           />
-          <FormButton level="secondary" disabled={signedUp}>
-            Create An Account
-          </FormButton>
+          <FormButton level="secondary">Create An Account</FormButton>
         </Column>
       </Row>
     </Form>
   );
 }
+
+UserInfo.propTypes = {
+  onSubmit: PropTypes.func,
+  updateUserInfo: PropTypes.func
+};
 
 export default UserInfo;

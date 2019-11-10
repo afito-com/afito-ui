@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { text, boolean, number } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import Switch from '.';
 
 storiesOf('Primitives|Switch', module).add('default', () => {

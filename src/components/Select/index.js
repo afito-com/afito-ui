@@ -24,6 +24,12 @@ const SelectWrapper = control(({ error, isChanged, isUsed, name, label, hideLabe
   </>
 ));
 
+SelectWrapper.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  hideLabel: PropTypes.bool
+};
+
 const Label = styled.label`
   font-size: 14px;
   font-weight: 700;
@@ -61,7 +67,5 @@ const Select = styled.select`
     text-align: left;
   }
 `;
-
-Select.propTypes = {};
 
 export default SelectWrapper;

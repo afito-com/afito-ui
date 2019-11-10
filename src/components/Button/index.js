@@ -42,10 +42,6 @@ const ButtonWrapper = styled.button`
     margin-left: 15px;
   }
 
-  &--fill {
-    width: 100%;
-  }
-
   ${props => {
     if (props.level === 'primary') {
       return `

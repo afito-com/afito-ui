@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AreaCard from '.';
 import ThemeProvider from '../ThemeProvider';
-import res from './response.json';
+import Switch from '.';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
+
   ReactDOM.render(
     <ThemeProvider>
-      <>
-        {res.areas.map(area => {
-          return <AreaCard key={area.area_id} {...area} />;
-        })}
-      </>
+      <Switch
+        name="toggle_example"
+        checked={true}
+        onClick={e => e.stopPropagation()}
+        onChange={() => console.log('on change')}
+      />
     </ThemeProvider>,
     div
   );
