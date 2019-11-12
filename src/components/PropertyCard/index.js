@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
+import Switch from '../Switch';
 import * as utils from '../../utils';
 
 const Wrapper = styled.div`
@@ -104,6 +105,7 @@ const Address = styled.span`
 `;
 
 function PropertyCard({
+  active,
   property_id,
   property_name,
   price,
@@ -124,6 +126,8 @@ function PropertyCard({
   onRemoveSavedProperty = undefined,
   onSaveProperty = undefined,
   isCondensed,
+  withSwitch,
+  onSwitchChange,
   ...rest
 }) {
   const [saved, setSaved] = useState();
@@ -157,7 +161,7 @@ function PropertyCard({
 
   useEffect(() => {
     setSaved(savedProperties.map(p => p.property_id).includes(property_id));
-  }, [savedProperties]);
+  }, [property_id, savedProperties]);
 
   function toggleSavedProperty(e) {
     e.stopPropagation();
@@ -179,15 +183,23 @@ function PropertyCard({
               <Price>{displayPrice}</Price>
               <Rating />
             </Column>
-            <Column xs={4} align="flex-end" justify="center">
-              <Save saved onClick={toggleSavedProperty}>
-                {saved ? (
-                  <i className="fas fa-heart" style={{ color: '#57c59b' }}></i>
-                ) : (
-                  <i className="far fa-heart"></i>
-                )}
-              </Save>
-            </Column>
+            {!withSwitch && (
+              <Column xs={4} align="flex-end" justify="center">
+                <Save saved onClick={toggleSavedProperty}>
+                  {saved ? (
+                    <i className="fas fa-heart" style={{ color: '#57c59b' }}></i>
+                  ) : (
+                    <i className="far fa-heart"></i>
+                  )}
+                </Save>
+              </Column>
+            )}
+
+            {withSwitch && (
+              <Column xs={4} align="flex-end" justify="center">
+                <Switch name="active" checked={active} onClick={e => e.stopPropagation()} onChange={onSwitchChange} />
+              </Column>
+            )}
           </Row>
         )}
         <Row>
@@ -241,6 +253,7 @@ function PropertyCard({
 }
 
 PropertyCard.propTypes = {
+  active: PropTypes.bool,
   property_id: PropTypes.number,
   property_name: PropTypes.string,
   price: PropTypes.number,
@@ -257,8 +270,16 @@ PropertyCard.propTypes = {
   baths: PropTypes.number,
   contact_for_pricing: PropTypes.bool,
   distance: PropTypes.number,
-  savedProperties: PropTypes.array.isRequired,
   isCondensed: PropTypes.bool,
+  savedProperties: function(props, propName) {
+    if (
+      props['isCondensed'] == false &&
+      props['withSwitch'] == false &&
+      (props[propName] == undefined || typeof props[propName] != 'object')
+    ) {
+      return new Error('Please provide the savedProperties array!');
+    }
+  },
   onSaveProperty: function(props, propName) {
     if (props['isCondensed'] == false && (props[propName] == undefined || typeof props[propName] != 'function')) {
       return new Error('Please provide a onSaveProperty function!');
@@ -267,6 +288,12 @@ PropertyCard.propTypes = {
   onRemoveSavedProperty: function(props, propName) {
     if (props['isCondensed'] == false && (props[propName] == undefined || typeof props[propName] != 'function')) {
       return new Error('Please provide a onRemoveSavedProperty function!');
+    }
+  },
+  withSwitch: PropTypes.bool,
+  onSwitchChange: function(props, propName) {
+    if (props['withSwitch'] == true && (props[propName] == undefined || typeof props[propName] != 'function')) {
+      return new Error('Please provide a onSwitchChange function!');
     }
   }
 };

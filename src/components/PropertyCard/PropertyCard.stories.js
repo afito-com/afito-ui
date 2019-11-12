@@ -128,4 +128,19 @@ storiesOf('Composites|PropertyCard', module)
         <CondensedPropertyCardExample />
       </ModalProvider>
     );
+  })
+  .add('With Switch', () => {
+    return (
+      <Container>
+        <Row>
+          {models.map((property, idx) => {
+            return (
+              <Column key={idx} xs={6} sm={4} style={{ alignSelf: 'stretch' }}>
+                <PropertyCard withSwitch onSwitchChange={action('switch')} onClick={action('click')} {...property} />
+              </Column>
+            );
+          })}
+        </Row>
+      </Container>
+    );
   });

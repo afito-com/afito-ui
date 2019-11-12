@@ -285,6 +285,7 @@ export default function Header({ dark, isFixed, user, createUser, signIn, signOu
               window.location.reload();
             })
             .catch(err => {
+              console.error('Header sign in error: ', { err });
               callback(err.response);
             });
         }}
@@ -295,7 +296,7 @@ export default function Header({ dark, isFixed, user, createUser, signIn, signOu
               callback(res);
             })
             .catch(err => {
-              console.error({ err });
+              console.error('Header sign up error: ', { err });
               callback(err);
             });
         }}
