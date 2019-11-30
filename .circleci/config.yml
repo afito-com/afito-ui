@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  ui:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: Install Client Dependencies
+          command: npm install
+      - run:
+          name: Build and test client
+          command: npm run test && npm run build
