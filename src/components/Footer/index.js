@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Container, Row, Column } from '../Grid';
@@ -7,6 +6,7 @@ import { Heading, Text } from '../Typography';
 import LoadingBlock from '../LoadingBlock';
 import { PropertyAPI } from '../../api';
 import { getRecentSearches } from '../../api/search';
+import { getRecentBlogPosts } from '../../api/blog';
 import { formatAddress } from '../../utils';
 
 const Wrapper = styled.footer`
@@ -142,10 +142,7 @@ function FooterContainer() {
   const [posts, setPosts] = useState();
 
   useEffect(() => {
-    axios
-      .get('https://dev-api.afito.com/blog/page-data/index/page-data.json', {
-        headers: { 'Access-Control-Allow-Origin': '*' }
-      })
+    getRecentBlogPosts()
       .then(recentPosts => {
         setPosts(recentPosts.data.result.data.allMarkdownRemark.edges);
       })
