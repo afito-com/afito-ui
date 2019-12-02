@@ -7,15 +7,18 @@ const Container = styled.div`
 
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.xs}) {
     max-width: ${props => props.theme.AFITO_UI.gridXsWidth};
-    margin: 0 ${props => props.theme.AFITO_UI.gutterXs};
+    margin: 0 auto;
+    padding: 0 ${props => props.theme.AFITO_UI.gutterXs};
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.sm}) {
     max-width: ${props => props.theme.AFITO_UI.gridSmWidth};
-    margin: 0 ${props => props.theme.AFITO_UI.gutterSm};
+    margin: 0 auto;
+    padding: 0 ${props => props.theme.AFITO_UI.gutterSm};
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.md}) {
     max-width: ${props => props.theme.AFITO_UI.gridMdWidth};
-    margin: 0 ${props => props.theme.AFITO_UI.gutterMd};
+    margin: 0 auto;
+    padding: 0 ${props => props.theme.AFITO_UI.gutterMd};
   }
   @media only screen and (min-width: ${props => props.theme.AFITO_UI.lg}) {
     max-width: ${props => props.theme.AFITO_UI.gridLgWidth};
