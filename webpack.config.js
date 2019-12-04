@@ -22,7 +22,8 @@ module.exports = {
   resolve: {
     alias: {
       'styled-components': require.resolve('styled-components')
-    }
+    },
+    extensions: ['.scss', '.js', '.json', '.png', '.gif', '.jpg', '.svg']
   },
   module: {
     rules: [
@@ -49,9 +50,6 @@ module.exports = {
         ]
       }
     ]
-  },
-  resolve: {
-    extensions: ['.scss', '.js', '.json', '.png', '.gif', '.jpg', '.svg']
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),
