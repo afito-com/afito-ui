@@ -14,7 +14,7 @@
     "build": "webpack --mode production",
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "storybook-to-ghpages",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -c .storybook"
   },
   "husky": {
     "hooks": {
