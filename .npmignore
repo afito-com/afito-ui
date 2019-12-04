@@ -1,4 +1,5 @@
 .storybook/
+.circleci/
 storybook-static/
 src/
 .babelrc
@@ -7,3 +8,4 @@ src/
 webpack.config.js
 config.js
 .DS_Store
+.env

@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/afitoui.js",
   "scripts": {
+    "config": "node set-env.js",
     "test": "jest",
     "pregit": "npm test",
     "git": "git add . && git commit -m",
@@ -11,10 +12,9 @@
     "preversion": "npm test",
     "version": "npm run build && git add .",
     "postversion": "git push && git push origin master",
-    "build": "webpack --mode production",
+    "build": "npm run config && webpack --mode production",
     "storybook": "start-storybook -p 6006",
-    "deploy-storybook": "storybook-to-ghpages",
-    "build-storybook": "build-storybook -c .storybook --quiet"
+    "build-storybook": "npm run config && build-storybook -c .storybook --quiet"
   },
   "husky": {
     "hooks": {
@@ -28,7 +28,6 @@
     ]
   },
   "author": "Thomas Bonanni",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.6.2",
@@ -82,6 +81,8 @@
     "@types/markerclustererplus": "^2.1.33",
     "@types/react": "^15.6.24",
     "axios": "^0.19.0",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
     "js-cookie": "^2.2.1",
     "prop-types": "^15.7.2",
     "react-google-maps": "^9.4.5",
