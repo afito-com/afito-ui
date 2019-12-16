@@ -122,7 +122,8 @@ function AddPropertyWizard({ onCompleted }) {
     createProperty(property)
       .then(res => {
         if (res.status === 200) {
-          return deleteState();
+          deleteState();
+          return res.data.property;
         }
       })
       .then(onCompleted)
