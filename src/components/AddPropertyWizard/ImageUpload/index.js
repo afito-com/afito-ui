@@ -5,7 +5,6 @@ import { Heading, Text } from '../../Typography';
 import { Row } from '../../Grid';
 import LoadingBlock from '../../LoadingBlock';
 import Button from '../../Button';
-import Controls from '../Controls';
 import Dropzone from '../../Dropzone';
 
 const ExtraImageWrapper = styled.div`
@@ -53,10 +52,6 @@ const RemoveCoverImage = styled.div`
   align-items: center;
 `;
 
-const CoverPreview = styled.img`
-  width: 100%;
-`;
-
 ImageUpload.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   currScreen: PropTypes.number.isRequired,
@@ -66,31 +61,9 @@ ImageUpload.propTypes = {
   property: PropTypes.object.isRequired
 };
 
-function ImageUpload({ onSubmit, currScreen, prevScreen, promptExit, loading, property }) {
+function ImageUpload({ onSubmit, loading }) {
   const [mainImage, setMainImage] = useState();
   const [extraImages, setExtraImages] = useState([]);
-
-  // if (property.image_url) {
-  //   return (
-  //     <>
-  //       <div style={{ marginBottom: '25px' }}>
-  //         <Heading level={3}>Cover Photo</Heading>
-  //         <Text>
-  //           Your Cover Photo is the face of your property and it will be the first image that potential tenants see.
-  //         </Text>
-  //       </div>
-  //       <CoverPreview src={property.image_url} alt="Cover" />
-  //       <Button
-  //         level="secondary"
-  //         onClick={() => {
-  //           setMainImage(null);
-  //         }}
-  //       >
-  //         Choose a different image
-  //       </Button>
-  //     </>
-  //   );
-  // }
 
   return (
     <>

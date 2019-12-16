@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../Button';
-import Controls from '../Controls';
 import SearchBoxField from '../../SearchboxField';
 import SelectField from '../../SelectField';
 import TextareaField from '../../TextareaField';
@@ -29,7 +28,7 @@ const BuildingDetailsSchema = Yup.object().shape({
   description: Yup.string().required('Required')
 });
 
-function BuildingDetails({ property, areas, onSubmit, promptExit, setHometype }) {
+function BuildingDetails({ property, areas, onSubmit, setHometype }) {
   const items = areas.map(area => ({ name: area.name, value: area.area_id }));
 
   return (

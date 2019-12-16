@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../Button';
-import Controls from '../Controls';
 import SearchBoxField from '../../SearchboxField';
 import SwitchField from '../../SwitchField';
 import SelectField from '../../SelectField';
@@ -64,9 +63,7 @@ const PropertyDetailsSchema = Yup.object().shape({
   max_occupancy: Yup.number('Max Occupancy must be a number')
 });
 
-const Output = ({ children }) => <code className="output-box">{JSON.stringify(children, null, 2)}</code>;
-
-function PropertyDetails({ property, areas, onSubmit, promptExit, setHometype }) {
+function PropertyDetails({ property, areas, onSubmit, setHometype }) {
   const items = areas.map(area => ({ name: area.name, value: area.area_id }));
 
   return (
@@ -77,7 +74,7 @@ function PropertyDetails({ property, areas, onSubmit, promptExit, setHometype })
       </div>
 
       <Formik initialValues={property} validationSchema={PropertyDetailsSchema} onSubmit={onSubmit}>
-        {({ values, setFieldValue, resetForm }) => (
+        {({ setFieldValue, resetForm }) => (
           <Form>
             <Row canWrap>
               <Column xs={12} align="flex-start" style={{ marginBottom: '32px' }}>
@@ -218,8 +215,6 @@ function PropertyDetails({ property, areas, onSubmit, promptExit, setHometype })
                 Next
               </Button>
             </Row>
-            <br />
-            <Output>{values}</Output>
           </Form>
         )}
       </Formik>

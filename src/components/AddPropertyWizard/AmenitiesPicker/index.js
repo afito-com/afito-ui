@@ -5,7 +5,6 @@ import { Row, Column } from '../../Grid';
 import { Heading, Text } from '../../Typography';
 import Switch from '../../Switch';
 import Button from '../../Button';
-import Controls from '../Controls';
 import LoadingBlock from '../../LoadingBlock';
 
 AmenitiesPicker.propTypes = {
@@ -18,7 +17,7 @@ AmenitiesPicker.propTypes = {
   promptExit: PropTypes.func.isRequired
 };
 
-function AmenitiesPicker({ property, amenities, setAmenity, onSubmit, currScreen, prevScreen, promptExit }) {
+function AmenitiesPicker({ property, amenities, setAmenity, onSubmit }) {
   const Amenity = styled(Column)`
     display: flex;
     align-items: center;

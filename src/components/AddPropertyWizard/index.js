@@ -8,7 +8,6 @@ import Details from './Details';
 import AmenitiesPicker from './AmenitiesPicker';
 import ImageUpload from './ImageUpload';
 import ProgressBar from './ProgressBar';
-import Controls from './Controls';
 
 import Alert from '../Alert';
 import Button from '../Button';
@@ -118,8 +117,8 @@ function AddPropertyWizard({ onCompleted }) {
     setProperty({ ...property, [e.target.name]: e.target.value });
   }
 
-  function onFinishAddProperty() {
-    createProperty(property)
+  function onFinishAddProperty(propertyToCreate) {
+    createProperty(propertyToCreate)
       .then(res => {
         if (res.status === 200) {
           deleteState();
@@ -227,12 +226,12 @@ function AddPropertyWizard({ onCompleted }) {
               Promise.all(images.map(img => uploadImage(img)))
                 .then(images => {
                   // first image is cover photo, the rest are extra
-                  setProperty({ ...property, image_url: images[0], images: images.slice(1) });
+                  return { ...property, image_url: images[0], images: images.slice(1) };
                 })
+                .then(onFinishAddProperty)
                 .catch(onError)
                 .finally(() => {
                   setLoading(false);
-                  onFinishAddProperty();
                 });
             }}
             prevScreen={prevScreen}

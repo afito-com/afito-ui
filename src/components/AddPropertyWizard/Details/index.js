@@ -4,7 +4,6 @@ import PropertyDetails from '../PropertyDetails';
 import BuildingDetails from '../BuildingDetails';
 
 import Button from '../../Button';
-import Controls from '../Controls';
 import { Row } from '../../Grid';
 import { Heading, Text } from '../../Typography';
 
