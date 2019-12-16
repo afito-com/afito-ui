@@ -72,21 +72,20 @@ function BuildingDetails({ property, areas, onSubmit, promptExit, setHometype })
               </Column>
             </Row>
 
-            <Controls justify="space-between">
+            <Row>
               <Button
                 level="outline"
                 onClick={() => {
                   resetForm();
                   setHometype(null);
                 }}
-                style={{ width: '100%' }}
               >
                 Back
               </Button>
-              <Button level="secondary" type="submit" style={{ width: '100%' }}>
+              <Button level="secondary" type="submit">
                 Next
               </Button>
-            </Controls>
+            </Row>
           </Form>
         )}
       </Formik>

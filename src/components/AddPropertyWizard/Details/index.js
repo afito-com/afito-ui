@@ -26,13 +26,12 @@ function Details({ property, areas, onSubmit, onChange, promptExit, currScreen, 
         <>
           <Heading level={4}>Does your property have multiple floorplans or units available?</Heading>
           <Text>Please let us know if your listing has different units within the same building.</Text>
-          <Row justify="space-between">
+          <Row>
             <Button
               level="danger"
               onClick={() => {
                 setHometype('');
               }}
-              style={{ width: '100%' }}
             >
               No
             </Button>
@@ -41,7 +40,6 @@ function Details({ property, areas, onSubmit, onChange, promptExit, currScreen, 
               onClick={() => {
                 setHometype('building');
               }}
-              style={{ width: '100%' }}
             >
               Yes
             </Button>

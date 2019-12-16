@@ -162,7 +162,7 @@ function ImageUpload({ onSubmit, currScreen, prevScreen, promptExit, loading, pr
           </>
         )}
       </>
-      <Controls justify="space-between">
+      <Row>
         <Button
           level="secondary"
           disabled={!mainImage}
@@ -171,11 +171,10 @@ function ImageUpload({ onSubmit, currScreen, prevScreen, promptExit, loading, pr
             //onUploadExtra(extraImages);
             onSubmit([mainImage].concat(extraImages));
           }}
-          style={{ width: '100%' }}
         >
           Done
         </Button>
-      </Controls>
+      </Row>
     </>
   );
 }

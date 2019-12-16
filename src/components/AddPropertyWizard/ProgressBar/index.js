@@ -60,8 +60,11 @@ function ProgressBar({ jumpToScreen, screens, maxStep, currScreen }) {
 
   const Steps = styled(Row)`
     background: white;
-    box-shadow: 0px 16px 7px -10px rgba(200, 203, 216, 0.26);
+    /*box-shadow: 0px 16px 7px -10px rgba(200, 203, 216, 0.26);*/
     padding: 12px 16px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
   `;
 
   return (

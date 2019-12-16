@@ -66,11 +66,11 @@ function AmenitiesPicker({ property, amenities, setAmenity, onSubmit, currScreen
       ) : (
         <LoadingBlock />
       )}
-      <Controls justify="space-between">
-        <Button type="submit" level="secondary" onClick={onSubmit} style={{ width: '100%' }}>
+      <Row>
+        <Button type="submit" level="secondary" onClick={onSubmit}>
           Continue
         </Button>
-      </Controls>
+      </Row>
     </>
   );
 }
