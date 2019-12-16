@@ -102,7 +102,6 @@ const Item = styled.div`
       ? `
           cursor: pointer;
 
-
           &:hover {
             background: #f1f4f6;
           }
@@ -120,10 +119,10 @@ function Searchbox({ items, name, placeholder, label, hideLabel, onItemClick, ..
 
   return (
     <>
+      <Label style={hideLabel ? visuallyHiddenStyles : { textTransform: 'capitalize' }} htmlFor={name}>
+        {label}
+      </Label>
       <Wrapper {...rest} dropdownVisible={dropdownVisible}>
-        <Label style={hideLabel ? visuallyHiddenStyles : { textTransform: 'capitalize' }} htmlFor={name}>
-          {label}
-        </Label>
         <input
           autoComplete="off"
           id={name}

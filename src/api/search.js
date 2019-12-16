@@ -8,3 +8,7 @@ export function getRecentSearches() {
 export function getOneProperty({ params }) {
   return axios.get(`${keys.base_url}search/property`, { params });
 }
+
+export function getAreas({ params }) {
+  return axios.get(`${keys.base_url}search/areas`, { params });
+}

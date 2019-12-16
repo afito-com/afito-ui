@@ -1,6 +1,12 @@
 import React from 'react';
 import validator from 'validator';
 
+export const isPriceSet = (value, props) => {
+  if (!props.isPriceSet) {
+    return <p className="error-message">Price is required.</p>;
+  }
+};
+
 export const required = value => {
   if (!value.toString().trim().length) {
     return <p className="error-message">Required</p>;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { control } from 'react-validation';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -14,29 +13,13 @@ const visuallyHiddenStyles = {
   width: '1px'
 };
 
-const SelectWrapper = control(({ error, isChanged, isUsed, name, label, hideLabel, ...rest }) => (
-  <>
-    <Label style={hideLabel ? visuallyHiddenStyles : { textTransform: 'capitalize' }} htmlFor={name}>
-      {label}
-    </Label>
-    <Select id={name} name={name} {...rest} />
-    {isChanged && isUsed && error}
-  </>
-));
-
-SelectWrapper.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  hideLabel: PropTypes.bool
-};
-
 const Label = styled.label`
   font-size: 14px;
   font-weight: 700;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
 `;
 
-const Select = styled.select`
+const Wrapper = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -59,6 +42,7 @@ const Select = styled.select`
   &::placeholder {
     color: #828282;
   }
+
   & + .error-message {
     padding-left: 5px;
     color: ${props => props.theme.AFITO_UI.dangerColor};
@@ -70,4 +54,21 @@ const Select = styled.select`
   }
 `;
 
-export default SelectWrapper;
+SelectNew.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  hideLabel: PropTypes.bool
+};
+
+function SelectNew({ name, label, hideLabel, ...rest }) {
+  return (
+    <>
+      <Label style={hideLabel ? visuallyHiddenStyles : { textTransform: 'capitalize' }} htmlFor={name}>
+        {label}
+      </Label>
+      <Wrapper id={name} name={name} {...rest} />
+    </>
+  );
+}
+
+export default SelectNew;

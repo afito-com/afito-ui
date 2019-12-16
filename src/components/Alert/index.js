@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   }};
 `;
 
-export default function Alert({ type, children }) {
+export default function Alert({ type, children, style }) {
   function getIcon(type) {
     switch (type) {
       case 'info':
@@ -44,7 +44,7 @@ export default function Alert({ type, children }) {
   }
 
   return (
-    <Wrapper type={type}>
+    <Wrapper type={type} style={style}>
       <Text style={{ marginRight: '15px' }}>{getIcon(type)}</Text>
       <Text>{children || 'Unknown Error: Try again later.'}</Text>
     </Wrapper>
@@ -53,5 +53,6 @@ export default function Alert({ type, children }) {
 
 Alert.propTypes = {
   type: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node,
+  style: PropTypes.object
 };

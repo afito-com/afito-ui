@@ -196,63 +196,6 @@ const Tooltip = styled.div`
   font-weight: bold;
 `;
 
-function Range({ items, onRangeChange, defaultMin, defaultMax, ...rest }) {
-  let sorted = items.sort((a, b) => a - b);
-  const hi = sorted[sorted.length - 1];
-  const lo = sorted[0];
-  const totalDistance = hi - lo;
-  const [value, setValue] = useState({
-    min: defaultMin ? defaultMin : lo,
-    max: defaultMax ? defaultMax : hi
-  });
-
-  let freqs = {};
-  for (let i = 0; i < sorted.length; i++)
-    if (freqs[sorted[i]]) freqs[sorted[i]]++;
-    else freqs[sorted[i]] = 1;
-
-  return (
-    <Wrapper {...rest}>
-      <RangeContainer>
-        <Distribution>
-          {sorted
-            .filter((el, i, a) => i === a.indexOf(el))
-            .map((item, i) => {
-              const offset = item - lo;
-              const percentageOffset = (offset / totalDistance) * 100;
-              const height = freqs[item];
-
-              return (
-                <QuantityBlock key={`QtyBlock_${i}__${percentageOffset}`} offset={percentageOffset} height={height} />
-              );
-            })}
-        </Distribution>
-        <InputRange
-          step={5}
-          maxValue={hi}
-          minValue={lo}
-          formatLabel={value => {
-            return <div className="range-tooltip">{'$' + value}</div>;
-          }}
-          value={value}
-          onChange={value => {
-            setValue(value);
-          }}
-          onChangeComplete={onRangeChange}
-        />
-      </RangeContainer>
-      <Row justify="space-between" style={{ marginTop: '25px' }}>
-        <Tooltip>
-          <Text>${value.min}</Text>
-        </Tooltip>
-        <Tooltip>
-          <Text>${value.max}</Text>
-        </Tooltip>
-      </Row>
-    </Wrapper>
-  );
-}
-
 Range.propTypes = {
   items: function(props, propName) {
     const val = props[propName];
@@ -277,7 +220,101 @@ Range.propTypes = {
   name: PropTypes.string.isRequired,
   onRangeChange: PropTypes.func,
   defaultMax: PropTypes.number,
-  defaultMin: PropTypes.number
+  defaultMin: PropTypes.number,
+  defaultValue: PropTypes.number,
+  withDistribution: PropTypes.bool,
+  withSingleValue: PropTypes.bool,
+  step: PropTypes.number
 };
+
+function Range({
+  items,
+  onRangeChange,
+  withDistribution,
+  withSingleValue,
+  defaultValue,
+  defaultMin,
+  defaultMax,
+  step,
+  ...rest
+}) {
+  let sorted = items.sort((a, b) => a - b);
+  const hi = sorted[sorted.length - 1];
+  const lo = sorted[0];
+  const totalDistance = hi - lo;
+  const [value, setValue] = useState(
+    withSingleValue
+      ? defaultValue
+      : {
+          min: defaultMin ? defaultMin : lo,
+          max: defaultMax ? defaultMax : hi
+        }
+  );
+
+  let freqs = {};
+  for (let i = 0; i < sorted.length; i++)
+    if (freqs[sorted[i]]) freqs[sorted[i]]++;
+    else freqs[sorted[i]] = 1;
+
+  return (
+    <Wrapper {...rest}>
+      <RangeContainer>
+        <>
+          {withDistribution && (
+            <Distribution>
+              {sorted
+                .filter((el, i, a) => i === a.indexOf(el))
+                .map((item, i) => {
+                  const offset = item - lo;
+                  const percentageOffset = (offset / totalDistance) * 100;
+                  const height = freqs[item];
+
+                  return (
+                    <QuantityBlock
+                      key={`QtyBlock_${i}__${percentageOffset}`}
+                      offset={percentageOffset}
+                      height={height}
+                    />
+                  );
+                })}
+            </Distribution>
+          )}
+
+          <InputRange
+            step={step || 5}
+            maxValue={hi}
+            minValue={lo}
+            formatLabel={value => {
+              return <div className="range-tooltip">{'$' + value}</div>;
+            }}
+            value={value}
+            onChange={value => {
+              setValue(value);
+            }}
+            onChangeComplete={onRangeChange}
+          />
+        </>
+      </RangeContainer>
+      <Row justify="space-between" style={{ marginTop: '25px' }}>
+        <>
+          {withSingleValue ? (
+            <Tooltip>
+              <Text>${value}</Text>
+            </Tooltip>
+          ) : (
+            <>
+              <Tooltip>
+                <Text>${value.min}</Text>
+              </Tooltip>
+              <Tooltip>
+                <Text>${value.max}</Text>
+              </Tooltip>
+            </>
+          )}
+        </>
+      </Row>
+    </Wrapper>
+  );
+}
 
 export default Range;

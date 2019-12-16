@@ -19,11 +19,14 @@ const ButtonWrapper = styled.button`
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   &:disabled {
-    background: darken(${props => props.theme.AFITO_UI.secondaryColor}, 10%);
-    color: #8898aa;
-    border-color: #dfdfdf;
+    background: rgba(87, 197, 155, 0.66);
+    color: #f3f3f3;
+
+    /*color: #8898aa;*/
+    border-color: auto;
     box-shadow: none;
     cursor: default;
+    cursor: not-allowed;
   }
 
   &:hover {
@@ -60,6 +63,15 @@ const ButtonWrapper = styled.button`
         &:active {
           background: darken(${props.theme.AFITO_UI.secondaryColor}, 5%);
         }
+
+        &:disabled {
+          background: rgba(87, 197, 155, 0.66);
+          color: #f3f3f3;
+          border-color: auto;
+          box-shadow: none;
+          cursor: default;
+          cursor: not-allowed;
+        }
       `;
     } else if (props.level === 'danger') {
       return `
@@ -83,6 +95,14 @@ const ButtonWrapper = styled.button`
       `;
     }
   }}
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    width: 100%;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+    width: auto;
+  }
 `;
 
 export default function Button({ level, children, ...rest }) {

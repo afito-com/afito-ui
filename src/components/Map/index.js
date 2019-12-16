@@ -15,12 +15,12 @@ function Markers({ properties, onPropertyHover, onMarkerClick, hoverId }) {
 
   return (
     <>
-      {properties.map(p => {
+      {properties.map((p, i) => {
         const isPropertyHovered = isHovered(p);
 
         return (
           <MemoMarker
-            key={p.property_id}
+            key={p.property_id || `Marker__${i}`}
             property_id={p.property_id}
             position={{
               lat: parseFloat(p.lat),

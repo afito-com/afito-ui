@@ -14,7 +14,7 @@ storiesOf('Primitives|Searchbox', module).add('default', () => {
 
   return (
     <Searchbox
-      onItemClick={item => console.log(item.name)}
+      onItemClick={e => console.log(e.target.name, e.target.value)}
       items={items}
       name="school"
       hideLabel

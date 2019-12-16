@@ -4,7 +4,9 @@ require('dotenv').config();
 
 const envConfigFile = `module.exports = {
   mapsKey: '${process.env.MAPS_KEY}',
-  base_url: '${process.env.BASE_URL}'
+  base_url: '${process.env.BASE_URL}',
+  photoBucketUrl: '${process.env.S3_BUCKET}',
+  stripe_key: '${process.env.STRIPE_KEY}'
 };
 `;
 

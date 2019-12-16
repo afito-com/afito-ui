@@ -63,6 +63,18 @@ const Input = styled.input`
       content: '\f06a'+ ' ';
     }
   }
+
+  &:disabled {
+    background: #f1f4f6;
+    cursor: default;
+
+    &::placeholder {
+      background: darken($secondary-color, 10%);
+      color: #8898aa !important;
+      cursor: default;
+      text-decoration: line-through;
+    }
+  }
 `;
 
 Input.propTypes = {
