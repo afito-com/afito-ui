@@ -22,6 +22,7 @@ const Head = styled.thead`
   }
 `;
 const Header = styled.th`
+  height: 56px;
   padding: 0px 20px;
   text-align: left;
 `;
@@ -64,7 +65,7 @@ function Table({ rows, headers, ...rest }) {
 Table.propTypes = {
   rows: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
     })
   ).isRequired,
   headers: PropTypes.array

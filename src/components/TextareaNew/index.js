@@ -28,7 +28,7 @@ const Textarea = styled.textarea`
   width: 100%;
   outline: 0;
   padding: 15px 20px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
 

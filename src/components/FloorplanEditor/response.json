@@ -1,0 +1,193 @@
+{
+  "property": {
+    "property_id": 503,
+    "user_id": 18,
+    "area_id": 2,
+    "address": "{\"line1\":\"948 Alexander Road\",\"line2\":\"Apt. A\",\"city\":\"Princeton Junction\",\"state\":\"NJ\"}",
+    "lat": "40.3124946",
+    "lng": "-74.6252435",
+    "beds": null,
+    "baths": null,
+    "max_occupancy": null,
+    "price": null,
+    "hometype": "building",
+    "parking": false,
+    "description": "213",
+    "image_url": "https://afito-development-bucket.s3.amazonaws.com/18/87addcc0-2012-11ea-942b-a78932f6e172.jpeg",
+    "images": "[]",
+    "active": true,
+    "created_by": null,
+    "square_footage": null,
+    "property_name": "y",
+    "max_price": 1,
+    "min_price": null,
+    "max_beds": 1,
+    "min_beds": null,
+    "max_baths": 1,
+    "min_baths": null,
+    "premium_price": null,
+    "next_premium_price": null,
+    "contact_for_pricing": false,
+    "property_slug": "948-alexander-road-apt.-a-princeton-junction-nj-503",
+    "sublease": null,
+    "lease_start": null,
+    "lease_end": null,
+    "contacts": "0",
+    "floorplans": [
+      {
+        "floorplan_id": 419,
+        "beds": 1,
+        "baths": 1,
+        "price": 1,
+        "name": "1",
+        "image_url": null,
+        "square_footage": 1,
+        "active": true,
+        "contact_for_pricing": true
+      },
+      {
+        "floorplan_id": 420,
+        "beds": 1,
+        "baths": 1,
+        "price": 1,
+        "name": "1",
+        "image_url": null,
+        "square_footage": 1,
+        "active": true,
+        "contact_for_pricing": true
+      }
+    ],
+    "amenities": [
+      {
+        "id": 1,
+        "amenity_icon": "https://cdn4.iconfinder.com/data/icons/travel-amenities/100/travel-amenities-room-service-2-512.png",
+        "amenity_name": "Air Conditioning"
+      },
+      {
+        "id": 2,
+        "amenity_icon": "https://cdn4.iconfinder.com/data/icons/travel-amenities/100/travel-amenities-room-service-2-512.png",
+        "amenity_name": "Fitness Center"
+      },
+      {
+        "id": 4,
+        "amenity_icon": "https://cdn4.iconfinder.com/data/icons/travel-amenities/100/travel-amenities-room-service-2-512.png",
+        "amenity_name": "Gameroom"
+      },
+      {
+        "id": 5,
+        "amenity_icon": "https://cdn4.iconfinder.com/data/icons/travel-amenities/100/travel-amenities-room-service-2-512.png",
+        "amenity_name": "Party Room"
+      },
+      {
+        "id": 6,
+        "amenity_icon": "https://cdn4.iconfinder.com/data/icons/travel-amenities/100/travel-amenities-room-service-2-512.png",
+        "amenity_name": "Controlled Access"
+      },
+      {
+        "id": 3,
+        "amenity_icon": "https://cdn4.iconfinder.com/data/icons/travel-amenities/100/travel-amenities-room-service-2-512.png",
+        "amenity_name": "Internet Included"
+      },
+      {
+        "id": 47,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/wd_unit.png",
+        "amenity_name": "Washer/Dryer"
+      },
+      {
+        "id": 48,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/airconditioning.png",
+        "amenity_name": "Air Conditioning"
+      },
+      {
+        "id": 49,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/wifi.png",
+        "amenity_name": "Free Wifi"
+      },
+      {
+        "id": 50,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/cable_satellite.png",
+        "amenity_name": "Cable"
+      },
+      {
+        "id": 51,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/complimentary_coffee.png",
+        "amenity_name": "Complimentary Coffee"
+      },
+      {
+        "id": 52,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/computer_lab.png",
+        "amenity_name": "Computer Lab"
+      },
+      {
+        "id": 53,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/emergency_maintenance.png",
+        "amenity_name": "Emergency Maintenance"
+      },
+      {
+        "id": 54,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/fitness_center.png",
+        "amenity_name": "Fitness Center"
+      },
+      {
+        "id": 55,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/furnished_available.png",
+        "amenity_name": "Furnished"
+      },
+      {
+        "id": 56,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/handicap_accessible.png",
+        "amenity_name": "Handicap Accessible"
+      },
+      {
+        "id": 57,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/heating.png",
+        "amenity_name": "Heating"
+      },
+      {
+        "id": 58,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/highspeed_internet.png",
+        "amenity_name": "High Speed Internet"
+      },
+      {
+        "id": 59,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/online_payments.png",
+        "amenity_name": "Online Rent Payments"
+      },
+      {
+        "id": 60,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/outdoor_grill.png",
+        "amenity_name": "Outdoor Grill"
+      },
+      {
+        "id": 61,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/parking.png",
+        "amenity_name": "Parking"
+      },
+      {
+        "id": 62,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/pet_friendly.png",
+        "amenity_name": "Pet Friendly"
+      },
+      {
+        "id": 63,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/pool.png",
+        "amenity_name": "Pool"
+      },
+      {
+        "id": 64,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/smoking_free.png",
+        "amenity_name": "No Smoking"
+      },
+      {
+        "id": 65,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/study_rooms.png",
+        "amenity_name": "Study Rooms"
+      },
+      {
+        "id": 66,
+        "amenity_icon": "https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/icons/walkin_closets.png",
+        "amenity_name": "Walk-in Closets"
+      }
+    ]
+  }
+}

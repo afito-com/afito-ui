@@ -3,58 +3,58 @@ import ReactDOM from 'react-dom';
 import ThemeProvider from '../ThemeProvider';
 import Table from '../Table';
 
-it('renders without crashing', () => {
-  const floorplans = [
-    {
-      id: '1',
-      name: '1 Bedroom',
-      price: '200',
-      beds: '1',
-      baths: '1',
-      square_footage: '1400'
-    },
-    {
-      id: '2',
-      name: 'Studio',
-      price: '300',
-      beds: '0',
-      baths: '1',
-      square_footage: '900'
-    },
-    {
-      id: '3',
-      name: '1c',
-      price: '0',
-      beds: '',
-      baths: '',
-      square_footage: '1500'
-    },
-    {
-      id: '4',
-      name: '2a',
-      price: '1000',
-      beds: '11',
-      baths: '11',
-      square_footage: '3000'
-    },
-    {
-      id: '5',
-      name: '2b',
-      price: '3000',
-      beds: '2',
-      baths: '11',
-      square_footage: '987'
-    },
-    {
-      id: '6',
-      name: '3a',
-      price: '4400',
-      beds: '3',
-      baths: '3',
-      square_footage: '15000'
-    }
-  ];
+const floorplans = [
+  {
+    id: '1',
+    name: '1 Bedroom',
+    price: '200',
+    beds: '1',
+    baths: '1',
+    square_footage: '1400'
+  },
+  {
+    id: '2',
+    name: 'Studio',
+    price: '300',
+    beds: '0',
+    baths: '1',
+    square_footage: '900'
+  },
+  {
+    id: '3',
+    name: '1c',
+    price: '0',
+    beds: '',
+    baths: '',
+    square_footage: '1500'
+  },
+  {
+    id: '4',
+    name: '2a',
+    price: '1000',
+    beds: '11',
+    baths: '11',
+    square_footage: '3000'
+  },
+  {
+    id: '5',
+    name: '2b',
+    price: '3000',
+    beds: '2',
+    baths: '11',
+    square_footage: '987'
+  },
+  {
+    id: '6',
+    name: '3a',
+    price: '4400',
+    beds: '3',
+    baths: '3',
+    square_footage: '15000'
+  }
+];
 
+it('renders without crashing', () => {
   const rows = floorplans.map(f => {
     return {
       ...f,

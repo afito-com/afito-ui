@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Applies danger styles 1`] = `
+.c2 + .c0 {
+  margin-left: 15px;
+}
+
+.c3 + .c0 {
+  margin-left: 15px;
+}
+
+.c1 {
+  font-family: 'Nunito',sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  margin: 10px 0;
+  box-shadow: 0px 5px 9.5px 0.5px rgba(61,131,104,0.27);
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  color: rgb(242,242,242);
+  background: rgb(246,119,119);
+}
+
+.c1:disabled {
+  background: rgba(87,197,155,0.66);
+  color: #f3f3f3;
+  border-color: auto;
+  box-shadow: none;
+  cursor: default;
+  cursor: not-allowed;
+}
+
+.c1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:active {
+  box-shadow: 0 0 0 0.5px rgba(50,50,93,0.15),0 2px 5px 0 rgba(50,50,93,0.08),0 1px 1.5px 0 rgba(0,0,0,0.05),0 1px 2px 0 rgba(0,0,0,0.06),0 0 0 0 transparent;
+}
+
+.c1 + .c0 {
+  margin-left: 15px;
+}
+
+.c1:active {
+  background: darken(rgb(246,119,119),5%);
+}
+
+@media (min-width:320px) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+@media (min-width:700px) {
+  .c1 {
+    width: auto;
+  }
+}
+
+<button
+  className="c0 c1"
+/>
+`;
+
+exports[`Button Applies outline styles 1`] = `
+.c2 + .c0 {
+  margin-left: 15px;
+}
+
+.c3 + .c0 {
+  margin-left: 15px;
+}
+
+.c4 + .c0 {
+  margin-left: 15px;
+}
+
+.c1 {
+  font-family: 'Nunito',sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  margin: 10px 0;
+  box-shadow: 0px 5px 9.5px 0.5px rgba(61,131,104,0.27);
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  color: #505050;
+  background: transparent;
+  border: 1px solid #d2dce0;
+  box-shadow: none;
+}
+
+.c1:disabled {
+  background: rgba(87,197,155,0.66);
+  color: #f3f3f3;
+  border-color: auto;
+  box-shadow: none;
+  cursor: default;
+  cursor: not-allowed;
+}
+
+.c1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:active {
+  box-shadow: 0 0 0 0.5px rgba(50,50,93,0.15),0 2px 5px 0 rgba(50,50,93,0.08),0 1px 1.5px 0 rgba(0,0,0,0.05),0 1px 2px 0 rgba(0,0,0,0.06),0 0 0 0 transparent;
+}
+
+.c1 + .c0 {
+  margin-left: 15px;
+}
+
+.c1:active {
+  box-shadow: none;
+}
+
+@media (min-width:320px) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+@media (min-width:700px) {
+  .c1 {
+    width: auto;
+  }
+}
+
+<button
+  className="c0 c1"
+/>
+`;
+
+exports[`Button Applies primary styles 1`] = `
+.c1 {
+  font-family: 'Nunito',sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  margin: 10px 0;
+  box-shadow: 0px 5px 9.5px 0.5px rgba(61,131,104,0.27);
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  color: rgb(242,242,242);
+  background: #253c6e;
+}
+
+.c1:disabled {
+  background: rgba(87,197,155,0.66);
+  color: #f3f3f3;
+  border-color: auto;
+  box-shadow: none;
+  cursor: default;
+  cursor: not-allowed;
+}
+
+.c1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:active {
+  box-shadow: 0 0 0 0.5px rgba(50,50,93,0.15),0 2px 5px 0 rgba(50,50,93,0.08),0 1px 1.5px 0 rgba(0,0,0,0.05),0 1px 2px 0 rgba(0,0,0,0.06),0 0 0 0 transparent;
+}
+
+.c1 + .c0 {
+  margin-left: 15px;
+}
+
+.c1:active {
+  background: darken(#253c6e,5%);
+}
+
+@media (min-width:320px) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+@media (min-width:700px) {
+  .c1 {
+    width: auto;
+  }
+}
+
+<button
+  className="c0 c1"
+/>
+`;
+
+exports[`Button Applies secondary styles 1`] = `
+.c2 + .c0 {
+  margin-left: 15px;
+}
+
+.c1 {
+  font-family: 'Nunito',sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  margin: 10px 0;
+  box-shadow: 0px 5px 9.5px 0.5px rgba(61,131,104,0.27);
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  color: rgb(242,242,242);
+  background: #57c59b;
+}
+
+.c1:disabled {
+  background: rgba(87,197,155,0.66);
+  color: #f3f3f3;
+  border-color: auto;
+  box-shadow: none;
+  cursor: default;
+  cursor: not-allowed;
+}
+
+.c1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:active {
+  box-shadow: 0 0 0 0.5px rgba(50,50,93,0.15),0 2px 5px 0 rgba(50,50,93,0.08),0 1px 1.5px 0 rgba(0,0,0,0.05),0 1px 2px 0 rgba(0,0,0,0.06),0 0 0 0 transparent;
+}
+
+.c1 + .c0 {
+  margin-left: 15px;
+}
+
+.c1:active {
+  background: darken(#57c59b,5%);
+}
+
+.c1:disabled {
+  background: rgba(87,197,155,0.66);
+  color: #f3f3f3;
+  border-color: auto;
+  box-shadow: none;
+  cursor: default;
+  cursor: not-allowed;
+}
+
+@media (min-width:320px) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+@media (min-width:700px) {
+  .c1 {
+    width: auto;
+  }
+}
+
+<button
+  className="c0 c1"
+/>
+`;

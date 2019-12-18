@@ -31,3 +31,7 @@ export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as Section } from './Section';
 export { default as AddPropertyWizard } from './AddPropertyWizard';
+export { default as InputField } from './InputField';
+export { default as TextareaField } from './TextareaField';
+export { default as SelectField } from './SelectField';
+export { default as SwitchField } from './SwitchField';

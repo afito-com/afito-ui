@@ -16,6 +16,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "npm run config && build-storybook -c .storybook --quiet"
   },
+  "jest": {
+    "collectCoverage": true
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -42,10 +45,12 @@
     "@storybook/addon-viewport": "^5.1.11",
     "@storybook/addons": "^5.1.9",
     "@storybook/react": "^5.1.9",
+    "@types/jest": "^24.0.24",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.0",
     "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -62,7 +67,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.6.3",
-    "react-test-renderer": "^16.9.0",
+    "react-test-renderer": "^16.8.6",
     "sass-loader": "^8.0.0",
     "storybook-addon-code": "^0.1.4",
     "style-loader": "^1.0.0",

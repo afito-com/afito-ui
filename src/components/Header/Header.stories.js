@@ -3,6 +3,16 @@ import { storiesOf } from '@storybook/react';
 import Header from '.';
 import { ModalProvider } from '../ModalProvider';
 
+const landlordNav = [
+  { name: 'Profile', href: '/dashboard' },
+  { name: 'Properties', href: '/dashboard/properties' },
+  { name: 'Premium Listings', href: '/dashboard/premium-listings' },
+  { name: 'Billing', href: '/dashboard/billing' },
+  { name: 'Favorites', href: '/dashboard/favorites' }
+];
+
+const studentNav = [{ name: 'Profile', href: '/dashboard' }, { name: 'Favorites', href: '/dashboard/favorites' }];
+
 storiesOf('Composites|Header', module)
   .add('logged out', () => {
     return (
@@ -22,6 +32,7 @@ storiesOf('Composites|Header', module)
       <ModalProvider>
         <Header
           dark={false}
+          nav={landlordNav}
           user={{
             phone_number: '555-555-5555',
             description: 'my bio',
@@ -52,6 +63,7 @@ storiesOf('Composites|Header', module)
       <ModalProvider>
         <Header
           dark={false}
+          nav={studentNav}
           user={{
             phone_number: '555-555-5555',
             description: 'my bio',
@@ -82,6 +94,7 @@ storiesOf('Composites|Header', module)
       <ModalProvider>
         <Header
           dark={true}
+          nav={[]}
           createUser={() => console.log('create user')}
           signIn={() => console.log('sign in')}
           signOut={() => console.log('sign out')}
@@ -95,6 +108,7 @@ storiesOf('Composites|Header', module)
       <ModalProvider>
         <Header
           dark={true}
+          nav={landlordNav}
           user={{
             phone_number: '555-555-5555',
             description: 'my bio',
@@ -125,6 +139,7 @@ storiesOf('Composites|Header', module)
       <ModalProvider>
         <Header
           dark={true}
+          nav={studentNav}
           user={{
             phone_number: '555-555-5555',
             description: 'my bio',
@@ -156,6 +171,7 @@ storiesOf('Composites|Header', module)
         <Header
           isFixed={true}
           dark={false}
+          nav={studentNav}
           user={{
             phone_number: '555-555-5555',
             description: 'my bio',
