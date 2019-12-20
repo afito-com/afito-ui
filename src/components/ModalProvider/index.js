@@ -74,7 +74,7 @@ const Footer = styled.div`
   background: white;
 `;
 
-const Modal = ({ header, footer, children, ...rest }) => {
+const Modal = ({ header, footer, children, maxWidth = '500px', ...rest }) => {
   const { visible, hideModal } = useContext(ModalContext);
 
   return (
@@ -94,7 +94,7 @@ const Modal = ({ header, footer, children, ...rest }) => {
           display: 'flex',
           flexDirection: 'column',
           padding: '0px',
-          maxWidth: '500px',
+          maxWidth: maxWidth,
           width: '100%'
         }
       }}
@@ -110,7 +110,8 @@ const Modal = ({ header, footer, children, ...rest }) => {
 Modal.propTypes = {
   header: PropTypes.node,
   footer: PropTypes.node,
-  children: PropTypes.node
+  children: PropTypes.node,
+  maxWidth: PropTypes.string
 };
 
 export { Modal, ModalProvider, ModalContext };
