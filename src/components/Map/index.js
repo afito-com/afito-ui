@@ -76,9 +76,9 @@ const MemoFloatingPropertyCard = React.memo(props => {
 });
 
 const Map = withScriptjs(
-  withGoogleMap(({ properties, center, hoveredProperty = {}, onMarkerClick, onPropertyHover }) => {
+  withGoogleMap(({ properties, center, hoveredProperty = {}, onMarkerClick, onPropertyHover, onCenterChanged }) => {
     return (
-      <GoogleMap defaultZoom={15} defaultCenter={center}>
+      <GoogleMap defaultZoom={15} defaultCenter={center} onCenterChanged={onCenterChanged}>
         <Markers
           properties={properties}
           onPropertyHover={onPropertyHover}
