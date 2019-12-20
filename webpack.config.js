@@ -17,6 +17,16 @@ module.exports = {
       commonjs: 'react-dom',
       commonjs2: 'react-dom',
       amd: 'react-dom'
+    },
+    yup: {
+      commonjs: 'yup',
+      commonjs2: 'yup',
+      amd: 'yup'
+    },
+    formik: {
+      commonjs: 'formik',
+      commonjs2: 'formik',
+      amd: 'formik'
     }
   },
   resolve: {
