@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { ModalContext, Modal } from '../ModalProvider';
+import { ModalContext } from '../ModalProvider';
 import LoginModal from '../LoginModal';
 import Wrapper from './Wrapper';
 import DesktopHeader from './DesktopHeader';
@@ -20,7 +20,7 @@ Header.propTypes = {
 export default function Header({ dark, nav, isFixed, user, createUser, signIn, signOut, saveToken }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { showModal, setModalContent, modalContent } = useContext(ModalContext);
+  const { showModal, setModalContent } = useContext(ModalContext);
 
   function handleOpenModal(activeIndex) {
     setModalContent(
@@ -64,7 +64,7 @@ export default function Header({ dark, nav, isFixed, user, createUser, signIn, s
 
   return (
     <Wrapper isFixed={isFixed} dark={dark}>
-      {modalContent && <Modal>{modalContent}</Modal>}
+      {/* {modalContent && <Modal>{modalContent}</Modal>} */}
       <DesktopHeader
         user={user}
         nav={nav}

@@ -22,7 +22,6 @@ import { createProperty } from '../../api';
 
 const Screen = styled.div`
   padding: 1rem;
-  margin-bottom: 75px;
 `;
 
 AddPropertyWizard.propTypes = {
