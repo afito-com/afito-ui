@@ -25,7 +25,7 @@ function Details({ property, areas, onSubmit, onChange, promptExit, currScreen, 
         <>
           <Heading level={4}>Does your property have multiple floorplans or units available?</Heading>
           <Text>Please let us know if your listing has different units within the same building.</Text>
-          <Row>
+          <Row style={{ marginTop: '200px' }}>
             <Button
               level="danger"
               onClick={() => {
