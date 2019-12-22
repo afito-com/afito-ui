@@ -6,6 +6,7 @@ const ButtonWrapper = styled.button`
   font-family: ${props => props.theme.AFITO_UI.bodyFont};
   font-weight: 800;
   font-size: 14px;
+  width: ${props => (props.fullWidth ? '100%' : 'auto')};
   text-transform: uppercase;
   display: inline-block;
   /*outline: 0;*/
@@ -95,19 +96,11 @@ const ButtonWrapper = styled.button`
       `;
     }
   }}
-
-  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
-    width: 100%;
-  }
-
-  @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
-    width: auto;
-  }
 `;
 
-export default function Button({ level, children, ...rest }) {
+export default function Button({ level, children, fullWidth, ...rest }) {
   return (
-    <ButtonWrapper level={level} {...rest}>
+    <ButtonWrapper level={level} fullWidth={fullWidth} {...rest}>
       {children}
     </ButtonWrapper>
   );
@@ -115,5 +108,6 @@ export default function Button({ level, children, ...rest }) {
 
 Button.propTypes = {
   level: PropTypes.string.isRequired,
+  fullWidth: PropTypes.bool,
   children: PropTypes.node
 };

@@ -49,4 +49,14 @@ describe('Button', () => {
     expect(tree).toHaveStyleRule('border', '1px solid #d2dce0');
     expect(tree).toMatchSnapshot();
   });
+
+  it('Renders a full width button', () => {
+    const tree = create(
+      <ThemeProvider>
+        <Button fullWidth />
+      </ThemeProvider>
+    ).toJSON();
+    expect(tree).toHaveStyleRule('width', '100%');
+    expect(tree).toMatchSnapshot();
+  });
 });

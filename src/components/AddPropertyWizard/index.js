@@ -25,10 +25,11 @@ const Screen = styled.div`
 `;
 
 AddPropertyWizard.propTypes = {
-  onCompleted: PropTypes.func
+  onCompleted: PropTypes.func,
+  user_id: PropTypes.number
 };
 
-function AddPropertyWizard({ onCompleted }) {
+function AddPropertyWizard({ onCompleted, user_id }) {
   const screens = ['Locate', 'Listing Details', 'Amenities', 'Photos'];
   const restoreState = Cookies.getJSON('AddPropertyState');
   const [restoreMode, setRestoreMode] = useState(restoreState);
@@ -117,7 +118,7 @@ function AddPropertyWizard({ onCompleted }) {
   }
 
   function onFinishAddProperty(propertyToCreate) {
-    createProperty(propertyToCreate)
+    createProperty({ propertyToCreate, user_id })
       .then(res => {
         if (res.status === 200) {
           deleteState();

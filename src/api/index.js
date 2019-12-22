@@ -37,7 +37,7 @@ export const AreaAPI = API('areas', ['getAll', 'getOne']);
 export const PropertyAPI = API('properties', ['getAll', 'getOne']);
 export const AnalyticsAPI = API('analytics', ['create']);
 
-export const createProperty = property => {
+export const createProperty = ({ property, user_id }) => {
   const { line1, line2, city, state, ...rest } = property;
   return instance.post(`${keys.base_url}property`, {
     ...rest,
