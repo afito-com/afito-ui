@@ -50,7 +50,7 @@ function Table({ rows, headers, ...rest }) {
           return (
             <Row key={row.id} onClick={row.onRowClick}>
               {Object.keys(row)
-                .filter(key => key !== 'id' || key !== 'onRowClick')
+                .filter(key => key !== 'id' && key !== 'onRowClick')
                 .map((column, i) => (
                   <Column key={`Row_${row.id}_Column_${i}`}>{row[column]}</Column>
                 ))}
