@@ -33,7 +33,7 @@ const Column = styled.td`
   color: #505050;
 `;
 
-function Table({ rows, onRowClick, headers, ...rest }) {
+function Table({ rows, headers, ...rest }) {
   return (
     <Wrapper {...rest}>
       <Head>
@@ -48,9 +48,9 @@ function Table({ rows, onRowClick, headers, ...rest }) {
       <Body>
         {rows.map(row => {
           return (
-            <Row key={row.id} onClick={onRowClick}>
+            <Row key={row.id} onClick={row.onRowClick}>
               {Object.keys(row)
-                .filter(key => key !== 'id')
+                .filter(key => key !== 'id' || key !== 'onRowClick')
                 .map((column, i) => (
                   <Column key={`Row_${row.id}_Column_${i}`}>{row[column]}</Column>
                 ))}
@@ -65,10 +65,10 @@ function Table({ rows, onRowClick, headers, ...rest }) {
 Table.propTypes = {
   rows: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      onRowClick: PropTypes.func
     })
   ).isRequired,
-  onRowClick: PropTypes.func,
   headers: PropTypes.array
 };
 

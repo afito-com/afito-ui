@@ -5,6 +5,8 @@ import ThemeProvider from '../ThemeProvider';
 import Table from '../Table';
 import theme from '../../theme';
 
+const mockCallBack = jest.fn();
+
 const floorplans = [
   {
     id: '1',
@@ -12,7 +14,8 @@ const floorplans = [
     price: '200',
     beds: '1',
     baths: '1',
-    square_footage: '1400'
+    square_footage: '1400',
+    onRowClick: mockCallBack
   },
   {
     id: '2',
@@ -20,7 +23,8 @@ const floorplans = [
     price: '300',
     beds: '0',
     baths: '1',
-    square_footage: '900'
+    square_footage: '900',
+    onRowClick: mockCallBack
   },
   {
     id: '3',
@@ -28,7 +32,8 @@ const floorplans = [
     price: '0',
     beds: '',
     baths: '',
-    square_footage: '1500'
+    square_footage: '1500',
+    onRowClick: mockCallBack
   },
   {
     id: '4',
@@ -36,7 +41,8 @@ const floorplans = [
     price: '1000',
     beds: '11',
     baths: '11',
-    square_footage: '3000'
+    square_footage: '3000',
+    onRowClick: mockCallBack
   },
   {
     id: '5',
@@ -44,7 +50,8 @@ const floorplans = [
     price: '3000',
     beds: '2',
     baths: '11',
-    square_footage: '987'
+    square_footage: '987',
+    onRowClick: mockCallBack
   },
   {
     id: '6',
@@ -52,7 +59,8 @@ const floorplans = [
     price: '4400',
     beds: '3',
     baths: '3',
-    square_footage: '15000'
+    square_footage: '15000',
+    onRowClick: mockCallBack
   }
 ];
 
@@ -98,13 +106,10 @@ describe('<Table />', () => {
       };
     });
 
-    const mockCallBack = jest.fn();
-
     const table = mount(
       <ThemeProvider theme={theme}>
         <Table
           rows={rows}
-          onRowClick={mockCallBack}
           headers={[
             'Name',
             'Price',
