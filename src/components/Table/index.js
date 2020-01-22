@@ -68,7 +68,7 @@ Table.propTypes = {
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
     })
   ).isRequired,
-  onRowClick: PropTypes.func.isRequired,
+  onRowClick: PropTypes.func,
   headers: PropTypes.array
 };
 
