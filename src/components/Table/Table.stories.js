@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Table from '.';
 
 storiesOf('Primitives|Table', module).add('default', () => {
@@ -65,6 +66,7 @@ storiesOf('Primitives|Table', module).add('default', () => {
   return (
     <Table
       rows={rows}
+      onRowClick={action('onRowClick')}
       headers={[
         'Name',
         'Price',

@@ -33,7 +33,7 @@ const Column = styled.td`
   color: #505050;
 `;
 
-function Table({ rows, headers, ...rest }) {
+function Table({ rows, onRowClick, headers, ...rest }) {
   return (
     <Wrapper {...rest}>
       <Head>
@@ -48,7 +48,7 @@ function Table({ rows, headers, ...rest }) {
       <Body>
         {rows.map(row => {
           return (
-            <Row key={row.id}>
+            <Row key={row.id} onClick={onRowClick}>
               {Object.keys(row)
                 .filter(key => key !== 'id')
                 .map((column, i) => (
@@ -68,6 +68,7 @@ Table.propTypes = {
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
     })
   ).isRequired,
+  onRowClick: PropTypes.func.isRequired,
   headers: PropTypes.array
 };
 
