@@ -42,7 +42,7 @@ export default function NewMap({
         : 'https://afito-production-bucket.s3.amazonaws.com/static/images/home-64.png';
 
     return (
-      <div style={{ display: 'flex', height: 'calc(100vh - 50px)' }}>
+      <div style={{ display: 'flex', height: height }}>
         <GoogleMap
           options={options}
           mapContainerStyle={{
