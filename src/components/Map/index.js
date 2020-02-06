@@ -268,7 +268,20 @@ const Map = withScriptjs(
             hoverId={hoveredProperty.property_id}
           />
 
-          {Object.keys(hoveredProperty).length > 0 && <MemoFloatingPropertyCard hoveredProperty={hoveredProperty} />}
+          {Object.keys(hoveredProperty).length > 0 && (
+            <InfoBox
+              position={new google.maps.LatLng(parseFloat(hoveredProperty.lat), parseFloat(hoveredProperty.lng))}
+              options={{
+                closeBoxURL: ``,
+                enableEventPropagation: true,
+                disableAutoPan: true
+              }}
+            >
+              <ThemeProvider>
+                <PropertyCard isCondensed style={{ width: '150px', height: '200px' }} {...hoveredProperty} />
+              </ThemeProvider>
+            </InfoBox>
+          )}
         </GoogleMap>
       );
     }
