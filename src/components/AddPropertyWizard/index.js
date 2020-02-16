@@ -7,6 +7,7 @@ import GeoSearch from './GeoSearch';
 import Details from './Details';
 import AmenitiesPicker from './AmenitiesPicker';
 import ImageUpload from './ImageUpload';
+import Completed from './Completed';
 import ProgressBar from './ProgressBar';
 
 import Alert from '../Alert';
@@ -26,16 +27,16 @@ const Screen = styled.div`
 
 AddPropertyWizard.propTypes = {
   onCompleted: PropTypes.func,
+  onPropertyCreated: PropTypes.func,
   user_id: PropTypes.number
 };
 
-function AddPropertyWizard({ onCompleted, user_id }) {
-  const screens = ['Locate', 'Listing Details', 'Amenities', 'Photos'];
+function AddPropertyWizard({ onPropertyCreated, onCompleted, user_id }) {
+  const screens = ['Locate', 'Listing Details', 'Amenities', 'Photos', 'Complete'];
   const restoreState = Cookies.getJSON('AddPropertyState');
   const [restoreMode, setRestoreMode] = useState(restoreState);
   const [currScreen, setCurrScreen] = useState(0);
   const [maxStep, setMaxStep] = useState(0);
-  const [dirty, setDirty] = useState(false);
   const [error, setError] = useState();
   const [areas, setAreas] = useState([]);
   const [amenities, setAmenities] = useState([]);
@@ -70,8 +71,8 @@ function AddPropertyWizard({ onCompleted, user_id }) {
       Cookies.set('AddPropertyState', { property, currScreen, maxStep });
     }
 
-    if (currScreen > 0) saveState();
-  }, [currScreen, maxStep, property]);
+    if (currScreen > 0 && currScreen < screens.length - 1) saveState();
+  }, [currScreen, maxStep, property, screens.length]);
 
   useEffect(() => {
     if (screens[currScreen] === 'Listing Details' && areas.length === 0) {
@@ -113,19 +114,21 @@ function AddPropertyWizard({ onCompleted, user_id }) {
   }
 
   function updatePropertyInfo(e) {
-    setDirty(true);
     setProperty({ ...property, [e.target.name]: e.target.value });
   }
 
-  function onFinishAddProperty(propertyToCreate) {
-    createProperty({ propertyToCreate, user_id })
+  function onFinishAddProperty(property) {
+    createProperty({ property, user_id })
       .then(res => {
         if (res.status === 200) {
-          deleteState();
           return res.data.property;
         }
       })
-      .then(onCompleted)
+      .then(property => {
+        deleteState();
+        nextScreen();
+        onPropertyCreated(property);
+      })
       .catch(onError);
   }
 
@@ -145,14 +148,6 @@ function AddPropertyWizard({ onCompleted, user_id }) {
     }
   }
 
-  function promptExit() {
-    if (dirty) {
-      alert('You will lose the progress you made. Are you sure you want to cancel?');
-    }
-
-    return null;
-  }
-
   function renderActiveScreen() {
     let activeScreen = screens[currScreen];
     switch (activeScreen) {
@@ -162,7 +157,6 @@ function AddPropertyWizard({ onCompleted, user_id }) {
             property={property}
             currScreen={currScreen}
             prevScreen={prevScreen}
-            promptExit={promptExit}
             onChange={updatePropertyInfo}
             onGeoSearch={property => {
               const { line1, city, state } = property;
@@ -189,7 +183,6 @@ function AddPropertyWizard({ onCompleted, user_id }) {
             property={property}
             currScreen={currScreen}
             prevScreen={prevScreen}
-            promptExit={promptExit}
             onChange={updatePropertyInfo}
             setHometype={hometype => {
               setProperty({ ...property, hometype });
@@ -206,7 +199,6 @@ function AddPropertyWizard({ onCompleted, user_id }) {
             property={property}
             currScreen={currScreen}
             prevScreen={prevScreen}
-            promptExit={promptExit}
             setAmenity={amenities => {
               setProperty({ ...property, amenities });
             }}
@@ -235,11 +227,12 @@ function AddPropertyWizard({ onCompleted, user_id }) {
                 });
             }}
             prevScreen={prevScreen}
-            promptExit={promptExit}
             property={property}
             loading={loading}
           />
         );
+      case 'Complete':
+        return <Completed property={property} onCompleted={onCompleted} />;
     }
   }
 

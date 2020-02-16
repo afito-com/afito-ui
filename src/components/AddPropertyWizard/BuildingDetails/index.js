@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../Button';
-import SearchBoxField from '../../SearchboxField';
 import SelectField from '../../SelectField';
 import TextareaField from '../../TextareaField';
 import InputField from '../../InputField';
@@ -17,7 +16,6 @@ BuildingDetails.propTypes = {
   setHometype: PropTypes.func.isRequired,
   areas: PropTypes.array.isRequired,
   currScreen: PropTypes.number.isRequired,
-  promptExit: PropTypes.func.isRequired,
   prevScreen: PropTypes.func.isRequired
 };
 
@@ -39,22 +37,22 @@ function BuildingDetails({ property, areas, onSubmit, setHometype }) {
       </div>
 
       <Formik initialValues={property} validationSchema={BuildingDetailsSchema} onSubmit={onSubmit}>
-        {({ setFieldValue, resetForm }) => (
+        {({ resetForm }) => (
           <Form>
             <Row canWrap>
               <Column xs={12} align="flex-start" style={{ marginBottom: '32px' }}>
-                <SearchBoxField
-                  onItemClick={item => setFieldValue('area_id', item.value)}
-                  items={items}
-                  onChange={e => {
-                    let selection = areas.find(area => area.name.toLowerCase() === e.target.value.toLowerCase());
-                    if (selection) setFieldValue('area_id', selection.area_id);
-                    else setFieldValue('area_id', '');
-                  }}
-                  name="area_id"
-                  placeholder="School"
-                  label="School"
-                />
+                <SelectField label="School" name="area_id">
+                  <option value="" disabled>
+                    School
+                  </option>
+                  {items.map(area => {
+                    return (
+                      <option key={area.value} value={area.value}>
+                        {area.name}
+                      </option>
+                    );
+                  })}
+                </SelectField>
                 <InputField name="property_name" label="Building Name" placeholder="Building Name" />
               </Column>
               <Column xs={12} align="flex-start">

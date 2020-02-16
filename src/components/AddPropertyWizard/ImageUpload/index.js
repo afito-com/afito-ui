@@ -56,7 +56,6 @@ ImageUpload.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   currScreen: PropTypes.number.isRequired,
   prevScreen: PropTypes.func.isRequired,
-  promptExit: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   property: PropTypes.object.isRequired
 };
@@ -138,10 +137,8 @@ function ImageUpload({ onSubmit, loading }) {
       <Row>
         <Button
           level="secondary"
-          disabled={!mainImage}
+          disabled={!mainImage || loading}
           onClick={() => {
-            //uploadPhotos();
-            //onUploadExtra(extraImages);
             onSubmit([mainImage].concat(extraImages));
           }}
         >

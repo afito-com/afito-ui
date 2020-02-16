@@ -13,8 +13,7 @@ AmenitiesPicker.propTypes = {
   setAmenity: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   currScreen: PropTypes.number.isRequired,
-  prevScreen: PropTypes.func.isRequired,
-  promptExit: PropTypes.func.isRequired
+  prevScreen: PropTypes.func.isRequired
 };
 
 function AmenitiesPicker({ property, amenities, setAmenity, onSubmit }) {

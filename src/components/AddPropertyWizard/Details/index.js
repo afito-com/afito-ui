@@ -14,11 +14,10 @@ Details.propTypes = {
   setHometype: PropTypes.func.isRequired,
   areas: PropTypes.array.isRequired,
   currScreen: PropTypes.number.isRequired,
-  promptExit: PropTypes.func.isRequired,
   prevScreen: PropTypes.func.isRequired
 };
 
-function Details({ property, areas, onSubmit, onChange, promptExit, currScreen, prevScreen, setHometype }) {
+function Details({ property, areas, onSubmit, onChange, currScreen, prevScreen, setHometype }) {
   return (
     <>
       {property.hometype === null && (
@@ -51,7 +50,6 @@ function Details({ property, areas, onSubmit, onChange, promptExit, currScreen, 
           areas={areas}
           onSubmit={onSubmit}
           onChange={onChange}
-          promptExit={promptExit}
           currScreen={currScreen}
           prevScreen={prevScreen}
           setHometype={setHometype}
@@ -63,7 +61,6 @@ function Details({ property, areas, onSubmit, onChange, promptExit, currScreen, 
           areas={areas}
           onSubmit={onSubmit}
           onChange={onChange}
-          promptExit={promptExit}
           currScreen={currScreen}
           prevScreen={prevScreen}
           setHometype={setHometype}
