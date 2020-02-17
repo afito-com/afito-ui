@@ -5,7 +5,7 @@ const tests = [
     area_id: 1,
     beds: 4,
     baths: 1,
-    price: 0,
+    price: null,
     hometype: 'single family',
     parking: false,
     active: true,

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
 import Switch from '../Switch';
-import * as utils from '../../utils';
+import { getDisplayPrice } from '../../api/utils';
 
 const Wrapper = styled.div`
   flex: 1 0 0;
@@ -58,6 +58,7 @@ const Price = styled.div`
   background: ${props => props.theme.AFITO_UI.secondaryColor};
   font-size: 16px;
   font-weight: bold;
+  white-space: nowrap;
 `;
 const Rating = styled.div``;
 const Save = styled.div`
@@ -131,18 +132,7 @@ function PropertyCard({
   ...rest
 }) {
   const [saved, setSaved] = useState();
-  const isBuilding = hometype => hometype === 'building';
-  const displayPrice = isBuilding(hometype)
-    ? contact_for_pricing
-      ? 'Contact For Price'
-      : max_price && min_price
-      ? max_price > min_price
-        ? `${utils.toCurrency(min_price)} - ${utils.toCurrency(max_price)}`
-        : utils.toCurrency(max_price)
-      : 'No Price'
-    : price
-    ? utils.toCurrency(price)
-    : 'No Price';
+  const displayPrice = getDisplayPrice({ hometype, max_price, min_price, price, contact_for_pricing });
   const cardTitle = property_name ? property_name : address ? address.line1 : 'Loading...';
   const bedsRange = max_beds > min_beds ? `${min_beds}-${max_beds}` : max_beds;
   const bathsRange = max_baths > min_baths ? `${min_baths}-${max_baths}` : max_baths;

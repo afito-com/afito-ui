@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading, Text } from '../Typography';
-import { ModalContext } from '../ModalProvider';
-import * as utils from '../../utils';
+import { getDisplayPrice } from '../../api/utils';
 
 const Image = styled.div`
   padding: 20px;
@@ -251,19 +250,7 @@ export default function PremiumPropertyCard({
   ...rest
 }) {
   const [saved, setSaved] = useState(savedProperties.map(p => p.property_id).includes(property_id));
-  const isBuilding = hometype => hometype === 'building';
-  const { showModal, setModalContent } = useContext(ModalContext);
-  const displayPrice = isBuilding(hometype)
-    ? contact_for_pricing
-      ? 'Contact For Price'
-      : max_price && min_price
-      ? max_price > min_price
-        ? `${utils.toCurrency(min_price)} - ${utils.toCurrency(max_price)}`
-        : utils.toCurrency(max_price)
-      : 'No Price'
-    : price
-    ? utils.toCurrency(price)
-    : 'No Price';
+  const displayPrice = getDisplayPrice({ hometype, max_price, min_price, price, contact_for_pricing });
   const cardTitle = property_name ? property_name : address ? address.line1 : 'Loading...';
   const bedsRange = max_beds > min_beds ? `${min_beds}-${max_beds}` : max_beds;
   const bathsRange = max_baths > min_baths ? `${min_baths}-${max_baths}` : max_baths;
