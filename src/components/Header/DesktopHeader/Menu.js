@@ -37,7 +37,7 @@ const Menu = styled.div`
     align-items: center;
     align-self: stretch;
     justify-content: center;
-    color: ${props => (props.dark ? 'white' : '#334150')};
+    color: #334150 !important;
     font-family: 'Nunito', sans-serif;
     font-weight: 900;
     margin: 10px !important;
