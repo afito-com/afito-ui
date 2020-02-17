@@ -19,19 +19,19 @@ import { getAddressLocation } from '../../api/utils';
 import { getAreas } from '../../api/search';
 import { getAmenities } from '../../api/amenities';
 import { uploadImage } from '../../api/s3';
-import { createProperty } from '../../api';
 
 const Screen = styled.div`
   padding: 1rem;
 `;
 
 AddPropertyWizard.propTypes = {
+  createProperty: PropTypes.func,
   onCompleted: PropTypes.func,
   onPropertyCreated: PropTypes.func,
   user_id: PropTypes.number
 };
 
-function AddPropertyWizard({ onPropertyCreated, onCompleted, user_id }) {
+function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, user_id }) {
   const screens = ['Locate', 'Listing Details', 'Amenities', 'Photos', 'Complete'];
   const restoreState = Cookies.getJSON('AddPropertyState');
   const [restoreMode, setRestoreMode] = useState(restoreState);
