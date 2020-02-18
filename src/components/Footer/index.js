@@ -177,7 +177,7 @@ function FooterContainer() {
       .catch(err => {
         console.error('Set Latest Listings Error', { err });
       });
-  });
+  }, []);
 
   return <Footer listings={listings} searches={searches} posts={posts} />;
 }
