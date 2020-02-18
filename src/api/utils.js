@@ -41,7 +41,7 @@ export function getDisplayPrice({ hometype, max_price, min_price, price, contact
   if (contact_for_pricing) {
     return 'Contact For Price';
   } else if (isBuilding(hometype)) {
-    if (max_price && min_price) {
+    if (max_price != null && min_price != null) {
       if (max_price > min_price) {
         return `${toCurrency(min_price)} - ${toCurrency(max_price)}`;
       } else {
