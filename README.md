@@ -1,4 +1,4 @@
-# AfitoUI
+# afito-ui
 
 UI Components designed for Afito
 
