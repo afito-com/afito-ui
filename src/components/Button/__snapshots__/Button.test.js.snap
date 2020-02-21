@@ -271,6 +271,8 @@ exports[`Button Renders a full width button 1`] = `
   cursor: pointer;
   -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,background 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  color: rgb(242,242,242);
+  background: #253c6e;
 }
 
 .c1:disabled {
@@ -293,6 +295,10 @@ exports[`Button Renders a full width button 1`] = `
 
 .c1 + .c0 {
   margin-left: 15px;
+}
+
+.c1:active {
+  background: darken(#253c6e,5%);
 }
 
 <button

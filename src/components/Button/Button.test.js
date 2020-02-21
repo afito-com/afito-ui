@@ -53,7 +53,7 @@ describe('Button', () => {
   it('Renders a full width button', () => {
     const tree = create(
       <ThemeProvider>
-        <Button fullWidth />
+        <Button level="primary" fullWidth />
       </ThemeProvider>
     ).toJSON();
     expect(tree).toHaveStyleRule('width', '100%');
