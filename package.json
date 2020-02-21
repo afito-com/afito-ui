@@ -5,7 +5,7 @@
   "main": "dist/afitoui.js",
   "scripts": {
     "config": "node set-env.js",
-    "test": "jest",
+    "test": "npm run config && jest",
     "pregit": "npm test",
     "git": "git add . && git commit -m",
     "postgit": "npm run build && git push origin master",
