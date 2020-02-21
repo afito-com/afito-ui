@@ -33,22 +33,3 @@ export default function MyComponent() {
   );
 }
 ```
-
-## Contributing
-
-### Getting started
-
-Clone and install the repo, then run storybook. A window should pop up with the storybook environment. This environment will live reload as you make changes.
-
-```bash
-git clone https://github.com/redhair/afito-ui.git
-cd afito-ui
-npm install
-npm run storybook
-```
-
-### To commit your changes
-
-`npm run git -- "commit message"`
-
-That's it!
