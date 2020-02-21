@@ -16,7 +16,7 @@ npm i afito-ui
 
 ## Usage
 
-```javascript
+```jsx
 import React from 'react';
 import { Container, Row, Column, Heading, Text } from 'afito-ui';
 
