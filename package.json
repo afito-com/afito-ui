@@ -16,6 +16,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "npm run config && build-storybook -c .storybook --quiet"
   },
+  "files": [
+    "/dist"
+  ],
   "jest": {
     "collectCoverage": true,
     "setupFilesAfterEnv": [
