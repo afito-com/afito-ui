@@ -27,6 +27,26 @@ const Wrapper = styled.footer`
   }
 `;
 
+const LogoSection = styled(Column)`
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    margin-bottom: 0px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+    margin-bottom: 50px;
+  }
+`;
+
+const UpperSection = styled(Row)`
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    margin-bottom: 0px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
+    margin-bottom: 50px;
+  }
+`;
+
 const SocialLinks = styled(Row)`
   position: relative;
   padding: 50px 0;
@@ -186,8 +206,8 @@ function Footer({ listings = [], searches = [], posts = [] }) {
   return (
     <Wrapper>
       <Container>
-        <Row canWrap={true} align="flex-start" style={{ marginBottom: '50px' }}>
-          <Column xs={12} sm={12} lg={3} align="flex-start" style={{ marginBottom: '50px' }}>
+        <UpperSection canWrap={true} align="flex-start">
+          <LogoSection xs={12} sm={12} lg={3} align="flex-start">
             <a href="/">
               <img
                 width="150"
@@ -221,7 +241,7 @@ function Footer({ listings = [], searches = [], posts = [] }) {
               <i style={{ marginRight: '20px' }} className="fas fa-rss"></i>
               &nbsp;Blog
             </a>
-          </Column>
+          </LogoSection>
           <Column xs={0} sm={4} lg={3} align="flex-start">
             <FooterHeader level={4}>Latest Listings</FooterHeader>
             {listings.length > 0 ? (
@@ -310,7 +330,7 @@ function Footer({ listings = [], searches = [], posts = [] }) {
               <LoadingBlock quiet color="white" />
             )}
           </Column>
-        </Row>
+        </UpperSection>
       </Container>
       <SocialLinks justify="center">
         <a rel="noopener" href="https://facebook.com/RentAfito" aria-label="Like us on Afito's Facebook Page">
