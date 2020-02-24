@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ThemeProvider from '../../ThemeProvider';
+import ThemeProvider from '../ThemeProvider';
 import Dropzone from '.';
 
 describe('<Dropzone />', () => {
