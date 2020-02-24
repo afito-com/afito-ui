@@ -6,7 +6,7 @@
   "main": "dist/afitoui.js",
   "scripts": {
     "config": "node set-env.js",
-    "test": "npm run config && jest",
+    "test": "npm run config && jest && codecov",
     "commit": "git-cz",
     "build": "npm run config && webpack --mode production",
     "storybook": "start-storybook -p 6006",
@@ -52,6 +52,7 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.0",
+    "codecov": "^3.6.5",
     "commitizen": "^4.0.3",
     "css-loader": "^3.2.0",
     "cz-conventional-changelog": "^3.1.0",

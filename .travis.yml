@@ -5,6 +5,9 @@ node_js:
   - 10
   - 8
 
+install:
+  - npm install -g codecov
+
 jobs:
   include:
     - stage: release
