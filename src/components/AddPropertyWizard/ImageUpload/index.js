@@ -54,10 +54,7 @@ const RemoveCoverImage = styled.div`
 
 ImageUpload.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  currScreen: PropTypes.number.isRequired,
-  prevScreen: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
-  property: PropTypes.object.isRequired
+  loading: PropTypes.bool.isRequired
 };
 
 function ImageUpload({ onSubmit, loading }) {

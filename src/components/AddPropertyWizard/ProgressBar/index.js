@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text } from '../../Typography';
 import { Row } from '../../Grid';
-import { PropertyAPI } from '../../../api';
 
 ProgressBar.propTypes = {
   jumpToScreen: PropTypes.func.isRequired,
@@ -12,7 +11,7 @@ ProgressBar.propTypes = {
   maxStep: PropTypes.number.isRequired
 };
 
-function ProgressBar({ jumpToScreen, screens, maxStep, currScreen }) {
+function ProgressBar({ jumpToScreen, screens, currScreen, maxStep }) {
   const ProgressIndicator = styled.div`
     background: ${props => (props.isHighlighted ? props.theme.AFITO_UI.secondaryColor : '#f1f4f6')};
     height: 4px;

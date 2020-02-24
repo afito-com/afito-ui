@@ -14,9 +14,7 @@ BuildingDetails.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   setHometype: PropTypes.func.isRequired,
-  areas: PropTypes.array.isRequired,
-  currScreen: PropTypes.number.isRequired,
-  prevScreen: PropTypes.func.isRequired
+  areas: PropTypes.array.isRequired
 };
 
 const BuildingDetailsSchema = Yup.object().shape({

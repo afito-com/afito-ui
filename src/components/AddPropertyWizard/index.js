@@ -181,7 +181,6 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
           <Details
             areas={areas}
             property={property}
-            currScreen={currScreen}
             prevScreen={prevScreen}
             onChange={updatePropertyInfo}
             setHometype={hometype => {
@@ -197,8 +196,6 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
         return (
           <AmenitiesPicker
             property={property}
-            currScreen={currScreen}
-            prevScreen={prevScreen}
             setAmenity={amenities => {
               setProperty({ ...property, amenities });
             }}
@@ -232,7 +229,7 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
           />
         );
       case 'Complete':
-        return <Completed property={property} onCompleted={onCompleted} />;
+        return <Completed onCompleted={onCompleted} />;
     }
   }
 

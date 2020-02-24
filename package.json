@@ -14,10 +14,13 @@
     "semantic-release": "semantic-release"
   },
   "files": [
-    "/dist"
+    "dist"
   ],
   "jest": {
     "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
+    ],
     "setupFilesAfterEnv": [
       "./src/setupTests.js"
     ]
