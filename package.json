@@ -14,7 +14,7 @@
     "semantic-release": "semantic-release"
   },
   "files": [
-    "dist"
+    "dist/"
   ],
   "jest": {
     "collectCoverage": true,
