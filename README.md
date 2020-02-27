@@ -2,8 +2,8 @@
 
 > Components designed for Afito Apps
 
-[![Build Status](https://travis-ci.com/afito-com/afito-ui.svg?token=wHK4WEFUEoz3o1zVWA5Q&branch=master)](https://travis-ci.com/redhair/afito-ui)
-![Codecov](https://img.shields.io/codecov/c/github/afito-com/afito-ui)
+[![Build Status](https://travis-ci.com/afito-com/afito-ui.svg?token=wHK4WEFUEoz3o1zVWA5Q&branch=master)](https://travis-ci.com/afito-com/afito-ui)
+[![Codecov](https://img.shields.io/codecov/c/github/afito-com/afito-ui)](https://codecov.io/gh/afito-com/afito-ui)
 ![Dependencies](https://img.shields.io/david/afito-com/afito-ui)
 
 ## Install
