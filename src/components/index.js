@@ -37,3 +37,5 @@ export { default as SwitchField } from './SwitchField';
 export { default as Checkbox } from './Checkbox';
 export { default as NewMap } from './NewMap';
 export { default as InputNew } from './InputNew';
+export { default as TextareaNew } from './TextareaNew';
+export { default as SelectNew } from './SelectNew';
