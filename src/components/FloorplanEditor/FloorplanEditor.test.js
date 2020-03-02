@@ -14,6 +14,7 @@ describe('FloorplanEditor', () => {
           onSubmit={() => {}}
           onToggleActive={() => {}}
           onTogglePricing={() => {}}
+          onDeleteFloorplan={() => {}}
         />
       </ThemeProvider>,
       div
