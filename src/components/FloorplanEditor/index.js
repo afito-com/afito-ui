@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { Heading } from '../Typography';
-
 import FloorplanForm from './FloorplanForm';
 import FloorplanTable from './FloorplanTable';
 
@@ -25,15 +23,20 @@ FloorplanEditor.propTypes = {
   ).isRequired,
   onToggleActive: PropTypes.func.isRequired,
   onTogglePricing: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onDeleteFloorplan: PropTypes.func.isRequired
 };
 
-function FloorplanEditor({ floorplans, onSubmit, onToggleActive, onTogglePricing }) {
+function FloorplanEditor({ floorplans, onSubmit, onToggleActive, onTogglePricing, onDeleteFloorplan }) {
   return (
     <Wrapper>
-      <Heading level={4}>Floorplans</Heading>
       <FloorplanForm onSubmit={onSubmit} />
-      <FloorplanTable floorplans={floorplans} onToggleActive={onToggleActive} onTogglePricing={onTogglePricing} />
+      <FloorplanTable
+        floorplans={floorplans}
+        onToggleActive={onToggleActive}
+        onTogglePricing={onTogglePricing}
+        onDeleteFloorplan={onDeleteFloorplan}
+      />
     </Wrapper>
   );
 }

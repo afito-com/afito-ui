@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Switch from '../Switch';
 import Table from '../Table';
+import Button from '../Button';
 import { Text } from '../Typography';
 
 import { toCurrency } from '../../api/utils';
@@ -19,10 +20,11 @@ FloorplanTable.propTypes = {
     })
   ).isRequired,
   onToggleActive: PropTypes.func.isRequired,
-  onTogglePricing: PropTypes.func.isRequired
+  onTogglePricing: PropTypes.func.isRequired,
+  onDeleteFloorplan: PropTypes.func.isRequired
 };
 
-function FloorplanTable({ floorplans, onToggleActive, onTogglePricing }) {
+function FloorplanTable({ floorplans, onToggleActive, onTogglePricing, onDeleteFloorplan }) {
   return (
     <Table
       rows={floorplans.map(f => {
@@ -46,10 +48,15 @@ function FloorplanTable({ floorplans, onToggleActive, onTogglePricing }) {
               checked={f.active}
               onChange={e => onToggleActive(f.floorplan_id, e.target.checked)}
             />
+          ),
+          floorplanDelete: (
+            <Button style={{ padding: '7px 15px' }} level="danger" onClick={() => onDeleteFloorplan(f)}>
+              x
+            </Button>
           )
         };
       })}
-      headers={['Name', 'Price', 'Beds', 'Baths', 'Square Footage', 'Contact For Pricing', 'Active']}
+      headers={['Name', 'Price', 'Beds', 'Baths', 'Square Footage', 'Contact For Pricing', 'Active', 'Delete']}
     />
   );
 }

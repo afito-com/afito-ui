@@ -19,6 +19,9 @@ storiesOf('Composites|FloorplanEditor', module).add('default', () => {
         // PUT floorplan to floorplan_id with new pricing state
         console.log({ contact_for_pricing });
       }}
+      onDeleteFloorplan={floorplan => {
+        console.log('Delete:', { floorplan });
+      }}
     />
   );
 });
