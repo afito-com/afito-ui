@@ -1,5 +1,6 @@
 import React from 'react';
 import { configure, addDecorator, addParameters } from '@storybook/react';
+import { addReadme } from 'storybook-readme';
 import '@storybook/addon-console';
 import ThemeProvider from './../src/components/ThemeProvider';
 import { withKnobs } from '@storybook/addon-knobs';
@@ -33,6 +34,7 @@ addParameters({
   ]
 });
 
+addDecorator(addReadme);
 addDecorator(Story => <Story />);
 addDecorator(withKnobs);
 addDecorator(story => <ThemeProvider>{story()}</ThemeProvider>);

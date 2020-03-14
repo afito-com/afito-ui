@@ -64,15 +64,16 @@ const floorplans = [
   }
 ];
 
+const rows = floorplans.map(f => {
+  return {
+    ...f,
+    price: `$${f.price}`,
+    square_footage: `${f.square_footage}ft&sup2;`
+  };
+});
+
 describe('<Table />', () => {
   it('renders without crashing', () => {
-    const rows = floorplans.map(f => {
-      return {
-        ...f,
-        price: `$${f.price}`,
-        square_footage: `${f.square_footage}ft&sup2;`
-      };
-    });
     const div = document.createElement('div');
 
     ReactDOM.render(
@@ -98,14 +99,6 @@ describe('<Table />', () => {
   });
 
   it('executes the onRowClick function on row click', () => {
-    const rows = floorplans.map(f => {
-      return {
-        ...f,
-        price: `$${f.price}`,
-        square_footage: `${f.square_footage}ft&sup2;`
-      };
-    });
-
     const table = mount(
       <ThemeProvider theme={theme}>
         <Table
@@ -131,5 +124,40 @@ describe('<Table />', () => {
       .simulate('click');
 
     expect(mockCallBack.mock.calls.length).toEqual(1);
+  });
+
+  it('has sortable headers', () => {
+    const table = mount(
+      <ThemeProvider theme={theme}>
+        <Table
+          sortable
+          rows={rows}
+          headers={[
+            'Name',
+            'Price',
+            <img key="Beds" width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed.png" />,
+            <img key="Baths" width="50" src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bath.png" />,
+            <img
+              key="Square feet"
+              width="50"
+              src="https://afito-production-bucket.s3.amazonaws.com/static/icons/area.png"
+            />
+          ]}
+        />
+      </ThemeProvider>
+    );
+
+    table
+      .find('th')
+      .first()
+      .simulate('click');
+
+    console.log(
+      table
+        .find('tbody tr')
+        .first('td')
+
+        .debug()
+    );
   });
 });

@@ -12,7 +12,7 @@ function Completed({ onCompleted }) {
     <div>
       <Heading level={3}>Congratulations!</Heading>
       <Text>You&apos;ve successfully uploaded your property.</Text>
-      <Button level="success" onClick={onCompleted}>
+      <Button level="secondary" onClick={onCompleted}>
         Done
       </Button>
     </div>

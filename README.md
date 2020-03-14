@@ -12,9 +12,27 @@
 npm i afito-ui
 ```
 
-## Usage
+## Usage with create-react-app
 
 ```jsx
+// index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.js';
+import { ThemeProvider } from 'afito-ui';
+import { unregister } from './registerServiceWorker';
+
+ReactDOM.render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+  document.getElementById('dashboard_root')
+);
+unregister();
+```
+
+```jsx
+// MyComponent.js
 import React from 'react';
 import { Container, Row, Column, Heading, Text } from 'afito-ui';
 
@@ -31,3 +49,114 @@ export default function MyComponent() {
   );
 }
 ```
+
+## Component Reference
+
+### <AddPropertyWizard />
+
+#### Props
+
+- `createProperty`
+- `onCompleted`
+- `onPropertyCreated`
+- `user_id`
+
+### <Alert />
+
+### <AreaCard />
+
+### <Button />
+
+### <Card />
+
+### <Checkbox />
+
+### <CheckoutForm />
+
+### <Dropzone />
+
+### <FloorplanEditor />
+
+### <Footer />
+
+### <FormButton />
+
+### Grid
+
+#### <Container />
+
+#### <Row />
+
+#### <Column />
+
+### <Header />
+
+### <ImageGallery />
+
+### <Input />
+
+### <InputNew />
+
+### <Lightbox />
+
+### <LoadingBlock />
+
+### <LoginModal />
+
+### <Map />
+
+### <ModalProvider />
+
+### <NewImageGallery />
+
+### <NewMap />
+
+### <PremiumPropertyCard />
+
+### <PremiumUpsell />
+
+### <PropertyCard />
+
+### <RadioGroup />
+
+### <Range />
+
+### <Searchbox />
+
+### <SearchboxField />
+
+### <Section />
+
+### <Select />
+
+### <SelectField />
+
+### <SelectNew />
+
+### <SignInForm />
+
+### <SignUpWizard />
+
+### <Switch />
+
+### <SwitchField />
+
+### <Tab />
+
+### <TabGroup />
+
+### <Table />
+
+### <Textarea />
+
+### <TextareaField />
+
+### <TextareaNew />
+
+### <ThemeProvider />
+
+### Typography
+
+#### <Heading />
+
+#### <Text />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -25,6 +25,7 @@ const Header = styled.th`
   height: 56px;
   padding: 0px 20px;
   text-align: left;
+  cursor: ${props => (props.sortable ? 'pointer' : 'default')};
 `;
 const Body = styled.tbody``;
 
@@ -33,30 +34,44 @@ const Column = styled.td`
   color: #505050;
 `;
 
-function Table({ rows, headers, ...rest }) {
+function Table({ rows, headers, sortable, ...rest }) {
+  const [sort, setSort] = useState({ order: null, key: null });
+  function handleHeaderClick(idx) {
+    if (!sortable) return;
+    let key = Object.keys(rows[0]).filter(key => key !== 'id' && key !== 'onRowClick')[idx];
+    let order = sort.order > 0 ? 1 : -1;
+    setSort({ order, key });
+  }
+
   return (
     <Wrapper {...rest}>
       <Head>
         <Row>
           {headers.map((header, i) => (
-            <Header key={`${header}_${i}`} align="left">
+            <Header sortable={sortable} key={`${header}_${i}`} align="left" onClick={() => handleHeaderClick(i)}>
               {header}
             </Header>
           ))}
         </Row>
       </Head>
       <Body>
-        {rows.map(row => {
-          return (
-            <Row key={row.id} onClick={row.onRowClick}>
-              {Object.keys(row)
-                .filter(key => key !== 'id' && key !== 'onRowClick')
-                .map((column, i) => (
-                  <Column key={`Row_${row.id}_Column_${i}`}>{row[column]}</Column>
-                ))}
-            </Row>
-          );
-        })}
+        {rows
+          .sort((a, b) => {
+            if (a[sort.key] > b[sort.key]) return sort.order;
+            if (a[sort.key] < b[sort.key]) return -1 * sort.order;
+            return 0;
+          })
+          .map(row => {
+            return (
+              <Row key={row.id} onClick={row.onRowClick}>
+                {Object.keys(row)
+                  .filter(key => key !== 'id' && key !== 'onRowClick')
+                  .map((column, i) => {
+                    return <Column key={`Row_${row.id}_Column_${i}`}>{row[column]}</Column>;
+                  })}
+              </Row>
+            );
+          })}
       </Body>
     </Wrapper>
   );
@@ -69,7 +84,8 @@ Table.propTypes = {
       onRowClick: PropTypes.func
     })
   ).isRequired,
-  headers: PropTypes.array
+  headers: PropTypes.array,
+  sortable: PropTypes.bool
 };
 
 export default Table;

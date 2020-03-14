@@ -24,13 +24,6 @@ const Screen = styled.div`
   padding: 1rem;
 `;
 
-AddPropertyWizard.propTypes = {
-  createProperty: PropTypes.func,
-  onCompleted: PropTypes.func,
-  onPropertyCreated: PropTypes.func,
-  user_id: PropTypes.number
-};
-
 function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, user_id }) {
   const screens = ['Locate', 'Listing Details', 'Amenities', 'Photos', 'Complete'];
   const restoreState = Cookies.getJSON('AddPropertyState');
@@ -274,5 +267,16 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
     </>
   );
 }
+
+AddPropertyWizard.propTypes = {
+  /** The function to create the property. */
+  user_id: PropTypes.number.isRequired,
+  /** The function to create the property. */
+  createProperty: PropTypes.func.isRequired,
+  /** The function to create the property. */
+  onCompleted: PropTypes.func,
+  /** The function to create the property. */
+  onPropertyCreated: PropTypes.func
+};
 
 export default AddPropertyWizard;
