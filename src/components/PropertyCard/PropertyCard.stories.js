@@ -86,6 +86,7 @@ function CondensedPropertyCardExample() {
                 <PropertyCard
                   style={{ width: '250px', height: '300px' }}
                   isCondensed
+                  leased={true}
                   savedProperties={[]}
                   onSaveProperty={setSaved => {
                     if (!isLoggedIn) {

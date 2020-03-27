@@ -169,7 +169,7 @@ function PropertyCard({
 
   return (
     <Wrapper {...rest}>
-      {leased && <Badge>Leased</Badge>}
+      {!isCondensed && leased && <Badge>Leased</Badge>}
       <Image isCondensed={isCondensed} src={image_url} alt={cardTitle} />
       <Description isCondensed={isCondensed}>
         {!isCondensed && (

@@ -53,4 +53,21 @@ describe('<PropertyCard />', () => {
     );
     ReactDOM.unmountComponentAtNode(div);
   });
+
+  it('renders a condensed property card', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(
+      <ThemeProvider>
+        <PropertyCard
+          {...models[1]}
+          isCondensed
+          savedProperties={[]}
+          onSaveProperty={() => console.log('property saved')}
+          onRemoveSavedProperty={() => console.log('property unsaved')}
+        />
+      </ThemeProvider>,
+      div
+    );
+    ReactDOM.unmountComponentAtNode(div);
+  });
 });
