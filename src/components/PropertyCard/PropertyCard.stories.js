@@ -135,8 +135,23 @@ storiesOf('Composites|PropertyCard', module)
         <Row>
           {models.map((property, idx) => {
             return (
-              <Column key={idx} xs={6} sm={4} style={{ alignSelf: 'stretch' }}>
+              <Column key={idx} xs={6} sm={4} style={{ alignSelf: 'stretch', padding: '15px' }}>
                 <PropertyCard withSwitch onSwitchChange={action('switch')} onClick={action('click')} {...property} />
+              </Column>
+            );
+          })}
+        </Row>
+      </Container>
+    );
+  })
+  .add('With Leased Banner', () => {
+    return (
+      <Container>
+        <Row>
+          {models.map((property, idx) => {
+            return (
+              <Column key={idx} xs={6} sm={4} style={{ alignSelf: 'stretch', padding: '15px' }}>
+                <PropertyCard leased={true} onSwitchChange={action('switch')} onClick={action('click')} {...property} />
               </Column>
             );
           })}

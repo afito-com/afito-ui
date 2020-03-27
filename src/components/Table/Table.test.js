@@ -152,12 +152,12 @@ describe('<Table />', () => {
       .first()
       .simulate('click');
 
-    console.log(
-      table
-        .find('tbody tr')
-        .first('td')
+    // console.log(
+    //   table
+    //     .find('tbody tr')
+    //     .first('td')
 
-        .debug()
-    );
+    //     .debug()
+    // );
   });
 });

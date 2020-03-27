@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
 import Switch from '../Switch';
+import Badge from './Badge';
 import { getDisplayPrice } from '../../api/utils';
 
 const Wrapper = styled.div`
+  position: relative;
   flex: 1 0 0;
   margin: 5px 0;
   display: inline-flex;
@@ -48,9 +50,10 @@ const Description = styled.div`
   flex-direction: column;
 `;
 
-/*const Badge = styled.div``;
+/*
 const Ribbon = styled.div``;
 */
+
 const Price = styled.div`
   border-radius: 4px;
   padding: 7px 16px;
@@ -123,6 +126,7 @@ function PropertyCard({
   baths,
   contact_for_pricing,
   distance,
+  leased,
   savedProperties = [],
   onRemoveSavedProperty = undefined,
   onSaveProperty = undefined,
@@ -165,6 +169,7 @@ function PropertyCard({
 
   return (
     <Wrapper {...rest}>
+      {leased && <Badge>Leased</Badge>}
       <Image isCondensed={isCondensed} src={image_url} alt={cardTitle} />
       <Description isCondensed={isCondensed}>
         {!isCondensed && (
@@ -261,6 +266,7 @@ PropertyCard.propTypes = {
   contact_for_pricing: PropTypes.bool,
   distance: PropTypes.number,
   isCondensed: PropTypes.bool,
+  leased: PropTypes.bool,
   savedProperties: function(props, propName) {
     if (
       props['isCondensed'] == false &&
