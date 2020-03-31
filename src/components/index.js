@@ -1,7 +1,6 @@
 export { Container, Row, Column } from './Grid';
 export { Heading, Text } from './Typography';
 export { Modal, ModalContext, ModalProvider } from './ModalProvider';
-export { default as Card } from './Card';
 export { default as Tab } from './Tab';
 export { default as TabGroup } from './TabGroup';
 export { default as Input } from './Input';

@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SignUpWizard from '.';
 import ThemeProvider from '../ThemeProvider';
-import AddPropertyWizard from '.';
 
-describe('<AddPropertyWizard />', () => {
+describe('<SignUpWizard />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
+
     ReactDOM.render(
       <ThemeProvider>
-        <AddPropertyWizard createProperty={() => {}} onPropertyCreated={() => {}} onCompleted={() => {}} user_id={1} />
+        <SignUpWizard
+          onSignUp={() => {
+            return new Promise((resolve, reject) => {
+              reject({ response: { data: { message: 'Sorry there was an error' } } });
+            });
+          }}
+        />
       </ThemeProvider>,
       div
     );
