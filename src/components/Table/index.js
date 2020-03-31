@@ -39,7 +39,7 @@ function Table({ rows, headers, sortable, ...rest }) {
   function handleHeaderClick(idx) {
     if (!sortable) return;
     let key = Object.keys(rows[0]).filter(key => key !== 'id' && key !== 'onRowClick')[idx];
-    let order = sort.order > 0 ? 1 : -1;
+    let order = sort.order < 0 ? 1 : -1;
     setSort({ order, key });
   }
 

@@ -111,7 +111,7 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
   }
 
   function onFinishAddProperty(property) {
-    createProperty({ property, user_id })
+    return createProperty({ property, user_id })
       .then(res => {
         if (res.status === 200) {
           return res.data.property;

@@ -13,6 +13,7 @@ storiesOf('Composites|AddPropertyWizard', module)
   .add('default', () => {
     return (
       <AddPropertyWizard
+        user_id={1}
         createProperty={createProperty}
         onCompleted={() => console.log('completed')}
         onPropertyCreated={createdProperty => console.log({ createdProperty })}

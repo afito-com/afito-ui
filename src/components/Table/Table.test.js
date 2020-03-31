@@ -126,7 +126,7 @@ describe('<Table />', () => {
     expect(mockCallBack.mock.calls.length).toEqual(1);
   });
 
-  it('has sortable headers', () => {
+  it('has ascending/descending sortable headers', () => {
     const table = mount(
       <ThemeProvider theme={theme}>
         <Table
@@ -152,12 +152,27 @@ describe('<Table />', () => {
       .first()
       .simulate('click');
 
-    // console.log(
-    //   table
-    //     .find('tbody tr')
-    //     .first('td')
+    expect(
+      table
+        .find('tbody tr')
+        .first()
+        .find('td')
+        .first()
+        .text()
+    ).toBe('Studio');
 
-    //     .debug()
-    // );
+    table
+      .find('th')
+      .first()
+      .simulate('click');
+
+    expect(
+      table
+        .find('tbody tr')
+        .first()
+        .find('td')
+        .first()
+        .text()
+    ).toBe('1 Bedroom');
   });
 });
