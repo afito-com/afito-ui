@@ -192,7 +192,7 @@ function PropertyCard({
 
             {withSwitch && (
               <Column xs={4} align="flex-end" justify="center">
-                <Switch name="active" checked={active} onClick={e => e.stopPropagation()} onChange={onSwitchChange} />
+                <Switch name="active" checked={leased} onClick={e => e.stopPropagation()} onChange={onSwitchChange} />
               </Column>
             )}
           </Row>
