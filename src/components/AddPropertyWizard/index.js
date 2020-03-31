@@ -101,6 +101,7 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
   }
 
   function onError(err, message) {
+    console.log('ADDPROPERTY ERR: ', { err, message });
     if (message) setError(message);
     else if (err.response) setError(err.response.data.message);
     else setError('Unknown Error');
@@ -276,7 +277,7 @@ AddPropertyWizard.propTypes = {
   /** The function to create the property. */
   onCompleted: PropTypes.func,
   /** The function to create the property. */
-  onPropertyCreated: PropTypes.func
+  onPropertyCreated: PropTypes.func.isRequired
 };
 
 export default AddPropertyWizard;
