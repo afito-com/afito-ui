@@ -12,7 +12,6 @@ function Badge({ children }) {
       width="2.417in"
       height="2.431in"
       style={{
-        zIndex: '20',
         position: 'absolute',
         top: '-36px',
         left: '-43px'
