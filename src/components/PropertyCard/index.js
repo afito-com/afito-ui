@@ -5,6 +5,7 @@ import { Row, Column } from '../Grid';
 import { Heading } from '../Typography';
 import Switch from '../Switch';
 import Badge from './Badge';
+import Save from './Save';
 import { getDisplayPrice } from '../../api/utils';
 
 const Wrapper = styled.div`
@@ -64,18 +65,7 @@ const Price = styled.div`
   white-space: nowrap;
 `;
 const Rating = styled.div``;
-const Save = styled.div`
-  color: #cdcdcd;
-  font-size: 22px;
 
-  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
-    font-size: 18px;
-  }
-
-  @media (min-width: ${props => props.theme.AFITO_UI.sm}) {
-    font-size: 22px;
-  }
-`;
 const Beds = styled.div`
   white-space: nowrap;
   font-family: ${props => props.theme.AFITO_UI.headerFont};
@@ -180,7 +170,7 @@ function PropertyCard({
             </Column>
             {!withSwitch && (
               <Column xs={4} align="flex-end" justify="center">
-                <Save saved onClick={toggleSavedProperty}>
+                <Save onClick={toggleSavedProperty}>
                   {saved ? (
                     <i className="fas fa-heart" style={{ color: '#57c59b' }}></i>
                   ) : (

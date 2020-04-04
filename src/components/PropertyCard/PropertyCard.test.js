@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropertyCard from '.';
+import Save from './Save';
 import models from './model';
+import { mount } from 'enzyme';
 import ThemeProvider from '../ThemeProvider';
 
 describe('<PropertyCard />', () => {
@@ -69,5 +71,29 @@ describe('<PropertyCard />', () => {
       div
     );
     ReactDOM.unmountComponentAtNode(div);
+  });
+
+  it('save button works', () => {
+    const mockSaveCallBack = jest.fn(setSaved => setSaved(true));
+    const mockRemoveSaveCallBack = jest.fn(setSaved => setSaved(false));
+
+    const propertyCard = mount(
+      <ThemeProvider>
+        <PropertyCard
+          {...models[1]}
+          savedProperties={[]}
+          onSaveProperty={mockSaveCallBack}
+          onRemoveSavedProperty={mockRemoveSaveCallBack}
+        />
+      </ThemeProvider>
+    );
+
+    propertyCard.find(Save).simulate('click');
+    expect(mockSaveCallBack.mock.calls.length).toEqual(1);
+    expect(mockRemoveSaveCallBack.mock.calls.length).toEqual(0);
+
+    propertyCard.find(Save).simulate('click');
+    expect(mockSaveCallBack.mock.calls.length).toEqual(1);
+    expect(mockRemoveSaveCallBack.mock.calls.length).toEqual(1);
   });
 });

@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Badge from '.';
+import Save from '.';
 import ThemeProvider from '../../ThemeProvider';
 
-describe('<Badge />', () => {
+describe('<Save />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <ThemeProvider>
-        <Badge>Leased</Badge>
+        <Save></Save>
       </ThemeProvider>,
       div
     );
