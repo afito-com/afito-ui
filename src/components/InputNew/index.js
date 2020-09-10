@@ -76,18 +76,17 @@ InputNew.propTypes = {
   placeholder: PropTypes.string,
   hideLabel: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  type: PropTypes.string,
   style: PropTypes.object
 };
 
-function InputNew({ name, label, hideLabel, placeholder, style }) {
+export default function InputNew({ name, label, type, hideLabel, placeholder, style }) {
   return (
     <Wrapper style={style}>
       <Label style={hideLabel ? visuallyHiddenStyles : { textTransform: 'capitalize' }} htmlFor={name}>
         {label}
       </Label>
-      <Input name={name} placeholder={placeholder} />
+      <Input name={name} placeholder={placeholder} type={type} />
     </Wrapper>
   );
 }
-
-export default InputNew;
