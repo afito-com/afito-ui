@@ -56,3 +56,9 @@ export function getDisplayPrice({ hometype, max_price, min_price, price, contact
     return 'No Price';
   }
 }
+
+export function formatAddress(address) {
+  if (!address) return;
+  if (Object.entries(address).length === 0 && address.constructor === Object) return;
+  return `${address.line1}${address.line2 ? ` ${address.line2}` : ''}, ${address.city}, ${address.state}`;
+}

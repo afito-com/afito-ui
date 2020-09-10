@@ -43,6 +43,7 @@ const tests = [
     description: 'n',
     beds: 1,
     baths: 0.5,
+    property_id: 200,
     parking: false,
     price: 3000,
     hometype: 'condo',

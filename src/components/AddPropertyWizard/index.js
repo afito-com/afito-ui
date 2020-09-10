@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 
 import GeoSearch from './GeoSearch';
 import Details from './Details';
-import AmenitiesPicker from './AmenitiesPicker';
+import AmenitiesPicker from '../AmenitiesPicker';
 import ImageUpload from './ImageUpload';
 import Completed from './Completed';
 import ProgressBar from './ProgressBar';
@@ -195,6 +195,7 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
             }}
             amenities={amenities}
             onSubmit={nextScreen}
+            wizard={true}
           />
         );
       case 'Photos':

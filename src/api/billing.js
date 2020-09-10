@@ -14,6 +14,32 @@ export function makeInitialPayment(property_id, stripeToken, amount) {
   return axios.post(`${keys.base_url}user/payments/signup`, body, { headers });
 }
 
+export function makeInitialSubscriptionPayment(property_id, stripeToken) {
+  /*
+  const token = Cookies.get('token');
+  const headers = { Authorization: `JWT ${token}` };
+  const body = {
+    property_id: property_id,
+    stripeToken: stripeToken
+  };
+  return axios.post(`${keys.base_url}user/payments/signup`, body, { headers });
+  */
+
+  return null;
+}
+
+export function makeSubscriptionPayment() {
+  /*
+  const token = Cookies.get('token');
+  const headers = { Authorization: `JWT ${token}` };
+  const body = {
+    property_id: property_id,
+  };
+  return axios.post(`${keys.base_url}user/payments/signup`, body, { headers });
+  */
+  return null;
+}
+
 export function makePayment(property_id, amount) {
   const token = Cookies.get('token');
 

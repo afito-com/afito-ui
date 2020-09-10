@@ -19,7 +19,7 @@ storiesOf('Composites|CheckoutForm', module).add('default', () => {
           verified={verified}
           property={propertyToUpgrade}
           propertyToBuy={propertyToBuy}
-          amount={parseInt(priceToUpgrade, 10)}
+          amount={parseInt(100, 10)}
           onCompleted={onCompleted}
           newSpot={newSpot}
         />

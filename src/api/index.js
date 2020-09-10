@@ -39,6 +39,7 @@ export const AnalyticsAPI = API('analytics', ['create']);
 
 export const createProperty = ({ property, user_id }) => {
   const { line1, line2, city, state, ...rest } = property;
+  console.log(`hitting: ${keys.base_url}property`);
   return instance.post(`${keys.base_url}property`, {
     ...rest,
     address: { line1, line2, city, state }

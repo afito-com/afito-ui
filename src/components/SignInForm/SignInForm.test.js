@@ -4,8 +4,6 @@ import { mount } from 'enzyme';
 import SignInForm from '.';
 import ThemeProvider from '../ThemeProvider';
 
-const mockCallBack = jest.fn();
-
 describe('<SignInForm />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
@@ -22,5 +20,13 @@ describe('<SignInForm />', () => {
       div
     );
     ReactDOM.unmountComponentAtNode(div);
+  });
+
+  it('submits the form when the submit button is clicked', () => {
+    const mockCallback = jest.fn(({ email, password }, callback) => {
+      console.log({ email, password });
+      // Send email & password to API
+      callback({ status: 200, data: { message: 'Logged in' } });
+    });
   });
 });

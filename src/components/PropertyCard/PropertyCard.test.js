@@ -73,10 +73,9 @@ describe('<PropertyCard />', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('save button works', () => {
+  it('calls onSaveProperty when save button is clicked', () => {
     const mockSaveCallBack = jest.fn(setSaved => setSaved(true));
     const mockRemoveSaveCallBack = jest.fn(setSaved => setSaved(false));
-
     const propertyCard = mount(
       <ThemeProvider>
         <PropertyCard
@@ -91,7 +90,23 @@ describe('<PropertyCard />', () => {
     propertyCard.find(Save).simulate('click');
     expect(mockSaveCallBack.mock.calls.length).toEqual(1);
     expect(mockRemoveSaveCallBack.mock.calls.length).toEqual(0);
+  });
 
+  it('calls onRemoveSavedProperty when saved button is clicked when property is already saved', () => {
+    const mockSaveCallBack = jest.fn(setSaved => setSaved(true));
+    const mockRemoveSaveCallBack = jest.fn(setSaved => setSaved(false));
+    const propertyCard = mount(
+      <ThemeProvider>
+        <PropertyCard
+          {...models[1]}
+          savedProperties={[]}
+          onSaveProperty={mockSaveCallBack}
+          onRemoveSavedProperty={mockRemoveSaveCallBack}
+        />
+      </ThemeProvider>
+    );
+
+    propertyCard.find(Save).simulate('click');
     propertyCard.find(Save).simulate('click');
     expect(mockSaveCallBack.mock.calls.length).toEqual(1);
     expect(mockRemoveSaveCallBack.mock.calls.length).toEqual(1);

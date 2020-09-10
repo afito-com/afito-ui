@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Heading, Text } from '../../Typography';
-import { Row } from '../../Grid';
-import LoadingBlock from '../../LoadingBlock';
-import Button from '../../Button';
-import Dropzone from '../../Dropzone';
+import { Heading, Text } from '../Typography';
+import { Row } from '../Grid';
+import LoadingBlock from '../LoadingBlock';
+import Button from '../Button';
+import Dropzone from '../Dropzone';
 
 const ExtraImageWrapper = styled.div`
   position: relative;
@@ -66,7 +66,7 @@ function ImageUpload({ onSubmit, loading }) {
       <div style={{ marginBottom: '25px' }}>
         <Heading level={3}>Cover Photo</Heading>
         <Text>
-          Your Cover Photo is the face of your property and it will be the first image that potential tenants see.
+          Your Cover Photo is the face of the property and it will be the first image that potential tenants see.
         </Text>
       </div>
       <>

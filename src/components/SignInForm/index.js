@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Form from 'react-validation/build/form';
-import FormButton from '../FormButton';
-import Input from '../Input';
+// import Form from 'react-validation/build/form';
+// import FormButton from '../FormButton';
+import Button from '../Button';
+// import Input from '../Input';
+import InputField from '../InputField';
 import LoadingBlock from '../LoadingBlock';
 import Alert from '../Alert';
 import { Text } from '../Typography';
 //import { UserAPI } from '../../api';
+import * as Yup from 'yup';
+import { Formik, Form } from 'formik';
 import * as valid from '../../formValidator';
 
 const Wrapper = styled.div`
@@ -37,19 +41,10 @@ const FormWrapper = styled(Form)`
 `;
 
 export default function SignInForm({ onSignIn, style }) {
-  const [userInfo, setUserInfo] = useState({
-    email: '',
-    password: ''
-  });
   const [alert, setAlert] = useState();
   const [loading, setLoading] = useState(false);
 
-  function updateUserInfo(e) {
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
-  }
-
-  function onSubmit(e) {
-    e.preventDefault();
+  function onSubmit(userInfo) {
     setLoading(true);
     onSignIn({ ...userInfo }, function(res) {
       if (res.status === 200) {
@@ -61,9 +56,34 @@ export default function SignInForm({ onSignIn, style }) {
     });
   }
 
+  const UserSchema = Yup.object().shape({
+    email: Yup.string()
+      .email()
+      .required('Required'),
+    password: Yup.string().required('Required')
+  });
+
   return (
     <Wrapper style={style}>
-      <FormWrapper onSubmit={onSubmit}>
+      <Formik initialValues={{}} validationSchema={UserSchema} onSubmit={onSubmit}>
+        {() => (
+          <FormWrapper>
+            {alert && <Alert type={alert.type}>{alert.message}</Alert>}
+            <InputField placeholder="example@domain.com" label="Email" hideLabel type="email" name="email" />
+            <InputField placeholder="Password" label="Password" hideLabel name="password" type="password" />
+            <Text>
+              <a href="/account-recovery">Forgot your password?</a>
+            </Text>
+            <Button level="secondary" disabled={loading}>
+              {loading ? <LoadingBlock quiet small color="white" /> : 'Go'}
+            </Button>
+            <Text>
+              Dont have an account?&nbsp;<a href="/join">Register here.</a>
+            </Text>
+          </FormWrapper>
+        )}
+      </Formik>
+      {/* <FormWrapper onSubmit={onSubmit}>
         {alert && <Alert type={alert.type}>{alert.message}</Alert>}
         <Input
           placeholder="example@domain.com"
@@ -90,7 +110,7 @@ export default function SignInForm({ onSignIn, style }) {
         <Text>
           Dont have an account?&nbsp;<a href="/join">Register here.</a>
         </Text>
-      </FormWrapper>
+      </FormWrapper> */}
     </Wrapper>
   );
 }
