@@ -5,7 +5,6 @@ import { loadStripe } from '@stripe/stripe-js';
 import { CardElement, Elements, useStripe, useElements } from '@stripe/react-stripe-js';
 import Button from '../Button';
 import { Heading, Text } from '../Typography';
-import { makeSubscriptionPayment, makeInitialSubscriptionPayment } from '../../api/billing';
 import { Row, Column } from '../Grid';
 import Table from '../Table';
 import { formatAddress } from '../../api/utils';
@@ -63,23 +62,9 @@ Paywall.propTypes = {
 };
 
 export default function Paywall({ isReturningCustomer, property, onCompleted }) {
-  /**
-   * Close the paywall
-   */
-  function handleNoSubscription() {
-    return null;
-  }
-
   function handleSubscription(event) {
     event.preventDefault();
-
-    makeSubscriptionPayment(property.property_id)
-      .then(onCompleted)
-      .catch(onError);
-  }
-
-  function onError(err) {
-    console.error({ err });
+    onCompleted();
   }
 
   const CheckoutForm = () => {
@@ -93,16 +78,8 @@ export default function Paywall({ isReturningCustomer, property, onCompleted }) 
         return;
       }
 
-      if (isReturningCustomer) {
-        makeSubscriptionPayment(property.property_id)
-          .then(onCompleted)
-          .catch(onError);
-      } else {
-        let { token } = await stripe.createToken(elements.getElement(CardElement));
-        makeInitialSubscriptionPayment(property.property_id, token, 3000)
-          .then(onCompleted)
-          .catch(onError);
-      }
+      let { token } = await stripe.createToken(elements.getElement(CardElement));
+      onCompleted(token);
     }
 
     return (
