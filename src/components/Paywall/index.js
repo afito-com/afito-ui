@@ -94,7 +94,7 @@ export default function Paywall({ isReturningCustomer, property, onCompleted }) 
       }
 
       if (isReturningCustomer) {
-        makeSubscriptionPayment(property.property_id, 3000)
+        makeSubscriptionPayment(property.property_id)
           .then(onCompleted)
           .catch(onError);
       } else {

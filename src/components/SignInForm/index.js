@@ -12,7 +12,6 @@ import { Text } from '../Typography';
 //import { UserAPI } from '../../api';
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
-import * as valid from '../../formValidator';
 
 const Wrapper = styled.div`
   display: flex;
