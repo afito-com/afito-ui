@@ -24,7 +24,7 @@ function AmenitiesPicker({ property, amenities, setAmenity, onSubmit, wizard }) 
 
   return (
     <>
-      {amenities.length > 0 ? (
+      {amenities && amenities.length > 0 ? (
         <>
           <div style={{ marginBottom: '25px' }}>
             {wizard && (
@@ -40,7 +40,7 @@ function AmenitiesPicker({ property, amenities, setAmenity, onSubmit, wizard }) 
           </div>
           <Row canWrap={true}>
             {amenities.map((a, i) => {
-              let isChecked = property.amenities.find(id => id === a.id);
+              let isChecked = property.amenities ? property.amenities.find(id => id === a.id) : false;
 
               return (
                 <Amenity key={a.amenity_name + '_' + i} xs={12} sm={6} md={6} lg={6}>
