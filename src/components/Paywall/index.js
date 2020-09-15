@@ -10,8 +10,9 @@ import Table from '../Table';
 import { formatAddress } from '../../api/utils';
 import 'regenerator-runtime/runtime.js';
 import Plan from './Plan';
+import * as keys from '../../../config';
 
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+const stripePromise = loadStripe(keys.stripe_key);
 
 const StripeForm = styled.form`
   & label {
