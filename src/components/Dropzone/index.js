@@ -40,7 +40,7 @@ function Dropzone({ onDrop, multiple, children, width, height, style }) {
     text-align: center;
     align-items: center;
     justify-content: ${props => (props.multiple ? 'flex-start' : 'center')};
-    overflow: ${props => (props.multiple ? 'scroll' : 'auto')};
+    overflow: hidden;
 
     &:hover {
       border-color: ${props => props.theme.AFITO_UI.secondaryColor};

@@ -41,3 +41,4 @@ export { default as SelectNew } from './SelectNew';
 export { default as FloorplanEditor } from './FloorplanEditor';
 export { default as AmenitiesPicker } from './AmenitiesPicker';
 export { default as Paywall } from './Paywall';
+export { default as ImageUpload } from './ImageUpload';
