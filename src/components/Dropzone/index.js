@@ -52,7 +52,7 @@ function Dropzone({ onDrop, multiple, children, width, height, style }) {
       justify-content: center;
       max-width: 400px;
       max-height: 250px;
-      width: ${props => (props.multiple ? 'auto' : '100%')};
+      width: auto;
       height: auto;
       padding: 10px;
       box-sizing: border-box;
