@@ -64,8 +64,8 @@ function ImageUpload({ onSubmit, loading, property }) {
 
   useEffect(() => {
     if (property) {
-      setMainImage({ preview: property.image_url });
-      setExtraImages(property.images.map((img, idx) => ({ preview: img, name: `img_${idx}` })));
+      property.image_url && setMainImage({ preview: property.image_url });
+      property.images && setExtraImages(property.images.map((img, idx) => ({ preview: img, name: `img_${idx}` })));
     }
   }, [property]);
 
