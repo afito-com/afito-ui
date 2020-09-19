@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Heading, Text } from '../Typography';
@@ -54,19 +54,27 @@ const RemoveCoverImage = styled.div`
 
 ImageUpload.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  property: PropTypes.object
 };
 
-function ImageUpload({ onSubmit, loading }) {
+function ImageUpload({ onSubmit, loading, property }) {
   const [mainImage, setMainImage] = useState();
   const [extraImages, setExtraImages] = useState([]);
+
+  useEffect(() => {
+    if (property) {
+      setMainImage({ preview: property.image_url });
+      setExtraImages(property.images.map((img, idx) => ({ preview: img, name: `img_${idx}` })));
+    }
+  }, [property]);
 
   return (
     <>
       <div style={{ marginBottom: '25px' }}>
         <Heading level={3}>Cover Photo</Heading>
         <Text>
-          Your Cover Photo is the face of the property and it will be the first image that potential tenants see.
+          The Cover Photo is the face of the property and it will be the first image that potential tenants see.
         </Text>
       </div>
       <>

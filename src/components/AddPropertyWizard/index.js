@@ -201,7 +201,6 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
       case 'Photos':
         return (
           <ImageUpload
-            currScreen={currScreen}
             onSubmit={images => {
               if (!images.length > 0)
                 return onError({}, 'No image selected, please choose at least a cover photo before submitting.');
@@ -218,8 +217,6 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
                   setLoading(false);
                 });
             }}
-            prevScreen={prevScreen}
-            property={property}
             loading={loading}
           />
         );
