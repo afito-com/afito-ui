@@ -37,11 +37,19 @@ export const AreaAPI = API('areas', ['getAll', 'getOne']);
 export const PropertyAPI = API('properties', ['getAll', 'getOne']);
 export const AnalyticsAPI = API('analytics', ['create']);
 
-export const createProperty = ({ property, user_id }) => {
+export const createProperty = ({ property }) => {
   const { line1, line2, city, state, ...rest } = property;
   console.log(`hitting: ${keys.base_url}property`);
+
+  let propertyToSend = {};
+  for (let key in rest) {
+    if (rest[key] !== '') {
+      propertyToSend[key] = rest[key];
+    }
+  }
+
   return instance.post(`${keys.base_url}property`, {
-    ...rest,
+    ...propertyToSend,
     address: { line1, line2, city, state }
   });
 };

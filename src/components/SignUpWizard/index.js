@@ -12,8 +12,8 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-function SignUpWizard({ onSignUp, style }) {
-  const [account_type, setAccountType] = useState('');
+function SignUpWizard({ onSignUp, accountType, style }) {
+  const [account_type, setAccountType] = useState(accountType ? accountType : '');
   const [userInfo, setUserInfo] = useState({
     password: '',
     passwordConfirm: '',
@@ -21,7 +21,7 @@ function SignUpWizard({ onSignUp, style }) {
     first: '',
     last: ''
   });
-  const [wizardState, dispatch] = useReducer(wizardReducer, 'accountType');
+  const [wizardState, dispatch] = useReducer(wizardReducer, accountType ? 'userInfo' : 'accountType');
   const [alert, setAlert] = useState(undefined);
 
   function updateUserInfo(e) {
@@ -50,6 +50,7 @@ function SignUpWizard({ onSignUp, style }) {
   }
 
   function onSubmit(e) {
+    console.log({ ...userInfo, account_type });
     e.preventDefault();
     onSignUp({ ...userInfo, account_type }, function(res) {
       if (res.status === 200) {
@@ -83,6 +84,11 @@ function SignUpWizard({ onSignUp, style }) {
 
 SignUpWizard.propTypes = {
   onSignUp: PropTypes.func.isRequired,
+  /**
+   * Optional: Specify account type at
+   * render time to bypass first screen
+   */
+  accountType: PropTypes.oneOf(['landlord', 'student']),
   style: PropTypes.object
 };
 

@@ -40,7 +40,7 @@ function AmenitiesPicker({ property, amenities, setAmenity, onSubmit, wizard }) 
           </div>
           <Row canWrap={true}>
             {amenities.map((a, i) => {
-              let isChecked = property.amenities ? property.amenities.find(id => id === a.id) : false;
+              let isChecked = property.amenities_ids ? property.amenities_ids.find(id => id === a.id) : false;
 
               return (
                 <Amenity key={a.amenity_name + '_' + i} xs={12} sm={6} md={6} lg={6}>
@@ -51,9 +51,9 @@ function AmenitiesPicker({ property, amenities, setAmenity, onSubmit, wizard }) 
                       onClick={e => e.stopPropagation()}
                       onChange={() => {
                         if (isChecked) {
-                          setAmenity(property.amenities.filter(id => id !== a.id));
+                          setAmenity(property.amenities_ids.filter(id => id !== a.id));
                         } else {
-                          setAmenity(property.amenities.concat([a.id]));
+                          setAmenity(property.amenities_ids.concat([a.id]));
                         }
                       }}
                     />

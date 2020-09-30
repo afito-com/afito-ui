@@ -54,7 +54,7 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
     lat: null,
     lng: null,
     images: [],
-    amenities: [],
+    amenities_ids: [],
     contact_for_pricing: false
   });
 
@@ -112,7 +112,7 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
   }
 
   function onFinishAddProperty(property) {
-    return createProperty({ property, user_id })
+    return createProperty({ property })
       .then(res => {
         if (res.status === 200) {
           return res.data.property;
@@ -191,7 +191,7 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
           <AmenitiesPicker
             property={property}
             setAmenity={amenities => {
-              setProperty({ ...property, amenities });
+              setProperty({ ...property, amenities_ids: amenities });
             }}
             amenities={amenities}
             onSubmit={nextScreen}
