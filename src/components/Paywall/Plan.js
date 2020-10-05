@@ -119,6 +119,15 @@ const AddOnText = styled(Text)`
   } */
 `;
 
+const NotYetAvailable = styled.div`
+  background: ${props => props.theme.AFITO_UI.dangerColor};
+  padding: 0 6px;
+  border-radius: 6px;
+  margin-left: 12px;
+  color: white;
+  margin-top: -3px;
+`;
+
 function Plan() {
   return (
     <Wrapper>
@@ -142,11 +151,14 @@ function Plan() {
           <input type="radio" id="yearly" name="gender" value="yearly" />
           <Radio></Radio>
           <Column>
-            <Row canWrap>
+            <Row style={{ position: 'relative' }} canWrap>
               <Heading level={5}>Annually</Heading>
-              <AddOnText style={{ fontSize: '12px', color: 'rgb(153 157 166)', lineHeight: 'normal' }}>
+              {/* <AddOnText style={{ fontSize: '12px', color: 'rgb(153 157 166)', lineHeight: 'normal' }}>
                 &nbsp;Get 2 months free!
-              </AddOnText>
+              </AddOnText> */}
+              <NotYetAvailable>
+                <Text style={{ fontSize: '10px', fontWeight: 'bold' }}>Coming soon!</Text>
+              </NotYetAvailable>
             </Row>
             <Row canWrap>
               <Heading style={{ marginBottom: 0 }} level={3}>

@@ -145,7 +145,7 @@ storiesOf('Composites|PropertyCard', module)
       </Container>
     );
   })
-  .add('With Leased Banner', () => {
+  .add('With Leased Status', () => {
     return (
       <Container>
         <Row>
@@ -155,6 +155,28 @@ storiesOf('Composites|PropertyCard', module)
                 <PropertyCard leased={true} onSwitchChange={action('switch')} onClick={action('click')} {...property} />
               </Column>
             );
+          })}
+        </Row>
+      </Container>
+    );
+  })
+  .add('With Premium Badge', () => {
+    return (
+      <Container>
+        <Row>
+          {models.map((property, idx) => {
+            if (property.premium_price != null) {
+              return (
+                <Column key={idx} xs={6} sm={4} style={{ alignSelf: 'stretch', padding: '15px' }}>
+                  <PropertyCard
+                    leased={true}
+                    onSwitchChange={action('switch')}
+                    onClick={action('click')}
+                    {...property}
+                  />
+                </Column>
+              );
+            }
           })}
         </Row>
       </Container>

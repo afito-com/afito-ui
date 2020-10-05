@@ -14,6 +14,7 @@ import Alert from '../Alert';
 import Button from '../Button';
 import { Heading, Text } from '../Typography';
 import { Row } from '../Grid';
+import Paywall from '../Paywall';
 
 import { getAddressLocation } from '../../api/utils';
 import { getAreas } from '../../api/search';
@@ -24,9 +25,14 @@ const Screen = styled.div`
   padding: 1rem;
 `;
 
-function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, user_id }) {
-  const screens = ['Locate', 'Listing Details', 'Amenities', 'Photos', 'Complete'];
-  const restoreState = Cookies.getJSON('AddPropertyState');
+function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPropertyCreated, onCompleted, user_id }) {
+  const screens = paywall
+    ? ['Locate', 'Listing Details', 'Amenities', 'Photos', 'Subscription', 'Complete']
+    : ['Locate', 'Listing Details', 'Amenities', 'Photos', 'Complete'];
+  const restoreState =
+    Cookies.getJSON('AddPropertyState') && Cookies.getJSON('AddPropertyState').hasPayWall === paywall
+      ? Cookies.getJSON('AddPropertyState')
+      : undefined;
   const [restoreMode, setRestoreMode] = useState(restoreState);
   const [currScreen, setCurrScreen] = useState(0);
   const [maxStep, setMaxStep] = useState(0);
@@ -61,11 +67,11 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
   // Save wizard state on each step
   useEffect(() => {
     function saveState() {
-      Cookies.set('AddPropertyState', { property, currScreen, maxStep });
+      Cookies.set('AddPropertyState', { property, currScreen, maxStep, hasPayWall: paywall });
     }
 
     if (currScreen > 0 && currScreen < screens.length - 1) saveState();
-  }, [currScreen, maxStep, property, screens.length]);
+  }, [currScreen, maxStep, paywall, property, screens.length]);
 
   useEffect(() => {
     if (screens[currScreen] === 'Listing Details' && areas.length === 0) {
@@ -220,6 +226,19 @@ function AddPropertyWizard({ createProperty, onPropertyCreated, onCompleted, use
             loading={loading}
           />
         );
+      case 'Subscription':
+        console.log({ property });
+        return (
+          <Paywall
+            isReturningCustomer={false}
+            user_id={user_id}
+            property={{
+              ...property,
+              address: { line1: property.line1, line2: property.line2, city: property.city, state: property.state }
+            }}
+            onCompleted={onPaywallComplete}
+          />
+        );
       case 'Complete':
         return <Completed onCompleted={onCompleted} />;
     }
@@ -272,6 +291,13 @@ AddPropertyWizard.propTypes = {
   user_id: PropTypes.number.isRequired,
   /** The function to create the property. */
   createProperty: PropTypes.func.isRequired,
+  /** Determines if the wizard includes the paywall step */
+  paywall: PropTypes.bool,
+  /**
+   * The function that runs after
+   * the paywall has been submitted
+   */
+  onPaywallComplete: PropTypes.func,
   /** The function to create the property. */
   onCompleted: PropTypes.func,
   /** The function to create the property. */

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Row, Column } from '../Grid';
-import { Heading } from '../Typography';
+import { Heading, Text } from '../Typography';
 import Switch from '../Switch';
 import Badge from './Badge';
+import Status from './Status';
 import Save from './Save';
 import { getDisplayPrice } from '../../api/utils';
 
@@ -115,6 +116,7 @@ function PropertyCard({
   max_baths,
   baths,
   contact_for_pricing,
+  premium_price,
   distance,
   leased,
   savedProperties = [],
@@ -142,6 +144,7 @@ function PropertyCard({
   ) : (
     'Loading...'
   );
+  const isPremium = premium_price != null && premium_price > 0;
 
   useEffect(() => {
     setSaved(savedProperties.map(p => p.property_id).includes(property_id));
@@ -159,7 +162,12 @@ function PropertyCard({
 
   return (
     <Wrapper {...rest}>
-      {!isCondensed && leased && <Badge>Leased</Badge>}
+      {!isCondensed && leased && (
+        <Status level="danger">
+          <Text style={{ fontSize: '12px', fontWeight: 'bold', lineHeight: '14px' }}>Leased</Text>
+        </Status>
+      )}
+      {!isCondensed && isPremium && <Badge>Premium</Badge>}
       <Image isCondensed={isCondensed} src={image_url} alt={cardTitle} />
       <Description isCondensed={isCondensed}>
         {!isCondensed && (
@@ -259,6 +267,7 @@ PropertyCard.propTypes = {
   max_baths: PropTypes.number,
   baths: PropTypes.number,
   contact_for_pricing: PropTypes.bool,
+  premium_price: PropTypes.number,
   distance: PropTypes.number,
   isCondensed: PropTypes.bool,
   leased: PropTypes.bool,

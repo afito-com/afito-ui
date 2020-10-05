@@ -19,4 +19,16 @@ storiesOf('Composites|AddPropertyWizard', module)
         onPropertyCreated={createdProperty => console.log({ createdProperty })}
       />
     );
+  })
+  .add('with paywall', () => {
+    return (
+      <AddPropertyWizard
+        user_id={1}
+        paywall={true}
+        onPaywallComplete={stripeToken => console.log('paywall complete: ', stripeToken)}
+        createProperty={createProperty}
+        onCompleted={() => console.log('completed')}
+        onPropertyCreated={createdProperty => console.log({ createdProperty })}
+      />
+    );
   });

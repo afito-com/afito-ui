@@ -231,7 +231,7 @@ function Footer({ listings = [], searches = [], posts = [] }) {
             </a>
             <a style={{ color: '#81848b', fontWeight: 'normal', marginBottom: '20px' }} href="tel:(212) 434-0440">
               <i style={{ marginRight: '20px' }} className="fas fa-phone"></i>
-              &nbsp;(212) 434-0440
+              &nbsp;(877) 637-2832
             </a>
             <a
               style={{ color: '#81848b', fontWeight: 'normal' }}
