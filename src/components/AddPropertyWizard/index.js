@@ -125,7 +125,7 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
         }
       })
       .then(property => {
-        setProperty(property);
+        setProperty({ ...property, address: JSON.parse(property.address) });
         nextScreen();
         onPropertyCreated(property);
       })
