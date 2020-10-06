@@ -63,7 +63,7 @@ Paywall.propTypes = {
 };
 
 export default function Paywall({ isReturningCustomer, property, onCompleted }) {
-  function handleSubscription(event) {
+  function handleReturningCustomerSubscription(event) {
     event.preventDefault();
     onCompleted();
   }
@@ -72,7 +72,7 @@ export default function Paywall({ isReturningCustomer, property, onCompleted }) 
     const stripe = useStripe();
     const elements = useElements();
 
-    async function handleSubmit(event) {
+    async function handleNewCustomerSubscription(event) {
       event.preventDefault();
 
       if (!stripe || !elements) {
@@ -92,7 +92,7 @@ export default function Paywall({ isReturningCustomer, property, onCompleted }) 
         <Row canWrap={true}>
           <Column xs={12}>
             <StripeForm
-              onSubmit={handleSubmit}
+              onSubmit={handleNewCustomerSubscription}
               style={{
                 width: '100%'
               }}
@@ -154,7 +154,7 @@ export default function Paywall({ isReturningCustomer, property, onCompleted }) 
           headers={['Address', 'Price']}
         />
 
-        <Button fullWidth level="secondary" onClick={handleSubscription}>
+        <Button fullWidth level="secondary" onClick={handleReturningCustomerSubscription}>
           Complete My Subscription
         </Button>
         <Row style={{ marginTop: '24px' }}>

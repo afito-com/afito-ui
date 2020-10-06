@@ -125,7 +125,9 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
         }
       })
       .then(property => {
-        deleteState();
+        // console.log({ property });
+        // deleteState();
+        setProperty(property);
         nextScreen();
         onPropertyCreated(property);
       })
@@ -235,8 +237,8 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
               ...property,
               address: { line1: property.line1, line2: property.line2, city: property.city, state: property.state }
             }}
-            onCompleted={() => {
-              onPaywallComplete()
+            onCompleted={stripeToken => {
+              onPaywallComplete(stripeToken, property)
                 .then(() => {
                   nextScreen();
                 })
