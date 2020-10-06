@@ -227,7 +227,6 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
           />
         );
       case 'Subscription':
-        console.log({ property });
         return (
           <Paywall
             isReturningCustomer={false}
@@ -236,7 +235,13 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
               ...property,
               address: { line1: property.line1, line2: property.line2, city: property.city, state: property.state }
             }}
-            onCompleted={onPaywallComplete}
+            onCompleted={() => {
+              onPaywallComplete()
+                .then(() => {
+                  nextScreen();
+                })
+                .catch(onError);
+            }}
           />
         );
       case 'Complete':
