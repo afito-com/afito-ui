@@ -25,7 +25,15 @@ const Screen = styled.div`
   padding: 1rem;
 `;
 
-function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPropertyCreated, onCompleted, user_id }) {
+function AddPropertyWizard({
+  createProperty,
+  isReturningCustomer,
+  paywall,
+  onPaywallComplete,
+  onPropertyCreated,
+  onCompleted,
+  user_id
+}) {
   const screens = paywall
     ? ['Locate', 'Listing Details', 'Amenities', 'Photos', 'Subscription', 'Complete']
     : ['Locate', 'Listing Details', 'Amenities', 'Photos', 'Complete'];
@@ -229,7 +237,7 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
       case 'Subscription':
         return (
           <Paywall
-            isReturningCustomer={false}
+            isReturningCustomer={isReturningCustomer}
             user_id={user_id}
             property={property}
             onCompleted={stripeToken => {
@@ -311,7 +319,9 @@ AddPropertyWizard.propTypes = {
   /** The function to create the property. */
   onCompleted: PropTypes.func,
   /** The function to create the property. */
-  onPropertyCreated: PropTypes.func.isRequired
+  onPropertyCreated: PropTypes.func.isRequired,
+  /** True if the user has payment info on file */
+  isReturningCustomer: PropTypes.bool
 };
 
 export default AddPropertyWizard;
