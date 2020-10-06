@@ -231,10 +231,7 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
           <Paywall
             isReturningCustomer={false}
             user_id={user_id}
-            property={{
-              ...property,
-              address: { line1: property.line1, line2: property.line2, city: property.city, state: property.state }
-            }}
+            property={property}
             onCompleted={stripeToken => {
               onPaywallComplete(stripeToken, property)
                 .then(() => {
