@@ -125,8 +125,6 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
         }
       })
       .then(property => {
-        // console.log({ property });
-        // deleteState();
         setProperty(property);
         nextScreen();
         onPropertyCreated(property);
@@ -241,13 +239,21 @@ function AddPropertyWizard({ createProperty, paywall, onPaywallComplete, onPrope
               onPaywallComplete(stripeToken, property)
                 .then(() => {
                   nextScreen();
+                  deleteState();
                 })
                 .catch(onError);
             }}
           />
         );
       case 'Complete':
-        return <Completed onCompleted={onCompleted} />;
+        return (
+          <Completed
+            onCompleted={() => {
+              // deleteState();
+              onCompleted(property);
+            }}
+          />
+        );
     }
   }
 
