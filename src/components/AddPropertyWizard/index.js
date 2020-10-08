@@ -246,7 +246,7 @@ function AddPropertyWizard({
                   nextScreen();
                   deleteState();
                 })
-                .catch(onError);
+                .catch(err => onError(err, 'Paywall Error, please contact support at support@afito.com'));
             }}
           />
         );
