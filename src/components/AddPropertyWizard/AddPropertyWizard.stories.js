@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import AddPropertyWizard from '.';
 import { createProperty } from '../../api';
+import * as keys from '../../../config';
 import docs from './README.md';
 
 storiesOf('Composites|AddPropertyWizard', module)
@@ -25,6 +26,7 @@ storiesOf('Composites|AddPropertyWizard', module)
       <AddPropertyWizard
         user_id={1}
         paywall={true}
+        stripeKey={keys.stripe_key}
         onPaywallComplete={stripeToken => {
           console.log({ stripeToken });
           return Promise.resolve('good');

@@ -32,6 +32,7 @@ function AddPropertyWizard({
   onPaywallComplete,
   onPropertyCreated,
   onCompleted,
+  stripeKey,
   user_id
 }) {
   const screens = paywall
@@ -240,6 +241,7 @@ function AddPropertyWizard({
             isReturningCustomer={isReturningCustomer}
             user_id={user_id}
             property={property}
+            stripeKey={stripeKey}
             onCompleted={stripeToken => {
               onPaywallComplete(stripeToken, property)
                 .then(() => {
@@ -321,7 +323,9 @@ AddPropertyWizard.propTypes = {
   /** The function to create the property. */
   onPropertyCreated: PropTypes.func.isRequired,
   /** True if the user has payment info on file */
-  isReturningCustomer: PropTypes.bool
+  isReturningCustomer: PropTypes.bool,
+  /** Only required if paywall = true */
+  stripeKey: PropTypes.string
 };
 
 export default AddPropertyWizard;

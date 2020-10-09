@@ -10,9 +10,6 @@ import Table from '../Table';
 import { formatAddress } from '../../api/utils';
 import 'regenerator-runtime/runtime.js';
 import Plan from './Plan';
-import * as keys from '../../../config';
-
-const stripePromise = loadStripe(keys.stripe_key);
 
 const StripeForm = styled.form`
   & label {
@@ -59,10 +56,13 @@ Paywall.propTypes = {
     property_id: PropTypes.number.isRequired,
     address: PropTypes.object.isRequired
   }),
-  onCompleted: PropTypes.func
+  onCompleted: PropTypes.func,
+  stripeKey: PropTypes.string.isRequired
 };
 
-export default function Paywall({ isReturningCustomer, property, onCompleted }) {
+export default function Paywall({ isReturningCustomer, property, onCompleted, stripeKey }) {
+  const stripePromise = loadStripe(stripeKey);
+
   function handleReturningCustomerSubscription(event) {
     event.preventDefault();
     onCompleted();
