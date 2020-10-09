@@ -164,7 +164,7 @@ function PropertyCard({
     <Wrapper {...rest}>
       {!isCondensed && leased && (
         <Status level="danger">
-          <Text style={{ fontSize: '12px', fontWeight: 'bold', lineHeight: '14px' }}>Leased</Text>
+          <Text style={{ fontSize: '12px', fontWeight: 'bold', lineHeight: '14px' }}>Unavailable</Text>
         </Status>
       )}
       {!isCondensed && isPremium && <Badge>Premium</Badge>}
