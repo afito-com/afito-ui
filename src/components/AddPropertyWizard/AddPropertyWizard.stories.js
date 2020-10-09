@@ -25,7 +25,10 @@ storiesOf('Composites|AddPropertyWizard', module)
       <AddPropertyWizard
         user_id={1}
         paywall={true}
-        onPaywallComplete={stripeToken => console.log('paywall complete: ', stripeToken)}
+        onPaywallComplete={stripeToken => {
+          console.log({ stripeToken });
+          return Promise.resolve('good');
+        }}
         createProperty={createProperty}
         onCompleted={() => console.log('completed')}
         onPropertyCreated={createdProperty => console.log({ createdProperty })}
