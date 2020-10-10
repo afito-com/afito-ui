@@ -79,8 +79,8 @@ export default function Paywall({ isReturningCustomer, property, onCompleted, st
         return;
       }
 
-      let { token } = await stripe.createToken(elements.getElement(CardElement));
-      onCompleted(token);
+      let { source } = await stripe.createSource(elements.getElement(CardElement));
+      onCompleted(source);
     }
 
     return (
