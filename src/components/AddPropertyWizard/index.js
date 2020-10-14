@@ -242,7 +242,11 @@ function AddPropertyWizard({
             user_id={user_id}
             property={property}
             stripeKey={stripeKey}
-            onCompleted={stripeToken => {
+            onCompleted={(stripeError, stripeToken) => {
+              if (stripeError) {
+                console.error({ stripeError });
+                return onError(stripeError);
+              }
               onPaywallComplete(stripeToken, property)
                 .then(() => {
                   nextScreen();

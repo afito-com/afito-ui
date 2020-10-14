@@ -31,7 +31,8 @@ storiesOf('Composites|Paywall', module)
         isReturningCustomer={false}
         user_id={1}
         property={mockProperties[1]}
-        onCompleted={async source => {
+        onCompleted={async (stripeError, source) => {
+          if (stripeError) console.error({ stripeError });
           try {
             let res = await registerPayingUser(source);
             // if token successfully saved, set to active
