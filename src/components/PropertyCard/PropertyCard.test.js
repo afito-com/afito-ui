@@ -46,6 +46,7 @@ describe('<PropertyCard />', () => {
         <PropertyCard
           {...models[1]}
           leased={true}
+          showUnavailableStatus={true}
           savedProperties={[]}
           onSaveProperty={() => console.log('property saved')}
           onRemoveSavedProperty={() => console.log('property unsaved')}

@@ -119,6 +119,7 @@ function PropertyCard({
   premium_price,
   distance,
   leased,
+  showUnavailableStatus,
   savedProperties = [],
   onRemoveSavedProperty = undefined,
   onSaveProperty = undefined,
@@ -162,7 +163,7 @@ function PropertyCard({
 
   return (
     <Wrapper {...rest}>
-      {!isCondensed && leased && (
+      {!isCondensed && leased && showUnavailableStatus && (
         <Status level="danger">
           <Text style={{ fontSize: '12px', fontWeight: 'bold', lineHeight: '14px' }}>Unavailable</Text>
         </Status>
@@ -271,6 +272,7 @@ PropertyCard.propTypes = {
   distance: PropTypes.number,
   isCondensed: PropTypes.bool,
   leased: PropTypes.bool,
+  showUnavailableStatus: PropTypes.bool,
   savedProperties: function(props, propName) {
     if (
       props['isCondensed'] == false &&
