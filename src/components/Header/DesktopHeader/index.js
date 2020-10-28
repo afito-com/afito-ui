@@ -25,12 +25,14 @@ function DesktopHeader({ dark, user, nav, toggleOptions, menuOpen, signOut, hand
         {dark ? (
           <img
             height="65"
+            width="147"
             src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
             alt="Afito Logo"
           />
         ) : (
           <img
             height="65"
+            width="147"
             src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_lightbg.png"
             alt="Afito Logo"
           />
@@ -41,7 +43,7 @@ function DesktopHeader({ dark, user, nav, toggleOptions, menuOpen, signOut, hand
         {user ? (
           <AuthenticatedNav onClick={toggleOptions}>
             <Text style={{ fontWeight: '900', color: dark ? 'white' : 'black' }}>Hi, {user.name.first}!</Text>
-            <Avatar src={user.profile_image} alt="Profile Avatar" />
+            <Avatar width="40" height="40" src={user.profile_image} alt="Profile Avatar" />
 
             <Menu open={menuOpen} dark={dark} onClick={e => e.stopPropagation()}>
               {nav.length > 0 &&

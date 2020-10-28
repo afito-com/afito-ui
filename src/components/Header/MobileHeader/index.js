@@ -22,6 +22,7 @@ function MobileHeader({ nav, user, toggleMobileNav, mobileMenuOpen, signOut, han
       <a href="/">
         <img
           height="50"
+          width="113"
           src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_lightbg.png"
           alt="Afito Logo"
         />
