@@ -126,6 +126,7 @@ function PropertyCard({
   isCondensed,
   withSwitch,
   onSwitchChange,
+  nextImg,
   ...rest
 }) {
   const [saved, setSaved] = useState();
@@ -169,7 +170,11 @@ function PropertyCard({
         </Status>
       )}
       {!isCondensed && isPremium && <Badge>Premium</Badge>}
-      <Image isCondensed={isCondensed} loading="lazy" src={image_url} alt={cardTitle} />
+      {nextImg ? (
+        <Image as={nextImg} unsized={true} isCondensed={isCondensed} loading="lazy" src={image_url} alt={cardTitle} />
+      ) : (
+        <Image isCondensed={isCondensed} loading="lazy" src={image_url} alt={cardTitle} />
+      )}
       <Description isCondensed={isCondensed}>
         {!isCondensed && (
           <Row style={{ marginBottom: '25px' }}>
@@ -278,6 +283,12 @@ PropertyCard.propTypes = {
   distance: PropTypes.number,
   isCondensed: PropTypes.bool,
   leased: PropTypes.bool,
+  /**
+   * If running in a nextjs environment,
+   * support passing in the nextjs image component
+   * for lazyloading and performance enhancements
+   */
+  nextImg: PropTypes.node,
   showUnavailableStatus: PropTypes.bool,
   savedProperties: function(props, propName) {
     if (
