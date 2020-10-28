@@ -169,7 +169,7 @@ function PropertyCard({
         </Status>
       )}
       {!isCondensed && isPremium && <Badge>Premium</Badge>}
-      <Image isCondensed={isCondensed} src={image_url} alt={cardTitle} />
+      <Image isCondensed={isCondensed} loading="lazy" src={image_url} alt={cardTitle} />
       <Description isCondensed={isCondensed}>
         {!isCondensed && (
           <Row style={{ marginBottom: '25px' }}>
@@ -214,6 +214,8 @@ function PropertyCard({
             <Beds isCondensed={isCondensed}>
               <img
                 height={isCondensed ? '8' : '15'}
+                width={isCondensed ? '12' : '22'}
+                loading="lazy"
                 src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed_grey.png"
                 alt="Beds"
                 style={{ marginRight: '10px' }}
@@ -225,6 +227,8 @@ function PropertyCard({
             <Baths isCondensed={isCondensed}>
               <img
                 height={isCondensed ? '12' : '19'}
+                width={isCondensed ? '12' : '19'}
+                loading="lazy"
                 src="https://afito-production-bucket.s3.amazonaws.com/static/icons/shower_grey.png"
                 alt="Baths"
                 style={{ marginRight: '10px' }}
@@ -237,6 +241,8 @@ function PropertyCard({
               <Bike isCondensed={isCondensed}>
                 <img
                   height={isCondensed ? '12' : '19'}
+                  width={isCondensed ? '12' : '28'}
+                  loading="lazy"
                   src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle_grey.png"
                   alt="Distance"
                   style={{ marginRight: '10px' }}
