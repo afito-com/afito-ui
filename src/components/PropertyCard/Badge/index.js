@@ -14,7 +14,8 @@ function Badge({ children }) {
       style={{
         position: 'absolute',
         top: '-36px',
-        left: '-43px'
+        left: '-43px',
+        zIndex: '10'
       }}
     >
       <path
