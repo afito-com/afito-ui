@@ -50,14 +50,14 @@ function DesktopHeader({ nextImg, dark, user, nav, toggleOptions, menuOpen, sign
             priority={true}
             height="65"
             width="147"
-            src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
+            src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_lightbg.png"
             alt="Afito Logo"
           />
         ) : (
           <Image
             height="65"
             width="147"
-            src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
+            src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_lightbg.png"
             alt="Afito Logo"
           />
         )}
