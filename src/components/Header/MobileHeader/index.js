@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import UnauthenticatedNav from '../UnauthenticatedNav';
 import MobileHeaderWrapper from './MobileHeaderWrapper';
@@ -8,6 +9,7 @@ import MobileWrapper from './MobileWrapper';
 import MobileNav from './MobileNav';
 
 MobileHeader.propTypes = {
+  nextImg: PropTypes.node,
   user: PropTypes.object,
   nav: PropTypes.array.isRequired,
   toggleMobileNav: PropTypes.func.isRequired,
@@ -16,16 +18,29 @@ MobileHeader.propTypes = {
   handleOpenModal: PropTypes.func.isRequired
 };
 
-function MobileHeader({ nav, user, toggleMobileNav, mobileMenuOpen, signOut, handleOpenModal }) {
+const Image = styled.img``;
+
+function MobileHeader({ nextImg, nav, user, toggleMobileNav, mobileMenuOpen, signOut, handleOpenModal }) {
   return (
     <MobileHeaderWrapper justify="space-between" align="center">
       <a href="/">
-        <img
-          height="50"
-          width="113"
-          src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_lightbg.png"
-          alt="Afito Logo"
-        />
+        {nextImg ? (
+          <Image
+            as={nextImg}
+            height="50"
+            width="113"
+            priority={true}
+            src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_lightbg.png"
+            alt="Afito Logo"
+          />
+        ) : (
+          <Image
+            height="50"
+            width="113"
+            src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_lightbg.png"
+            alt="Afito Logo"
+          />
+        )}
       </a>
 
       <MobileWrapper>

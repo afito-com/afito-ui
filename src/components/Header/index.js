@@ -8,6 +8,7 @@ import MobileHeader from './MobileHeader';
 
 Header.propTypes = {
   user: PropTypes.object,
+  nextImg: PropTypes.node,
   dark: PropTypes.bool.isRequired,
   nav: PropTypes.array.isRequired,
   isFixed: PropTypes.bool,
@@ -17,7 +18,7 @@ Header.propTypes = {
   saveToken: PropTypes.func.isRequired
 };
 
-export default function Header({ dark, nav, isFixed, user, createUser, signIn, signOut, saveToken }) {
+export default function Header({ nextImg, dark, nav, isFixed, user, createUser, signIn, signOut, saveToken }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { showModal, setModalContent } = useContext(ModalContext);
@@ -67,6 +68,7 @@ export default function Header({ dark, nav, isFixed, user, createUser, signIn, s
       {/* {modalContent && <Modal>{modalContent}</Modal>} */}
       <DesktopHeader
         user={user}
+        nextImg={nextImg}
         nav={nav}
         dark={dark}
         menuOpen={menuOpen}
@@ -76,6 +78,7 @@ export default function Header({ dark, nav, isFixed, user, createUser, signIn, s
       />
       <MobileHeader
         nav={nav}
+        nextImg={nextImg}
         user={user}
         toggleMobileNav={toggleMobileNav}
         mobileMenuOpen={mobileMenuOpen}

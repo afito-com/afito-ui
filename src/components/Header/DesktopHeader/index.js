@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Text } from '../../Typography';
 import DesktopHeaderWrapper from './DesktopHeaderWrapper';
@@ -9,6 +10,7 @@ import AuthenticatedNav from './AuthenticatedNav';
 import UnauthenticatedNav from '../UnauthenticatedNav';
 
 DesktopHeader.propTypes = {
+  nextImg: PropTypes.node,
   dark: PropTypes.bool.isRequired,
   user: PropTypes.object,
   nav: PropTypes.array.isRequired,
@@ -18,22 +20,44 @@ DesktopHeader.propTypes = {
   handleOpenModal: PropTypes.func.isRequired
 };
 
-function DesktopHeader({ dark, user, nav, toggleOptions, menuOpen, signOut, handleOpenModal }) {
+const Image = styled.img``;
+
+function DesktopHeader({ nextImg, dark, user, nav, toggleOptions, menuOpen, signOut, handleOpenModal }) {
   return (
     <DesktopHeaderWrapper>
       <a href="/">
         {dark ? (
-          <img
+          nextImg ? (
+            <Image
+              as={nextImg}
+              priority={true}
+              height="65"
+              width="147"
+              src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
+              alt="Afito Logo"
+            />
+          ) : (
+            <Image
+              height="65"
+              width="147"
+              src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
+              alt="Afito Logo"
+            />
+          )
+        ) : nextImg ? (
+          <Image
+            as={nextImg}
+            priority={true}
             height="65"
             width="147"
             src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
             alt="Afito Logo"
           />
         ) : (
-          <img
+          <Image
             height="65"
             width="147"
-            src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_lightbg.png"
+            src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
             alt="Afito Logo"
           />
         )}
