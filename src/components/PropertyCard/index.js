@@ -227,8 +227,8 @@ function PropertyCard({
           <Column xs={4} align="flex-start">
             <Beds isCondensed={isCondensed}>
               <img
-                height={isCondensed ? '8' : '15'}
-                width={isCondensed ? '12' : '22'}
+                height={isCondensed ? '8' : '16'}
+                width={isCondensed ? '12' : '24'}
                 loading="lazy"
                 src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bed_grey.png"
                 alt="Beds"
@@ -240,7 +240,7 @@ function PropertyCard({
           <Column xs={4} align="flex-start">
             <Baths isCondensed={isCondensed}>
               <img
-                height={isCondensed ? '12' : '19'}
+                height={isCondensed ? '12' : '20'}
                 width={isCondensed ? '12' : '19'}
                 loading="lazy"
                 src="https://afito-production-bucket.s3.amazonaws.com/static/icons/shower_grey.png"
@@ -255,7 +255,7 @@ function PropertyCard({
               <Bike isCondensed={isCondensed}>
                 <img
                   height={isCondensed ? '12' : '19'}
-                  width={isCondensed ? '12' : '28'}
+                  width={isCondensed ? '12' : '30'}
                   loading="lazy"
                   src="https://afito-production-bucket.s3.amazonaws.com/static/icons/bicycle_grey.png"
                   alt="Distance"
