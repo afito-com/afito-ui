@@ -211,6 +211,7 @@ function Footer({ listings = [], searches = [], posts = [] }) {
             <a href="/">
               <img
                 width="150"
+                loading="lazy"
                 src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
                 alt="Afito Logo"
               />
