@@ -171,7 +171,16 @@ function PropertyCard({
       )}
       {!isCondensed && isPremium && <Badge>Premium</Badge>}
       {nextImg ? (
-        <Image as={nextImg} unsized={true} isCondensed={isCondensed} loading="lazy" src={image_url} alt={cardTitle} />
+        <Image
+          as={nextImg}
+          layout="responsive"
+          height={250}
+          width={300}
+          isCondensed={isCondensed}
+          loading="lazy"
+          src={image_url}
+          alt={cardTitle}
+        />
       ) : (
         <Image isCondensed={isCondensed} loading="lazy" src={image_url} alt={cardTitle} />
       )}
