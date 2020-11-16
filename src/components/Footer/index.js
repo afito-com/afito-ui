@@ -202,19 +202,33 @@ function FooterContainer() {
   return <Footer listings={listings} searches={searches} posts={posts} />;
 }
 
-function Footer({ listings = [], searches = [], posts = [] }) {
+const Image = styled.img``;
+
+function Footer({ nextImg, listings = [], searches = [], posts = [] }) {
   return (
     <Wrapper>
       <Container>
         <UpperSection canWrap={true} align="flex-start">
           <LogoSection xs={12} sm={12} lg={3} align="flex-start">
             <a href="/">
-              <img
-                width="150"
-                loading="lazy"
-                src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
-                alt="Afito Logo"
-              />
+              {nextImg ? (
+                <Image
+                  as={nextImg}
+                  height="65"
+                  width="147"
+                  src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
+                  alt="Afito Logo"
+                  loading="lazy"
+                />
+              ) : (
+                <Image
+                  width="147"
+                  height="65"
+                  loading="lazy"
+                  src="https://afito-production-bucket.s3.us-east-2.amazonaws.com/static/images/logo_darkbg.png"
+                  alt="Afito Logo"
+                />
+              )}
             </a>
             <FooterHeader level={4} style={{ marginTop: '15px' }}>
               A better place for students.
@@ -372,6 +386,7 @@ function Footer({ listings = [], searches = [], posts = [] }) {
 }
 
 Footer.propTypes = {
+  nextImg: PropTypes.node,
   listings: PropTypes.array,
   searches: PropTypes.array,
   posts: PropTypes.array
