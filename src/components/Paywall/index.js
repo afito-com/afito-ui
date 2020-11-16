@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { loadStripe } from '@stripe/stripe-js';
+// const { loadStripe } = await import('@stripe/stripe-js');
 import { CardElement, Elements, useStripe, useElements } from '@stripe/react-stripe-js';
 import Button from '../Button';
 import { Heading, Text } from '../Typography';
@@ -61,7 +61,16 @@ Paywall.propTypes = {
 };
 
 export default function Paywall({ isReturningCustomer, property, onCompleted, stripeKey }) {
-  const stripePromise = loadStripe(stripeKey);
+  const [stripePromise, setStripePromise] = useState();
+
+  useEffect(() => {
+    async function initStripe() {
+      const { loadStripe } = await import(`@stripe/stripe-js`);
+      setStripePromise(loadStripe(stripeKey));
+    }
+
+    initStripe();
+  }, []);
 
   function handleReturningCustomerSubscription(event) {
     event.preventDefault();
@@ -167,11 +176,13 @@ export default function Paywall({ isReturningCustomer, property, onCompleted, st
         </Row>
       </>
     );
-  } else {
+  } else if (stripePromise) {
     return (
       <Elements stripe={stripePromise}>
         <CheckoutForm />
       </Elements>
     );
+  } else {
+    return null;
   }
 }

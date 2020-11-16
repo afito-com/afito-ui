@@ -1,5 +1,15 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const Terser = require('terser');
+
+// const DefaultUglifyJsOptions = Terser.default_options();
+// const compress = DefaultUglifyJsOptions.compress;
+// for (let compressOption in compress) {
+//   compress[compressOption] = false;
+// }
+
+// compress.unused = true;
 
 module.exports = {
   entry: './src/index.js',
@@ -68,9 +78,10 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   devtool: false,
+  mode: 'production',
   optimization: {
     usedExports: true,
-    minimize: false
-    // minimizer: [new TerserPlugin()]
+    minimize: true,
+    minimizer: [new TerserPlugin()]
   }
 };
