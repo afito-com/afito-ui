@@ -63,15 +63,15 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    filename: 'afito-ui.js'
-    // libraryTarget: 'commonjs2'
+    filename: 'afito-ui.js',
+    libraryTarget: 'commonjs2'
   },
   devtool: false,
   optimization: {
-    // minimize: false,
-    usedExports: true
-  },
-  stats: {
-    usedExports: true
+    minimize: false
+    // usedExports: true
   }
+  // stats: {
+  //   usedExports: true
+  // }
 };
