@@ -70,7 +70,7 @@ module.exports = {
   devtool: false,
   optimization: {
     usedExports: true,
-    // minimize: true,
-    minimizer: [new TerserPlugin()]
+    minimize: false
+    // minimizer: [new TerserPlugin()]
   }
 };
