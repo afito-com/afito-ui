@@ -6,6 +6,7 @@ const AuthenticatedNav = styled.div`
   align-items: center;
   cursor: pointer;
   color: white;
+  height: 71px;
 `;
 
 export default AuthenticatedNav;

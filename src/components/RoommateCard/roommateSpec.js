@@ -1,0 +1,102 @@
+const roomates = [
+  {
+    name: {
+      first: 'Tom',
+      last: 'Bonanni'
+    },
+    age: 25,
+    onlineStatus: true,
+    gender: 'Male',
+    avatar: 'https://afito.com/images/tomheadshot.jpg',
+    offeringProperty: {
+      area_id: 1,
+      beds: 4,
+      baths: 1,
+      price: 0,
+      hometype: 'apartment',
+      parking: false,
+      active: true,
+      square_footage: 930,
+      email: 'rentals@douglassrentals.com',
+      name: { first: 'Douglass Rentals', last: '' },
+      address: { line1: '72 Townsend St', line2: '', city: 'New Brunswick', state: 'New Jersey' },
+      max_price: 0,
+      min_price: 0,
+      max_beds: 4,
+      min_beds: 4,
+      max_baths: 1,
+      distance: 0.535695542529521,
+      min_baths: 1,
+      image_url: 'https://afito-production-bucket.s3.amazonaws.com/523/eb775d80-9386-11e9-9ab5-a57ec620c1b1.jpeg',
+      lng: '-74.4404492',
+      lat: '40.4855056',
+      contacts: '0',
+      leased: false,
+      contact_for_pricing: true,
+      property_name: null
+    }
+  },
+  {
+    name: {
+      first: 'Ethan',
+      last: 'Gardner'
+    },
+    age: 25,
+    onlineStatus: false,
+    gender: 'Male',
+    avatar: 'https://afito.com/images/ethanheadshot.png',
+    offeringProperty: {
+      active: true,
+      address: { line1: '97 Easton Ave.', line2: 'A', city: 'New Brunswick', state: 'NJ' },
+      amenities_ids: null,
+      area_id: 1,
+      baths: 1,
+      beds: 3,
+      contact_for_pricing: false,
+      contacts: '41',
+      created_by: 21,
+      description: 'Nice house right on Easton Ave. with an in-house laundry room and a private backyard.',
+      floorplans: null,
+      hometype: 'single family',
+      image_url: 'https://afito-production-bucket.s3.amazonaws.com/undefined/a7b0a230-b2f6-11e8-841d-912046223030.jpeg',
+      images: [
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b85112a0-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b8530e70-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b85446f0-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b855cd90-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b857c960-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b8599e20-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b85bc100-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b85e5910-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b860ca10-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b862c5e0-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/b8644c80-b2f6-11e8-841d-912046223030.jpeg',
+        'https://afito-production-bucket.s3.amazonaws.com/undefined/6869ea60-b2fa-11e8-841d-912046223030.jpeg'
+      ],
+      landlord: { first: 'RU', last: 'Living' },
+      lat: '40.4990004',
+      leased: true,
+      lng: '-74.4512042',
+      max_baths: 1,
+      max_beds: 3,
+      max_occupancy: 3,
+      max_price: 845,
+      min_baths: 1,
+      min_beds: 3,
+      min_price: 845,
+      next_premium_price: 0,
+      parking: true,
+      premium_price: 0,
+      price: 845,
+      profile_image: 'https://afito-production-bucket.s3.amazonaws.com/21/96ea5240-e904-11e8-8c47-977e0954fff7.jpeg',
+      property_id: 20,
+      property_name: null,
+      property_slug: '97-easton-ave-a-new-brunswick-nj-20',
+      square_footage: -1,
+      user_id: 21,
+      distance: 2.103944
+    }
+  }
+];
+
+export default roomates;

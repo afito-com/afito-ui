@@ -5,7 +5,7 @@ const Menu = styled.div`
   position: absolute;
   background: white;
   left: -132px;
-  top: 50px;
+  top: 70px;
   width: 200px;
   padding: 20px;
   border-radius: 8px;

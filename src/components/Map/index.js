@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+
 import InfoBox from 'react-google-maps/lib/components/addons/InfoBox';
 import PropertyCard from '../PropertyCard';
 import ThemeProvider from '../ThemeProvider';
@@ -80,6 +81,7 @@ const Map = withScriptjs(
     ({
       properties,
       center,
+      nextImg,
       hoveredProperty = {},
       defaultZoom = 15,
       onMarkerClick,
@@ -269,18 +271,23 @@ const Map = withScriptjs(
           />
 
           {Object.keys(hoveredProperty).length > 0 && (
-            <InfoBox
-              position={new google.maps.LatLng(parseFloat(hoveredProperty.lat), parseFloat(hoveredProperty.lng))}
-              options={{
-                closeBoxURL: ``,
-                enableEventPropagation: true,
-                disableAutoPan: true
-              }}
-            >
-              <ThemeProvider>
-                <PropertyCard isCondensed style={{ width: '150px', height: '200px' }} {...hoveredProperty} />
-              </ThemeProvider>
-            </InfoBox>
+            // <InfoBox
+            //   position={new google.maps.LatLng(parseFloat(hoveredProperty.lat), parseFloat(hoveredProperty.lng))}
+            //   options={{
+            //     closeBoxURL: ``,
+            //     enableEventPropagation: true,
+            //     disableAutoPan: true,
+            //   }}
+            // >
+            //   <ThemeProvider>
+            <MemoFloatingPropertyCard
+              nextImg={nextImg}
+              isCondensed
+              style={{ width: '150px', height: '200px' }}
+              hoveredProperty={hoveredProperty}
+            />
+            //   </ThemeProvider>
+            // </InfoBox>
           )}
         </GoogleMap>
       );

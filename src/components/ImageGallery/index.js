@@ -108,7 +108,7 @@ const Thumbnail = styled.img`
   }
 `;
 
-export default function ImageGallery({ images, loop, onImageClick }) {
+export default function ImageGallery({ images, nextImg, loop, onImageClick }) {
   const THUMBNAIL_WIDTH = 50 + IMAGE_MARGIN;
   const [curr, setCurr] = useState(0);
   const prev = usePrevious(curr);
@@ -174,15 +174,30 @@ export default function ImageGallery({ images, loop, onImageClick }) {
         <Images offset={offset} width={width}>
           {images.map((img, idx) => {
             return (
-              <Image
-                onClick={() => {
-                  onImageClick(idx);
-                }}
-                key={`Image_${idx}`}
-                width={width}
-                src={img}
-                alt={`Image #${idx}`}
-              />
+              <>
+                {nextImg ? (
+                  <Image
+                    as={nextImg}
+                    onClick={() => {
+                      onImageClick(idx);
+                    }}
+                    key={`Image_${idx}`}
+                    width={width}
+                    src={img}
+                    alt={`Image #${idx}`}
+                  />
+                ) : (
+                  <Image
+                    onClick={() => {
+                      onImageClick(idx);
+                    }}
+                    key={`Image_${idx}`}
+                    width={width}
+                    src={img}
+                    alt={`Image #${idx}`}
+                  />
+                )}
+              </>
             );
           })}
         </Images>
@@ -210,13 +225,26 @@ export default function ImageGallery({ images, loop, onImageClick }) {
         <Thumbnails offset={thumbnailOffset}>
           {images.map((img, idx) => {
             return (
-              <Thumbnail
-                key={`Thumbnail_${idx}`}
-                active={curr === idx}
-                onClick={() => setCurr(idx)}
-                src={img}
-                alt={`Thumbnail #${idx}`}
-              />
+              <>
+                {nextImg ? (
+                  <Thumbnail
+                    as={nextImg}
+                    key={`Thumbnail_${idx}`}
+                    active={curr === idx}
+                    onClick={() => setCurr(idx)}
+                    src={img}
+                    alt={`Thumbnail #${idx}`}
+                  />
+                ) : (
+                  <Thumbnail
+                    key={`Thumbnail_${idx}`}
+                    active={curr === idx}
+                    onClick={() => setCurr(idx)}
+                    src={img}
+                    alt={`Thumbnail #${idx}`}
+                  />
+                )}
+              </>
             );
           })}
         </Thumbnails>
@@ -227,6 +255,7 @@ export default function ImageGallery({ images, loop, onImageClick }) {
 
 ImageGallery.propTypes = {
   images: PropTypes.array.isRequired,
+  nextImg: PropTypes.node,
   loop: PropTypes.bool,
   onImageClick: PropTypes.func
 };

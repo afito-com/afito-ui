@@ -11,6 +11,7 @@ import UnauthenticatedNav from '../UnauthenticatedNav';
 
 DesktopHeader.propTypes = {
   nextImg: PropTypes.node,
+  loadingUser: PropTypes.bool,
   dark: PropTypes.bool.isRequired,
   user: PropTypes.object,
   nav: PropTypes.array.isRequired,
@@ -22,7 +23,7 @@ DesktopHeader.propTypes = {
 
 const Image = styled.img``;
 
-function DesktopHeader({ nextImg, dark, user, nav, toggleOptions, menuOpen, signOut, handleOpenModal }) {
+function DesktopHeader({ nextImg, dark, loadingUser, user, nav, toggleOptions, menuOpen, signOut, handleOpenModal }) {
   return (
     <DesktopHeaderWrapper>
       <a href="/">
@@ -64,7 +65,9 @@ function DesktopHeader({ nextImg, dark, user, nav, toggleOptions, menuOpen, sign
       </a>
 
       <Nav dark={dark}>
-        {user ? (
+        {loadingUser ? (
+          <div style={{ height: '71px' }}></div>
+        ) : user ? (
           <AuthenticatedNav onClick={toggleOptions}>
             <Text style={{ fontWeight: '900', color: dark ? 'white' : 'black' }}>Hi, {user.name.first}!</Text>
             <Avatar width="40" height="40" src={user.profile_image} alt="Profile Avatar" />

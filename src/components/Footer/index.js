@@ -156,7 +156,11 @@ const Badge = styled.div`
   font-weight: bold;
 `;
 
-function FooterContainer() {
+FooterContainer.propTypes = {
+  nextImg: PropTypes.node
+};
+
+function FooterContainer({ nextImg }) {
   const [listings, setListings] = useState();
   const [searches, setSearches] = useState();
   const [posts, setPosts] = useState();
@@ -199,7 +203,7 @@ function FooterContainer() {
       });
   }, []);
 
-  return <Footer listings={listings} searches={searches} posts={posts} />;
+  return <Footer nextImg={nextImg} listings={listings} searches={searches} posts={posts} />;
 }
 
 const Image = styled.img``;
