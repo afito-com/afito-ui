@@ -32,6 +32,24 @@ const Images = styled.div`
   }
 `;
 
+const ImageContainer = styled.div`
+  margin-right: ${() => `${IMAGE_MARGIN}px`};
+  cursor: pointer;
+
+  @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
+    height: 230px;
+    min-width: ${props => `${props.width}px`};
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.md}) {
+    height: 475px;
+  }
+
+  @media (min-width: ${props => props.theme.AFITO_UI.lg}) {
+    min-width: ${props => `${props.width / 2}px`};
+  }
+`;
+
 const Image = styled.img`
   margin-right: ${() => `${IMAGE_MARGIN}px`};
   object-fit: cover;
@@ -108,7 +126,7 @@ const Thumbnail = styled.img`
   }
 `;
 
-export default function ImageGallery({ images, nextImg, loop, onImageClick }) {
+export default function ImageGallery({ images, loop, onImageClick }) {
   const THUMBNAIL_WIDTH = 50 + IMAGE_MARGIN;
   const [curr, setCurr] = useState(0);
   const prev = usePrevious(curr);
@@ -175,28 +193,15 @@ export default function ImageGallery({ images, nextImg, loop, onImageClick }) {
           {images.map((img, idx) => {
             return (
               <>
-                {nextImg ? (
-                  <Image
-                    as={nextImg}
-                    onClick={() => {
-                      onImageClick(idx);
-                    }}
-                    key={`Image_${idx}`}
-                    width={width}
-                    src={img}
-                    alt={`Image #${idx}`}
-                  />
-                ) : (
-                  <Image
-                    onClick={() => {
-                      onImageClick(idx);
-                    }}
-                    key={`Image_${idx}`}
-                    width={width}
-                    src={img}
-                    alt={`Image #${idx}`}
-                  />
-                )}
+                <Image
+                  onClick={() => {
+                    onImageClick(idx);
+                  }}
+                  key={`Image_${idx}`}
+                  width={width}
+                  src={img}
+                  alt={`Image #${idx}`}
+                />
               </>
             );
           })}
@@ -226,24 +231,15 @@ export default function ImageGallery({ images, nextImg, loop, onImageClick }) {
           {images.map((img, idx) => {
             return (
               <>
-                {nextImg ? (
-                  <Thumbnail
-                    as={nextImg}
-                    key={`Thumbnail_${idx}`}
-                    active={curr === idx}
-                    onClick={() => setCurr(idx)}
-                    src={img}
-                    alt={`Thumbnail #${idx}`}
-                  />
-                ) : (
-                  <Thumbnail
-                    key={`Thumbnail_${idx}`}
-                    active={curr === idx}
-                    onClick={() => setCurr(idx)}
-                    src={img}
-                    alt={`Thumbnail #${idx}`}
-                  />
-                )}
+                <Thumbnail
+                  key={`Thumbnail_${idx}`}
+                  active={curr === idx}
+                  onClick={() => setCurr(idx)}
+                  src={img}
+                  height="33"
+                  width="50"
+                  alt={`Thumbnail #${idx}`}
+                />
               </>
             );
           })}
@@ -255,7 +251,7 @@ export default function ImageGallery({ images, nextImg, loop, onImageClick }) {
 
 ImageGallery.propTypes = {
   images: PropTypes.array.isRequired,
-  nextImg: PropTypes.func,
+  // nextImg: PropTypes.func,
   loop: PropTypes.bool,
   onImageClick: PropTypes.func
 };

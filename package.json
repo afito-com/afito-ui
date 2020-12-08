@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "npm run config && build-storybook -c .storybook --quiet",
     "semantic-release": "semantic-release",
-    "relink": "npm install && npm run build && rm -rf node_modules/ && npm link --only=production && npm install"
+    "relink": "npm install && npm run build && rm -rf node_modules/ && npm link --only=production"
   },
   "files": [
     "dist/"
