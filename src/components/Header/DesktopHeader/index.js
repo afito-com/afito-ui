@@ -10,7 +10,7 @@ import AuthenticatedNav from './AuthenticatedNav';
 import UnauthenticatedNav from '../UnauthenticatedNav';
 
 DesktopHeader.propTypes = {
-  nextImg: PropTypes.node,
+  nextImg: PropTypes.func,
   loadingUser: PropTypes.bool,
   dark: PropTypes.bool.isRequired,
   user: PropTypes.object,

@@ -297,7 +297,7 @@ PropertyCard.propTypes = {
    * support passing in the nextjs image component
    * for lazyloading and performance enhancements
    */
-  nextImg: PropTypes.node,
+  nextImg: PropTypes.func,
   showUnavailableStatus: PropTypes.bool,
   savedProperties: function(props, propName) {
     if (

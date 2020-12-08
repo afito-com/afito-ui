@@ -3,20 +3,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Heading, Text } from '../Typography';
 
-const Image = styled.div`
+const Image = styled.img`
   height: 380px;
   overflow: hidden;
   width: 100%;
   border-radius: 8px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(${props => props.image});
+  object-fit: cover;
+  object-position: center;
   transition: transform 0.25s ease-in-out;
 `;
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 380px;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -70,10 +69,14 @@ const Overlay = styled.div`
   opacity: 0.8;
 `;
 
-export default function AreaCard({ image_url, name, property_count, onClick, ...rest }) {
+export default function AreaCard({ nextImg, image_url, name, property_count, onClick, ...rest }) {
   return (
     <Wrapper onClick={onClick} {...rest}>
-      <Image image={image_url} />
+      {nextImg ? (
+        <Image width="265" height="384" as={nextImg} src={image_url} loading="lazy" />
+      ) : (
+        <Image width="265" height="384" src={image_url} loading="lazy" />
+      )}
       <Overlay />
       <Title>
         <Heading level={4}>{name}</Heading>
@@ -84,6 +87,7 @@ export default function AreaCard({ image_url, name, property_count, onClick, ...
 }
 
 AreaCard.propTypes = {
+  nextImg: PropTypes.func,
   image_url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   property_count: PropTypes.number.isRequired,

@@ -9,7 +9,7 @@ import MobileWrapper from './MobileWrapper';
 import MobileNav from './MobileNav';
 
 MobileHeader.propTypes = {
-  nextImg: PropTypes.node,
+  nextImg: PropTypes.func,
   user: PropTypes.object,
   nav: PropTypes.array.isRequired,
   toggleMobileNav: PropTypes.func.isRequired,

@@ -9,7 +9,7 @@ import MobileHeader from './MobileHeader';
 Header.propTypes = {
   user: PropTypes.object,
   loadingUser: PropTypes.bool,
-  nextImg: PropTypes.node,
+  nextImg: PropTypes.func,
   dark: PropTypes.bool.isRequired,
   nav: PropTypes.array.isRequired,
   isFixed: PropTypes.bool,

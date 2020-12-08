@@ -255,7 +255,7 @@ export default function ImageGallery({ images, nextImg, loop, onImageClick }) {
 
 ImageGallery.propTypes = {
   images: PropTypes.array.isRequired,
-  nextImg: PropTypes.node,
+  nextImg: PropTypes.func,
   loop: PropTypes.bool,
   onImageClick: PropTypes.func
 };

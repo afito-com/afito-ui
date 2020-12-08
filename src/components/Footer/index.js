@@ -157,7 +157,7 @@ const Badge = styled.div`
 `;
 
 FooterContainer.propTypes = {
-  nextImg: PropTypes.node
+  nextImg: PropTypes.func
 };
 
 function FooterContainer({ nextImg }) {
@@ -390,7 +390,7 @@ function Footer({ nextImg, listings = [], searches = [], posts = [] }) {
 }
 
 Footer.propTypes = {
-  nextImg: PropTypes.node,
+  nextImg: PropTypes.func,
   listings: PropTypes.array,
   searches: PropTypes.array,
   posts: PropTypes.array
