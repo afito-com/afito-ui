@@ -9,6 +9,7 @@ const theme = {
   warningColor: 'rgb(255, 235, 148)',
   lightWarningColor: '#fff0ad',
   white: '#ffffff',
+  lightGrey: '#eceef4',
   bodyFont: "'Nunito', sans-serif",
   headerFont: "'Montserrat', sans-serif",
 

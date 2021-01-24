@@ -19,6 +19,7 @@ const Wrapper = styled.header`
   height: 90px;
   box-shadow: ${props => (props.dark ? 'none' : '0px 16px 7px -10px rgba(200, 203, 216, 0.26)')};
   border-bottom: 2px solid #eceef4;
+  border-color: ${props => (props.dark ? 'transparent' : '#eceef4')};
   align-items: center;
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
