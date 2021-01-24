@@ -21,6 +21,8 @@ const Wrapper = styled.header`
   border-bottom: 2px solid #eceef4;
   border-color: ${props => (props.dark ? 'transparent' : '#eceef4')};
   align-items: center;
+  position: relative;
+  z-index: 10;
 
   @media (min-width: ${props => props.theme.AFITO_UI.xs}) {
     background: white;
