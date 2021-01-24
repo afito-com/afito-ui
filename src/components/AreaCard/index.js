@@ -73,7 +73,7 @@ export default function AreaCard({ nextImg, image_url, name, property_count, onC
   return (
     <Wrapper onClick={onClick} {...rest}>
       {nextImg ? (
-        <Image width="280" height="384" as={nextImg} src={image_url} loading="lazy" />
+        <Image layout="fill" as={nextImg} src={image_url} />
       ) : (
         <Image width="280" height="384" src={image_url} loading="lazy" />
       )}
