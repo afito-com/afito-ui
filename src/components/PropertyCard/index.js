@@ -127,6 +127,7 @@ function PropertyCard({
   withSwitch,
   onSwitchChange,
   nextImg,
+  nextImgLoading = 'lazy',
   ...rest
 }) {
   const [saved, setSaved] = useState();
@@ -177,7 +178,7 @@ function PropertyCard({
           height={250}
           width={300}
           isCondensed={isCondensed}
-          loading="lazy"
+          loading={nextImgLoading}
           src={image_url}
           alt={cardTitle}
         />
@@ -298,6 +299,7 @@ PropertyCard.propTypes = {
    * for lazyloading and performance enhancements
    */
   nextImg: PropTypes.func,
+  nextImgLoading: PropTypes.string,
   showUnavailableStatus: PropTypes.bool,
   savedProperties: function(props, propName) {
     if (
