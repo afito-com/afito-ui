@@ -60,7 +60,7 @@
     "@types/jest": "^24.9.1",
     "@types/markerclustererplus": "^2.1.33",
     "@types/react": "^15.6.28",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
@@ -117,7 +117,7 @@
     "@types/googlemaps": "^3.39.3",
     "@types/markerclustererplus": "^2.1.33",
     "@types/react": "^15.6.28",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "react-stripe-elements": "^6.1.1",
     "react-validation": "^3.0.7"
   },
